@@ -13,6 +13,17 @@ void cache_dump(void* dumpaddr);
 void cache_restore(void* restaddr);
 
 
+/* IRQ functions */
+
+int irq_enable(void);
+int irq_disable(void);
+void irq_set_level(int lv);
+void irq_set_mask(int mask);
+void irq_set_priority(u32 prio);
+int irq_get_level(void);
+u16 irq_get_mask(void);
+u32 irq_get_priority(void);
+
 /* Memory functions */
 
 void memset32(void* addr, u32 val, int size);

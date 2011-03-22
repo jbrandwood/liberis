@@ -46,6 +46,76 @@ _cache_restore:
 	jmp	[lp]
 
 /*****************************************************************************
+ *  IRQ functions                                                        []  *
+ *****************************************************************************/
+	.global _irq_enable
+	.global	_irq_disable
+	.global _irq_set_level
+	.global	_irq_set_mask
+	.global	_irq_get_level
+	.global	_irq_get_mask
+_irq_enable:
+	stsr	PSW, r10
+	movea	0x1000, r0, r12
+	not	r12, r11
+	and	r10, r11
+	and	r12, r10
+	shr	12, r10
+	ldsr	r11, PSW
+	jmp	[lp]
+
+_irq_disable:
+	stsr	PSW, r10
+	movea	0x1000, r0, r11
+	and	r11, r10
+	or	r10, r11
+	ldsr	r11, PSW
+	jmp	[lp]
+
+_irq_set_level:
+	stsr	PSW, r10
+	andi	0xF, r6, r6
+	shl	16, r6
+	movhi	0xF, r0, r11
+	not	r11, r12
+	and	r10, r12
+	or	r6, r12
+	ldsr	r12, PSW
+	jmp	[lp]
+
+_irq_set_mask:
+	movea	0xE40, r0, r10
+	out.h	r6, 0[r10]
+	jmp	[lp]
+
+_irq_set_priority:
+	movea	0xE80, r0, r10
+	mov	r6, r11
+	shr	16, r11
+	out.h	r11, 0x40[r10]
+	out.h	r6, 0[r10]
+	jmp	[lp]
+
+_irq_get_level:
+	stsr	PSW, r10
+	movhi	0xF, r0, r11
+	and	r11, r10
+	jmp	[lp]
+
+_irq_get_mask:
+	movea	0xE40, r0, r10
+	in.h	0[r10], r10
+	jmp	[lp]
+
+_irq_get_priority:
+	movea	0xE80, r0, r10
+	in.h	0x40[r10], r11
+	shl	16, r11
+	in.h	0[r10], r10
+	or	r11, r10
+	jmp	[lp]
+
+/*****************************************************************************
  *  Memory functions                                                     []  *
  *****************************************************************************/
 	.global	_memset32
