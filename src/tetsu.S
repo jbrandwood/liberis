@@ -3,7 +3,7 @@
  *****************************************************************************/
 	.global	_eris_tetsu_set_video_mode
 	.global _eris_tetsu_set_palette
-	.global _eris_tetsu_set_palette_offset
+	.global _eris_tetsu_set_7up_palette_offset
 	.global _eris_tetsu_set_priorities
 
 .macro	set_rrg	reg, tmp
@@ -58,7 +58,7 @@ _eris_tetsu_set_palette:
 	out.h	r7, 4[r10]
 	jmp	[lp]
 
-_eris_tetsu_set_palette_offset:
+_eris_tetsu_set_7up_palette_offset:
 	set_reg 4, r10, r11
 	mov	r6, r11
 	mov	r6, r12
