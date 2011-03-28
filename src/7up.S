@@ -11,6 +11,8 @@
 	.global _eris_7up_set_scroll
 	.global	_eris_7up_do_dma
 	.global	_eris_7up_setup_dma
+	.global	_eris_7up_set_satb_address
+	.global	_eris_7up_set_access_width
 
 .macro	set_rrg	reg, ch, tmp
 	movea	0x400, \ch, \tmp
@@ -119,6 +121,19 @@ _eris_7up_setup_dma:
 _eris_7up_set_satb_address:
 	shl	8, r6
 	set_reg	19, r6, r10, r11
+	out.h	r7, 4[r10]
+	jmp	[lp]
+
+_eris_7up_set_access_width:
+	shl	8, r6
+	set_reg	9, r6, r10, r11
+	ld.w	16[sp], r12
+	shl	7, r7
+	shl	4, r8
+	shl	2, r9
+	or	r12, r7
+	or	r8, r7
+	or	r9, r7
 	out.h	r7, 4[r10]
 	jmp	[lp]
 
