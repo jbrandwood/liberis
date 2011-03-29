@@ -10,6 +10,7 @@ typedef enum {
 	ERIS_7UP_MAP_128X64 = 7
 } eris_7up_mapsize;
 
+void eris_7up_init(int chip);
 void eris_7up_set_vram_write_addr(int chip, u16 addr);
 void eris_7up_vram_write(int chip, u16 data);
 void eris_7up_set_vram_read_addr(int chip, u16 addr);

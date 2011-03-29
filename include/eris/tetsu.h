@@ -20,6 +20,7 @@ typedef enum {
 	TETSU_COLORS_256 = 1,
 } tetsu_colordepth;
 
+void eris_tetsu_init();
 void eris_tetsu_set_video_mode(tetsu_lines lines, int ext_sync, tetsu_dotclock dotclock, tetsu_colordepth bg_depth,
 				tetsu_colordepth spr_depth, int bg7up_show, int spr7up_show,
 				int bg0_disp, int bg1_disp, int bg2_disp, int bg3_disp, int rainbow_disp);

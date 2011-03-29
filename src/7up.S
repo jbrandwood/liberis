@@ -1,6 +1,7 @@
 /*****************************************************************************
  *  7up functions                                                        []  *
  *****************************************************************************/
+	.global	_eris_7up_init
 	.global	_eris_7up_set_vram_write_addr
 	.global	_eris_7up_vram_write
 	.global	_eris_7up_set_vram_read_addr
@@ -23,6 +24,32 @@
 	movea	\reg, r0, \tmp2
 	set_rrg	\tmp2, \ch, \tmp1
 .endm
+
+_eris_7up_init:
+	shl	8, r6
+	set_reg	0, r6, r10, r11
+	out.h	r0, 4[r10]
+	set_reg	1, r6, r10, r11
+	out.h	r0, 4[r10]
+	set_reg	2, r6, r10, r11
+	movea	0xFFFF, r0, r8
+1:
+	out.h	r0, 4[r10]
+	out.h	r0, 4[r10]
+	out.h	r0, 4[r10]
+	out.h	r0, 4[r10]
+	add	-4, r8
+	bne	1b
+	set_reg	0, r6, r10, r11
+	out.h	r0, 4[r10]
+	mov	0x13, r8
+2:
+	set_rrg	r8, r6, r10
+	out.h	r0, 4[r10]
+	add	-1, r8
+	cmp	5, r8
+	bne	2b
+	jmp	[lp]
 
 _eris_7up_set_vram_write_addr:
 	shl	8, r6

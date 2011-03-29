@@ -1,6 +1,7 @@
 /*****************************************************************************
  *  NEW Tetsukannon (HuC6261) functions                                  []  *
  *****************************************************************************/
+	.global _eris_tetsu_init
 	.global	_eris_tetsu_set_video_mode
 	.global _eris_tetsu_set_palette
 	.global _eris_tetsu_set_7up_palette_offset
@@ -15,6 +16,37 @@
 	movea	\reg, r0, \tmp2
 	set_rrg	\tmp2, \tmp1
 .endm
+
+_eris_tetsu_init:
+	set_reg	0, r10, r11
+	out.h	r0, 4[r10]
+
+	movea	0x1FF, r0, r6
+	movea	0x88, r0, r7
+	set_reg	1, r10, r11
+	out.h	r0, 4[r10]
+	set_reg	2, r10, r11
+1:
+	out.h	r7, 4[r10]
+	add	-1, r6
+	bne	1b
+
+	mov	0x15, r6
+2:
+	set_rrg	r6, r10
+	out.h	r0, 4[r10]
+	add	-1, r6
+	cmp	4, r6
+	bne	2b
+
+	movea	0xFF, r0, r6
+	set_reg	0xA, r10, r11
+	out.h	r6, 4[r10]
+	set_reg	0xB, r10, r11
+	out.h	r6, 4[r10]
+	set_reg	0xC, r10, r11
+	out.h	r6, 4[r10]
+	jmp	[lp]
 
 _eris_tetsu_set_video_mode:
 	ld.w	16[sp], r10
