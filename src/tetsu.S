@@ -90,22 +90,34 @@ _eris_tetsu_set_palette:
 	out.h	r7, 4[r10]
 	jmp	[lp]
 
-_eris_tetsu_set_7up_palette_offset:
+_eris_tetsu_set_7up_palette:
 	set_reg 4, r10, r11
-	mov	r6, r11
-	mov	r6, r12
-	mov	r6, r13
-	mov	r6, r14
-	shr	24, r11
-	shr	16, r12
-	shr	8, r13
-	out.b	r11, 4[r10]
-	set_reg	5, r10, r15
-	out.b	r12, 4[r10]
-	set_reg	6, r10, r15
-	out.b	r13, 4[r10]
-	set_reg 7, r10, r15
-	out.b	r14, 4[r10]
+	shr	1, r6
+	shr	1, r7
+	shl	8, r7
+	or	r7, r6
+	out.b	r6, 4[r10]
+	jmp	[lp]
+
+_eris_tetsu_set_king_palette:
+	set_reg 5, r10, r11
+	shr	1, r6
+	shr	1, r7
+	shl	8, r7
+	or	r7, r6
+	out.b	r6, 4[r10]
+	set_reg 6, r10, r11
+	shr	1, r8
+	shr	1, r9
+	shl	8, r9
+	or	r9, r8
+	out.b	r8, 4[r10]
+	jmp	[lp]
+
+_eris_tetsu_set_rainbow_palette:
+	set_reg 7, r10, r11
+	shr	1, r6
+	out.b	r6, 4[r10]
 	jmp	[lp]
 
 _eris_tetsu_set_priorities:
@@ -127,5 +139,4 @@ _eris_tetsu_set_priorities:
 	or	r12, r9
 	out.h	r9, 4[r13]
 	jmp	[lp]
-
 
