@@ -84,16 +84,14 @@ _irq_set_level:
 	jmp	[lp]
 
 _irq_set_mask:
-	movea	0xE40, r0, r10
-	out.h	r6, 0[r10]
+	out.h	r6, 0xE40[r0]
 	jmp	[lp]
 
 _irq_set_priority:
-	movea	0xE80, r0, r10
 	mov	r6, r11
 	shr	16, r11
-	out.h	r11, 0x40[r10]
-	out.h	r6, 0[r10]
+	out.h	r11, 0xEC0[r0]
+	out.h	r6, 0xE80[r0]
 	jmp	[lp]
 
 _irq_get_level:
@@ -103,15 +101,13 @@ _irq_get_level:
 	jmp	[lp]
 
 _irq_get_mask:
-	movea	0xE40, r0, r10
-	in.h	0[r10], r10
+	in.h	0xE40[r0], r10
 	jmp	[lp]
 
 _irq_get_priority:
-	movea	0xE80, r0, r10
-	in.h	0x40[r10], r11
+	in.h	0xEC0[r0], r11
 	shl	16, r11
-	in.h	0[r10], r10
+	in.h	0xE80[r0], r10
 	or	r11, r10
 	jmp	[lp]
 
