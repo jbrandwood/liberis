@@ -32,7 +32,7 @@ _eris_7up_init:
 	set_reg	1, r6, r10, r11
 	out.h	r0, 4[r10]
 	set_reg	2, r6, r10, r11
-	movea	0xFFFF, r0, r8
+	movhi	1, r0, r8
 1:
 	out.h	r0, 4[r10]
 	out.h	r0, 4[r10]
@@ -42,11 +42,10 @@ _eris_7up_init:
 	bne	1b
 	set_reg	0, r6, r10, r11
 	out.h	r0, 4[r10]
-	mov	0x13, r8
-2:
+	movea	0x14, r0, r8
+2:	add	-1, r8
 	set_rrg	r8, r6, r10
 	out.h	r0, 4[r10]
-	add	-1, r8
 	cmp	5, r8
 	bne	2b
 	jmp	[lp]

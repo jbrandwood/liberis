@@ -4,7 +4,9 @@
 	.global _eris_tetsu_init
 	.global	_eris_tetsu_set_video_mode
 	.global _eris_tetsu_set_palette
-	.global _eris_tetsu_set_7up_palette_offset
+	.global _eris_tetsu_set_7up_palette
+	.global _eris_tetsu_set_king_palette
+	.global	_eris_tetsu_set_rainbow_palette
 	.global _eris_tetsu_set_priorities
 
 .macro	set_rrg	reg
@@ -20,7 +22,7 @@ _eris_tetsu_init:
 	set_reg	0, r10
 	out.h	r0, 0x304[r0]
 
-	movea	0x1FF, r0, r6
+	movea	0x200, r0, r6
 	movea	0x88, r0, r7
 	set_reg	1, r10
 	out.h	r0, 0x304[r0]
@@ -30,7 +32,7 @@ _eris_tetsu_init:
 	add	-1, r6
 	bne	1b
 
-	mov	0x15, r6
+	movea	0x15, r0, r6
 2:
 	set_rrg	r6
 	out.h	r0, 0x304[r0]

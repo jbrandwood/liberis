@@ -1,5 +1,5 @@
 	.section .text
-	.align	1
+	.align	2
 
 /*************************************************
   startup code

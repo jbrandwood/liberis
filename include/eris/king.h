@@ -33,10 +33,6 @@ typedef enum {
 	KING_BGSIZE_1024 = 10,
 } king_bgsize;
 
-typedef struct {
-	king_bgsize width, height, subwidth, subheight;
-} king_size;
-
 typedef enum {
 	KING_BG0 = 0,
 	KING_BG0SUB = 1,
@@ -45,19 +41,21 @@ typedef enum {
 	KING_BG3 = 4,
 } king_bg;
 
-void eris_king_init();
+void eris_king_init(void);
 void eris_king_set_kram_read(u32 addr, int incr);
 void eris_king_set_kram_write(u32 addr, int incr);
-u16 eris_king_kram_read();
+u16 eris_king_kram_read(void);
 void eris_king_kram_write(u16 data);
 void eris_king_set_kram_pages(u8 scsi, u8 bg, u8 rainbow, u8 adpcm);
 void eris_king_set_bg_mode(king_bgmode bg0, king_bgmode bg1, king_bgmode bg2, king_bgmode bg3);
 void eris_king_set_bg_prio(king_bgprio bg0, king_bgprio bg1, king_bgprio bg2, king_bgprio bg3, king_bgprio bgrot);
-void eris_king_set_bg_size(king_bg bg, king_size size);
+void eris_king_set_bg_size(king_bg bg, king_bgsize h, king_bgsize w, king_bgsize sub_h, king_bgsize sub_w);
 void eris_king_set_bat_cg_addr(king_bg bg, u32 bat, u32 cg);
 void eris_king_set_scroll(king_bg bg, s16 x, s16 y);
 void eris_king_write_microprogram(u16* data, u8 addr, u8 len);
 void eris_king_fill_microprogram(u16 data, u8 addr, u8 len);
+void eris_king_enable_microprogram(void);
+void eris_king_disable_microprogram(void);
 
 #endif
 
