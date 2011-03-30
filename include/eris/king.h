@@ -46,8 +46,8 @@ typedef enum {
 } king_bg;
 
 void eris_king_init();
-void eris_king_set_kram_read(u32 addr);
-void eris_king_set_kram_write(u32 addr);
+void eris_king_set_kram_read(u32 addr, int incr);
+void eris_king_set_kram_write(u32 addr, int incr);
 u16 eris_king_kram_read();
 void eris_king_kram_write(u16 data);
 void eris_king_set_kram_pages(u8 scsi, u8 bg, u8 rainbow, u8 adpcm);

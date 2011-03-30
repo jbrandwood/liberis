@@ -24,16 +24,43 @@
 .endm
 
 _eris_king_init:
-	
+	mov	1, r10
+1:	mov	r10, r11
+	shl	31, r11
+	mov	1, r12
+2:	mov	r12, r13
+	shl	17, r13
+	set_reg	0xD, r14, r15
+	or	r13, r11
+	movhi	4, r0, r13
+	or	r13, r11
+	out.w	r11, 4[r14]
+	set_reg	0xE, r14, r15
+	movhi	2, r0, r13
+3:	out.h	r0, 4[r14]
+	add	-1, r13
+	bne	3b
+	add	-1, r12
+	bge	2b
+	add	-1, r10
+	bge	1b
+	movea	0x80, r0, r10
+	set_reg	1, r14, r15
+	out.h	r10, 4[r14]
+	out.h	r0, 4[r14]
 	jmp	[lp]
 
 _eris_king_set_kram_read:
+	shl	18, r7
 	set_reg	0xC, r10, r11
+	or	r7, r6
 	out.w	r6, 4[r10]
 	jmp	[lp]
 
 _eris_king_set_kram_write:
+	shl	18, r7
 	set_reg	0xD, r10, r11
+	or	r7, r6
 	out.w	r6, 4[r10]
 	jmp	[lp]
 
