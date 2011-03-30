@@ -12,6 +12,8 @@
 	.global	_eris_king_set_bg_size
 	.global	_eris_king_set_bat_cg_addr
 	.global	_eris_king_set_scroll
+	.global _eris_king_write_microprogram
+	.global _eris_king_fill_microprogram
 
 .macro	set_rrg	reg
 	out.h	\reg, 0x600[r0]
@@ -142,5 +144,27 @@ _eris_king_set_scroll:
 	add	1, r6
 	set_rrg	r6
 	out.h	r8, 0x604[r0]
+	jmp	[lp]
+
+_eris_king_write_microprogram:
+	set_reg	0x13, r10
+	out.h	r7, 0x604[r0]
+	set_reg	0x14, r10
+1:
+	ld.h	0[r6], r10
+	out.h	r10, 0x604[r0]
+	add	2, r6
+	add	-1, r8
+	bne	1b
+	jmp	[lp]
+
+_eris_king_fill_microprogram:
+	set_reg	0x13, r10
+	out.h	r7, 0x604[r0]
+	set_reg	0x14, r10
+1:
+	out.h	r6, 0x604[r0]
+	add	-1, r8
+	bne	1b
 	jmp	[lp]
 

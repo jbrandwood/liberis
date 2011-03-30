@@ -56,6 +56,8 @@ void eris_king_set_bg_prio(king_bgprio bg0, king_bgprio bg1, king_bgprio bg2, ki
 void eris_king_set_bg_size(king_bg bg, king_size size);
 void eris_king_set_bat_cg_addr(king_bg bg, u32 bat, u32 cg);
 void eris_king_set_scroll(king_bg bg, s16 x, s16 y);
+void eris_king_write_microprogram(u16* data, u8 addr, u8 len);
+void eris_king_fill_microprogram(u16 data, u8 addr, u8 len);
 
 #endif
 
