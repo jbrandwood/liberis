@@ -13,7 +13,7 @@ int main(int argc, char *argv[])
 	eris_7up_init(1);
 	eris_king_init();
 	eris_tetsu_init();
-	irq_enable();
+//	irq_enable();
 	
 	eris_tetsu_set_priorities(0, 0, 0, 1, 0, 0, 0);
 	eris_tetsu_set_7up_palette(0, 0);
