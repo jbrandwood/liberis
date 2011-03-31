@@ -41,6 +41,9 @@ int memcmp(void* mem1, void* mem2, int size);
 void out32(u32 port, u32 data);
 void out16(u32 port, u16 data);
 void out8(u32 port, u8 data);
+u32 in32(u32 port);
+u16 in16(u32 port);
+u8 in8(u32 port);
 
 #endif
 
