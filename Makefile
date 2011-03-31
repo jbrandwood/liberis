@@ -8,7 +8,7 @@ AS             = $(PREFIX)as
 AR             = $(PREFIX)ar
 CFLAGS         = -O3 -I include
 
-.PHONY: all clean install
+.PHONY: all clean install examples cleanexamples
 
 all: $(OBJECTS) $(TARGETS)
 
@@ -20,7 +20,7 @@ all: $(OBJECTS) $(TARGETS)
 	$(CC) $(CFLAGS) $< -c -o $@
 liberis.a: $(LIBERISOBJS)
 	$(AR) rcs $@ $(LIBERISOBJS) 
-clean:
+clean: cleanexamples
 	rm -rf $(OBJECTS) $(TARGETS)
 install: $(TARGETS)
 	@mkdir -p $(V810DEV)/lib
@@ -31,4 +31,8 @@ install: $(TARGETS)
 	@cp liberis.a $(V810DEV)/lib/
 	@echo "    COPY  include/"
 	@cp -R include/* $(V810DEV)/include/
+examples:
+	make -C examples
+cleanexamples:
+	make -C examples clean
 
