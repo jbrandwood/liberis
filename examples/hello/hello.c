@@ -3,6 +3,7 @@
 #include <eris/king.h>
 #include <eris/7up.h>
 #include <eris/tetsu.h>
+#include <eris/romfont.h>
 
 int main(int argc, char *argv[])
 {
