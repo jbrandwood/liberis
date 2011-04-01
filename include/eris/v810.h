@@ -24,7 +24,8 @@ int irq_get_level(void);
 u16 irq_get_mask(void);
 u32 irq_get_priority(void);
 
-/* Memory functions */
+
+/* string.h functions */
 
 void memset32(void* addr, u32 val, int size);
 void memset16(void* addr, u16 val, int size);
@@ -35,7 +36,9 @@ void memcpy(void* dst, void* src, int size);
 int memcmp32(void* mem1, void* mem2, int size);
 int memcmp16(void* mem1, void* mem2, int size);
 int memcmp(void* mem1, void* mem2, int size);
-
+int strlen32(u32* str);
+int strlen16(u16* str);
+int strlen(char* str);
 
 /* Port functions */
 void out32(u32 port, u32 data);

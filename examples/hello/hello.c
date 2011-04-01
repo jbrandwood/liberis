@@ -5,9 +5,14 @@
 #include <eris/tetsu.h>
 #include <eris/romfont.h>
 
+void printch(u32 sjis, u32 kram, int tall);
+void printstr(u32* str, u32 kram, int tall);
+void chartou32(char* str, u32* o);
+
 int main(int argc, char *argv[])
 {
 	int i;
+	u32 str[256];
 	u16 microprog[16];
 
 	eris_7up_init(0);
@@ -47,10 +52,51 @@ int main(int argc, char *argv[])
 
 	eris_king_set_kram_read(0, 1);
 	eris_king_set_kram_write(0, 1);
-	for(i = 0; i < 0x4000; i++) {
-		eris_king_kram_write(0xF05A);
+	// Clear BG0's RAM
+	for(i = 0x0; i < 0x1E00; i++) {
+		eris_king_kram_write(0);
 	}
+	eris_king_set_kram_write(0, 1);
+	chartou32("Hello World!", str);
+	printstr(str, 0x408, 1);
+	chartou32("  Love, NEC", str);
+	printstr(str, 0x708, 0);
 
 	return 0;
+}
+
+void chartou32(char* str, u32* o)
+{
+	int i;
+	int len = strlen(str);
+	for(i = 0; i < len; i++)
+		o[i] = str[i];
+	o[i] = 0;
+}
+
+void printstr(u32* str, u32 kram, int tall)
+{
+	int i;
+	int len = strlen32(str);
+	for(i = 0; i < len; i++) {
+		printch(str[i], kram + i, tall);
+	}
+}
+
+void printch(u32 sjis, u32 kram, int tall)
+{
+	u16 px;
+	int x, y;
+	u8* glyph = eris_romfont_get(sjis, tall ? ROMFONT_ANK_8x16 : ROMFONT_ANK_8x8);
+	for(y = 0; y < (tall ? 16 : 8); y++) {
+		eris_king_set_kram_write(kram + (y << 5), 1);
+		px = 0;
+		for(x = 0; x < 8; x++) {
+			if((glyph[y] >> x) & 1) {
+				px |= 1 << (x << 1);
+			}
+		}
+		eris_king_kram_write(px);
+	}
 }
 

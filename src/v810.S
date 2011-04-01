@@ -112,7 +112,7 @@ _irq_get_priority:
 	jmp	[lp]
 
 /*****************************************************************************
- *  Memory functions                                                     []  *
+ *  string.h functions                                                   []  *
  *****************************************************************************/
 	.global	_memset32
 	.global	_memset16
@@ -123,6 +123,9 @@ _irq_get_priority:
 	.global	_memcmp32
 	.global _memcmp16
 	.global _memcmp
+	.global	_strlen32
+	.global	_strlen16
+	.global	_strlen
 
 _memset32:
 	add	r6, r8
@@ -222,6 +225,36 @@ _memcmp:
 	add	-1, r8
 	bne	1b
 2:	sub	r11, r10
+	jmp	[lp]
+
+_strlen32:
+	mov	r0, r10
+	br	2f
+1:	add	1, r10
+2:	ld.w	0[r6], r11
+	add	4, r6
+	cmp	r0, r11
+	bne	1b
+	jmp	[lp]
+
+_strlen16:
+	mov	r0, r10
+	br	2f
+1:	add	1, r10
+2:	ld.h	0[r6], r11
+	add	2, r6
+	cmp	r0, r11
+	bne	1b
+	jmp	[lp]
+
+_strlen:
+	mov	r0, r10
+	br	2f
+1:	add	1, r10
+2:	ld.b	0[r6], r11
+	add	1, r6
+	cmp	r0, r11
+	bne	1b
 	jmp	[lp]
 
 /*****************************************************************************
