@@ -108,8 +108,11 @@ _irq_set_priority:
 	jmp	[lp]
 
 _irq_set_handler:
+	add	-7, r6
 	shl	2, r6
-	st.w	r7, 0x7FC0[r6]
+	movea	0x7FE0, r0, r10
+	sub	r6, r10
+	st.w	r7, 0[r10]
 	jmp	[lp]
 
 _irq_get_level:
