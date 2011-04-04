@@ -8,6 +8,7 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 */
 
 #include <eris/types.h>
+#include <eris/std.h>
 #include <eris/v810.h>
 #include <eris/king.h>
 #include <eris/7up.h>
@@ -28,7 +29,6 @@ int main(int argc, char *argv[])
 	eris_7up_init(1);
 	eris_king_init();
 	eris_tetsu_init();
-//	irq_enable();
 	
 	eris_tetsu_set_priorities(0, 0, 0, 1, 0, 0, 0);
 	eris_tetsu_set_7up_palette(0, 0);
@@ -40,10 +40,10 @@ int main(int argc, char *argv[])
 	eris_king_set_kram_pages(0, 0, 0, 0);
 
 	for(i = 0; i < 16; i++) {
-		microprog[i] = 0x100; //i & 7; /* CGx */
+		microprog[i] = 0x100; /* NOP */
 	}
 
-	microprog[0] = 0;
+	microprog[0] = 0; /* CG +0 */
 	eris_king_disable_microprogram();
 	eris_king_write_microprogram(microprog, 0, 16);
 	eris_king_enable_microprogram();

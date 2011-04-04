@@ -38,6 +38,7 @@ void eris_tetsu_set_7up_palette(u8 bg, u8 spr);
 void eris_tetsu_set_king_palette(u8 bg0, u8 bg1, u8 bg2, u8 bg3);
 void eris_tetsu_set_rainbow_palette(u8 rainbow);
 void eris_tetsu_set_priorities(u8 bg, u8 spr, u8 rainbow, u8 bg0, u8 bg1, u8 bg2, u8 bg3);
+void eris_tetsu_set_chroma_key(u8 maxy, u8 miny, u8 maxu, u8 minu, u8 maxv, u8 minv);
 
 #endif
 

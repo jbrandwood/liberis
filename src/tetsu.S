@@ -17,6 +17,7 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
 	.global _eris_tetsu_set_king_palette
 	.global	_eris_tetsu_set_rainbow_palette
 	.global _eris_tetsu_set_priorities
+	.global	_eris_tetsu_set_chroma_key
 
 .macro	set_rrg	reg
 	out.h	\reg, 0x300[r0]
@@ -148,5 +149,22 @@ _eris_tetsu_set_priorities:
 	or	r11, r9
 	or	r12, r9
 	out.h	r9, 0x304[r0]
+	jmp	[lp]
+
+_eris_tetsu_set_chroma_key:
+	ld.w	16[sp], r10
+	ld.w	20[sp], r11
+	set_reg	0xA, r12
+	shl	8, r6
+	or	r7, r6
+	out.h	r6, 0x304[r0]
+	set_reg	0xB, r12
+	shl	8, r8
+	or	r9, r8
+	out.h	r8, 0x304[r0]
+	set_reg	0xC, r12
+	shl	8, r10
+	or	r11, r10
+	out.h	r10, 0x304[r0]
 	jmp	[lp]
 
