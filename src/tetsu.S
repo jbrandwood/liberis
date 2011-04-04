@@ -18,6 +18,10 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
 	.global	_eris_tetsu_set_rainbow_palette
 	.global _eris_tetsu_set_priorities
 	.global	_eris_tetsu_set_chroma_key
+	.global	_eris_tetsu_set_cellophane_color
+	.global	_eris_tetsu_set_cellophane_sprites
+	.global	_eris_tetsu_set_cellophane_control
+	.global	_eris_tetsu_set_cellophane_coeffs
 
 .macro	set_rrg	reg
 	out.h	\reg, 0x300[r0]
@@ -165,6 +169,73 @@ _eris_tetsu_set_chroma_key:
 	set_reg	0xC, r12
 	shl	8, r10
 	or	r11, r10
+	out.h	r10, 0x304[r0]
+	jmp	[lp]
+
+_eris_tetsu_set_cellophane_color:
+	set_reg	0xD, r10
+	out.h	r6, 0x304[r0]
+	jmp	[lp]
+
+_eris_tetsu_set_cellophane_sprites:
+	set_reg	0xF, r10
+	movea	0x10, r0, r12
+	mov	r0, r11
+1:	ld.w	0[r6], r10
+	add	4, r6
+	shl	1, r11
+	andi	1, r10, r10
+	or	r10, r11
+	add	-1, r12
+	cmp	r12, r0
+	bne	1b
+	out.h	r11, 0x304[r0]
+	jmp	[lp]
+
+_eris_tetsu_set_cellophane_control:
+	ld.w	16[sp], r10
+	ld.w	20[sp], r11
+	ld.w	24[sp], r12
+	ld.w	28[sp], r13
+	ld.w	32[sp], r14
+	shl	14, r6
+	shl	15, r7
+	shl	2, r9
+	shl	12, r10
+	shl	4, r11
+	shl	6, r12
+	shl	8, r13
+	shl	10, r14
+	or	r6, r7
+	or	r7, r8
+	or	r8, r9
+	or	r9, r10
+	or	r10, r11
+	or	r11, r12
+	or	r12, r13
+	or	r13, r14
+	set_reg	0xE, r10
+	out.h	r14, 0x304[r0]
+	jmp	[lp]
+
+_eris_tetsu_set_cellophane_coeffs:
+	ld.w	16[sp], r10
+	ld.w	20[sp], r11
+	ld.w	24[sp], r12
+	shl	8, r7
+	shl	4, r8
+	or	r9, r8
+	or	r8, r7
+	shl	8, r10
+	shl	4, r11
+	or	r12, r11
+	or	r11, r10
+	shl	1, r6
+	add	0xE, r6
+	set_rrg	r6
+	out.h	r7, 0x304[r0]
+	add	1, r6
+	set_rrg r6
 	out.h	r10, 0x304[r0]
 	jmp	[lp]
 
