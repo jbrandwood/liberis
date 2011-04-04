@@ -32,6 +32,7 @@ void irq_set_priority(u32 prio);
 int irq_get_level(void);
 u16 irq_get_mask(void);
 u32 irq_get_priority(void);
+void irq_set_handler(int level, void (*fn)(void));
 
 
 /* Port functions */

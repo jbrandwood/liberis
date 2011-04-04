@@ -61,8 +61,12 @@ _cache_restore:
 	.global	_irq_disable
 	.global _irq_set_level
 	.global	_irq_set_mask
+	.global	_irq_set_priority
+	.global	_irq_set_handler
 	.global	_irq_get_level
 	.global	_irq_get_mask
+	.global	_irq_get_priority
+
 _irq_enable:
 	stsr	PSW, r10
 	movea	0x1000, r0, r12
@@ -101,6 +105,11 @@ _irq_set_priority:
 	shr	16, r11
 	out.h	r11, 0xEC0[r0]
 	out.h	r6, 0xE80[r0]
+	jmp	[lp]
+
+_irq_set_handler:
+	shl	2, r6
+	st.w	r7, 0x7FC0[r6]
 	jmp	[lp]
 
 _irq_get_level:
