@@ -16,6 +16,8 @@ pad            -- Handles input ports. Tested working.
 romfont        -- Activates the in-ROM font processing. Tested working.
 soundbox       -- SoundBox PSG support. Similar to the PSG in the PC-Engine.
                   Support is untested.
+std            -- "Standard" function replicas, with modifications for
+                  efficiency.
 tetsu          -- Controls NEW Tetsukannon, the video controller. Mostly tested
                   working.
 v810           -- Miscellaneous V810 supports.
