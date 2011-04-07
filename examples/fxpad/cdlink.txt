@@ -1,0 +1,7 @@
+binary ./fxpad.bin
+name FX-PAD Example
+maker trap15
+makerid TFX
+date 20110406
+country 1
+version 256

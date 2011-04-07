@@ -1,0 +1,7 @@
+binary ./fxbmp.bin
+name FX-BMP Example
+maker trap15
+makerid TFX
+date 20110406
+country 1
+version 256
