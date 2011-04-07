@@ -48,7 +48,8 @@ void eris_tetsu_set_priorities(u8 bg, u8 spr, u8 rainbow, u8 bg0, u8 bg1, u8 bg2
 void eris_tetsu_set_chroma_key(u8 maxy, u8 miny, u8 maxu, u8 minu, u8 maxv, u8 minv);
 void eris_tetsu_set_cellophane_color(u16 color);
 void eris_tetsu_set_cellophane_sprites(int* banks); /* 16 element array */
-void eris_tetsu_set_cellophane_control(int enable, int in_front, tetsu_coeff bg, tetsu_coeff spr, tetsu_coeff rainbow, tetsu_coeff bg0, tetsu_coeff bg1, tetsu_coeff bg2, tetsu_coeff bg3);
+void eris_tetsu_set_cellophane_control(int enable, int in_front, tetsu_coeff bg, tetsu_coeff spr, tetsu_coeff rainbow,
+				tetsu_coeff bg0, tetsu_coeff bg1, tetsu_coeff bg2, tetsu_coeff bg3);
 void eris_tetsu_set_cellophane_coeffs(int coeff, u8 ay, u8 au, u8 av, u8 by, u8 bu, u8 bv);
 
 #endif

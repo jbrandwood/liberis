@@ -14,15 +14,38 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 #include <eris/7up.h>
 #include <eris/tetsu.h>
 #include <eris/romfont.h>
+#include <eris/pad.h>
 
 void printch(u32 sjis, u32 kram, int tall);
 void printstr(u32* str, int x, int y, int tall);
 void chartou32(char* str, u32* o);
 
+static int padmap[16][2] = {
+	{ 7-3, 0x40 },
+	{ 7+7-3, 0x40 },
+	{ 7+7+7-3, 0x40 },
+	{ 7-3, 0x50 },
+	{ 7+7-3, 0x50 },
+	{ 7+7+7-3, 0x50 },
+	{ 7+7-3, 0x60 },
+	{ 7-3, 0x60 },
+	{ 7-3, 0x30 },
+	{ 7+7+7+7-3, 0x30 },
+	{ 7+7-3, 0x30 },
+	{ 7+7+7-3, 0x30 },
+	{ 7+7+7-3, 0x60 },
+	{ 0, 0 },
+	{ 7+7+7+7-3, 0x60 },
+	{ 1, 0 },
+};
+
 int main(int argc, char *argv[])
 {
+	u32 paddata;
 	int i;
 	u32 str[256];
+	u32 pstr[3];
+	u32 sstr[3];
 	u16 microprog[16];
 
 	eris_7up_init(0);
@@ -58,18 +81,40 @@ int main(int argc, char *argv[])
 	eris_king_set_bat_cg_addr(KING_BG0SUB, 0, 0);
 	eris_king_set_scroll(KING_BG0, 0, 0);
 	eris_king_set_bg_size(KING_BG0, KING_BGSIZE_256, KING_BGSIZE_256, KING_BGSIZE_256, KING_BGSIZE_256);
-
 	eris_king_set_kram_read(0, 1);
 	eris_king_set_kram_write(0, 1);
 	// Clear BG0's RAM
 	for(i = 0x0; i < 0x1E00; i++) {
 		eris_king_kram_write(0);
 	}
-	eris_king_set_kram_write(0, 1);
-	chartou32("Hello World!", str);
-	printstr(str, 8, 0x20, 1);
-	chartou32("  Love, NEC", str);
-	printstr(str, 8, 0x38, 0);
+	chartou32("FX-PAD Test", str);
+	printstr(str, 12, 0x8, 1);
+
+	eris_pad_init(0);
+	chartou32("+", pstr);
+	chartou32(" ", sstr);
+	for(;;) {
+		if(eris_pad_data_ready(0)) {
+			chartou32("|  UP  | DOWN | LEFT |RIGHT |", str);
+			printstr(str, 0, 0x28, 0);
+			chartou32("|   I  |  II  |  III |", str);
+			printstr(str, 0, 0x38, 0);
+			chartou32("|  IV  |   V  |  VI  |", str);
+			printstr(str, 0, 0x48, 0);
+			chartou32("|  RUN |SELECT|   A  |   B  |", str);
+			printstr(str, 0, 0x58, 0);
+			paddata = eris_pad_read_data(0);
+			for(i = 0; i < 16; i++) {
+				if(paddata & (1 << i))
+					printstr(pstr, padmap[i][0], padmap[i][1], 0);
+				else
+					printstr(sstr, padmap[i][0], padmap[i][1], 0);
+			}
+			for(i = 0; i < 0x8000; i++) {
+				asm("mov r0, r0");
+			}
+		}
+	}
 
 	return 0;
 }

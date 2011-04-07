@@ -12,9 +12,13 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
 
 #include <eris/types.h>
 
+void eris_pad_init(int pad);
+
 u16 eris_pad_read_status(int pad);
 u32 eris_pad_read_data(int pad);
+int eris_pad_data_ready(int pad);
 void eris_pad_write_control(int pad, u16 ctl);
+void eris_pad_write_data(int pad, u32 data);
 
 #endif
 
