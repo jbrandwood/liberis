@@ -10,9 +10,9 @@ Subsystems
 
 7up            -- Controls the two 7up VDPs. These were also used in the
                   PC-Engine. Support is untested.
-KING           -- Controls the KING chip, which controls many other peripherals.
+king           -- Controls the KING chip, which controls many other peripherals.
                   Basic support exists and backgrounds have been tested working.
-pad            -- Handles input ports. Completely untested.
+pad            -- Handles input ports. Tested working.
 romfont        -- Activates the in-ROM font processing. Tested working.
 soundbox       -- SoundBox PSG support. Similar to the PSG in the PC-Engine.
                   Support is untested.
