@@ -1,0 +1,7 @@
+binary ./psg.bin
+name SoundBox PSG Example
+maker trap15
+makerid TFX
+date 20110407
+country 1
+version 256

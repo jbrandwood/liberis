@@ -14,6 +14,7 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
 	.global	_eris_psg_set_freq
 	.global	_eris_psg_set_volume
 	.global	_eris_psg_set_balance
+	.global	_eris_psg_waveform_data
 	.global	_eris_psg_set_noise
 	.global _eris_psg_set_lfo_freq
 	.global _eris_psg_set_lfo_control
