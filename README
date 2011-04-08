@@ -7,7 +7,7 @@ see file LICENSE or http://www.opensource.org/licenses/mit-license.php
 Subsystems
 ================================================================================
 7up            -- Controls the two 7up VDPs. These were also used in the
-                  PC-Engine. Support is untested.
+                  PC-Engine. Support is partly tested. API needs renovation.
 king           -- Controls the KING chip, which controls many other peripherals.
                   Basic support exists and backgrounds have been tested working.
 pad            -- Handles input ports. Tested working.
