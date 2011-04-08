@@ -57,12 +57,12 @@ int main(int argc, char *argv[])
 	eris_tetsu_set_palette(6, 0x9999);
 	eris_tetsu_set_palette(7, 0x1234);
 	eris_tetsu_set_video_mode(TETSU_LINES_262, 0, TETSU_DOTCLOCK_5MHz, TETSU_COLORS_16,
-				TETSU_COLORS_16, 1, 1, 1, 0, 0, 0, 0);
+				TETSU_COLORS_16, 1, 0, 1, 0, 0, 0, 0);
 	eris_king_set_bat_cg_addr(KING_BG0, 0, 0);
 	eris_king_set_bat_cg_addr(KING_BG0SUB, 0, 0);
 	eris_king_set_scroll(KING_BG0, 0, 0);
 	eris_king_set_bg_size(KING_BG0, KING_BGSIZE_256, KING_BGSIZE_256, KING_BGSIZE_256, KING_BGSIZE_256);
-	eris_7up_set_control(0, 0, 1, 1);
+	eris_7up_set_control(0, 0, 1, 0);
 	eris_7up_set_access_width(0, 0, ERIS_7UP_MAP_32X32, 0, 0);
 	eris_7up_set_scroll(0, 0, 0);
 	eris_7up_set_video_mode(0, 0, 240);
