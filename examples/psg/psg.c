@@ -82,11 +82,11 @@ int main(int argc, char *argv[])
 	load_psg_info(2);
 	load_psg_info(3);
 	load_psg_info(4);
-	eris_psg_set_volume(0, 0x18, 1, 0);
-	eris_psg_set_volume(1, 0x18, 1, 0);
-	eris_psg_set_volume(2, 0x18, 1, 0);
-	eris_psg_set_volume(3, 0x18, 1, 0);
-	eris_psg_set_volume(4, 0x18, 1, 0);
+	eris_psg_set_volume(0, 0x1F, 1, 0);
+	eris_psg_set_volume(1, 0x1F, 1, 0);
+	eris_psg_set_volume(2, 0x1F, 1, 0);
+	eris_psg_set_volume(3, 0x1F, 1, 0);
+	eris_psg_set_volume(4, 0x1F, 1, 0);
 	eris_psg_set_noise(5, 0xF, 1);
 	eris_psg_set_balance(5, 0xF, 0xF);
 	eris_psg_set_volume(5, 0x1F, 1, 0);
@@ -100,11 +100,12 @@ void load_psg_info(int ch)
 	eris_psg_set_volume(ch, 0, 0, 1);
 	eris_psg_set_volume(ch, 0, 0, 0);
 	// Load up a simple square wave
+	eris_psg_set_channel(ch);
 	for(i = 0; i < 16; i++) {
-		eris_psg_waveform_data(ch, 0x1F);
+		eris_psg_waveform_data(0x1F);
 	}
 	for(i = 0; i < 16; i++) {
-		eris_psg_waveform_data(ch, 0);
+		eris_psg_waveform_data(0);
 	}
 }
 

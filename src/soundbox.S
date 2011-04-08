@@ -14,6 +14,7 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
 	.global	_eris_psg_set_freq
 	.global	_eris_psg_set_volume
 	.global	_eris_psg_set_balance
+	.global	_eris_psg_set_channel
 	.global	_eris_psg_waveform_data
 	.global	_eris_psg_set_noise
 	.global _eris_psg_set_lfo_freq
@@ -55,9 +56,12 @@ _eris_psg_set_balance:
 	out.b	r8, 0x10A[r0]
 	jmp	[lp]
 
-_eris_psg_waveform_data:
+_eris_psg_set_channel:
 	set_ch	r6
-	out.b	r7, 0x10C[r0]
+	jmp	[lp]
+
+_eris_psg_waveform_data:
+	out.b	r6, 0x10C[r0]
 	jmp	[lp]
 
 _eris_psg_set_noise:
