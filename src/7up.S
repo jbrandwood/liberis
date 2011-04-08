@@ -11,6 +11,7 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
  *  7up functions                                                        []  *
  *****************************************************************************/
 	.global	_eris_7up_init
+	.global	_eris_7up_set_video_mode
 	.global	_eris_7up_set_vram_write_addr
 	.global	_eris_7up_vram_write
 	.global	_eris_7up_set_vram_read_addr
@@ -57,6 +58,39 @@ _eris_7up_init:
 	out.h	r0, 4[r10]
 	cmp	5, r8
 	bne	2b
+	jmp	[lp]
+
+_eris_7up_set_video_mode:
+	shl	8, r6
+	set_reg	0xA, r6, r10, r11
+	movea	0x202, r0, r12
+	movea	0x41F, r0, r13
+	cmp	r0, r7
+	be	1f
+	addi	0x101, r12, r12
+	addi	0xC, r13, r13
+1:
+	out.h	r12, 4[r10]
+	set_reg	0xB, r6, r10, r11
+	out.h	r13, 4[r10]
+	movea	240, r0, r12
+	sub	r8, r12
+	mov	r12, r13
+	shr	1, r12
+	addi	0x11, r12, r12
+	shl	8, r12
+	add	2, r12
+	set_reg	0xC, r6, r10, r11
+	out.h	r12, 4[r10]
+	mov	r8, r12
+	add	-1, r12
+	set_reg	0xD, r6, r10, r11
+	out.h	r12, 4[r10]
+	add	1, r13
+	shr	1, r13
+	add	2, r13
+	set_reg	0xE, r6, r10, r11
+	out.h	r13, 4[r10]
 	jmp	[lp]
 
 _eris_7up_set_vram_write_addr:
