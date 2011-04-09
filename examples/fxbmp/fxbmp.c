@@ -11,7 +11,6 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 #include <eris/std.h>
 #include <eris/v810.h>
 #include <eris/king.h>
-#include <eris/7up.h>
 #include <eris/tetsu.h>
 #include <eris/romfont.h>
 #include <eris/bkupmem.h>
@@ -30,8 +29,6 @@ int main(int argc, char *argv[])
 	u8 tmpbuf[0x80];
 	u16 bps[2], sects[2];
 
-	eris_7up_init(0);
-	eris_7up_init(1);
 	eris_king_init();
 	eris_tetsu_init();
 	

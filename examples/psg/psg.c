@@ -11,24 +11,20 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 #include <eris/std.h>
 #include <eris/v810.h>
 #include <eris/king.h>
-#include <eris/7up.h>
 #include <eris/tetsu.h>
 #include <eris/romfont.h>
-#include <eris/soundbox.h>
+#include <eris/low/soundbox.h>
 
 void printch(u32 sjis, u32 kram, int tall);
 void printstr(u32* str, int x, int y, int tall);
 void chartou32(char* str, u32* o);
-void load_psg_info(int ch);
 
 int main(int argc, char *argv[])
 {
-	int i;
+	int i, l;
 	u32 str[256];
 	u16 microprog[16];
 
-	eris_7up_init(0);
-	eris_7up_init(1);
 	eris_king_init();
 	eris_tetsu_init();
 	
@@ -71,42 +67,25 @@ int main(int argc, char *argv[])
 	chartou32("SoundBox PSG Example", str);
 	printstr(str, 5, 0x10, 1);
 
-	eris_psg_set_main_volume(12, 12);
-	eris_psg_set_freq(0, 0x7F); /* 440 */
-	eris_psg_set_freq(1, 0xFE); /* 220 */
-	eris_psg_set_freq(2, 0x1FC); /* 110 */
-	eris_psg_set_freq(3, 0x3F); /* 880 */
-	eris_psg_set_freq(4, 0x1F); /* 1760 */
-	load_psg_info(0);
-	load_psg_info(1);
-	load_psg_info(2);
-	load_psg_info(3);
-	load_psg_info(4);
-	eris_psg_set_volume(0, 0x1F, 1, 0);
-	eris_psg_set_volume(1, 0x1F, 1, 0);
-	eris_psg_set_volume(2, 0x1F, 1, 0);
-	eris_psg_set_volume(3, 0x1F, 1, 0);
-	eris_psg_set_volume(4, 0x1F, 1, 0);
-	eris_psg_set_noise(5, 0xF, 1);
-	eris_psg_set_balance(5, 0xF, 0xF);
-	eris_psg_set_volume(5, 0x1F, 1, 0);
+	eris_low_psg_set_main_volume(12, 12);
+	for(i = 0; i < 5; i++) {
+		eris_low_psg_set_channel(i);
+		eris_low_psg_set_freq(0x1FC >> i); /* 5 octaves of A */
+		eris_low_psg_set_balance(0xF, 0xF);
+		eris_low_psg_set_volume(0, 0, 0);
+		for(l = 0; l < 16; l++) {
+			eris_low_psg_waveform_data(0x1F);
+		}
+		for(l = 0; l < 16; l++) {
+			eris_low_psg_waveform_data(0);
+		}
+		eris_low_psg_set_volume(0x1F, 1, 0);
+	}
+	eris_low_psg_set_channel(5);
+	eris_low_psg_set_noise(0xF, 1);
+	eris_low_psg_set_balance(0xF, 0xF);
+	eris_low_psg_set_volume(0x1F, 1, 0);
 	return 0;
-}
-
-void load_psg_info(int ch)
-{
-	int i;
-	eris_psg_set_balance(ch, 0xF, 0xF);
-	eris_psg_set_volume(ch, 0, 0, 1);
-	eris_psg_set_volume(ch, 0, 0, 0);
-	// Load up a simple square wave
-	eris_psg_set_channel(ch);
-	for(i = 0; i < 16; i++) {
-		eris_psg_waveform_data(0x1F);
-	}
-	for(i = 0; i < 16; i++) {
-		eris_psg_waveform_data(0);
-	}
 }
 
 void chartou32(char* str, u32* o)

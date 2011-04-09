@@ -11,10 +11,9 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 #include <eris/std.h>
 #include <eris/v810.h>
 #include <eris/king.h>
-#include <eris/7up.h>
 #include <eris/tetsu.h>
 #include <eris/romfont.h>
-#include <eris/pad.h>
+#include <eris/low/pad.h>
 
 void printch(u32 sjis, u32 kram, int tall);
 void printstr(u32* str, int x, int y, int tall);
@@ -48,8 +47,6 @@ int main(int argc, char *argv[])
 	u32 sstr[3];
 	u16 microprog[16];
 
-	eris_7up_init(0);
-	eris_7up_init(1);
 	eris_king_init();
 	eris_tetsu_init();
 	
@@ -90,11 +87,11 @@ int main(int argc, char *argv[])
 	chartou32("FX-PAD Test", str);
 	printstr(str, 12, 0x8, 1);
 
-	eris_pad_init(0);
+	eris_low_pad_init(0);
 	chartou32("+", pstr);
 	chartou32(" ", sstr);
 	for(;;) {
-		if(eris_pad_data_ready(0)) {
+		if(eris_low_pad_data_ready(0)) {
 			chartou32("|  UP  | DOWN | LEFT |RIGHT |", str);
 			printstr(str, 0, 0x28, 0);
 			chartou32("|   I  |  II  |  III |", str);
@@ -103,7 +100,7 @@ int main(int argc, char *argv[])
 			printstr(str, 0, 0x48, 0);
 			chartou32("|  RUN |SELECT|   A  |   B  |", str);
 			printstr(str, 0, 0x58, 0);
-			paddata = eris_pad_read_data(0);
+			paddata = eris_low_pad_read_data(0);
 			for(i = 0; i < 16; i++) {
 				if(paddata & (1 << i))
 					printstr(pstr, padmap[i][0], padmap[i][1], 0);

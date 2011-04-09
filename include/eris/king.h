@@ -18,7 +18,7 @@ typedef enum {
 	KING_BGMODE_256_PAL = 0x3,
 	KING_BGMODE_64K = 0x4,
 	KING_BGMODE_16M = 0x5,
-	KING_BGMODE_BAT = 0x8, /* | this to one of the other modes for BAT mode */
+	KING_BGMODE_BAT = 0x8, /* OR this for BAT mode */
 	KING_BGMODE_64K_BAT_EXTDOT = 0xE,
 	KING_BGMODE_16M_BAT_EXTDOT = 0xF,
 } king_bgmode;
@@ -56,9 +56,12 @@ void eris_king_set_kram_write(u32 addr, int incr);
 u16 eris_king_kram_read(void);
 void eris_king_kram_write(u16 data);
 void eris_king_set_kram_pages(u8 scsi, u8 bg, u8 rainbow, u8 adpcm);
-void eris_king_set_bg_mode(king_bgmode bg0, king_bgmode bg1, king_bgmode bg2, king_bgmode bg3);
-void eris_king_set_bg_prio(king_bgprio bg0, king_bgprio bg1, king_bgprio bg2, king_bgprio bg3, king_bgprio bgrot);
-void eris_king_set_bg_size(king_bg bg, king_bgsize h, king_bgsize w, king_bgsize sub_h, king_bgsize sub_w);
+void eris_king_set_bg_mode(king_bgmode bg0, king_bgmode bg1, king_bgmode bg2,
+			king_bgmode bg3);
+void eris_king_set_bg_prio(king_bgprio bg0, king_bgprio bg1, king_bgprio bg2,
+			king_bgprio bg3, king_bgprio bgrot);
+void eris_king_set_bg_size(king_bg bg, king_bgsize h, king_bgsize w,
+			king_bgsize sub_h, king_bgsize sub_w);
 void eris_king_set_bat_cg_addr(king_bg bg, u32 bat, u32 cg);
 void eris_king_set_scroll(king_bg bg, s16 x, s16 y);
 void eris_king_write_microprogram(u16* data, u8 addr, u8 len);

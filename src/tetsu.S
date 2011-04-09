@@ -201,11 +201,11 @@ _eris_tetsu_set_cellophane_control:
 	shl	14, r6
 	shl	15, r7
 	shl	2, r9
-	shl	12, r10
-	shl	4, r11
-	shl	6, r12
-	shl	8, r13
-	shl	10, r14
+	shl	4, r10
+	shl	6, r11
+	shl	8, r12
+	shl	10, r13
+	shl	12, r14
 	or	r6, r7
 	or	r7, r8
 	or	r8, r9

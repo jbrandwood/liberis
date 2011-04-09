@@ -11,7 +11,6 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 #include <eris/std.h>
 #include <eris/v810.h>
 #include <eris/king.h>
-#include <eris/7up.h>
 #include <eris/tetsu.h>
 #include <eris/romfont.h>
 
@@ -25,13 +24,10 @@ int main(int argc, char *argv[])
 	u32 str[256];
 	u16 microprog[16];
 
-	eris_7up_init(0);
-	eris_7up_init(1);
 	eris_king_init();
 	eris_tetsu_init();
 	
 	eris_tetsu_set_priorities(0, 0, 0, 1, 0, 0, 0);
-	eris_tetsu_set_7up_palette(0, 0);
 	eris_tetsu_set_king_palette(0, 0, 0, 0);
 	eris_tetsu_set_rainbow_palette(0);
 
@@ -67,9 +63,9 @@ int main(int argc, char *argv[])
 	}
 	eris_king_set_kram_write(0, 1);
 	chartou32("Hello World!", str);
-	printstr(str, 8, 0x20, 1);
-	chartou32("  Love, NEC", str);
-	printstr(str, 8, 0x38, 0);
+	printstr(str, 10, 0x20, 1);
+	chartou32("Love, NEC", str);
+	printstr(str, 11, 0x38, 0);
 
 	return 0;
 }

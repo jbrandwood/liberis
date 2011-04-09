@@ -11,7 +11,6 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 #include <eris/std.h>
 #include <eris/v810.h>
 #include <eris/king.h>
-#include <eris/7up.h>
 #include <eris/tetsu.h>
 #include <eris/romfont.h>
 
@@ -26,8 +25,6 @@ int main(int argc, char *argv[])
 	u32 str[256];
 	u16 microprog[16];
 
-	eris_7up_init(0);
-	eris_7up_init(1);
 	eris_king_init();
 	eris_tetsu_init();
 	
@@ -72,8 +69,8 @@ int main(int argc, char *argv[])
 
 	eris_tetsu_set_cellophane_coeffs(1, 1, 1, 1, 7, 7, 7);
 	eris_tetsu_set_cellophane_color(0x8088);
-	eris_tetsu_set_cellophane_control(1, 1, TETSU_NO_COEFF, TETSU_NO_COEFF, TETSU_NO_COEFF,
-					TETSU_COEFF_1, TETSU_NO_COEFF, TETSU_NO_COEFF, TETSU_NO_COEFF);
+	eris_tetsu_set_cellophane_control(1, 1, TETSU_NO_COEFF, TETSU_NO_COEFF, TETSU_COEFF_1,
+					TETSU_NO_COEFF, TETSU_NO_COEFF, TETSU_NO_COEFF, TETSU_NO_COEFF);
 	for(;;) {
 		for(i = 0; i < 8; i++) {
 			eris_tetsu_set_cellophane_coeffs(1, i, i, i, 7-i, 7-i, 7-i);
