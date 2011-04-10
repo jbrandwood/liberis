@@ -1,5 +1,5 @@
-OBJECTS        = 7upbg.o
-TARGETS        = 7upbg.elf 7upbg.bin
+OBJECTS        = spr7up.o
+TARGETS        = spr7up.elf spr7up.bin
 PREFIX         = v810-
 CC             = $(PREFIX)gcc
 AS             = $(PREFIX)as

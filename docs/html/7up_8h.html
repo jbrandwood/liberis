@@ -114,8 +114,8 @@ Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Scroll a 7up background.  <a href="#a9eef7b6af3383d9cba0682d4bf4bfbec"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="7up_8h.html#ab332d9a0d07cf4f51cc54c3715df86e7">eris_low_7up_do_dma</a> (int chip, <a class="el" href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> src, <a class="el" href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> dst, <a class="el" href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> len)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a 7up DMA.  <a href="#ab332d9a0d07cf4f51cc54c3715df86e7"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="7up_8h.html#aaac622c10c1c3977f1bdf6ac8d5d357f">eris_low_7up_setup_dma</a> (int chip, int dsr_dma, int src_dec, int dst_dec, int vram_irq, int satb_irq)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup the DMA on a 7up.  <a href="#aaac622c10c1c3977f1bdf6ac8d5d357f"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="7up_8h.html#a010e137a4b3cf483ddaadfabf3c7bca8">eris_low_7up_setup_dma</a> (int chip, int satb_repeat, int src_dec, int dst_dec, int vram_irq, int satb_irq)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup the DMA on a 7up.  <a href="#a010e137a4b3cf483ddaadfabf3c7bca8"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="7up_8h.html#abd57c83be21a665c3b877d4c61f36647">eris_low_7up_set_satb_address</a> (int chip, <a class="el" href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> addr)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the Sprite Attribute Table Block address.  <a href="#abd57c83be21a665c3b877d4c61f36647"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="7up_8h.html#ae789826c10da6b77facbff5ad85f5417">eris_low_7up_set_access_width</a> (int chip, int cg_mode, <a class="el" href="7up_8h.html#a8a7fff6454eb4c790111fa6dd2d3f438">eris_low_7up_mapsize</a> mapsize, int spr_px_w, int vram_px_w)</td></tr>
@@ -665,7 +665,7 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="aaac622c10c1c3977f1bdf6ac8d5d357f"></a><!-- doxytag: member="7up.h::eris_low_7up_setup_dma" ref="aaac622c10c1c3977f1bdf6ac8d5d357f" args="(int chip, int dsr_dma, int src_dec, int dst_dec, int vram_irq, int satb_irq)" -->
+<a class="anchor" id="a010e137a4b3cf483ddaadfabf3c7bca8"></a><!-- doxytag: member="7up.h::eris_low_7up_setup_dma" ref="a010e137a4b3cf483ddaadfabf3c7bca8" args="(int chip, int satb_repeat, int src_dec, int dst_dec, int vram_irq, int satb_irq)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -679,7 +679,7 @@ Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>dsr_dma</em>, </td>
+          <td class="paramname"><em>satb_repeat</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -718,7 +718,7 @@ Functions</h2></td></tr>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">chip</td><td>Which 7up to setup the DMA on. (0 ~ 1) </td></tr>
-    <tr><td class="paramname">dsr_dma</td><td>Whether to do a DSR DMA ``(VRAM-SATB transfer repetition)'' </td></tr>
+    <tr><td class="paramname">satb_repeat</td><td>Whether to continually DMA the SATB after a transfer. </td></tr>
     <tr><td class="paramname">src_dec</td><td>If 1, decrement the source address for each transfer. Otherwise, increment it. </td></tr>
     <tr><td class="paramname">dst_dec</td><td>If 1, decrement the destination address for each transfer. Otherwise, increment it. </td></tr>
     <tr><td class="paramname">vram_irq</td><td>Fire an IRQ at the end of a VRAM-&gt;VRAM transfer. </td></tr>

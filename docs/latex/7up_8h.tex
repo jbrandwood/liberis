@@ -45,7 +45,7 @@ void \hyperlink{7up_8h_a9eef7b6af3383d9cba0682d4bf4bfbec}{eris\_\-low\_\-7up\_\-
 \begin{DoxyCompactList}\small\item\em Scroll a 7up background. \item\end{DoxyCompactList}\item 
 void \hyperlink{7up_8h_ab332d9a0d07cf4f51cc54c3715df86e7}{eris\_\-low\_\-7up\_\-do\_\-dma} (int chip, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} src, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} dst, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} len)
 \begin{DoxyCompactList}\small\item\em Perform a 7up DMA. \item\end{DoxyCompactList}\item 
-void \hyperlink{7up_8h_aaac622c10c1c3977f1bdf6ac8d5d357f}{eris\_\-low\_\-7up\_\-setup\_\-dma} (int chip, int dsr\_\-dma, int src\_\-dec, int dst\_\-dec, int vram\_\-irq, int satb\_\-irq)
+void \hyperlink{7up_8h_a010e137a4b3cf483ddaadfabf3c7bca8}{eris\_\-low\_\-7up\_\-setup\_\-dma} (int chip, int satb\_\-repeat, int src\_\-dec, int dst\_\-dec, int vram\_\-irq, int satb\_\-irq)
 \begin{DoxyCompactList}\small\item\em Setup the DMA on a 7up. \item\end{DoxyCompactList}\item 
 void \hyperlink{7up_8h_abd57c83be21a665c3b877d4c61f36647}{eris\_\-low\_\-7up\_\-set\_\-satb\_\-address} (int chip, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} addr)
 \begin{DoxyCompactList}\small\item\em Sets the Sprite Attribute Table Block address. \item\end{DoxyCompactList}\item 
@@ -381,20 +381,20 @@ Set the VRAM write address for a 7up chip.
 {\em addr} & New VRAM address for write pointer. \\
 \hline
 \end{DoxyParams}
-\hypertarget{7up_8h_aaac622c10c1c3977f1bdf6ac8d5d357f}{
+\hypertarget{7up_8h_a010e137a4b3cf483ddaadfabf3c7bca8}{
 \index{7up.h@{7up.h}!eris\_\-low\_\-7up\_\-setup\_\-dma@{eris\_\-low\_\-7up\_\-setup\_\-dma}}
 \index{eris\_\-low\_\-7up\_\-setup\_\-dma@{eris\_\-low\_\-7up\_\-setup\_\-dma}!7up.h@{7up.h}}
 \subsubsection[{eris\_\-low\_\-7up\_\-setup\_\-dma}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-7up\_\-setup\_\-dma (
 \begin{DoxyParamCaption}
 \item[{int}]{chip, }
-\item[{int}]{dsr\_\-dma, }
+\item[{int}]{satb\_\-repeat, }
 \item[{int}]{src\_\-dec, }
 \item[{int}]{dst\_\-dec, }
 \item[{int}]{vram\_\-irq, }
 \item[{int}]{satb\_\-irq}
 \end{DoxyParamCaption}
 )}}
-\label{7up_8h_aaac622c10c1c3977f1bdf6ac8d5d357f}
+\label{7up_8h_a010e137a4b3cf483ddaadfabf3c7bca8}
 
 
 Setup the DMA on a 7up. 
@@ -403,7 +403,7 @@ Setup the DMA on a 7up.
 \begin{DoxyParams}{Parameters}
 {\em chip} & Which 7up to setup the DMA on. (0 $\sim$ 1) \\
 \hline
-{\em dsr\_\-dma} & Whether to do a DSR DMA ``(VRAM-\/SATB transfer repetition)'' \\
+{\em satb\_\-repeat} & Whether to continually DMA the SATB after a transfer. \\
 \hline
 {\em src\_\-dec} & If 1, decrement the source address for each transfer. Otherwise, increment it. \\
 \hline

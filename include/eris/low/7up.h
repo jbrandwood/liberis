@@ -114,7 +114,7 @@ void eris_low_7up_do_dma(int chip, u16 src, u16 dst, u16 len);
 /*! \brief Setup the DMA on a 7up.
  *
  * \param chip Which 7up to setup the DMA on. (0 ~ 1)
- * \param dsr_dma Whether to do a DSR DMA ``(VRAM-SATB transfer repetition)''
+ * \param satb_repeat Whether to continually DMA the SATB after a transfer.
  * \param src_dec If 1, decrement the source address for each transfer.
  *                Otherwise, increment it.
  * \param dst_dec If 1, decrement the destination address for each transfer.
@@ -122,8 +122,8 @@ void eris_low_7up_do_dma(int chip, u16 src, u16 dst, u16 len);
  * \param vram_irq Fire an IRQ at the end of a VRAM->VRAM transfer.
  * \param satb_irq Fire an IRq at the end of a VRAM->SATB transfer.
  */
-void eris_low_7up_setup_dma(int chip, int dsr_dma, int src_dec, int dst_dec,
-				int vram_irq, int satb_irq);
+void eris_low_7up_setup_dma(int chip, int satb_repeat, int src_dec,
+				int dst_dec, int vram_irq, int satb_irq);
 /*! \brief Sets the Sprite Attribute Table Block address.
  *
  * Setting the address starts a VRAM->SATB DMA.

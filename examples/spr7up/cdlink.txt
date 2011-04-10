@@ -1,0 +1,7 @@
+binary ./spr7up.bin
+name 7up Sprite Example
+maker trap15
+makerid TFX
+date 20110410
+country 1
+version 256

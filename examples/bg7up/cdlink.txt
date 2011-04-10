@@ -1,7 +1,7 @@
-binary ./7upbg.bin
+binary ./bg7up.bin
 name 7up Background Example
 maker trap15
 makerid TFX
-date 20110407
+date 20110410
 country 1
 version 256

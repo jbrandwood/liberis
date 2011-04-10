@@ -1,6 +1,6 @@
-.PHONY: all hello fxbmp fxpad cellophane psg 7upbg clean
+.PHONY: all hello fxbmp fxpad cellophane psg bg7up spr7up clean
 
-all: hello fxbmp fxpad cellophane psg 7upbg
+all: hello fxbmp fxpad cellophane psg bg7up spr7up
 
 hello:
 	make -C $@
@@ -12,7 +12,9 @@ cellophane:
 	make -C $@
 psg:
 	make -C $@
-7upbg:
+bg7up:
+	make -C $@
+spr7up:
 	make -C $@
 
 clean:
@@ -21,5 +23,6 @@ clean:
 	make -C fxpad clean
 	make -C cellophane clean
 	make -C psg clean
-	make -C 7upbg clean
+	make -C bg7up clean
+	make -C spr7up clean
 
