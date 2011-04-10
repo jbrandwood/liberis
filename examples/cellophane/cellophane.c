@@ -28,7 +28,7 @@ int main(int argc, char *argv[])
 	eris_king_init();
 	eris_tetsu_init();
 	
-	eris_tetsu_set_priorities(0, 0, 0, 1, 0, 0, 0);
+	eris_tetsu_set_priorities(0, 0, 1, 0, 0, 0, 0);
 	eris_tetsu_set_7up_palette(0, 0);
 	eris_tetsu_set_king_palette(0, 0, 0, 0);
 	eris_tetsu_set_rainbow_palette(0);
