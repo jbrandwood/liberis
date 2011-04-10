@@ -1,0 +1,501 @@
+\hypertarget{tetsu_8h}{
+\section{include/eris/tetsu.h File Reference}
+\label{tetsu_8h}\index{include/eris/tetsu.h@{include/eris/tetsu.h}}
+}
+
+
+Controls the NEW Iron Guanyin (Tetsu kannon) chip (Video Controller)  
+
+
+{\ttfamily \#include $<$eris/types.h$>$}\par
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{tetsu_8h_a9ca40f0f135f3608d420a30efb4774a1}{tetsu\_\-lines} \{ \hyperlink{tetsu_8h_a9ca40f0f135f3608d420a30efb4774a1a6b3228238481039f51441ffe1974c546}{TETSU\_\-LINES\_\-263} =  0, 
+\hyperlink{tetsu_8h_a9ca40f0f135f3608d420a30efb4774a1af25bdc4cb68d942bfebbd1f2f326c93f}{TETSU\_\-LINES\_\-262} =  1, 
+\hyperlink{tetsu_8h_a9ca40f0f135f3608d420a30efb4774a1a7405f9e56d13b2f9954f1a3a150710ea}{TETSU\_\-LINES\_\-INTERLACED} =  2, 
+\hyperlink{tetsu_8h_a9ca40f0f135f3608d420a30efb4774a1a5ae47ccf127f699817e17af80394ba98}{TETSU\_\-LINES\_\-UNKNOWN} =  3
+ \}
+\begin{DoxyCompactList}\small\item\em Number of vertical lines to display. \item\end{DoxyCompactList}\item 
+enum \hyperlink{tetsu_8h_a926df980dc55df9ed672ad52aadf1463}{tetsu\_\-dotclock} \{ \hyperlink{tetsu_8h_a926df980dc55df9ed672ad52aadf1463a2a7e312c1c0f24fd8a6db0dddfd02b17}{TETSU\_\-DOTCLOCK\_\-5MHz} =  0, 
+\hyperlink{tetsu_8h_a926df980dc55df9ed672ad52aadf1463aef9af32ec7cfa106865f86570b148e70}{TETUS\_\-DOTCLOCK\_\-7MHz} =  1
+ \}
+\begin{DoxyCompactList}\small\item\em Dot clock. Determines screen width. \item\end{DoxyCompactList}\item 
+enum \hyperlink{tetsu_8h_a8bab3d269ef67c60fcea27f56f324f8f}{tetsu\_\-colordepth} \{ \hyperlink{tetsu_8h_a8bab3d269ef67c60fcea27f56f324f8fa2121538e57c6fdc5a452e3f12efd0dbe}{TETSU\_\-COLORS\_\-16} =  0, 
+\hyperlink{tetsu_8h_a8bab3d269ef67c60fcea27f56f324f8fa60f22a58fc39ed7c40bb512ebf811cf6}{TETSU\_\-COLORS\_\-256} =  1
+ \}
+\begin{DoxyCompactList}\small\item\em Amount of colors (to display?). \item\end{DoxyCompactList}\item 
+enum \hyperlink{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cf}{tetsu\_\-coeff} \{ \hyperlink{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cfa5a600aa804dc9231a0c90636b5db634a}{TETSU\_\-NO\_\-COEFF} =  0, 
+\hyperlink{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cfa929367afdbccee36bfe40dcb6b6d004c}{TETSU\_\-COEFF\_\-1} =  1, 
+\hyperlink{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cfa4af32b85154bafe82ecd6e1cda07ae4e}{TETSU\_\-COEFF\_\-2} =  2, 
+\hyperlink{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cfaa189c02534840e99590aa8319436e47f}{TETSU\_\-COEFF\_\-3} =  3
+ \}
+\begin{DoxyCompactList}\small\item\em Which coefficient to use for cellophane. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{tetsu_8h_aeb2b0734127d11f7eb9745e1d8debe17}{
+void \hyperlink{tetsu_8h_aeb2b0734127d11f7eb9745e1d8debe17}{eris\_\-tetsu\_\-init} ()}
+\label{tetsu_8h_aeb2b0734127d11f7eb9745e1d8debe17}
+
+\begin{DoxyCompactList}\small\item\em Initialize the NEW Iron Guanyin. \item\end{DoxyCompactList}\item 
+void \hyperlink{tetsu_8h_a02f1a3ae79ef6067a76a740d3b012303}{eris\_\-tetsu\_\-set\_\-video\_\-mode} (\hyperlink{tetsu_8h_a9ca40f0f135f3608d420a30efb4774a1}{tetsu\_\-lines} lines, int ext\_\-sync, \hyperlink{tetsu_8h_a926df980dc55df9ed672ad52aadf1463}{tetsu\_\-dotclock} dotclock, \hyperlink{tetsu_8h_a8bab3d269ef67c60fcea27f56f324f8f}{tetsu\_\-colordepth} bg\_\-depth, \hyperlink{tetsu_8h_a8bab3d269ef67c60fcea27f56f324f8f}{tetsu\_\-colordepth} spr\_\-depth, int bg7up\_\-show, int spr7up\_\-show, int bg0\_\-disp, int bg1\_\-disp, int bg2\_\-disp, int bg3\_\-disp, int rainbow\_\-disp)
+\begin{DoxyCompactList}\small\item\em Setup the video mode. \item\end{DoxyCompactList}\item 
+void \hyperlink{tetsu_8h_ada7da835e53a9217102bdfb9f3c399b4}{eris\_\-tetsu\_\-set\_\-palette} (\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} pal\_\-entry, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} color)
+\begin{DoxyCompactList}\small\item\em Set a palette entry. \item\end{DoxyCompactList}\item 
+void \hyperlink{tetsu_8h_a6ce7b48204cfcb69f26b1b4d9d4a68a0}{eris\_\-tetsu\_\-set\_\-7up\_\-palette} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} bg7up, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} spr7up)
+\begin{DoxyCompactList}\small\item\em Which palette to use for the 7up chips. \item\end{DoxyCompactList}\item 
+void \hyperlink{tetsu_8h_a2f79d76c02c57cbea6d5f3f2c8c4cf64}{eris\_\-tetsu\_\-set\_\-king\_\-palette} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} bg0, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} bg1, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} bg2, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} bg3)
+\begin{DoxyCompactList}\small\item\em Which palette to use for the KING backgrounds. \item\end{DoxyCompactList}\item 
+void \hyperlink{tetsu_8h_a778e4f80200c2b59eccddb49eee0e33a}{eris\_\-tetsu\_\-set\_\-rainbow\_\-palette} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} rainbow)
+\begin{DoxyCompactList}\small\item\em Which palette to use for RAIBOW. \item\end{DoxyCompactList}\item 
+void \hyperlink{tetsu_8h_a10fb83dd3870bfb5a77d10206902a9be}{eris\_\-tetsu\_\-set\_\-priorities} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} bg7up, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} spr7up, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} bg0, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} bg1, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} bg2, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} bg3, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} rainbow)
+\begin{DoxyCompactList}\small\item\em Set layer priorities. \item\end{DoxyCompactList}\item 
+void \hyperlink{tetsu_8h_aca0fefa37358d3d28ea8661e999d396a}{eris\_\-tetsu\_\-set\_\-chroma\_\-key} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} maxy, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} miny, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} maxu, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} minu, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} maxv, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} minv)
+\begin{DoxyCompactList}\small\item\em Set chroma color key values. \item\end{DoxyCompactList}\item 
+void \hyperlink{tetsu_8h_a7d5331b018d29a22b40fefc60000855d}{eris\_\-tetsu\_\-set\_\-cellophane\_\-color} (\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} color)
+\begin{DoxyCompactList}\small\item\em Sets the constant color for the cellophane. \item\end{DoxyCompactList}\item 
+void \hyperlink{tetsu_8h_a1da577330feacee986037badf5e137a8}{eris\_\-tetsu\_\-set\_\-cellophane\_\-sprites} (int $\ast$banks)
+\begin{DoxyCompactList}\small\item\em Sets cellophane activity on sprites. \item\end{DoxyCompactList}\item 
+void \hyperlink{tetsu_8h_a68ad431e322a17d73f0122816cc55e22}{eris\_\-tetsu\_\-set\_\-cellophane\_\-control} (int enable, int in\_\-front, \hyperlink{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cf}{tetsu\_\-coeff} bg7up, \hyperlink{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cf}{tetsu\_\-coeff} spr7up, \hyperlink{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cf}{tetsu\_\-coeff} bg0, \hyperlink{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cf}{tetsu\_\-coeff} bg1, \hyperlink{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cf}{tetsu\_\-coeff} bg2, \hyperlink{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cf}{tetsu\_\-coeff} bg3, \hyperlink{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cf}{tetsu\_\-coeff} rainbow)
+\begin{DoxyCompactList}\small\item\em Set cellophane control. \item\end{DoxyCompactList}\item 
+void \hyperlink{tetsu_8h_a3970c60af44628bc2d904b16bde7af92}{eris\_\-tetsu\_\-set\_\-cellophane\_\-coeffs} (int coeff, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} ay, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} au, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} av, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} by, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} bu, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} bv)
+\begin{DoxyCompactList}\small\item\em Set a cellophane coefficient. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Controls the NEW Iron Guanyin (Tetsu kannon) chip (Video Controller) 
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cf}{
+\index{tetsu.h@{tetsu.h}!tetsu\_\-coeff@{tetsu\_\-coeff}}
+\index{tetsu\_\-coeff@{tetsu\_\-coeff}!tetsu.h@{tetsu.h}}
+\subsubsection[{tetsu\_\-coeff}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf tetsu\_\-coeff}}}
+\label{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cf}
+
+
+Which coefficient to use for cellophane. 
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{TETSU\_\-NO\_\-COEFF@{TETSU\_\-NO\_\-COEFF}!tetsu.h@{tetsu.h}}\index{tetsu.h@{tetsu.h}!TETSU\_\-NO\_\-COEFF@{TETSU\_\-NO\_\-COEFF}}\item[{\em 
+\hypertarget{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cfa5a600aa804dc9231a0c90636b5db634a}{
+TETSU\_\-NO\_\-COEFF}
+\label{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cfa5a600aa804dc9231a0c90636b5db634a}
+}]No coefficient (no cellophane). \index{TETSU\_\-COEFF\_\-1@{TETSU\_\-COEFF\_\-1}!tetsu.h@{tetsu.h}}\index{tetsu.h@{tetsu.h}!TETSU\_\-COEFF\_\-1@{TETSU\_\-COEFF\_\-1}}\item[{\em 
+\hypertarget{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cfa929367afdbccee36bfe40dcb6b6d004c}{
+TETSU\_\-COEFF\_\-1}
+\label{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cfa929367afdbccee36bfe40dcb6b6d004c}
+}]Coefficient 1 \index{TETSU\_\-COEFF\_\-2@{TETSU\_\-COEFF\_\-2}!tetsu.h@{tetsu.h}}\index{tetsu.h@{tetsu.h}!TETSU\_\-COEFF\_\-2@{TETSU\_\-COEFF\_\-2}}\item[{\em 
+\hypertarget{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cfa4af32b85154bafe82ecd6e1cda07ae4e}{
+TETSU\_\-COEFF\_\-2}
+\label{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cfa4af32b85154bafe82ecd6e1cda07ae4e}
+}]Coefficient 2 \index{TETSU\_\-COEFF\_\-3@{TETSU\_\-COEFF\_\-3}!tetsu.h@{tetsu.h}}\index{tetsu.h@{tetsu.h}!TETSU\_\-COEFF\_\-3@{TETSU\_\-COEFF\_\-3}}\item[{\em 
+\hypertarget{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cfaa189c02534840e99590aa8319436e47f}{
+TETSU\_\-COEFF\_\-3}
+\label{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cfaa189c02534840e99590aa8319436e47f}
+}]Coefficient 3 \end{description}
+\end{Desc}
+
+\hypertarget{tetsu_8h_a8bab3d269ef67c60fcea27f56f324f8f}{
+\index{tetsu.h@{tetsu.h}!tetsu\_\-colordepth@{tetsu\_\-colordepth}}
+\index{tetsu\_\-colordepth@{tetsu\_\-colordepth}!tetsu.h@{tetsu.h}}
+\subsubsection[{tetsu\_\-colordepth}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf tetsu\_\-colordepth}}}
+\label{tetsu_8h_a8bab3d269ef67c60fcea27f56f324f8f}
+
+
+Amount of colors (to display?). 
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{TETSU\_\-COLORS\_\-16@{TETSU\_\-COLORS\_\-16}!tetsu.h@{tetsu.h}}\index{tetsu.h@{tetsu.h}!TETSU\_\-COLORS\_\-16@{TETSU\_\-COLORS\_\-16}}\item[{\em 
+\hypertarget{tetsu_8h_a8bab3d269ef67c60fcea27f56f324f8fa2121538e57c6fdc5a452e3f12efd0dbe}{
+TETSU\_\-COLORS\_\-16}
+\label{tetsu_8h_a8bab3d269ef67c60fcea27f56f324f8fa2121538e57c6fdc5a452e3f12efd0dbe}
+}]16 colors \index{TETSU\_\-COLORS\_\-256@{TETSU\_\-COLORS\_\-256}!tetsu.h@{tetsu.h}}\index{tetsu.h@{tetsu.h}!TETSU\_\-COLORS\_\-256@{TETSU\_\-COLORS\_\-256}}\item[{\em 
+\hypertarget{tetsu_8h_a8bab3d269ef67c60fcea27f56f324f8fa60f22a58fc39ed7c40bb512ebf811cf6}{
+TETSU\_\-COLORS\_\-256}
+\label{tetsu_8h_a8bab3d269ef67c60fcea27f56f324f8fa60f22a58fc39ed7c40bb512ebf811cf6}
+}]256 colors \end{description}
+\end{Desc}
+
+\hypertarget{tetsu_8h_a926df980dc55df9ed672ad52aadf1463}{
+\index{tetsu.h@{tetsu.h}!tetsu\_\-dotclock@{tetsu\_\-dotclock}}
+\index{tetsu\_\-dotclock@{tetsu\_\-dotclock}!tetsu.h@{tetsu.h}}
+\subsubsection[{tetsu\_\-dotclock}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf tetsu\_\-dotclock}}}
+\label{tetsu_8h_a926df980dc55df9ed672ad52aadf1463}
+
+
+Dot clock. Determines screen width. 
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{TETSU\_\-DOTCLOCK\_\-5MHz@{TETSU\_\-DOTCLOCK\_\-5MHz}!tetsu.h@{tetsu.h}}\index{tetsu.h@{tetsu.h}!TETSU\_\-DOTCLOCK\_\-5MHz@{TETSU\_\-DOTCLOCK\_\-5MHz}}\item[{\em 
+\hypertarget{tetsu_8h_a926df980dc55df9ed672ad52aadf1463a2a7e312c1c0f24fd8a6db0dddfd02b17}{
+TETSU\_\-DOTCLOCK\_\-5MHz}
+\label{tetsu_8h_a926df980dc55df9ed672ad52aadf1463a2a7e312c1c0f24fd8a6db0dddfd02b17}
+}]$\sim$5MHz dot clock. 256px wide. \index{TETUS\_\-DOTCLOCK\_\-7MHz@{TETUS\_\-DOTCLOCK\_\-7MHz}!tetsu.h@{tetsu.h}}\index{tetsu.h@{tetsu.h}!TETUS\_\-DOTCLOCK\_\-7MHz@{TETUS\_\-DOTCLOCK\_\-7MHz}}\item[{\em 
+\hypertarget{tetsu_8h_a926df980dc55df9ed672ad52aadf1463aef9af32ec7cfa106865f86570b148e70}{
+TETUS\_\-DOTCLOCK\_\-7MHz}
+\label{tetsu_8h_a926df980dc55df9ed672ad52aadf1463aef9af32ec7cfa106865f86570b148e70}
+}]$\sim$7MHz dot clock. 320px wide. \end{description}
+\end{Desc}
+
+\hypertarget{tetsu_8h_a9ca40f0f135f3608d420a30efb4774a1}{
+\index{tetsu.h@{tetsu.h}!tetsu\_\-lines@{tetsu\_\-lines}}
+\index{tetsu\_\-lines@{tetsu\_\-lines}!tetsu.h@{tetsu.h}}
+\subsubsection[{tetsu\_\-lines}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf tetsu\_\-lines}}}
+\label{tetsu_8h_a9ca40f0f135f3608d420a30efb4774a1}
+
+
+Number of vertical lines to display. 
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{TETSU\_\-LINES\_\-263@{TETSU\_\-LINES\_\-263}!tetsu.h@{tetsu.h}}\index{tetsu.h@{tetsu.h}!TETSU\_\-LINES\_\-263@{TETSU\_\-LINES\_\-263}}\item[{\em 
+\hypertarget{tetsu_8h_a9ca40f0f135f3608d420a30efb4774a1a6b3228238481039f51441ffe1974c546}{
+TETSU\_\-LINES\_\-263}
+\label{tetsu_8h_a9ca40f0f135f3608d420a30efb4774a1a6b3228238481039f51441ffe1974c546}
+}]263 lines. A little flickery, but less cross-\/talk. \index{TETSU\_\-LINES\_\-262@{TETSU\_\-LINES\_\-262}!tetsu.h@{tetsu.h}}\index{tetsu.h@{tetsu.h}!TETSU\_\-LINES\_\-262@{TETSU\_\-LINES\_\-262}}\item[{\em 
+\hypertarget{tetsu_8h_a9ca40f0f135f3608d420a30efb4774a1af25bdc4cb68d942bfebbd1f2f326c93f}{
+TETSU\_\-LINES\_\-262}
+\label{tetsu_8h_a9ca40f0f135f3608d420a30efb4774a1af25bdc4cb68d942bfebbd1f2f326c93f}
+}]262 lines. No flicker, but lots of cross-\/talk. \index{TETSU\_\-LINES\_\-INTERLACED@{TETSU\_\-LINES\_\-INTERLACED}!tetsu.h@{tetsu.h}}\index{tetsu.h@{tetsu.h}!TETSU\_\-LINES\_\-INTERLACED@{TETSU\_\-LINES\_\-INTERLACED}}\item[{\em 
+\hypertarget{tetsu_8h_a9ca40f0f135f3608d420a30efb4774a1a7405f9e56d13b2f9954f1a3a150710ea}{
+TETSU\_\-LINES\_\-INTERLACED}
+\label{tetsu_8h_a9ca40f0f135f3608d420a30efb4774a1a7405f9e56d13b2f9954f1a3a150710ea}
+}]Interlaced. Very flickery. \index{TETSU\_\-LINES\_\-UNKNOWN@{TETSU\_\-LINES\_\-UNKNOWN}!tetsu.h@{tetsu.h}}\index{tetsu.h@{tetsu.h}!TETSU\_\-LINES\_\-UNKNOWN@{TETSU\_\-LINES\_\-UNKNOWN}}\item[{\em 
+\hypertarget{tetsu_8h_a9ca40f0f135f3608d420a30efb4774a1a5ae47ccf127f699817e17af80394ba98}{
+TETSU\_\-LINES\_\-UNKNOWN}
+\label{tetsu_8h_a9ca40f0f135f3608d420a30efb4774a1a5ae47ccf127f699817e17af80394ba98}
+}]Interlaced + 1/2dot shift?. Flickery$^\wedge$2 \end{description}
+\end{Desc}
+
+
+
+\subsection{Function Documentation}
+\hypertarget{tetsu_8h_a6ce7b48204cfcb69f26b1b4d9d4a68a0}{
+\index{tetsu.h@{tetsu.h}!eris\_\-tetsu\_\-set\_\-7up\_\-palette@{eris\_\-tetsu\_\-set\_\-7up\_\-palette}}
+\index{eris\_\-tetsu\_\-set\_\-7up\_\-palette@{eris\_\-tetsu\_\-set\_\-7up\_\-palette}!tetsu.h@{tetsu.h}}
+\subsubsection[{eris\_\-tetsu\_\-set\_\-7up\_\-palette}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-tetsu\_\-set\_\-7up\_\-palette (
+\begin{DoxyParamCaption}
+\item[{{\bf u8}}]{bg7up, }
+\item[{{\bf u8}}]{spr7up}
+\end{DoxyParamCaption}
+)}}
+\label{tetsu_8h_a6ce7b48204cfcb69f26b1b4d9d4a68a0}
+
+
+Which palette to use for the 7up chips. 
+
+Palettes are actually indexes into the palette which is the first color to the chip. For example, if bg7up was 4, then the 4th palette entry would be color 0, 5th would be 1, etc. 
+\begin{DoxyParams}{Parameters}
+{\em bg7up} & Which palette to use for 7up backgrounds. \\
+\hline
+{\em spr7up} & Which palette to use for 7up sprites. \\
+\hline
+\end{DoxyParams}
+\hypertarget{tetsu_8h_a3970c60af44628bc2d904b16bde7af92}{
+\index{tetsu.h@{tetsu.h}!eris\_\-tetsu\_\-set\_\-cellophane\_\-coeffs@{eris\_\-tetsu\_\-set\_\-cellophane\_\-coeffs}}
+\index{eris\_\-tetsu\_\-set\_\-cellophane\_\-coeffs@{eris\_\-tetsu\_\-set\_\-cellophane\_\-coeffs}!tetsu.h@{tetsu.h}}
+\subsubsection[{eris\_\-tetsu\_\-set\_\-cellophane\_\-coeffs}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-tetsu\_\-set\_\-cellophane\_\-coeffs (
+\begin{DoxyParamCaption}
+\item[{int}]{coeff, }
+\item[{{\bf u8}}]{ay, }
+\item[{{\bf u8}}]{au, }
+\item[{{\bf u8}}]{av, }
+\item[{{\bf u8}}]{by, }
+\item[{{\bf u8}}]{bu, }
+\item[{{\bf u8}}]{bv}
+\end{DoxyParamCaption}
+)}}
+\label{tetsu_8h_a3970c60af44628bc2d904b16bde7af92}
+
+
+Set a cellophane coefficient. 
+
+For coefficient information, see hardware documentation. 
+\begin{DoxyParams}{Parameters}
+{\em coeff} & Which coefficient to set the information for. (1 $\sim$ 3) \\
+\hline
+{\em ay} & Y component of the A coefficient. \\
+\hline
+{\em au} & U component of the A coefficient. \\
+\hline
+{\em av} & V component of the A coefficient. \\
+\hline
+{\em by} & Y component of the B coefficient. \\
+\hline
+{\em bu} & U component of the B coefficient. \\
+\hline
+{\em bv} & V component of the B coefficient. \\
+\hline
+\end{DoxyParams}
+\hypertarget{tetsu_8h_a7d5331b018d29a22b40fefc60000855d}{
+\index{tetsu.h@{tetsu.h}!eris\_\-tetsu\_\-set\_\-cellophane\_\-color@{eris\_\-tetsu\_\-set\_\-cellophane\_\-color}}
+\index{eris\_\-tetsu\_\-set\_\-cellophane\_\-color@{eris\_\-tetsu\_\-set\_\-cellophane\_\-color}!tetsu.h@{tetsu.h}}
+\subsubsection[{eris\_\-tetsu\_\-set\_\-cellophane\_\-color}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-tetsu\_\-set\_\-cellophane\_\-color (
+\begin{DoxyParamCaption}
+\item[{{\bf u16}}]{color}
+\end{DoxyParamCaption}
+)}}
+\label{tetsu_8h_a7d5331b018d29a22b40fefc60000855d}
+
+
+Sets the constant color for the cellophane. 
+
+This color is either the color of the cellophane (in the case of it being in front) or the color of the background (in the case of it being in back). 
+\begin{DoxyParams}{Parameters}
+{\em color} & Color in Y8U4V4 format. \\
+\hline
+\end{DoxyParams}
+\hypertarget{tetsu_8h_a68ad431e322a17d73f0122816cc55e22}{
+\index{tetsu.h@{tetsu.h}!eris\_\-tetsu\_\-set\_\-cellophane\_\-control@{eris\_\-tetsu\_\-set\_\-cellophane\_\-control}}
+\index{eris\_\-tetsu\_\-set\_\-cellophane\_\-control@{eris\_\-tetsu\_\-set\_\-cellophane\_\-control}!tetsu.h@{tetsu.h}}
+\subsubsection[{eris\_\-tetsu\_\-set\_\-cellophane\_\-control}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-tetsu\_\-set\_\-cellophane\_\-control (
+\begin{DoxyParamCaption}
+\item[{int}]{enable, }
+\item[{int}]{in\_\-front, }
+\item[{{\bf tetsu\_\-coeff}}]{bg7up, }
+\item[{{\bf tetsu\_\-coeff}}]{spr7up, }
+\item[{{\bf tetsu\_\-coeff}}]{bg0, }
+\item[{{\bf tetsu\_\-coeff}}]{bg1, }
+\item[{{\bf tetsu\_\-coeff}}]{bg2, }
+\item[{{\bf tetsu\_\-coeff}}]{bg3, }
+\item[{{\bf tetsu\_\-coeff}}]{rainbow}
+\end{DoxyParamCaption}
+)}}
+\label{tetsu_8h_a68ad431e322a17d73f0122816cc55e22}
+
+
+Set cellophane control. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em enable} & Whether the cellophane is being used or not. \\
+\hline
+{\em in\_\-front} & Whether the cellophane is the constant color, or the active surfaces. If 1, it is the constant color. \\
+\hline
+{\em bg7up} & Which coefficient to use for 7up backgrounds. \\
+\hline
+{\em spr7up} & Which coefficient to use for 7up sprites. \\
+\hline
+{\em bg0} & Which coefficient to use for KING BG0. \\
+\hline
+{\em bg1} & Which coefficient to use for KING BG1. \\
+\hline
+{\em bg2} & Which coefficient to use for KING BG2. \\
+\hline
+{\em bg3} & Which coefficient to use for KING BG3. \\
+\hline
+{\em rainbow} & Which coefficient to use for RAINBOW output. \\
+\hline
+\end{DoxyParams}
+\hypertarget{tetsu_8h_a1da577330feacee986037badf5e137a8}{
+\index{tetsu.h@{tetsu.h}!eris\_\-tetsu\_\-set\_\-cellophane\_\-sprites@{eris\_\-tetsu\_\-set\_\-cellophane\_\-sprites}}
+\index{eris\_\-tetsu\_\-set\_\-cellophane\_\-sprites@{eris\_\-tetsu\_\-set\_\-cellophane\_\-sprites}!tetsu.h@{tetsu.h}}
+\subsubsection[{eris\_\-tetsu\_\-set\_\-cellophane\_\-sprites}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-tetsu\_\-set\_\-cellophane\_\-sprites (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{banks}
+\end{DoxyParamCaption}
+)}}
+\label{tetsu_8h_a1da577330feacee986037badf5e137a8}
+
+
+Sets cellophane activity on sprites. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em banks} & A 16-\/element array of 1s or 0s that contains whether that color palette bank receives cellophane treatment. \\
+\hline
+\end{DoxyParams}
+\hypertarget{tetsu_8h_aca0fefa37358d3d28ea8661e999d396a}{
+\index{tetsu.h@{tetsu.h}!eris\_\-tetsu\_\-set\_\-chroma\_\-key@{eris\_\-tetsu\_\-set\_\-chroma\_\-key}}
+\index{eris\_\-tetsu\_\-set\_\-chroma\_\-key@{eris\_\-tetsu\_\-set\_\-chroma\_\-key}!tetsu.h@{tetsu.h}}
+\subsubsection[{eris\_\-tetsu\_\-set\_\-chroma\_\-key}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-tetsu\_\-set\_\-chroma\_\-key (
+\begin{DoxyParamCaption}
+\item[{{\bf u8}}]{maxy, }
+\item[{{\bf u8}}]{miny, }
+\item[{{\bf u8}}]{maxu, }
+\item[{{\bf u8}}]{minu, }
+\item[{{\bf u8}}]{maxv, }
+\item[{{\bf u8}}]{minv}
+\end{DoxyParamCaption}
+)}}
+\label{tetsu_8h_aca0fefa37358d3d28ea8661e999d396a}
+
+
+Set chroma color key values. 
+
+Disable each colorkey by setting the minimum higher than the maximum. 
+\begin{DoxyParams}{Parameters}
+{\em maxy} & Maximum Y. \\
+\hline
+{\em miny} & Minimum Y. \\
+\hline
+{\em maxu} & Maximum U. \\
+\hline
+{\em minu} & Minimum U. \\
+\hline
+{\em maxv} & Maximum V. \\
+\hline
+{\em minv} & Minimum V. \\
+\hline
+\end{DoxyParams}
+\hypertarget{tetsu_8h_a2f79d76c02c57cbea6d5f3f2c8c4cf64}{
+\index{tetsu.h@{tetsu.h}!eris\_\-tetsu\_\-set\_\-king\_\-palette@{eris\_\-tetsu\_\-set\_\-king\_\-palette}}
+\index{eris\_\-tetsu\_\-set\_\-king\_\-palette@{eris\_\-tetsu\_\-set\_\-king\_\-palette}!tetsu.h@{tetsu.h}}
+\subsubsection[{eris\_\-tetsu\_\-set\_\-king\_\-palette}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-tetsu\_\-set\_\-king\_\-palette (
+\begin{DoxyParamCaption}
+\item[{{\bf u8}}]{bg0, }
+\item[{{\bf u8}}]{bg1, }
+\item[{{\bf u8}}]{bg2, }
+\item[{{\bf u8}}]{bg3}
+\end{DoxyParamCaption}
+)}}
+\label{tetsu_8h_a2f79d76c02c57cbea6d5f3f2c8c4cf64}
+
+
+Which palette to use for the KING backgrounds. 
+
+Palettes are actually indexes into the palette which is the first color to the chip. For example, if bg0 was 4, then the 4th palette entry would be color 0, 5th would be 1, etc. 
+\begin{DoxyParams}{Parameters}
+{\em bg0} & Which palette to use for KING background 0. \\
+\hline
+{\em bg1} & Which palette to use for KING background 1. \\
+\hline
+{\em bg2} & Which palette to use for KING background 2. \\
+\hline
+{\em bg3} & Which palette to use for KING background 3. \\
+\hline
+\end{DoxyParams}
+\hypertarget{tetsu_8h_ada7da835e53a9217102bdfb9f3c399b4}{
+\index{tetsu.h@{tetsu.h}!eris\_\-tetsu\_\-set\_\-palette@{eris\_\-tetsu\_\-set\_\-palette}}
+\index{eris\_\-tetsu\_\-set\_\-palette@{eris\_\-tetsu\_\-set\_\-palette}!tetsu.h@{tetsu.h}}
+\subsubsection[{eris\_\-tetsu\_\-set\_\-palette}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-tetsu\_\-set\_\-palette (
+\begin{DoxyParamCaption}
+\item[{{\bf u16}}]{pal\_\-entry, }
+\item[{{\bf u16}}]{color}
+\end{DoxyParamCaption}
+)}}
+\label{tetsu_8h_ada7da835e53a9217102bdfb9f3c399b4}
+
+
+Set a palette entry. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pal\_\-entry} & Which palette entry to set the color of. \\
+\hline
+{\em color} & The color to set. In Y8U4V4 format. \\
+\hline
+\end{DoxyParams}
+\hypertarget{tetsu_8h_a10fb83dd3870bfb5a77d10206902a9be}{
+\index{tetsu.h@{tetsu.h}!eris\_\-tetsu\_\-set\_\-priorities@{eris\_\-tetsu\_\-set\_\-priorities}}
+\index{eris\_\-tetsu\_\-set\_\-priorities@{eris\_\-tetsu\_\-set\_\-priorities}!tetsu.h@{tetsu.h}}
+\subsubsection[{eris\_\-tetsu\_\-set\_\-priorities}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-tetsu\_\-set\_\-priorities (
+\begin{DoxyParamCaption}
+\item[{{\bf u8}}]{bg7up, }
+\item[{{\bf u8}}]{spr7up, }
+\item[{{\bf u8}}]{bg0, }
+\item[{{\bf u8}}]{bg1, }
+\item[{{\bf u8}}]{bg2, }
+\item[{{\bf u8}}]{bg3, }
+\item[{{\bf u8}}]{rainbow}
+\end{DoxyParamCaption}
+)}}
+\label{tetsu_8h_a10fb83dd3870bfb5a77d10206902a9be}
+
+
+Set layer priorities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bg7up} & Priority for the 7up backgrounds. (0 $\sim$ 7) \\
+\hline
+{\em spr7up} & Priority for the 7up sprites. (0 $\sim$ 7) \\
+\hline
+{\em bg0} & Priority for KING BG0. (0 $\sim$ 7) \\
+\hline
+{\em bg1} & Priority for KING BG1. (0 $\sim$ 7) \\
+\hline
+{\em bg2} & Priority for KING BG2. (0 $\sim$ 7) \\
+\hline
+{\em bg3} & Priority for KING BG3. (0 $\sim$ 7) \\
+\hline
+{\em rainbow} & Priority for RAINBOW. (0 $\sim$ 7) \\
+\hline
+\end{DoxyParams}
+\hypertarget{tetsu_8h_a778e4f80200c2b59eccddb49eee0e33a}{
+\index{tetsu.h@{tetsu.h}!eris\_\-tetsu\_\-set\_\-rainbow\_\-palette@{eris\_\-tetsu\_\-set\_\-rainbow\_\-palette}}
+\index{eris\_\-tetsu\_\-set\_\-rainbow\_\-palette@{eris\_\-tetsu\_\-set\_\-rainbow\_\-palette}!tetsu.h@{tetsu.h}}
+\subsubsection[{eris\_\-tetsu\_\-set\_\-rainbow\_\-palette}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-tetsu\_\-set\_\-rainbow\_\-palette (
+\begin{DoxyParamCaption}
+\item[{{\bf u8}}]{rainbow}
+\end{DoxyParamCaption}
+)}}
+\label{tetsu_8h_a778e4f80200c2b59eccddb49eee0e33a}
+
+
+Which palette to use for RAIBOW. 
+
+Palettes are actually indexes into the palette which is the first color to the chip. For example, if raibow was 4, then the 4th palette entry would be color 0, 5th would be 1, etc. 
+\begin{DoxyParams}{Parameters}
+{\em rainbow} & Which palette to use for RAIBOW. \\
+\hline
+\end{DoxyParams}
+\hypertarget{tetsu_8h_a02f1a3ae79ef6067a76a740d3b012303}{
+\index{tetsu.h@{tetsu.h}!eris\_\-tetsu\_\-set\_\-video\_\-mode@{eris\_\-tetsu\_\-set\_\-video\_\-mode}}
+\index{eris\_\-tetsu\_\-set\_\-video\_\-mode@{eris\_\-tetsu\_\-set\_\-video\_\-mode}!tetsu.h@{tetsu.h}}
+\subsubsection[{eris\_\-tetsu\_\-set\_\-video\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-tetsu\_\-set\_\-video\_\-mode (
+\begin{DoxyParamCaption}
+\item[{{\bf tetsu\_\-lines}}]{lines, }
+\item[{int}]{ext\_\-sync, }
+\item[{{\bf tetsu\_\-dotclock}}]{dotclock, }
+\item[{{\bf tetsu\_\-colordepth}}]{bg\_\-depth, }
+\item[{{\bf tetsu\_\-colordepth}}]{spr\_\-depth, }
+\item[{int}]{bg7up\_\-show, }
+\item[{int}]{spr7up\_\-show, }
+\item[{int}]{bg0\_\-disp, }
+\item[{int}]{bg1\_\-disp, }
+\item[{int}]{bg2\_\-disp, }
+\item[{int}]{bg3\_\-disp, }
+\item[{int}]{rainbow\_\-disp}
+\end{DoxyParamCaption}
+)}}
+\label{tetsu_8h_a02f1a3ae79ef6067a76a740d3b012303}
+
+
+Setup the video mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lines} & Vertical line mode. \\
+\hline
+{\em ext\_\-sync} & Whether to use external sync. \\
+\hline
+{\em dotclock} & The dotclock to run at. \\
+\hline
+{\em bg\_\-depth} & Color depth of 7up backgrounds. \\
+\hline
+{\em spr\_\-depth} & Color depth of 7up sprites. \\
+\hline
+{\em bg7up\_\-show} & Whether 7up backgrounds are displayed. \\
+\hline
+{\em spr7up\_\-show} & Whether 7up sprites are displayed. \\
+\hline
+{\em bg0\_\-disp} & Whether KING BG0 is displayed. \\
+\hline
+{\em bg1\_\-disp} & Whether KING BG1 is displayed. \\
+\hline
+{\em bg2\_\-disp} & Whether KING BG2 is displayed. \\
+\hline
+{\em bg3\_\-disp} & Whether KING BG3 is displayed. \\
+\hline
+{\em rainbow\_\-disp} & Whether the RAINBOW output is displayed. \\
+\hline
+\end{DoxyParams}

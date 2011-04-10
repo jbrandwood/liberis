@@ -1,0 +1,106 @@
+\hypertarget{bkupmem_8h}{
+\section{include/eris/bkupmem.h File Reference}
+\label{bkupmem_8h}\index{include/eris/bkupmem.h@{include/eris/bkupmem.h}}
+}
+
+
+Backup memory control.  
+
+
+{\ttfamily \#include $<$eris/types.h$>$}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{bkupmem_8h_a92aa75f920d4d3a1eadec0492b196844}{eris\_\-bkupmem\_\-set\_\-access} (int b0, int b1)
+\begin{DoxyCompactList}\small\item\em Set access bits. \item\end{DoxyCompactList}\item 
+void \hyperlink{bkupmem_8h_a9a0123a726df40295d5ee72afce8db76}{eris\_\-bkupmem\_\-read} (int ext, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} $\ast$buf, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} addr, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} len)
+\begin{DoxyCompactList}\small\item\em Read backup memory. \item\end{DoxyCompactList}\item 
+void \hyperlink{bkupmem_8h_ab739d1b63311be9d61eef014ca426caf}{eris\_\-bkupmem\_\-write} (int ext, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} $\ast$buf, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} addr, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} len)
+\begin{DoxyCompactList}\small\item\em Write backup memory. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Backup memory control. 
+
+\subsection{Function Documentation}
+\hypertarget{bkupmem_8h_a9a0123a726df40295d5ee72afce8db76}{
+\index{bkupmem.h@{bkupmem.h}!eris\_\-bkupmem\_\-read@{eris\_\-bkupmem\_\-read}}
+\index{eris\_\-bkupmem\_\-read@{eris\_\-bkupmem\_\-read}!bkupmem.h@{bkupmem.h}}
+\subsubsection[{eris\_\-bkupmem\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-bkupmem\_\-read (
+\begin{DoxyParamCaption}
+\item[{int}]{ext, }
+\item[{{\bf u8} $\ast$}]{buf, }
+\item[{{\bf u32}}]{addr, }
+\item[{{\bf u32}}]{len}
+\end{DoxyParamCaption}
+)}}
+\label{bkupmem_8h_a9a0123a726df40295d5ee72afce8db76}
+
+
+Read backup memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ext} & If 1, read from external memory. 0 is internal memory. \\
+\hline
+{\em buf} & Buffer to store the data. \\
+\hline
+{\em addr} & Address to start reading from. \\
+\hline
+{\em len} & Bytes to read. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{bkupmem_8h_ab739d1b63311be9d61eef014ca426caf}{eris\_\-bkupmem\_\-write()} 
+\end{DoxySeeAlso}
+\hypertarget{bkupmem_8h_a92aa75f920d4d3a1eadec0492b196844}{
+\index{bkupmem.h@{bkupmem.h}!eris\_\-bkupmem\_\-set\_\-access@{eris\_\-bkupmem\_\-set\_\-access}}
+\index{eris\_\-bkupmem\_\-set\_\-access@{eris\_\-bkupmem\_\-set\_\-access}!bkupmem.h@{bkupmem.h}}
+\subsubsection[{eris\_\-bkupmem\_\-set\_\-access}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-bkupmem\_\-set\_\-access (
+\begin{DoxyParamCaption}
+\item[{int}]{b0, }
+\item[{int}]{b1}
+\end{DoxyParamCaption}
+)}}
+\label{bkupmem_8h_a92aa75f920d4d3a1eadec0492b196844}
+
+
+Set access bits. 
+
+These bits control access to external and internal backup memory. 
+\begin{DoxyParams}{Parameters}
+{\em b0} & Bit0 of the access bits. (External or Internal?) \\
+\hline
+{\em b1} & Bit1 of the access bits. (External or Internal?) \\
+\hline
+\end{DoxyParams}
+\hypertarget{bkupmem_8h_ab739d1b63311be9d61eef014ca426caf}{
+\index{bkupmem.h@{bkupmem.h}!eris\_\-bkupmem\_\-write@{eris\_\-bkupmem\_\-write}}
+\index{eris\_\-bkupmem\_\-write@{eris\_\-bkupmem\_\-write}!bkupmem.h@{bkupmem.h}}
+\subsubsection[{eris\_\-bkupmem\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-bkupmem\_\-write (
+\begin{DoxyParamCaption}
+\item[{int}]{ext, }
+\item[{{\bf u8} $\ast$}]{buf, }
+\item[{{\bf u32}}]{addr, }
+\item[{{\bf u32}}]{len}
+\end{DoxyParamCaption}
+)}}
+\label{bkupmem_8h_ab739d1b63311be9d61eef014ca426caf}
+
+
+Write backup memory. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ext} & If 1, write to external memory. 0 is internal memory. \\
+\hline
+{\em buf} & Buffer holding the data to write. \\
+\hline
+{\em addr} & Address to start writing to. \\
+\hline
+{\em len} & Bytes to write. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{bkupmem_8h_a9a0123a726df40295d5ee72afce8db76}{eris\_\-bkupmem\_\-read()} 
+\end{DoxySeeAlso}

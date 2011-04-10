@@ -1,0 +1,100 @@
+\hypertarget{romfont_8h}{
+\section{include/eris/romfont.h File Reference}
+\label{romfont_8h}\index{include/eris/romfont.h@{include/eris/romfont.h}}
+}
+
+
+Access fonts from ROM.  
+
+
+{\ttfamily \#include $<$eris/types.h$>$}\par
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{romfont_8h_af753ac272700d4c1292cd66e2a01df27}{romfont\_\-type} \{ \par
+\hyperlink{romfont_8h_af753ac272700d4c1292cd66e2a01df27a07f469b00fa6d87b52d65a9deb0fa7ce}{ROMFONT\_\-KANJI\_\-16x16} =  0, 
+\hyperlink{romfont_8h_af753ac272700d4c1292cd66e2a01df27aabde0cc6b89c8083aafe9edf7d131251}{ROMFONT\_\-KANJI\_\-12x12} =  1, 
+\hyperlink{romfont_8h_af753ac272700d4c1292cd66e2a01df27a196c08e653c0c5677445a1d223f9e180}{ROMFONT\_\-ANK\_\-8x16} =  2, 
+\hyperlink{romfont_8h_af753ac272700d4c1292cd66e2a01df27ac240b31c8fa0efc8b91e8d772a57b148}{ROMFONT\_\-ANK\_\-6x12} =  3, 
+\par
+\hyperlink{romfont_8h_af753ac272700d4c1292cd66e2a01df27a348c55222fc40aee7475a0d00095962f}{ROMFONT\_\-ANK\_\-8x8} =  4, 
+\hyperlink{romfont_8h_af753ac272700d4c1292cd66e2a01df27acece56eb72794f4e6e80ead038684872}{ROMFONT\_\-ANK\_\-8x12} =  5
+ \}
+\begin{DoxyCompactList}\small\item\em Type of font to get data for. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} $\ast$ \hyperlink{romfont_8h_aa0f2969fec28ecbc117f3be9b03f8651}{eris\_\-romfont\_\-get} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} sjis, \hyperlink{romfont_8h_af753ac272700d4c1292cd66e2a01df27}{romfont\_\-type} type)
+\begin{DoxyCompactList}\small\item\em Get font data. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Access fonts from ROM. 
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{romfont_8h_af753ac272700d4c1292cd66e2a01df27}{
+\index{romfont.h@{romfont.h}!romfont\_\-type@{romfont\_\-type}}
+\index{romfont\_\-type@{romfont\_\-type}!romfont.h@{romfont.h}}
+\subsubsection[{romfont\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf romfont\_\-type}}}
+\label{romfont_8h_af753ac272700d4c1292cd66e2a01df27}
+
+
+Type of font to get data for. 
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{ROMFONT\_\-KANJI\_\-16x16@{ROMFONT\_\-KANJI\_\-16x16}!romfont.h@{romfont.h}}\index{romfont.h@{romfont.h}!ROMFONT\_\-KANJI\_\-16x16@{ROMFONT\_\-KANJI\_\-16x16}}\item[{\em 
+\hypertarget{romfont_8h_af753ac272700d4c1292cd66e2a01df27a07f469b00fa6d87b52d65a9deb0fa7ce}{
+ROMFONT\_\-KANJI\_\-16x16}
+\label{romfont_8h_af753ac272700d4c1292cd66e2a01df27a07f469b00fa6d87b52d65a9deb0fa7ce}
+}]16x16 kanji font \index{ROMFONT\_\-KANJI\_\-12x12@{ROMFONT\_\-KANJI\_\-12x12}!romfont.h@{romfont.h}}\index{romfont.h@{romfont.h}!ROMFONT\_\-KANJI\_\-12x12@{ROMFONT\_\-KANJI\_\-12x12}}\item[{\em 
+\hypertarget{romfont_8h_af753ac272700d4c1292cd66e2a01df27aabde0cc6b89c8083aafe9edf7d131251}{
+ROMFONT\_\-KANJI\_\-12x12}
+\label{romfont_8h_af753ac272700d4c1292cd66e2a01df27aabde0cc6b89c8083aafe9edf7d131251}
+}]12x12 kanji font \index{ROMFONT\_\-ANK\_\-8x16@{ROMFONT\_\-ANK\_\-8x16}!romfont.h@{romfont.h}}\index{romfont.h@{romfont.h}!ROMFONT\_\-ANK\_\-8x16@{ROMFONT\_\-ANK\_\-8x16}}\item[{\em 
+\hypertarget{romfont_8h_af753ac272700d4c1292cd66e2a01df27a196c08e653c0c5677445a1d223f9e180}{
+ROMFONT\_\-ANK\_\-8x16}
+\label{romfont_8h_af753ac272700d4c1292cd66e2a01df27a196c08e653c0c5677445a1d223f9e180}
+}]8x16 alpha/numeric/kana font \index{ROMFONT\_\-ANK\_\-6x12@{ROMFONT\_\-ANK\_\-6x12}!romfont.h@{romfont.h}}\index{romfont.h@{romfont.h}!ROMFONT\_\-ANK\_\-6x12@{ROMFONT\_\-ANK\_\-6x12}}\item[{\em 
+\hypertarget{romfont_8h_af753ac272700d4c1292cd66e2a01df27ac240b31c8fa0efc8b91e8d772a57b148}{
+ROMFONT\_\-ANK\_\-6x12}
+\label{romfont_8h_af753ac272700d4c1292cd66e2a01df27ac240b31c8fa0efc8b91e8d772a57b148}
+}]6x12 alpha/numeric/kana font \index{ROMFONT\_\-ANK\_\-8x8@{ROMFONT\_\-ANK\_\-8x8}!romfont.h@{romfont.h}}\index{romfont.h@{romfont.h}!ROMFONT\_\-ANK\_\-8x8@{ROMFONT\_\-ANK\_\-8x8}}\item[{\em 
+\hypertarget{romfont_8h_af753ac272700d4c1292cd66e2a01df27a348c55222fc40aee7475a0d00095962f}{
+ROMFONT\_\-ANK\_\-8x8}
+\label{romfont_8h_af753ac272700d4c1292cd66e2a01df27a348c55222fc40aee7475a0d00095962f}
+}]8x8 alpha/numeric/kana font \index{ROMFONT\_\-ANK\_\-8x12@{ROMFONT\_\-ANK\_\-8x12}!romfont.h@{romfont.h}}\index{romfont.h@{romfont.h}!ROMFONT\_\-ANK\_\-8x12@{ROMFONT\_\-ANK\_\-8x12}}\item[{\em 
+\hypertarget{romfont_8h_af753ac272700d4c1292cd66e2a01df27acece56eb72794f4e6e80ead038684872}{
+ROMFONT\_\-ANK\_\-8x12}
+\label{romfont_8h_af753ac272700d4c1292cd66e2a01df27acece56eb72794f4e6e80ead038684872}
+}]8x12 alpha/numeric/kana font \end{description}
+\end{Desc}
+
+
+
+\subsection{Function Documentation}
+\hypertarget{romfont_8h_aa0f2969fec28ecbc117f3be9b03f8651}{
+\index{romfont.h@{romfont.h}!eris\_\-romfont\_\-get@{eris\_\-romfont\_\-get}}
+\index{eris\_\-romfont\_\-get@{eris\_\-romfont\_\-get}!romfont.h@{romfont.h}}
+\subsubsection[{eris\_\-romfont\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8}$\ast$ eris\_\-romfont\_\-get (
+\begin{DoxyParamCaption}
+\item[{{\bf u32}}]{sjis, }
+\item[{{\bf romfont\_\-type}}]{type}
+\end{DoxyParamCaption}
+)}}
+\label{romfont_8h_aa0f2969fec28ecbc117f3be9b03f8651}
+
+
+Get font data. 
+
+Gets font data for the specified symbol. The data is returned in a series of bytes, and is stored in a simple 1bpp format. 
+\begin{DoxyParams}{Parameters}
+{\em sjis} & The ShiftJIS code to get the font data for. (ASCII works too) \\
+\hline
+{\em type} & The type of font to get the data from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Font data. 
+\end{DoxyReturn}

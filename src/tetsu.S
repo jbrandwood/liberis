@@ -141,18 +141,18 @@ _eris_tetsu_set_priorities:
 	ld.w	24[sp], r12
 	set_reg	8, r13
 	shl	4, r7
-	shl	8, r8
+	shl	8, r12
 	or	r7, r6
-	or	r8, r6
+	or	r12, r6
 	out.h	r6, 0x304[r0]
 	set_reg	9, r13
-	shl	4, r10
-	shl	8, r11
-	shl	12, r12
-	or	r10, r9
-	or	r11, r9
-	or	r12, r9
-	out.h	r9, 0x304[r0]
+	shl	4, r9
+	shl	8, r10
+	shl	12, r11
+	or	r9, r8
+	or	r10, r8
+	or	r11, r8
+	out.h	r8, 0x304[r0]
 	jmp	[lp]
 
 _eris_tetsu_set_chroma_key:

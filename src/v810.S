@@ -11,6 +11,7 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
  *  Cache functions                                                     []   *
  *****************************************************************************/
 	.global _cache_enable
+	.global	_cache_disable
 	.global _cache_clear
 	.global _cache_dump
 	.global _cache_restore
@@ -59,6 +60,7 @@ _cache_restore:
  *****************************************************************************/
 	.global _irq_enable
 	.global	_irq_disable
+	.global	_irq_restore
 	.global _irq_set_level
 	.global	_irq_set_mask
 	.global	_irq_set_priority
@@ -82,6 +84,17 @@ _irq_disable:
 	movea	0x1000, r0, r11
 	and	r11, r10
 	or	r10, r11
+	ldsr	r11, PSW
+	jmp	[lp]
+
+_irq_restore:
+	andi	1, r6, r6
+	movea	0x1000, r0, r11
+	not	r11, r11
+	stsr	PSW, r10
+	and	r10, r11
+	shl	12, r6
+	or	r6, r11
 	ldsr	r11, PSW
 	jmp	[lp]
 

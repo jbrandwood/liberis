@@ -70,6 +70,8 @@ _eris_low_psg_set_lfo_freq:
 	jmp	[lp]
 
 _eris_low_psg_set_lfo_control:
+	shl	7, r6
+	or	r7, r6
 	out.b	r6, 0x114[r0]
 	jmp	[lp]
 

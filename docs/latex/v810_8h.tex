@@ -1,0 +1,500 @@
+\hypertarget{v810_8h}{
+\section{include/eris/v810.h File Reference}
+\label{v810_8h}\index{include/eris/v810.h@{include/eris/v810.h}}
+}
+
+
+Functions to handle V810 specific functionality.  
+
+
+{\ttfamily \#include $<$eris/types.h$>$}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{v810_8h_a8c56c4c4a9e578ad50002d8d751b94e1}{cache\_\-enable} (void)
+\begin{DoxyCompactList}\small\item\em Enable V810 cache. \item\end{DoxyCompactList}\item 
+void \hyperlink{v810_8h_af8da62d251048a6a57365ef1541338c4}{cache\_\-disable} (void)
+\begin{DoxyCompactList}\small\item\em Disable V810 cache. \item\end{DoxyCompactList}\item 
+void \hyperlink{v810_8h_a5e1d9384022a10d9b5554675f6164330}{cache\_\-clear} (int entry, int count)
+\begin{DoxyCompactList}\small\item\em Clear select entries in the V810 cache. \item\end{DoxyCompactList}\item 
+void \hyperlink{v810_8h_a733e45eb9edc0ef2a2327b64ebdc646d}{cache\_\-dump} (void $\ast$dumpaddr)
+\begin{DoxyCompactList}\small\item\em Dump the V810 cache. \item\end{DoxyCompactList}\item 
+void \hyperlink{v810_8h_ab26aa7eec29f5e76690dee929feb4110}{cache\_\-restore} (void $\ast$restaddr)
+\begin{DoxyCompactList}\small\item\em Restore the V810 cache. \item\end{DoxyCompactList}\item 
+int \hyperlink{v810_8h_ab567d37023e2ba14a8e5e3d9c79d57f8}{irq\_\-enable} (void)
+\begin{DoxyCompactList}\small\item\em Enable V810 IRQs. \item\end{DoxyCompactList}\item 
+int \hyperlink{v810_8h_afb0c3c3a580a4319c69c2a46c71b5d15}{irq\_\-disable} (void)
+\begin{DoxyCompactList}\small\item\em Disable V810 IRQs. \item\end{DoxyCompactList}\item 
+void \hyperlink{v810_8h_aeede5bcf4c994bc7e730fad7cd5b3717}{irq\_\-restore} (int on)
+\begin{DoxyCompactList}\small\item\em Restore V810 IRQs. \item\end{DoxyCompactList}\item 
+void \hyperlink{v810_8h_a2613d815f07b7ddb630a698dd184702c}{irq\_\-set\_\-level} (int lv)
+\begin{DoxyCompactList}\small\item\em Set minimum V810 maskable interrupt level. \item\end{DoxyCompactList}\item 
+void \hyperlink{v810_8h_af3d2a1012f96ae66d9638c02d2d0c66d}{irq\_\-set\_\-mask} (int mask)
+\begin{DoxyCompactList}\small\item\em Set interrupt masking. \item\end{DoxyCompactList}\item 
+void \hyperlink{v810_8h_a96baf8e3edf522a2c01f4592ea7cd7a1}{irq\_\-set\_\-priority} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} prio)
+\begin{DoxyCompactList}\small\item\em Set priorities for each interrupt level. \item\end{DoxyCompactList}\item 
+int \hyperlink{v810_8h_a4eed80137bd56e0932c0a49e9cb35339}{irq\_\-get\_\-level} (void)
+\begin{DoxyCompactList}\small\item\em Get minimum/current V810 maskable interrupt level. \item\end{DoxyCompactList}\item 
+\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} \hyperlink{v810_8h_afb68f79bf6fb1a882aa8ce16ba6c2d97}{irq\_\-get\_\-mask} (void)
+\begin{DoxyCompactList}\small\item\em Get interrupt masking. \item\end{DoxyCompactList}\item 
+\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{v810_8h_a9196c64c51dbb95b3987fb0c68be0f8f}{irq\_\-get\_\-priority} (void)
+\begin{DoxyCompactList}\small\item\em Get priorities for each interrupt level. \item\end{DoxyCompactList}\item 
+void \hyperlink{v810_8h_a88f20a51be7c389049aad30710957bc0}{irq\_\-set\_\-handler} (int level, void($\ast$fn)(void))
+\begin{DoxyCompactList}\small\item\em Set an IRQ handler. \item\end{DoxyCompactList}\item 
+void \hyperlink{v810_8h_a12887415f6722944e089a608473ae220}{out32} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} port, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} data)
+\begin{DoxyCompactList}\small\item\em Output 32bit data. \item\end{DoxyCompactList}\item 
+void \hyperlink{v810_8h_a5c0ad5f4c6f636f302ca66e30d2c9073}{out16} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} port, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} data)
+\begin{DoxyCompactList}\small\item\em Output 16bit data. \item\end{DoxyCompactList}\item 
+void \hyperlink{v810_8h_a80b5da5d08e357c85ee1302de82dc4e3}{out8} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} port, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} data)
+\begin{DoxyCompactList}\small\item\em Output 8bit data. \item\end{DoxyCompactList}\item 
+\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{v810_8h_ad520189d0517af71d200166fc8319684}{in32} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} port)
+\begin{DoxyCompactList}\small\item\em Input 32bit data. \item\end{DoxyCompactList}\item 
+\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} \hyperlink{v810_8h_a06ea13d06befb3dfc3c79b05b82d617d}{in16} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} port)
+\begin{DoxyCompactList}\small\item\em Input 16bit data. \item\end{DoxyCompactList}\item 
+\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} \hyperlink{v810_8h_a452666e30cdb11f274653ea1ed39a932}{in8} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} port)
+\begin{DoxyCompactList}\small\item\em Input 8bit data. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Functions to handle V810 specific functionality. Exposes functions for cache control, IRQ handling, and port usage. 
+
+\subsection{Function Documentation}
+\hypertarget{v810_8h_a5e1d9384022a10d9b5554675f6164330}{
+\index{v810.h@{v810.h}!cache\_\-clear@{cache\_\-clear}}
+\index{cache\_\-clear@{cache\_\-clear}!v810.h@{v810.h}}
+\subsubsection[{cache\_\-clear}]{\setlength{\rightskip}{0pt plus 5cm}void cache\_\-clear (
+\begin{DoxyParamCaption}
+\item[{int}]{entry, }
+\item[{int}]{count}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_a5e1d9384022a10d9b5554675f6164330}
+
+
+Clear select entries in the V810 cache. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em entry} & The first entry in the cache to clear. (0 $\sim$ 127) \\
+\hline
+{\em count} & The amount of entries to clear from the cache. (1 $\sim$ 128) \\
+\hline
+\end{DoxyParams}
+\hypertarget{v810_8h_af8da62d251048a6a57365ef1541338c4}{
+\index{v810.h@{v810.h}!cache\_\-disable@{cache\_\-disable}}
+\index{cache\_\-disable@{cache\_\-disable}!v810.h@{v810.h}}
+\subsubsection[{cache\_\-disable}]{\setlength{\rightskip}{0pt plus 5cm}void cache\_\-disable (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_af8da62d251048a6a57365ef1541338c4}
+
+
+Disable V810 cache. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{v810_8h_a8c56c4c4a9e578ad50002d8d751b94e1}{cache\_\-enable()} 
+\end{DoxySeeAlso}
+\hypertarget{v810_8h_a733e45eb9edc0ef2a2327b64ebdc646d}{
+\index{v810.h@{v810.h}!cache\_\-dump@{cache\_\-dump}}
+\index{cache\_\-dump@{cache\_\-dump}!v810.h@{v810.h}}
+\subsubsection[{cache\_\-dump}]{\setlength{\rightskip}{0pt plus 5cm}void cache\_\-dump (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{dumpaddr}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_a733e45eb9edc0ef2a2327b64ebdc646d}
+
+
+Dump the V810 cache. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em dumpaddr} & The memory to dump the cache into. Must be 256 byte aligned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{v810_8h_ab26aa7eec29f5e76690dee929feb4110}{cache\_\-restore()} 
+\end{DoxySeeAlso}
+\hypertarget{v810_8h_a8c56c4c4a9e578ad50002d8d751b94e1}{
+\index{v810.h@{v810.h}!cache\_\-enable@{cache\_\-enable}}
+\index{cache\_\-enable@{cache\_\-enable}!v810.h@{v810.h}}
+\subsubsection[{cache\_\-enable}]{\setlength{\rightskip}{0pt plus 5cm}void cache\_\-enable (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_a8c56c4c4a9e578ad50002d8d751b94e1}
+
+
+Enable V810 cache. 
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{v810_8h_af8da62d251048a6a57365ef1541338c4}{cache\_\-disable()} 
+\end{DoxySeeAlso}
+\hypertarget{v810_8h_ab26aa7eec29f5e76690dee929feb4110}{
+\index{v810.h@{v810.h}!cache\_\-restore@{cache\_\-restore}}
+\index{cache\_\-restore@{cache\_\-restore}!v810.h@{v810.h}}
+\subsubsection[{cache\_\-restore}]{\setlength{\rightskip}{0pt plus 5cm}void cache\_\-restore (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{restaddr}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_ab26aa7eec29f5e76690dee929feb4110}
+
+
+Restore the V810 cache. 
+
+Restores the V810 cache from a dump made with \hyperlink{v810_8h_a733e45eb9edc0ef2a2327b64ebdc646d}{cache\_\-dump()}. 
+\begin{DoxyParams}{Parameters}
+{\em restaddr} & The memory to restore the cache from. Must be 256 byte aligned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{v810_8h_a733e45eb9edc0ef2a2327b64ebdc646d}{cache\_\-dump()} 
+\end{DoxySeeAlso}
+\hypertarget{v810_8h_a06ea13d06befb3dfc3c79b05b82d617d}{
+\index{v810.h@{v810.h}!in16@{in16}}
+\index{in16@{in16}!v810.h@{v810.h}}
+\subsubsection[{in16}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} in16 (
+\begin{DoxyParamCaption}
+\item[{{\bf u32}}]{port}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_a06ea13d06befb3dfc3c79b05b82d617d}
+
+
+Input 16bit data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & Port to input from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Data input from the port. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{v810_8h_ad520189d0517af71d200166fc8319684}{in32()}, \hyperlink{v810_8h_a452666e30cdb11f274653ea1ed39a932}{in8()} 
+\end{DoxySeeAlso}
+\hypertarget{v810_8h_ad520189d0517af71d200166fc8319684}{
+\index{v810.h@{v810.h}!in32@{in32}}
+\index{in32@{in32}!v810.h@{v810.h}}
+\subsubsection[{in32}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} in32 (
+\begin{DoxyParamCaption}
+\item[{{\bf u32}}]{port}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_ad520189d0517af71d200166fc8319684}
+
+
+Input 32bit data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & Port to input from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Data input from the port. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{v810_8h_a06ea13d06befb3dfc3c79b05b82d617d}{in16()}, \hyperlink{v810_8h_a452666e30cdb11f274653ea1ed39a932}{in8()} 
+\end{DoxySeeAlso}
+\hypertarget{v810_8h_a452666e30cdb11f274653ea1ed39a932}{
+\index{v810.h@{v810.h}!in8@{in8}}
+\index{in8@{in8}!v810.h@{v810.h}}
+\subsubsection[{in8}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u8} in8 (
+\begin{DoxyParamCaption}
+\item[{{\bf u32}}]{port}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_a452666e30cdb11f274653ea1ed39a932}
+
+
+Input 8bit data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & Port to input from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Data input from the port. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{v810_8h_ad520189d0517af71d200166fc8319684}{in32()}, \hyperlink{v810_8h_a06ea13d06befb3dfc3c79b05b82d617d}{in16()} 
+\end{DoxySeeAlso}
+\hypertarget{v810_8h_afb0c3c3a580a4319c69c2a46c71b5d15}{
+\index{v810.h@{v810.h}!irq\_\-disable@{irq\_\-disable}}
+\index{irq\_\-disable@{irq\_\-disable}!v810.h@{v810.h}}
+\subsubsection[{irq\_\-disable}]{\setlength{\rightskip}{0pt plus 5cm}int irq\_\-disable (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_afb0c3c3a580a4319c69c2a46c71b5d15}
+
+
+Disable V810 IRQs. 
+
+\begin{DoxyReturn}{Returns}
+Returns whether or not IRQs were enabled before. Pass this to \hyperlink{v810_8h_aeede5bcf4c994bc7e730fad7cd5b3717}{irq\_\-restore()} to restore the old IRQ status. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{v810_8h_ab567d37023e2ba14a8e5e3d9c79d57f8}{irq\_\-enable()}, \hyperlink{v810_8h_aeede5bcf4c994bc7e730fad7cd5b3717}{irq\_\-restore()} 
+\end{DoxySeeAlso}
+\hypertarget{v810_8h_ab567d37023e2ba14a8e5e3d9c79d57f8}{
+\index{v810.h@{v810.h}!irq\_\-enable@{irq\_\-enable}}
+\index{irq\_\-enable@{irq\_\-enable}!v810.h@{v810.h}}
+\subsubsection[{irq\_\-enable}]{\setlength{\rightskip}{0pt plus 5cm}int irq\_\-enable (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_ab567d37023e2ba14a8e5e3d9c79d57f8}
+
+
+Enable V810 IRQs. 
+
+\begin{DoxyReturn}{Returns}
+Returns whether or not IRQs were enabled before. Pass this to \hyperlink{v810_8h_aeede5bcf4c994bc7e730fad7cd5b3717}{irq\_\-restore()} to restore the old IRQ status. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{v810_8h_afb0c3c3a580a4319c69c2a46c71b5d15}{irq\_\-disable()}, \hyperlink{v810_8h_aeede5bcf4c994bc7e730fad7cd5b3717}{irq\_\-restore()} 
+\end{DoxySeeAlso}
+\hypertarget{v810_8h_a4eed80137bd56e0932c0a49e9cb35339}{
+\index{v810.h@{v810.h}!irq\_\-get\_\-level@{irq\_\-get\_\-level}}
+\index{irq\_\-get\_\-level@{irq\_\-get\_\-level}!v810.h@{v810.h}}
+\subsubsection[{irq\_\-get\_\-level}]{\setlength{\rightskip}{0pt plus 5cm}int irq\_\-get\_\-level (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_a4eed80137bd56e0932c0a49e9cb35339}
+
+
+Get minimum/current V810 maskable interrupt level. 
+
+Gets the current/minimum (they're the same here) maskable interrupt level. \begin{DoxyReturn}{Returns}
+Current/minimum maskable interrupt level. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{v810_8h_a2613d815f07b7ddb630a698dd184702c}{irq\_\-set\_\-level()} 
+\end{DoxySeeAlso}
+\hypertarget{v810_8h_afb68f79bf6fb1a882aa8ce16ba6c2d97}{
+\index{v810.h@{v810.h}!irq\_\-get\_\-mask@{irq\_\-get\_\-mask}}
+\index{irq\_\-get\_\-mask@{irq\_\-get\_\-mask}!v810.h@{v810.h}}
+\subsubsection[{irq\_\-get\_\-mask}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} irq\_\-get\_\-mask (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_afb68f79bf6fb1a882aa8ce16ba6c2d97}
+
+
+Get interrupt masking. 
+
+Gets the interrupt masking for the interrupt levels 8 $\sim$ 15. \begin{DoxyReturn}{Returns}
+The mask on levels. bit0 is level 8, bit 7 is level 15, etc. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{v810_8h_af3d2a1012f96ae66d9638c02d2d0c66d}{irq\_\-set\_\-mask()} 
+\end{DoxySeeAlso}
+\hypertarget{v810_8h_a9196c64c51dbb95b3987fb0c68be0f8f}{
+\index{v810.h@{v810.h}!irq\_\-get\_\-priority@{irq\_\-get\_\-priority}}
+\index{irq\_\-get\_\-priority@{irq\_\-get\_\-priority}!v810.h@{v810.h}}
+\subsubsection[{irq\_\-get\_\-priority}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} irq\_\-get\_\-priority (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_a9196c64c51dbb95b3987fb0c68be0f8f}
+
+
+Get priorities for each interrupt level. 
+
+Gets interrupt priorities for interrupt levels 8 $\sim$ 15. \begin{DoxyReturn}{Returns}
+The priority for levels. Each level gets 3 bits, with bit0$\sim$2 being level 15, and bit29$\sim$31 is level 8. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{v810_8h_a96baf8e3edf522a2c01f4592ea7cd7a1}{irq\_\-set\_\-priority()} 
+\end{DoxySeeAlso}
+\hypertarget{v810_8h_aeede5bcf4c994bc7e730fad7cd5b3717}{
+\index{v810.h@{v810.h}!irq\_\-restore@{irq\_\-restore}}
+\index{irq\_\-restore@{irq\_\-restore}!v810.h@{v810.h}}
+\subsubsection[{irq\_\-restore}]{\setlength{\rightskip}{0pt plus 5cm}void irq\_\-restore (
+\begin{DoxyParamCaption}
+\item[{int}]{on}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_aeede5bcf4c994bc7e730fad7cd5b3717}
+
+
+Restore V810 IRQs. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em on} & Whether the IRQs should be turned on or off. A return value from \hyperlink{v810_8h_afb0c3c3a580a4319c69c2a46c71b5d15}{irq\_\-disable()} or \hyperlink{v810_8h_ab567d37023e2ba14a8e5e3d9c79d57f8}{irq\_\-enable()} is also valid. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{v810_8h_ab567d37023e2ba14a8e5e3d9c79d57f8}{irq\_\-enable()}, \hyperlink{v810_8h_afb0c3c3a580a4319c69c2a46c71b5d15}{irq\_\-disable()} 
+\end{DoxySeeAlso}
+\hypertarget{v810_8h_a88f20a51be7c389049aad30710957bc0}{
+\index{v810.h@{v810.h}!irq\_\-set\_\-handler@{irq\_\-set\_\-handler}}
+\index{irq\_\-set\_\-handler@{irq\_\-set\_\-handler}!v810.h@{v810.h}}
+\subsubsection[{irq\_\-set\_\-handler}]{\setlength{\rightskip}{0pt plus 5cm}void irq\_\-set\_\-handler (
+\begin{DoxyParamCaption}
+\item[{int}]{level, }
+\item[{void($\ast$)(void)}]{fn}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_a88f20a51be7c389049aad30710957bc0}
+
+
+Set an IRQ handler. 
+
+Sets a handler for a specific IRQ level. 
+\begin{DoxyParams}{Parameters}
+{\em level} & The level that this handler will correspond to. \\
+\hline
+{\em fn} & The handler that will be run when an interrupt with the correct level is signaled. \\
+\hline
+\end{DoxyParams}
+\hypertarget{v810_8h_a2613d815f07b7ddb630a698dd184702c}{
+\index{v810.h@{v810.h}!irq\_\-set\_\-level@{irq\_\-set\_\-level}}
+\index{irq\_\-set\_\-level@{irq\_\-set\_\-level}!v810.h@{v810.h}}
+\subsubsection[{irq\_\-set\_\-level}]{\setlength{\rightskip}{0pt plus 5cm}void irq\_\-set\_\-level (
+\begin{DoxyParamCaption}
+\item[{int}]{lv}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_a2613d815f07b7ddb630a698dd184702c}
+
+
+Set minimum V810 maskable interrupt level. 
+
+Sets the minimum interrupt level that will be accepted by the interrupt handling in the V810. Any interrupts with a level below this will not be acknowledged. 
+\begin{DoxyParams}{Parameters}
+{\em lv} & Minimum V810 maskable interrupt level. (0 $\sim$ 15) \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{v810_8h_a4eed80137bd56e0932c0a49e9cb35339}{irq\_\-get\_\-level()} 
+\end{DoxySeeAlso}
+\hypertarget{v810_8h_af3d2a1012f96ae66d9638c02d2d0c66d}{
+\index{v810.h@{v810.h}!irq\_\-set\_\-mask@{irq\_\-set\_\-mask}}
+\index{irq\_\-set\_\-mask@{irq\_\-set\_\-mask}!v810.h@{v810.h}}
+\subsubsection[{irq\_\-set\_\-mask}]{\setlength{\rightskip}{0pt plus 5cm}void irq\_\-set\_\-mask (
+\begin{DoxyParamCaption}
+\item[{int}]{mask}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_af3d2a1012f96ae66d9638c02d2d0c66d}
+
+
+Set interrupt masking. 
+
+Sets the interrupt masking for the interrupt levels 8 $\sim$ 15. 
+\begin{DoxyParams}{Parameters}
+{\em mask} & The mask on levels. bit0 is level 15, bit 7 is level 8, etc. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{v810_8h_afb68f79bf6fb1a882aa8ce16ba6c2d97}{irq\_\-get\_\-mask()} 
+\end{DoxySeeAlso}
+\hypertarget{v810_8h_a96baf8e3edf522a2c01f4592ea7cd7a1}{
+\index{v810.h@{v810.h}!irq\_\-set\_\-priority@{irq\_\-set\_\-priority}}
+\index{irq\_\-set\_\-priority@{irq\_\-set\_\-priority}!v810.h@{v810.h}}
+\subsubsection[{irq\_\-set\_\-priority}]{\setlength{\rightskip}{0pt plus 5cm}void irq\_\-set\_\-priority (
+\begin{DoxyParamCaption}
+\item[{{\bf u32}}]{prio}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_a96baf8e3edf522a2c01f4592ea7cd7a1}
+
+
+Set priorities for each interrupt level. 
+
+Sets interrupt priorities for interrupt levels 8 $\sim$ 15. 
+\begin{DoxyParams}{Parameters}
+{\em prio} & The priority for levels. Each level gets 3 bits, with bit0$\sim$2 being level 15, and bit29$\sim$31 is level 8. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{v810_8h_a9196c64c51dbb95b3987fb0c68be0f8f}{irq\_\-get\_\-priority()} 
+\end{DoxySeeAlso}
+\hypertarget{v810_8h_a5c0ad5f4c6f636f302ca66e30d2c9073}{
+\index{v810.h@{v810.h}!out16@{out16}}
+\index{out16@{out16}!v810.h@{v810.h}}
+\subsubsection[{out16}]{\setlength{\rightskip}{0pt plus 5cm}void out16 (
+\begin{DoxyParamCaption}
+\item[{{\bf u32}}]{port, }
+\item[{{\bf u16}}]{data}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_a5c0ad5f4c6f636f302ca66e30d2c9073}
+
+
+Output 16bit data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & Port to output to. \\
+\hline
+{\em data} & Data to be output through the port. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{v810_8h_a12887415f6722944e089a608473ae220}{out32()}, \hyperlink{v810_8h_a80b5da5d08e357c85ee1302de82dc4e3}{out8()} 
+\end{DoxySeeAlso}
+\hypertarget{v810_8h_a12887415f6722944e089a608473ae220}{
+\index{v810.h@{v810.h}!out32@{out32}}
+\index{out32@{out32}!v810.h@{v810.h}}
+\subsubsection[{out32}]{\setlength{\rightskip}{0pt plus 5cm}void out32 (
+\begin{DoxyParamCaption}
+\item[{{\bf u32}}]{port, }
+\item[{{\bf u32}}]{data}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_a12887415f6722944e089a608473ae220}
+
+
+Output 32bit data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & Port to output to. \\
+\hline
+{\em data} & Data to be output through the port. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{v810_8h_a5c0ad5f4c6f636f302ca66e30d2c9073}{out16()}, \hyperlink{v810_8h_a80b5da5d08e357c85ee1302de82dc4e3}{out8()} 
+\end{DoxySeeAlso}
+\hypertarget{v810_8h_a80b5da5d08e357c85ee1302de82dc4e3}{
+\index{v810.h@{v810.h}!out8@{out8}}
+\index{out8@{out8}!v810.h@{v810.h}}
+\subsubsection[{out8}]{\setlength{\rightskip}{0pt plus 5cm}void out8 (
+\begin{DoxyParamCaption}
+\item[{{\bf u32}}]{port, }
+\item[{{\bf u8}}]{data}
+\end{DoxyParamCaption}
+)}}
+\label{v810_8h_a80b5da5d08e357c85ee1302de82dc4e3}
+
+
+Output 8bit data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & Port to output to. \\
+\hline
+{\em data} & Data to be output through the port. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{v810_8h_a12887415f6722944e089a608473ae220}{out32()}, \hyperlink{v810_8h_a5c0ad5f4c6f636f302ca66e30d2c9073}{out16()} 
+\end{DoxySeeAlso}

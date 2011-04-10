@@ -7,6 +7,10 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
 # see file LICENSE or http://www.opensource.org/licenses/mit-license.php
 */
 
+/*! \file
+ * \brief Implementation of standard functions, with modifications for speed.
+ */
+
 #ifndef _LIBERIS_STD_H_
 #define _LIBERIS_STD_H_
 

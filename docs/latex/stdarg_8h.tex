@@ -1,0 +1,59 @@
+\hypertarget{stdarg_8h}{
+\section{include/stdarg.h File Reference}
+\label{stdarg_8h}\index{include/stdarg.h@{include/stdarg.h}}
+}
+
+
+V810 stdarg implementation.  
+
+
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{stdarg_8h_a8988b1f4b3f4ffef267962f5811f6031}{
+\#define {\bfseries \_\-VA\_\-LIST}}
+\label{stdarg_8h_a8988b1f4b3f4ffef267962f5811f6031}
+
+\item 
+\#define {\bfseries va\_\-start}(list, start)
+\item 
+\hypertarget{stdarg_8h_aa042dbf8cc345b3a522d6f706a78ddbd}{
+\#define {\bfseries va\_\-end}(list)~((void)0)}
+\label{stdarg_8h_aa042dbf8cc345b3a522d6f706a78ddbd}
+
+\item 
+\hypertarget{stdarg_8h_aca799ba458f2d13e0655bfcf55db6eaa}{
+\#define {\bfseries va\_\-arg}(list, mode)~$\ast$(mode $\ast$)(\&(list = (char$\ast$)(((int)list + 7)\&$\sim$3U))\mbox{[}-\/4\mbox{]})}
+\label{stdarg_8h_aca799ba458f2d13e0655bfcf55db6eaa}
+
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{stdarg_8h_abaefbc6cabb217bf0138d4f9c94d4775}{
+typedef char $\ast$ {\bfseries va\_\-list}}
+\label{stdarg_8h_abaefbc6cabb217bf0138d4f9c94d4775}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+V810 stdarg implementation. 
+
+\subsection{Define Documentation}
+\hypertarget{stdarg_8h_a49d626a5bb251b619e60a06e386653bb}{
+\index{stdarg.h@{stdarg.h}!va\_\-start@{va\_\-start}}
+\index{va\_\-start@{va\_\-start}!stdarg.h@{stdarg.h}}
+\subsubsection[{va\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}\#define va\_\-start(
+\begin{DoxyParamCaption}
+\item[{}]{list, }
+\item[{}]{start}
+\end{DoxyParamCaption}
+)}}
+\label{stdarg_8h_a49d626a5bb251b619e60a06e386653bb}
+{\bfseries Value:}
+\begin{DoxyCode}
+((void)((list) = (sizeof(start)<4 ? \
+                                (char *)((int *)&(start)+1) : (char *)(&(start)+1
+      ))))
+\end{DoxyCode}

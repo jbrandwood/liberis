@@ -1,0 +1,458 @@
+\hypertarget{7up_8h}{
+\section{include/eris/low/7up.h File Reference}
+\label{7up_8h}\index{include/eris/low/7up.h@{include/eris/low/7up.h}}
+}
+
+
+Low-\/level access to the 7up video chips.  
+
+
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438}{eris\_\-low\_\-7up\_\-mapsize} \{ \par
+\hyperlink{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438ac28a94dfb00d493eaafba74d81671a94}{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-32X32} =  0, 
+\hyperlink{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438aac2d5f38aad645c9ab82b974b6881bf3}{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-64X32} =  1, 
+\hyperlink{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438a29a95a9b38b642b4d03218829d48a5a7}{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-128X32} =  2, 
+\hyperlink{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438aca3e91cda2d5298be46d256c159acbf7}{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-32X64} =  4, 
+\par
+\hyperlink{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438a04489855b63a1984442a0062f5bc289b}{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-64X64} =  5, 
+\hyperlink{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438afcfe38338e527a0528095f952789ed65}{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-128X64} =  7
+ \}
+\begin{DoxyCompactList}\small\item\em Map sizes for the backgrounds. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{7up_8h_a76583c50fd0882f82b135d6db48f05c6}{eris\_\-low\_\-7up\_\-init} (int chip)
+\begin{DoxyCompactList}\small\item\em Initialize a 7up. \item\end{DoxyCompactList}\item 
+void \hyperlink{7up_8h_aa6b87665c017830cdebaf72e3f8af239}{eris\_\-low\_\-7up\_\-set\_\-video\_\-mode} (int chip, int hdispstrt, int hsyncwid, int hdispend, int hdispwid, int vdispstrt, int vsyncwid, int vdispwid, int vdispend)
+\begin{DoxyCompactList}\small\item\em Setup a 7up's video mode. \item\end{DoxyCompactList}\item 
+void \hyperlink{7up_8h_a72ab5becfd89ad0c3ff50c4b9e09c077}{eris\_\-low\_\-7up\_\-set\_\-vram\_\-write} (int chip, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} addr)
+\begin{DoxyCompactList}\small\item\em Set the VRAM write address for a 7up chip. \item\end{DoxyCompactList}\item 
+void \hyperlink{7up_8h_af0e1412692695f255478e8f19d90ebd2}{eris\_\-low\_\-7up\_\-vram\_\-write} (int chip, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} data)
+\begin{DoxyCompactList}\small\item\em Write to VRAM on a 7up chip. \item\end{DoxyCompactList}\item 
+void \hyperlink{7up_8h_a7fb809dcd73584b6500f66805b800128}{eris\_\-low\_\-7up\_\-set\_\-vram\_\-read} (int chip, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} addr)
+\begin{DoxyCompactList}\small\item\em Set the VRAM read address for a 7up chip. \item\end{DoxyCompactList}\item 
+\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} \hyperlink{7up_8h_a0969c0d7a59ed19ad3514d30dd4a887d}{eris\_\-low\_\-7up\_\-vram\_\-read} (int chip)
+\begin{DoxyCompactList}\small\item\em Read from VRAM from a 7up chip. \item\end{DoxyCompactList}\item 
+void \hyperlink{7up_8h_a20e07bf7d87f2679eaa106ef18ab9b90}{eris\_\-low\_\-7up\_\-set\_\-control} (int chip, int increment, int bg\_\-show, int spr\_\-show)
+\begin{DoxyCompactList}\small\item\em Set controls for a 7up chip. \item\end{DoxyCompactList}\item 
+void \hyperlink{7up_8h_afb5fd8b6e112fb7cdc92a231908a6a7d}{eris\_\-low\_\-7up\_\-set\_\-interrupts} (int chip, int vblank\_\-irq, int raster\_\-irq, int excess\_\-spr, int spr\_\-collision)
+\begin{DoxyCompactList}\small\item\em Set interrupt information for a 7up chip. \item\end{DoxyCompactList}\item 
+\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} \hyperlink{7up_8h_a2bb3010320168c269f02c3e9016f51f4}{eris\_\-low\_\-7up\_\-get\_\-raster} (int chip)
+\begin{DoxyCompactList}\small\item\em Get the current raster being displayed by a 7up. \item\end{DoxyCompactList}\item 
+void \hyperlink{7up_8h_a9eef7b6af3383d9cba0682d4bf4bfbec}{eris\_\-low\_\-7up\_\-set\_\-scroll} (int chip, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} x, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} y)
+\begin{DoxyCompactList}\small\item\em Scroll a 7up background. \item\end{DoxyCompactList}\item 
+void \hyperlink{7up_8h_ab332d9a0d07cf4f51cc54c3715df86e7}{eris\_\-low\_\-7up\_\-do\_\-dma} (int chip, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} src, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} dst, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} len)
+\begin{DoxyCompactList}\small\item\em Perform a 7up DMA. \item\end{DoxyCompactList}\item 
+void \hyperlink{7up_8h_aaac622c10c1c3977f1bdf6ac8d5d357f}{eris\_\-low\_\-7up\_\-setup\_\-dma} (int chip, int dsr\_\-dma, int src\_\-dec, int dst\_\-dec, int vram\_\-irq, int satb\_\-irq)
+\begin{DoxyCompactList}\small\item\em Setup the DMA on a 7up. \item\end{DoxyCompactList}\item 
+void \hyperlink{7up_8h_abd57c83be21a665c3b877d4c61f36647}{eris\_\-low\_\-7up\_\-set\_\-satb\_\-address} (int chip, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} addr)
+\begin{DoxyCompactList}\small\item\em Sets the Sprite Attribute Table Block address. \item\end{DoxyCompactList}\item 
+void \hyperlink{7up_8h_ae789826c10da6b77facbff5ad85f5417}{eris\_\-low\_\-7up\_\-set\_\-access\_\-width} (int chip, int cg\_\-mode, \hyperlink{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438}{eris\_\-low\_\-7up\_\-mapsize} mapsize, int spr\_\-px\_\-w, int vram\_\-px\_\-w)
+\begin{DoxyCompactList}\small\item\em Set access width information. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Low-\/level access to the 7up video chips. 
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438}{
+\index{7up.h@{7up.h}!eris\_\-low\_\-7up\_\-mapsize@{eris\_\-low\_\-7up\_\-mapsize}}
+\index{eris\_\-low\_\-7up\_\-mapsize@{eris\_\-low\_\-7up\_\-mapsize}!7up.h@{7up.h}}
+\subsubsection[{eris\_\-low\_\-7up\_\-mapsize}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf eris\_\-low\_\-7up\_\-mapsize}}}
+\label{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438}
+
+
+Map sizes for the backgrounds. 
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-32X32@{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-32X32}!7up.h@{7up.h}}\index{7up.h@{7up.h}!ERIS\_\-LOW\_\-7UP\_\-MAP\_\-32X32@{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-32X32}}\item[{\em 
+\hypertarget{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438ac28a94dfb00d493eaafba74d81671a94}{
+ERIS\_\-LOW\_\-7UP\_\-MAP\_\-32X32}
+\label{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438ac28a94dfb00d493eaafba74d81671a94}
+}]32x32 tile map. (256x256 pixel) \index{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-64X32@{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-64X32}!7up.h@{7up.h}}\index{7up.h@{7up.h}!ERIS\_\-LOW\_\-7UP\_\-MAP\_\-64X32@{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-64X32}}\item[{\em 
+\hypertarget{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438aac2d5f38aad645c9ab82b974b6881bf3}{
+ERIS\_\-LOW\_\-7UP\_\-MAP\_\-64X32}
+\label{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438aac2d5f38aad645c9ab82b974b6881bf3}
+}]64x32 tile map. (512x256 pixel) \index{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-128X32@{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-128X32}!7up.h@{7up.h}}\index{7up.h@{7up.h}!ERIS\_\-LOW\_\-7UP\_\-MAP\_\-128X32@{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-128X32}}\item[{\em 
+\hypertarget{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438a29a95a9b38b642b4d03218829d48a5a7}{
+ERIS\_\-LOW\_\-7UP\_\-MAP\_\-128X32}
+\label{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438a29a95a9b38b642b4d03218829d48a5a7}
+}]128x32 tile map. (1024x256 pixel) \index{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-32X64@{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-32X64}!7up.h@{7up.h}}\index{7up.h@{7up.h}!ERIS\_\-LOW\_\-7UP\_\-MAP\_\-32X64@{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-32X64}}\item[{\em 
+\hypertarget{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438aca3e91cda2d5298be46d256c159acbf7}{
+ERIS\_\-LOW\_\-7UP\_\-MAP\_\-32X64}
+\label{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438aca3e91cda2d5298be46d256c159acbf7}
+}]32x64 tile map. (256x512 pixel) \index{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-64X64@{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-64X64}!7up.h@{7up.h}}\index{7up.h@{7up.h}!ERIS\_\-LOW\_\-7UP\_\-MAP\_\-64X64@{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-64X64}}\item[{\em 
+\hypertarget{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438a04489855b63a1984442a0062f5bc289b}{
+ERIS\_\-LOW\_\-7UP\_\-MAP\_\-64X64}
+\label{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438a04489855b63a1984442a0062f5bc289b}
+}]64x64 tile map. (512x512 pixel) \index{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-128X64@{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-128X64}!7up.h@{7up.h}}\index{7up.h@{7up.h}!ERIS\_\-LOW\_\-7UP\_\-MAP\_\-128X64@{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-128X64}}\item[{\em 
+\hypertarget{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438afcfe38338e527a0528095f952789ed65}{
+ERIS\_\-LOW\_\-7UP\_\-MAP\_\-128X64}
+\label{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438afcfe38338e527a0528095f952789ed65}
+}]128x64 tile map. (1024x512 pixel) \end{description}
+\end{Desc}
+
+
+
+\subsection{Function Documentation}
+\hypertarget{7up_8h_ab332d9a0d07cf4f51cc54c3715df86e7}{
+\index{7up.h@{7up.h}!eris\_\-low\_\-7up\_\-do\_\-dma@{eris\_\-low\_\-7up\_\-do\_\-dma}}
+\index{eris\_\-low\_\-7up\_\-do\_\-dma@{eris\_\-low\_\-7up\_\-do\_\-dma}!7up.h@{7up.h}}
+\subsubsection[{eris\_\-low\_\-7up\_\-do\_\-dma}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-7up\_\-do\_\-dma (
+\begin{DoxyParamCaption}
+\item[{int}]{chip, }
+\item[{{\bf u16}}]{src, }
+\item[{{\bf u16}}]{dst, }
+\item[{{\bf u16}}]{len}
+\end{DoxyParamCaption}
+)}}
+\label{7up_8h_ab332d9a0d07cf4f51cc54c3715df86e7}
+
+
+Perform a 7up DMA. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chip} & Which 7up to DMA on. (0 $\sim$ 1) \\
+\hline
+{\em src} & The source address of the DMA. \\
+\hline
+{\em dst} & The destination of the DMA. \\
+\hline
+{\em len} & How many 16bit words to transfer. \\
+\hline
+\end{DoxyParams}
+\hypertarget{7up_8h_a2bb3010320168c269f02c3e9016f51f4}{
+\index{7up.h@{7up.h}!eris\_\-low\_\-7up\_\-get\_\-raster@{eris\_\-low\_\-7up\_\-get\_\-raster}}
+\index{eris\_\-low\_\-7up\_\-get\_\-raster@{eris\_\-low\_\-7up\_\-get\_\-raster}!7up.h@{7up.h}}
+\subsubsection[{eris\_\-low\_\-7up\_\-get\_\-raster}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} eris\_\-low\_\-7up\_\-get\_\-raster (
+\begin{DoxyParamCaption}
+\item[{int}]{chip}
+\end{DoxyParamCaption}
+)}}
+\label{7up_8h_a2bb3010320168c269f02c3e9016f51f4}
+
+
+Get the current raster being displayed by a 7up. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chip} & Which 7up to get the raster from. (0 $\sim$ 1) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The currently displaying raster. 
+\end{DoxyReturn}
+\hypertarget{7up_8h_a76583c50fd0882f82b135d6db48f05c6}{
+\index{7up.h@{7up.h}!eris\_\-low\_\-7up\_\-init@{eris\_\-low\_\-7up\_\-init}}
+\index{eris\_\-low\_\-7up\_\-init@{eris\_\-low\_\-7up\_\-init}!7up.h@{7up.h}}
+\subsubsection[{eris\_\-low\_\-7up\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-7up\_\-init (
+\begin{DoxyParamCaption}
+\item[{int}]{chip}
+\end{DoxyParamCaption}
+)}}
+\label{7up_8h_a76583c50fd0882f82b135d6db48f05c6}
+
+
+Initialize a 7up. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chip} & Which 7up to initialize. (0 $\sim$ 1) \\
+\hline
+\end{DoxyParams}
+\hypertarget{7up_8h_ae789826c10da6b77facbff5ad85f5417}{
+\index{7up.h@{7up.h}!eris\_\-low\_\-7up\_\-set\_\-access\_\-width@{eris\_\-low\_\-7up\_\-set\_\-access\_\-width}}
+\index{eris\_\-low\_\-7up\_\-set\_\-access\_\-width@{eris\_\-low\_\-7up\_\-set\_\-access\_\-width}!7up.h@{7up.h}}
+\subsubsection[{eris\_\-low\_\-7up\_\-set\_\-access\_\-width}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-7up\_\-set\_\-access\_\-width (
+\begin{DoxyParamCaption}
+\item[{int}]{chip, }
+\item[{int}]{cg\_\-mode, }
+\item[{{\bf eris\_\-low\_\-7up\_\-mapsize}}]{mapsize, }
+\item[{int}]{spr\_\-px\_\-w, }
+\item[{int}]{vram\_\-px\_\-w}
+\end{DoxyParamCaption}
+)}}
+\label{7up_8h_ae789826c10da6b77facbff5ad85f5417}
+
+
+Set access width information. 
+
+See the hardware documentation for more information. 
+\begin{DoxyParams}{Parameters}
+{\em chip} & Which 7up to set access width information for. (0 $\sim$ 1) \\
+\hline
+{\em cg\_\-mode} & Which character generation is used on vram\_\-px\_\-w = 3. \\
+\hline
+{\em mapsize} & Size of the background map. \\
+\hline
+{\em spr\_\-px\_\-w} & Sprite pixel width. See hardware documentation. (0 $\sim$ 3) \\
+\hline
+{\em vram\_\-px\_\-w} & VRAM pixel width. See hardware documentation. (0 $\sim$ 3) \\
+\hline
+\end{DoxyParams}
+\hypertarget{7up_8h_a20e07bf7d87f2679eaa106ef18ab9b90}{
+\index{7up.h@{7up.h}!eris\_\-low\_\-7up\_\-set\_\-control@{eris\_\-low\_\-7up\_\-set\_\-control}}
+\index{eris\_\-low\_\-7up\_\-set\_\-control@{eris\_\-low\_\-7up\_\-set\_\-control}!7up.h@{7up.h}}
+\subsubsection[{eris\_\-low\_\-7up\_\-set\_\-control}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-7up\_\-set\_\-control (
+\begin{DoxyParamCaption}
+\item[{int}]{chip, }
+\item[{int}]{increment, }
+\item[{int}]{bg\_\-show, }
+\item[{int}]{spr\_\-show}
+\end{DoxyParamCaption}
+)}}
+\label{7up_8h_a20e07bf7d87f2679eaa106ef18ab9b90}
+
+
+Set controls for a 7up chip. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chip} & Which 7up to set controls for. (0 $\sim$ 1) \\
+\hline
+{\em increment} & How much to increment on every VRAM read/write. See hardwre documentation for which values. \\
+\hline
+{\em bg\_\-show} & Whether the BG should show or not. \\
+\hline
+{\em spr\_\-show} & Whether sprites should show or not. \\
+\hline
+\end{DoxyParams}
+\hypertarget{7up_8h_afb5fd8b6e112fb7cdc92a231908a6a7d}{
+\index{7up.h@{7up.h}!eris\_\-low\_\-7up\_\-set\_\-interrupts@{eris\_\-low\_\-7up\_\-set\_\-interrupts}}
+\index{eris\_\-low\_\-7up\_\-set\_\-interrupts@{eris\_\-low\_\-7up\_\-set\_\-interrupts}!7up.h@{7up.h}}
+\subsubsection[{eris\_\-low\_\-7up\_\-set\_\-interrupts}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-7up\_\-set\_\-interrupts (
+\begin{DoxyParamCaption}
+\item[{int}]{chip, }
+\item[{int}]{vblank\_\-irq, }
+\item[{int}]{raster\_\-irq, }
+\item[{int}]{excess\_\-spr, }
+\item[{int}]{spr\_\-collision}
+\end{DoxyParamCaption}
+)}}
+\label{7up_8h_afb5fd8b6e112fb7cdc92a231908a6a7d}
+
+
+Set interrupt information for a 7up chip. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chip} & Which 7up to set interrupts for. (0 $\sim$ 1) \\
+\hline
+{\em vblank\_\-irq} & Whether an IRQ should fire on VBlank. \\
+\hline
+{\em raster\_\-irq} & Whether an IRQ should fire on raster match. \\
+\hline
+{\em excess\_\-spr} & Whether an IRQ should fire on too many sprites per line. \\
+\hline
+{\em spr\_\-collision} & Whether an IRQ should fire on a sprite overlapping sprite 0. \\
+\hline
+\end{DoxyParams}
+\hypertarget{7up_8h_abd57c83be21a665c3b877d4c61f36647}{
+\index{7up.h@{7up.h}!eris\_\-low\_\-7up\_\-set\_\-satb\_\-address@{eris\_\-low\_\-7up\_\-set\_\-satb\_\-address}}
+\index{eris\_\-low\_\-7up\_\-set\_\-satb\_\-address@{eris\_\-low\_\-7up\_\-set\_\-satb\_\-address}!7up.h@{7up.h}}
+\subsubsection[{eris\_\-low\_\-7up\_\-set\_\-satb\_\-address}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-7up\_\-set\_\-satb\_\-address (
+\begin{DoxyParamCaption}
+\item[{int}]{chip, }
+\item[{{\bf u16}}]{addr}
+\end{DoxyParamCaption}
+)}}
+\label{7up_8h_abd57c83be21a665c3b877d4c61f36647}
+
+
+Sets the Sprite Attribute Table Block address. 
+
+Setting the address starts a VRAM-\/$>$SATB DMA. 
+\begin{DoxyParams}{Parameters}
+{\em chip} & Which 7up to set the SATB for. (0 $\sim$ 1) \\
+\hline
+{\em addr} & VRAM address for the start of the SATB. \\
+\hline
+\end{DoxyParams}
+\hypertarget{7up_8h_a9eef7b6af3383d9cba0682d4bf4bfbec}{
+\index{7up.h@{7up.h}!eris\_\-low\_\-7up\_\-set\_\-scroll@{eris\_\-low\_\-7up\_\-set\_\-scroll}}
+\index{eris\_\-low\_\-7up\_\-set\_\-scroll@{eris\_\-low\_\-7up\_\-set\_\-scroll}!7up.h@{7up.h}}
+\subsubsection[{eris\_\-low\_\-7up\_\-set\_\-scroll}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-7up\_\-set\_\-scroll (
+\begin{DoxyParamCaption}
+\item[{int}]{chip, }
+\item[{{\bf u16}}]{x, }
+\item[{{\bf u16}}]{y}
+\end{DoxyParamCaption}
+)}}
+\label{7up_8h_a9eef7b6af3383d9cba0682d4bf4bfbec}
+
+
+Scroll a 7up background. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chip} & Which 7up to scroll. (0 $\sim$ 1) \\
+\hline
+{\em x} & Top-\/left X coordinate of the background. \\
+\hline
+{\em y} & Top-\/left Y coordinate of the background. \\
+\hline
+\end{DoxyParams}
+\hypertarget{7up_8h_aa6b87665c017830cdebaf72e3f8af239}{
+\index{7up.h@{7up.h}!eris\_\-low\_\-7up\_\-set\_\-video\_\-mode@{eris\_\-low\_\-7up\_\-set\_\-video\_\-mode}}
+\index{eris\_\-low\_\-7up\_\-set\_\-video\_\-mode@{eris\_\-low\_\-7up\_\-set\_\-video\_\-mode}!7up.h@{7up.h}}
+\subsubsection[{eris\_\-low\_\-7up\_\-set\_\-video\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-7up\_\-set\_\-video\_\-mode (
+\begin{DoxyParamCaption}
+\item[{int}]{chip, }
+\item[{int}]{hdispstrt, }
+\item[{int}]{hsyncwid, }
+\item[{int}]{hdispend, }
+\item[{int}]{hdispwid, }
+\item[{int}]{vdispstrt, }
+\item[{int}]{vsyncwid, }
+\item[{int}]{vdispwid, }
+\item[{int}]{vdispend}
+\end{DoxyParamCaption}
+)}}
+\label{7up_8h_aa6b87665c017830cdebaf72e3f8af239}
+
+
+Setup a 7up's video mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chip} & Which 7up to configure. (0 $\sim$ 1) \\
+\hline
+{\em hdispstrt} & The start of horizontal display, -\/1. (0 $\sim$ 127) \\
+\hline
+{\em hsyncwid} & The length of hsync. (0 $\sim$ 31) \\
+\hline
+{\em hdispend} & The end of horizontal display, -\/1. (0 $\sim$ 127) \\
+\hline
+{\em hdispwid} & The length of horizontal display, -\/1. (0 $\sim$ 127) \\
+\hline
+{\em vdispstrt} & The start of vertical display, -\/2. (0 $\sim$ 255) \\
+\hline
+{\em vsyncwid} & The length of vsync. (0 $\sim$ 31) \\
+\hline
+{\em vdispwid} & The length of vertical display, -\/1. (0 $\sim$ 512) \\
+\hline
+{\em vdispend} & The end of vertical display. (0 $\sim$ 255) \\
+\hline
+\end{DoxyParams}
+\hypertarget{7up_8h_a7fb809dcd73584b6500f66805b800128}{
+\index{7up.h@{7up.h}!eris\_\-low\_\-7up\_\-set\_\-vram\_\-read@{eris\_\-low\_\-7up\_\-set\_\-vram\_\-read}}
+\index{eris\_\-low\_\-7up\_\-set\_\-vram\_\-read@{eris\_\-low\_\-7up\_\-set\_\-vram\_\-read}!7up.h@{7up.h}}
+\subsubsection[{eris\_\-low\_\-7up\_\-set\_\-vram\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-7up\_\-set\_\-vram\_\-read (
+\begin{DoxyParamCaption}
+\item[{int}]{chip, }
+\item[{{\bf u16}}]{addr}
+\end{DoxyParamCaption}
+)}}
+\label{7up_8h_a7fb809dcd73584b6500f66805b800128}
+
+
+Set the VRAM read address for a 7up chip. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chip} & Which 7up to set the read address for. (0 $\sim$ 1) \\
+\hline
+{\em addr} & New VRAM address for read pointer. \\
+\hline
+\end{DoxyParams}
+\hypertarget{7up_8h_a72ab5becfd89ad0c3ff50c4b9e09c077}{
+\index{7up.h@{7up.h}!eris\_\-low\_\-7up\_\-set\_\-vram\_\-write@{eris\_\-low\_\-7up\_\-set\_\-vram\_\-write}}
+\index{eris\_\-low\_\-7up\_\-set\_\-vram\_\-write@{eris\_\-low\_\-7up\_\-set\_\-vram\_\-write}!7up.h@{7up.h}}
+\subsubsection[{eris\_\-low\_\-7up\_\-set\_\-vram\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-7up\_\-set\_\-vram\_\-write (
+\begin{DoxyParamCaption}
+\item[{int}]{chip, }
+\item[{{\bf u16}}]{addr}
+\end{DoxyParamCaption}
+)}}
+\label{7up_8h_a72ab5becfd89ad0c3ff50c4b9e09c077}
+
+
+Set the VRAM write address for a 7up chip. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chip} & Which 7up to set the write address for. (0 $\sim$ 1) \\
+\hline
+{\em addr} & New VRAM address for write pointer. \\
+\hline
+\end{DoxyParams}
+\hypertarget{7up_8h_aaac622c10c1c3977f1bdf6ac8d5d357f}{
+\index{7up.h@{7up.h}!eris\_\-low\_\-7up\_\-setup\_\-dma@{eris\_\-low\_\-7up\_\-setup\_\-dma}}
+\index{eris\_\-low\_\-7up\_\-setup\_\-dma@{eris\_\-low\_\-7up\_\-setup\_\-dma}!7up.h@{7up.h}}
+\subsubsection[{eris\_\-low\_\-7up\_\-setup\_\-dma}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-7up\_\-setup\_\-dma (
+\begin{DoxyParamCaption}
+\item[{int}]{chip, }
+\item[{int}]{dsr\_\-dma, }
+\item[{int}]{src\_\-dec, }
+\item[{int}]{dst\_\-dec, }
+\item[{int}]{vram\_\-irq, }
+\item[{int}]{satb\_\-irq}
+\end{DoxyParamCaption}
+)}}
+\label{7up_8h_aaac622c10c1c3977f1bdf6ac8d5d357f}
+
+
+Setup the DMA on a 7up. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chip} & Which 7up to setup the DMA on. (0 $\sim$ 1) \\
+\hline
+{\em dsr\_\-dma} & Whether to do a DSR DMA ``(VRAM-\/SATB transfer repetition)'' \\
+\hline
+{\em src\_\-dec} & If 1, decrement the source address for each transfer. Otherwise, increment it. \\
+\hline
+{\em dst\_\-dec} & If 1, decrement the destination address for each transfer. Otherwise, increment it. \\
+\hline
+{\em vram\_\-irq} & Fire an IRQ at the end of a VRAM-\/$>$VRAM transfer. \\
+\hline
+{\em satb\_\-irq} & Fire an IRq at the end of a VRAM-\/$>$SATB transfer. \\
+\hline
+\end{DoxyParams}
+\hypertarget{7up_8h_a0969c0d7a59ed19ad3514d30dd4a887d}{
+\index{7up.h@{7up.h}!eris\_\-low\_\-7up\_\-vram\_\-read@{eris\_\-low\_\-7up\_\-vram\_\-read}}
+\index{eris\_\-low\_\-7up\_\-vram\_\-read@{eris\_\-low\_\-7up\_\-vram\_\-read}!7up.h@{7up.h}}
+\subsubsection[{eris\_\-low\_\-7up\_\-vram\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} eris\_\-low\_\-7up\_\-vram\_\-read (
+\begin{DoxyParamCaption}
+\item[{int}]{chip}
+\end{DoxyParamCaption}
+)}}
+\label{7up_8h_a0969c0d7a59ed19ad3514d30dd4a887d}
+
+
+Read from VRAM from a 7up chip. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chip} & Which 7up to read data from. (0 $\sim$ 1) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The daata located at the read pointer address. 
+\end{DoxyReturn}
+\hypertarget{7up_8h_af0e1412692695f255478e8f19d90ebd2}{
+\index{7up.h@{7up.h}!eris\_\-low\_\-7up\_\-vram\_\-write@{eris\_\-low\_\-7up\_\-vram\_\-write}}
+\index{eris\_\-low\_\-7up\_\-vram\_\-write@{eris\_\-low\_\-7up\_\-vram\_\-write}!7up.h@{7up.h}}
+\subsubsection[{eris\_\-low\_\-7up\_\-vram\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-7up\_\-vram\_\-write (
+\begin{DoxyParamCaption}
+\item[{int}]{chip, }
+\item[{{\bf u16}}]{data}
+\end{DoxyParamCaption}
+)}}
+\label{7up_8h_af0e1412692695f255478e8f19d90ebd2}
+
+
+Write to VRAM on a 7up chip. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chip} & Which 7up to write data to. (0 $\sim$ 1) \\
+\hline
+{\em data} & Data to write. \\
+\hline
+\end{DoxyParams}

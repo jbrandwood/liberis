@@ -7,6 +7,10 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
 # see file LICENSE or http://www.opensource.org/licenses/mit-license.php
 */
 
+/*! \file stdarg.h
+ *  \brief V810 stdarg implementation.
+ */
+
 #ifndef	_STDARG_H_
 #define	_STDARG_H_
 

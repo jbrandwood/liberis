@@ -1,0 +1,317 @@
+\hypertarget{soundbox_8h}{
+\section{include/eris/low/soundbox.h File Reference}
+\label{soundbox_8h}\index{include/eris/low/soundbox.h@{include/eris/low/soundbox.h}}
+}
+
+
+Low-\/level access to the SoundBox.  
+
+
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{soundbox_8h_ad792729ca50fcaf9c54f56c576020168}{adpcm\_\-rate} \{ \hyperlink{soundbox_8h_ad792729ca50fcaf9c54f56c576020168ad45d2342d3475e1d9d27e9f938ed4f4a}{ADPCM\_\-RATE\_\-32000} =  0, 
+\hyperlink{soundbox_8h_ad792729ca50fcaf9c54f56c576020168a245f14f18136b42187c793709932c854}{ADPCM\_\-RATE\_\-16000} =  1, 
+\hyperlink{soundbox_8h_ad792729ca50fcaf9c54f56c576020168ab35e9d4f491f4ec5ebb2596137d3df64}{ADPCM\_\-RATE\_\-8000} =  2, 
+\hyperlink{soundbox_8h_ad792729ca50fcaf9c54f56c576020168ae92ba8ccc98e09925beab64d1cdf785f}{ADPCM\_\-RATE\_\-4000} =  3
+ \}
+\begin{DoxyCompactList}\small\item\em ADPCM sample rate. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{soundbox_8h_a691f8f8b397c5730c30f6cd39bfea300}{eris\_\-low\_\-psg\_\-set\_\-main\_\-volume} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} left, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} right)
+\begin{DoxyCompactList}\small\item\em Set main volume. \item\end{DoxyCompactList}\item 
+void \hyperlink{soundbox_8h_a97a8331972877ae95a468bcb72d9b201}{eris\_\-low\_\-psg\_\-set\_\-channel} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} chan)
+\begin{DoxyCompactList}\small\item\em Set the active channel to operate on. \item\end{DoxyCompactList}\item 
+void \hyperlink{soundbox_8h_a01bfb2a8b46df570ad119ea813012e65}{eris\_\-low\_\-psg\_\-set\_\-freq} (\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} freq)
+\begin{DoxyCompactList}\small\item\em Set the frequency of the active channel. \item\end{DoxyCompactList}\item 
+void \hyperlink{soundbox_8h_a1acef177bcc19ca14e0a1d42fbfe51da}{eris\_\-low\_\-psg\_\-set\_\-volume} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} vol, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} on, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} dda)
+\begin{DoxyCompactList}\small\item\em Set the volume (and some controls) of the active channel. \item\end{DoxyCompactList}\item 
+void \hyperlink{soundbox_8h_acaf2c50158bd75c56b0fe275b47147b9}{eris\_\-low\_\-psg\_\-set\_\-balance} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} left, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} right)
+\begin{DoxyCompactList}\small\item\em Set the balance on the active channel. \item\end{DoxyCompactList}\item 
+void \hyperlink{soundbox_8h_a5fc56300b06d69b8560ccc422362dcf6}{eris\_\-low\_\-psg\_\-waveform\_\-data} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} sample)
+\begin{DoxyCompactList}\small\item\em Write waveform data for the active channel. \item\end{DoxyCompactList}\item 
+void \hyperlink{soundbox_8h_a09e5e5da6ddfeca16dc30276193b612c}{eris\_\-low\_\-psg\_\-set\_\-noise} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} freq, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} enabled)
+\begin{DoxyCompactList}\small\item\em Set noise control data for the active channel. \item\end{DoxyCompactList}\item 
+void \hyperlink{soundbox_8h_ae0cc95a62e3f9915c7a7b3f1466177ca}{eris\_\-low\_\-psg\_\-set\_\-lfo\_\-freq} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} freq)
+\begin{DoxyCompactList}\small\item\em Set LFO frequency. \item\end{DoxyCompactList}\item 
+void \hyperlink{soundbox_8h_add3211b1b4ca3505a3b4199e2769d9b4}{eris\_\-low\_\-psg\_\-set\_\-lfo\_\-control} (int on, int ctrl)
+\begin{DoxyCompactList}\small\item\em Set LFO controls. \item\end{DoxyCompactList}\item 
+void \hyperlink{soundbox_8h_a9eb745994a0e50778c37b16eb2031914}{eris\_\-low\_\-adpcm\_\-set\_\-control} (\hyperlink{soundbox_8h_ad792729ca50fcaf9c54f56c576020168}{adpcm\_\-rate} rate, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} ch0\_\-interp, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} ch1\_\-interp, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} ch0\_\-reset, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} ch1\_\-reset)
+\begin{DoxyCompactList}\small\item\em Set ADPCM controls. \item\end{DoxyCompactList}\item 
+void \hyperlink{soundbox_8h_a94c47603be16275dcd77e85a341b4c90}{eris\_\-low\_\-adpcm\_\-set\_\-volume} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} chan, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} left, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} right)
+\begin{DoxyCompactList}\small\item\em Set ADPCM channel volume. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Low-\/level access to the SoundBox. 
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{soundbox_8h_ad792729ca50fcaf9c54f56c576020168}{
+\index{soundbox.h@{soundbox.h}!adpcm\_\-rate@{adpcm\_\-rate}}
+\index{adpcm\_\-rate@{adpcm\_\-rate}!soundbox.h@{soundbox.h}}
+\subsubsection[{adpcm\_\-rate}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf adpcm\_\-rate}}}
+\label{soundbox_8h_ad792729ca50fcaf9c54f56c576020168}
+
+
+ADPCM sample rate. 
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{ADPCM\_\-RATE\_\-32000@{ADPCM\_\-RATE\_\-32000}!soundbox.h@{soundbox.h}}\index{soundbox.h@{soundbox.h}!ADPCM\_\-RATE\_\-32000@{ADPCM\_\-RATE\_\-32000}}\item[{\em 
+\hypertarget{soundbox_8h_ad792729ca50fcaf9c54f56c576020168ad45d2342d3475e1d9d27e9f938ed4f4a}{
+ADPCM\_\-RATE\_\-32000}
+\label{soundbox_8h_ad792729ca50fcaf9c54f56c576020168ad45d2342d3475e1d9d27e9f938ed4f4a}
+}]32kHz sample rate \index{ADPCM\_\-RATE\_\-16000@{ADPCM\_\-RATE\_\-16000}!soundbox.h@{soundbox.h}}\index{soundbox.h@{soundbox.h}!ADPCM\_\-RATE\_\-16000@{ADPCM\_\-RATE\_\-16000}}\item[{\em 
+\hypertarget{soundbox_8h_ad792729ca50fcaf9c54f56c576020168a245f14f18136b42187c793709932c854}{
+ADPCM\_\-RATE\_\-16000}
+\label{soundbox_8h_ad792729ca50fcaf9c54f56c576020168a245f14f18136b42187c793709932c854}
+}]16kHz sample rate \index{ADPCM\_\-RATE\_\-8000@{ADPCM\_\-RATE\_\-8000}!soundbox.h@{soundbox.h}}\index{soundbox.h@{soundbox.h}!ADPCM\_\-RATE\_\-8000@{ADPCM\_\-RATE\_\-8000}}\item[{\em 
+\hypertarget{soundbox_8h_ad792729ca50fcaf9c54f56c576020168ab35e9d4f491f4ec5ebb2596137d3df64}{
+ADPCM\_\-RATE\_\-8000}
+\label{soundbox_8h_ad792729ca50fcaf9c54f56c576020168ab35e9d4f491f4ec5ebb2596137d3df64}
+}]8kHz sample rate \index{ADPCM\_\-RATE\_\-4000@{ADPCM\_\-RATE\_\-4000}!soundbox.h@{soundbox.h}}\index{soundbox.h@{soundbox.h}!ADPCM\_\-RATE\_\-4000@{ADPCM\_\-RATE\_\-4000}}\item[{\em 
+\hypertarget{soundbox_8h_ad792729ca50fcaf9c54f56c576020168ae92ba8ccc98e09925beab64d1cdf785f}{
+ADPCM\_\-RATE\_\-4000}
+\label{soundbox_8h_ad792729ca50fcaf9c54f56c576020168ae92ba8ccc98e09925beab64d1cdf785f}
+}]4kHz sample rate \end{description}
+\end{Desc}
+
+
+
+\subsection{Function Documentation}
+\hypertarget{soundbox_8h_a9eb745994a0e50778c37b16eb2031914}{
+\index{soundbox.h@{soundbox.h}!eris\_\-low\_\-adpcm\_\-set\_\-control@{eris\_\-low\_\-adpcm\_\-set\_\-control}}
+\index{eris\_\-low\_\-adpcm\_\-set\_\-control@{eris\_\-low\_\-adpcm\_\-set\_\-control}!soundbox.h@{soundbox.h}}
+\subsubsection[{eris\_\-low\_\-adpcm\_\-set\_\-control}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-adpcm\_\-set\_\-control (
+\begin{DoxyParamCaption}
+\item[{{\bf adpcm\_\-rate}}]{rate, }
+\item[{{\bf u8}}]{ch0\_\-interp, }
+\item[{{\bf u8}}]{ch1\_\-interp, }
+\item[{{\bf u8}}]{ch0\_\-reset, }
+\item[{{\bf u8}}]{ch1\_\-reset}
+\end{DoxyParamCaption}
+)}}
+\label{soundbox_8h_a9eb745994a0e50778c37b16eb2031914}
+
+
+Set ADPCM controls. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em rate} & Sample rate for the ADPCM. \\
+\hline
+{\em ch0\_\-interp} & Whether Channel 0 has linear interpolation enabled. \\
+\hline
+{\em ch1\_\-interp} & Whether Channel 1 has linear interpolation enabled. \\
+\hline
+{\em ch0\_\-reset} & If set, reset Channel 0. \\
+\hline
+{\em ch1\_\-reset} & If set, reset Channel 1. \\
+\hline
+\end{DoxyParams}
+\hypertarget{soundbox_8h_a94c47603be16275dcd77e85a341b4c90}{
+\index{soundbox.h@{soundbox.h}!eris\_\-low\_\-adpcm\_\-set\_\-volume@{eris\_\-low\_\-adpcm\_\-set\_\-volume}}
+\index{eris\_\-low\_\-adpcm\_\-set\_\-volume@{eris\_\-low\_\-adpcm\_\-set\_\-volume}!soundbox.h@{soundbox.h}}
+\subsubsection[{eris\_\-low\_\-adpcm\_\-set\_\-volume}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-adpcm\_\-set\_\-volume (
+\begin{DoxyParamCaption}
+\item[{{\bf u8}}]{chan, }
+\item[{{\bf u8}}]{left, }
+\item[{{\bf u8}}]{right}
+\end{DoxyParamCaption}
+)}}
+\label{soundbox_8h_a94c47603be16275dcd77e85a341b4c90}
+
+
+Set ADPCM channel volume. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chan} & Which channel to set the volume of. \\
+\hline
+{\em left} & Left speaker volume. (0 $\sim$ 63) \\
+\hline
+{\em right} & Right speaker volume. (0 $\sim$ 63) \\
+\hline
+\end{DoxyParams}
+\hypertarget{soundbox_8h_acaf2c50158bd75c56b0fe275b47147b9}{
+\index{soundbox.h@{soundbox.h}!eris\_\-low\_\-psg\_\-set\_\-balance@{eris\_\-low\_\-psg\_\-set\_\-balance}}
+\index{eris\_\-low\_\-psg\_\-set\_\-balance@{eris\_\-low\_\-psg\_\-set\_\-balance}!soundbox.h@{soundbox.h}}
+\subsubsection[{eris\_\-low\_\-psg\_\-set\_\-balance}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-psg\_\-set\_\-balance (
+\begin{DoxyParamCaption}
+\item[{{\bf u8}}]{left, }
+\item[{{\bf u8}}]{right}
+\end{DoxyParamCaption}
+)}}
+\label{soundbox_8h_acaf2c50158bd75c56b0fe275b47147b9}
+
+
+Set the balance on the active channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & Left speaker output volume. (0 $\sim$ 15) \\
+\hline
+{\em right} & Right speaker output volume. (0 $\sim$ 15) \\
+\hline
+\end{DoxyParams}
+\hypertarget{soundbox_8h_a97a8331972877ae95a468bcb72d9b201}{
+\index{soundbox.h@{soundbox.h}!eris\_\-low\_\-psg\_\-set\_\-channel@{eris\_\-low\_\-psg\_\-set\_\-channel}}
+\index{eris\_\-low\_\-psg\_\-set\_\-channel@{eris\_\-low\_\-psg\_\-set\_\-channel}!soundbox.h@{soundbox.h}}
+\subsubsection[{eris\_\-low\_\-psg\_\-set\_\-channel}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-psg\_\-set\_\-channel (
+\begin{DoxyParamCaption}
+\item[{{\bf u8}}]{chan}
+\end{DoxyParamCaption}
+)}}
+\label{soundbox_8h_a97a8331972877ae95a468bcb72d9b201}
+
+
+Set the active channel to operate on. 
+
+This affects which channel is changed for the functions \hyperlink{soundbox_8h_a01bfb2a8b46df570ad119ea813012e65}{eris\_\-low\_\-psg\_\-set\_\-freq()}, \hyperlink{soundbox_8h_a1acef177bcc19ca14e0a1d42fbfe51da}{eris\_\-low\_\-psg\_\-set\_\-volume()}, \hyperlink{soundbox_8h_acaf2c50158bd75c56b0fe275b47147b9}{eris\_\-low\_\-psg\_\-set\_\-balance()}, \hyperlink{soundbox_8h_a5fc56300b06d69b8560ccc422362dcf6}{eris\_\-low\_\-psg\_\-waveform\_\-data()}, and \hyperlink{soundbox_8h_a09e5e5da6ddfeca16dc30276193b612c}{eris\_\-low\_\-psg\_\-set\_\-noise()}. 
+\begin{DoxyParams}{Parameters}
+{\em chan} & The channel to become active. (0 $\sim$ 5) \\
+\hline
+\end{DoxyParams}
+\hypertarget{soundbox_8h_a01bfb2a8b46df570ad119ea813012e65}{
+\index{soundbox.h@{soundbox.h}!eris\_\-low\_\-psg\_\-set\_\-freq@{eris\_\-low\_\-psg\_\-set\_\-freq}}
+\index{eris\_\-low\_\-psg\_\-set\_\-freq@{eris\_\-low\_\-psg\_\-set\_\-freq}!soundbox.h@{soundbox.h}}
+\subsubsection[{eris\_\-low\_\-psg\_\-set\_\-freq}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-psg\_\-set\_\-freq (
+\begin{DoxyParamCaption}
+\item[{{\bf u16}}]{freq}
+\end{DoxyParamCaption}
+)}}
+\label{soundbox_8h_a01bfb2a8b46df570ad119ea813012e65}
+
+
+Set the frequency of the active channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em freq} & The frequency of the channel. 12bit. Calculated as n = (3580000 / 32) / freq \\
+\hline
+\end{DoxyParams}
+\hypertarget{soundbox_8h_add3211b1b4ca3505a3b4199e2769d9b4}{
+\index{soundbox.h@{soundbox.h}!eris\_\-low\_\-psg\_\-set\_\-lfo\_\-control@{eris\_\-low\_\-psg\_\-set\_\-lfo\_\-control}}
+\index{eris\_\-low\_\-psg\_\-set\_\-lfo\_\-control@{eris\_\-low\_\-psg\_\-set\_\-lfo\_\-control}!soundbox.h@{soundbox.h}}
+\subsubsection[{eris\_\-low\_\-psg\_\-set\_\-lfo\_\-control}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-psg\_\-set\_\-lfo\_\-control (
+\begin{DoxyParamCaption}
+\item[{int}]{on, }
+\item[{int}]{ctrl}
+\end{DoxyParamCaption}
+)}}
+\label{soundbox_8h_add3211b1b4ca3505a3b4199e2769d9b4}
+
+
+Set LFO controls. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em on} & Whether the LFO is enabled or not. \\
+\hline
+{\em ctrl} & LFO control. Influence is not simple; see hardware documentation. \\
+\hline
+\end{DoxyParams}
+\hypertarget{soundbox_8h_ae0cc95a62e3f9915c7a7b3f1466177ca}{
+\index{soundbox.h@{soundbox.h}!eris\_\-low\_\-psg\_\-set\_\-lfo\_\-freq@{eris\_\-low\_\-psg\_\-set\_\-lfo\_\-freq}}
+\index{eris\_\-low\_\-psg\_\-set\_\-lfo\_\-freq@{eris\_\-low\_\-psg\_\-set\_\-lfo\_\-freq}!soundbox.h@{soundbox.h}}
+\subsubsection[{eris\_\-low\_\-psg\_\-set\_\-lfo\_\-freq}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-psg\_\-set\_\-lfo\_\-freq (
+\begin{DoxyParamCaption}
+\item[{{\bf u8}}]{freq}
+\end{DoxyParamCaption}
+)}}
+\label{soundbox_8h_ae0cc95a62e3f9915c7a7b3f1466177ca}
+
+
+Set LFO frequency. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em freq} & The LFO's new frequency value. Influence is not simple; see hardware documentation. \\
+\hline
+\end{DoxyParams}
+\hypertarget{soundbox_8h_a691f8f8b397c5730c30f6cd39bfea300}{
+\index{soundbox.h@{soundbox.h}!eris\_\-low\_\-psg\_\-set\_\-main\_\-volume@{eris\_\-low\_\-psg\_\-set\_\-main\_\-volume}}
+\index{eris\_\-low\_\-psg\_\-set\_\-main\_\-volume@{eris\_\-low\_\-psg\_\-set\_\-main\_\-volume}!soundbox.h@{soundbox.h}}
+\subsubsection[{eris\_\-low\_\-psg\_\-set\_\-main\_\-volume}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-psg\_\-set\_\-main\_\-volume (
+\begin{DoxyParamCaption}
+\item[{{\bf u8}}]{left, }
+\item[{{\bf u8}}]{right}
+\end{DoxyParamCaption}
+)}}
+\label{soundbox_8h_a691f8f8b397c5730c30f6cd39bfea300}
+
+
+Set main volume. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left} & Left speaker output volume. (0 $\sim$ 15) \\
+\hline
+{\em right} & Right speaker output volume. (0 $\sim$ 15) \\
+\hline
+\end{DoxyParams}
+\hypertarget{soundbox_8h_a09e5e5da6ddfeca16dc30276193b612c}{
+\index{soundbox.h@{soundbox.h}!eris\_\-low\_\-psg\_\-set\_\-noise@{eris\_\-low\_\-psg\_\-set\_\-noise}}
+\index{eris\_\-low\_\-psg\_\-set\_\-noise@{eris\_\-low\_\-psg\_\-set\_\-noise}!soundbox.h@{soundbox.h}}
+\subsubsection[{eris\_\-low\_\-psg\_\-set\_\-noise}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-psg\_\-set\_\-noise (
+\begin{DoxyParamCaption}
+\item[{{\bf u8}}]{freq, }
+\item[{{\bf u8}}]{enabled}
+\end{DoxyParamCaption}
+)}}
+\label{soundbox_8h_a09e5e5da6ddfeca16dc30276193b612c}
+
+
+Set noise control data for the active channel. 
+
+Only works on the last 2 channels (4 and 5). 
+\begin{DoxyParams}{Parameters}
+{\em freq} & Frequency of the noise. 5bit. Calculated as n = (3580000 / 32) / freq \\
+\hline
+{\em enabled} & Whether the channel should or should not output noise. \\
+\hline
+\end{DoxyParams}
+\hypertarget{soundbox_8h_a1acef177bcc19ca14e0a1d42fbfe51da}{
+\index{soundbox.h@{soundbox.h}!eris\_\-low\_\-psg\_\-set\_\-volume@{eris\_\-low\_\-psg\_\-set\_\-volume}}
+\index{eris\_\-low\_\-psg\_\-set\_\-volume@{eris\_\-low\_\-psg\_\-set\_\-volume}!soundbox.h@{soundbox.h}}
+\subsubsection[{eris\_\-low\_\-psg\_\-set\_\-volume}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-psg\_\-set\_\-volume (
+\begin{DoxyParamCaption}
+\item[{{\bf u8}}]{vol, }
+\item[{{\bf u8}}]{on, }
+\item[{{\bf u8}}]{dda}
+\end{DoxyParamCaption}
+)}}
+\label{soundbox_8h_a1acef177bcc19ca14e0a1d42fbfe51da}
+
+
+Set the volume (and some controls) of the active channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em vol} & Volume of the channel. (0 $\sim$ 31) \\
+\hline
+{\em on} & Controls whether the channel is on or off. \\
+\hline
+{\em dda} & Direct DAC access control. When enabled, waveform data is streamed through \hyperlink{soundbox_8h_a5fc56300b06d69b8560ccc422362dcf6}{eris\_\-low\_\-psg\_\-waveform\_\-data()}. \\
+\hline
+\end{DoxyParams}
+\hypertarget{soundbox_8h_a5fc56300b06d69b8560ccc422362dcf6}{
+\index{soundbox.h@{soundbox.h}!eris\_\-low\_\-psg\_\-waveform\_\-data@{eris\_\-low\_\-psg\_\-waveform\_\-data}}
+\index{eris\_\-low\_\-psg\_\-waveform\_\-data@{eris\_\-low\_\-psg\_\-waveform\_\-data}!soundbox.h@{soundbox.h}}
+\subsubsection[{eris\_\-low\_\-psg\_\-waveform\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-psg\_\-waveform\_\-data (
+\begin{DoxyParamCaption}
+\item[{{\bf u8}}]{sample}
+\end{DoxyParamCaption}
+)}}
+\label{soundbox_8h_a5fc56300b06d69b8560ccc422362dcf6}
+
+
+Write waveform data for the active channel. 
+
+If DDA is off, writes to the waveform buffer and increases the index. If it's on, it changes the current sample being played. 
+\begin{DoxyParams}{Parameters}
+{\em sample} & A 5bit unsigned sample. (0 $\sim$ 31) \\
+\hline
+\end{DoxyParams}

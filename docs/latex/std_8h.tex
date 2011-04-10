@@ -1,0 +1,152 @@
+\hypertarget{std_8h}{
+\section{include/eris/std.h File Reference}
+\label{std_8h}\index{include/eris/std.h@{include/eris/std.h}}
+}
+
+
+Implementation of standard functions, with modifications for speed.  
+
+
+{\ttfamily \#include $<$eris/types.h$>$}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{std_8h_ad85d7093fcb76ded2a72426b02ba9e23}{
+void {\bfseries memset32} (void $\ast$addr, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} val, int size)}
+\label{std_8h_ad85d7093fcb76ded2a72426b02ba9e23}
+
+\item 
+\hypertarget{std_8h_aa1f03c18ba4d92670d5edebefcadf15a}{
+void {\bfseries memset16} (void $\ast$addr, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} val, int size)}
+\label{std_8h_aa1f03c18ba4d92670d5edebefcadf15a}
+
+\item 
+\hypertarget{std_8h_a0db3664fb7b8923c69514ca6a8499620}{
+void {\bfseries memset} (void $\ast$addr, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} val, int size)}
+\label{std_8h_a0db3664fb7b8923c69514ca6a8499620}
+
+\item 
+\hypertarget{std_8h_a4168665684e197660eafdf956c712554}{
+void {\bfseries memcpy32} (void $\ast$dst, void $\ast$src, int size)}
+\label{std_8h_a4168665684e197660eafdf956c712554}
+
+\item 
+\hypertarget{std_8h_a203864cfe7f266102612d54d6469ed40}{
+void {\bfseries memcpy16} (void $\ast$dst, void $\ast$src, int size)}
+\label{std_8h_a203864cfe7f266102612d54d6469ed40}
+
+\item 
+\hypertarget{std_8h_a20ad64e67cabc2fad48537b7ec7f035b}{
+void {\bfseries memcpy} (void $\ast$dst, void $\ast$src, int size)}
+\label{std_8h_a20ad64e67cabc2fad48537b7ec7f035b}
+
+\item 
+\hypertarget{std_8h_a4284f3b8b1c4686cd9794df2b1eaa40a}{
+int {\bfseries memcmp32} (void $\ast$mem1, void $\ast$mem2, int size)}
+\label{std_8h_a4284f3b8b1c4686cd9794df2b1eaa40a}
+
+\item 
+\hypertarget{std_8h_a785f179415d23f8788ce39162f7026f1}{
+int {\bfseries memcmp16} (void $\ast$mem1, void $\ast$mem2, int size)}
+\label{std_8h_a785f179415d23f8788ce39162f7026f1}
+
+\item 
+\hypertarget{std_8h_aa9b34fd1dbc96c74b7588d8906d865f5}{
+int {\bfseries memcmp} (void $\ast$mem1, void $\ast$mem2, int size)}
+\label{std_8h_aa9b34fd1dbc96c74b7588d8906d865f5}
+
+\item 
+\hypertarget{std_8h_abcaaac188c8496848a0bc33a3c02f949}{
+int {\bfseries strlen32} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} $\ast$str)}
+\label{std_8h_abcaaac188c8496848a0bc33a3c02f949}
+
+\item 
+\hypertarget{std_8h_a97ca72b18a98a12562d6f4b620b57696}{
+int {\bfseries strlen16} (\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} $\ast$str)}
+\label{std_8h_a97ca72b18a98a12562d6f4b620b57696}
+
+\item 
+\hypertarget{std_8h_a9896699f331c8da8f438f606832f31db}{
+int {\bfseries strlen} (char $\ast$str)}
+\label{std_8h_a9896699f331c8da8f438f606832f31db}
+
+\item 
+\hypertarget{std_8h_aafd09601a4ba700699a85f192bda83f4}{
+void {\bfseries strcpy32} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} $\ast$dst, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} $\ast$src)}
+\label{std_8h_aafd09601a4ba700699a85f192bda83f4}
+
+\item 
+\hypertarget{std_8h_a83ec6b9eb55977d127ddca58d522fdd3}{
+void {\bfseries strcpy16} (\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} $\ast$dst, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} $\ast$src)}
+\label{std_8h_a83ec6b9eb55977d127ddca58d522fdd3}
+
+\item 
+\hypertarget{std_8h_a56f3e842f77fc8056de14ea2c11707ce}{
+void {\bfseries strcpy} (char $\ast$dst, char $\ast$src)}
+\label{std_8h_a56f3e842f77fc8056de14ea2c11707ce}
+
+\item 
+\hypertarget{std_8h_af3de8379251f9b22e083c3f79990c236}{
+int {\bfseries strcmp32} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} $\ast$str1, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} $\ast$str2)}
+\label{std_8h_af3de8379251f9b22e083c3f79990c236}
+
+\item 
+\hypertarget{std_8h_aa1b79f49929a1f7c9b372a38a64bf30f}{
+int {\bfseries strcmp16} (\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} $\ast$str1, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} $\ast$str2)}
+\label{std_8h_aa1b79f49929a1f7c9b372a38a64bf30f}
+
+\item 
+\hypertarget{std_8h_a57b18ef9eecf3a059b3138b3806868bb}{
+int {\bfseries strcmp} (char $\ast$str1, char $\ast$str2)}
+\label{std_8h_a57b18ef9eecf3a059b3138b3806868bb}
+
+\item 
+\hypertarget{std_8h_a28250f44764ce0ec61de0a6d097fe57a}{
+int {\bfseries strnlen32} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} $\ast$str, int len)}
+\label{std_8h_a28250f44764ce0ec61de0a6d097fe57a}
+
+\item 
+\hypertarget{std_8h_a67ca46f597b6cc5ab85ccc9b34ae3990}{
+int {\bfseries strnlen16} (\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} $\ast$str, int len)}
+\label{std_8h_a67ca46f597b6cc5ab85ccc9b34ae3990}
+
+\item 
+\hypertarget{std_8h_a87d4a0f1a1d140efeccf6a830457279a}{
+int {\bfseries strnlen} (char $\ast$str, int len)}
+\label{std_8h_a87d4a0f1a1d140efeccf6a830457279a}
+
+\item 
+\hypertarget{std_8h_a61b4c990c7566bb67b519cda10f3ff3c}{
+void {\bfseries strncpy32} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} $\ast$dst, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} $\ast$src, int len)}
+\label{std_8h_a61b4c990c7566bb67b519cda10f3ff3c}
+
+\item 
+\hypertarget{std_8h_ab1f8e92af9b57821c1a6c0000f1f8163}{
+void {\bfseries strncpy16} (\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} $\ast$dst, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} $\ast$src, int len)}
+\label{std_8h_ab1f8e92af9b57821c1a6c0000f1f8163}
+
+\item 
+\hypertarget{std_8h_ac218f8d352609bdc3cbac4f8a1a0d48e}{
+void {\bfseries strncpy} (char $\ast$dst, char $\ast$src, int len)}
+\label{std_8h_ac218f8d352609bdc3cbac4f8a1a0d48e}
+
+\item 
+\hypertarget{std_8h_a12c8ca50291dc560b44e8218e7c71bfa}{
+int {\bfseries strncmp32} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} $\ast$str1, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} $\ast$str2, int len)}
+\label{std_8h_a12c8ca50291dc560b44e8218e7c71bfa}
+
+\item 
+\hypertarget{std_8h_a7861df6ca05d74fc2e2911b23513704a}{
+int {\bfseries strncmp16} (\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} $\ast$str1, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} $\ast$str2, int len)}
+\label{std_8h_a7861df6ca05d74fc2e2911b23513704a}
+
+\item 
+\hypertarget{std_8h_afdc53a091cdac44808d4e006f5a2c073}{
+int {\bfseries strncmp} (char $\ast$str1, char $\ast$str2, int len)}
+\label{std_8h_afdc53a091cdac44808d4e006f5a2c073}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Implementation of standard functions, with modifications for speed. 

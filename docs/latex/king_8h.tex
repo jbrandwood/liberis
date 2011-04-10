@@ -1,0 +1,1118 @@
+\hypertarget{king_8h}{
+\section{include/eris/king.h File Reference}
+\label{king_8h}\index{include/eris/king.h@{include/eris/king.h}}
+}
+
+
+Controls the KING processor.  
+
+
+{\ttfamily \#include $<$eris/types.h$>$}\par
+\subsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{king_8h_a7e2c2196c11ea75d81b6636510d43d57}{KING\_\-CODE}(off, type, rot, bg, nop)
+\begin{DoxyCompactList}\small\item\em KING microprogram opcode generator. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081b}{king\_\-opcode} \{ \par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba662fced2e9eee665e65904dfea3f993f}{KING\_\-CODE\_\-BG0\_\-CG\_\-0} =  KING\_\-CODE(0, 0, 0, 0, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081bab92058c31c1145a7c2291be2cc43aac8}{KING\_\-CODE\_\-BG0\_\-CG\_\-1} =  KING\_\-CODE(1, 0, 0, 0, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba8eae8efffebd76893b09130cc39b70fc}{KING\_\-CODE\_\-BG0\_\-CG\_\-2} =  KING\_\-CODE(2, 0, 0, 0, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081bac3d2b9b9da6a790e86da39608c5a9ecb}{KING\_\-CODE\_\-BG0\_\-CG\_\-3} =  KING\_\-CODE(3, 0, 0, 0, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba30572e0b4a914ce5bc7be1398d891605}{KING\_\-CODE\_\-BG0\_\-CG\_\-4} =  KING\_\-CODE(4, 0, 0, 0, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba4225717e24aef88f653b9a480a6e3e5f}{KING\_\-CODE\_\-BG0\_\-CG\_\-5} =  KING\_\-CODE(5, 0, 0, 0, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba7baddf4ad535fb46d3e06824245be2ab}{KING\_\-CODE\_\-BG0\_\-CG\_\-6} =  KING\_\-CODE(6, 0, 0, 0, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba2e4909b9637d24b551c3815497268ee1}{KING\_\-CODE\_\-BG0\_\-CG\_\-7} =  KING\_\-CODE(7, 0, 0, 0, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba535cc55dcecdc941e38695b18d48ff36}{KING\_\-CODE\_\-BG0\_\-BATCG\_\-0} =  KING\_\-CODE(0, 1, 0, 0, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba55b4ccc1a324e6de7af6d4ae88ea49db}{KING\_\-CODE\_\-BG0\_\-BATCG\_\-1} =  KING\_\-CODE(1, 1, 0, 0, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba0cb625906007b4e15e671100bc0769ff}{KING\_\-CODE\_\-BG0\_\-BATCG\_\-2} =  KING\_\-CODE(2, 1, 0, 0, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba6c7f2cefe67ec8251450d9d3896b8b71}{KING\_\-CODE\_\-BG0\_\-BATCG\_\-3} =  KING\_\-CODE(3, 1, 0, 0, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081baa77885b057e73871fe29cfdc7d96fd98}{KING\_\-CODE\_\-BG0\_\-BATCG\_\-4} =  KING\_\-CODE(4, 1, 0, 0, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081bab12a2971e3fee96bdea7786444d59326}{KING\_\-CODE\_\-BG0\_\-BATCG\_\-5} =  KING\_\-CODE(5, 1, 0, 0, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081baab6a3dc4bf912b1a54824d6c05a95deb}{KING\_\-CODE\_\-BG0\_\-BATCG\_\-6} =  KING\_\-CODE(6, 1, 0, 0, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba0198ff0a80927ddcf58deb72fcc11df0}{KING\_\-CODE\_\-BG0\_\-BATCG\_\-7} =  KING\_\-CODE(7, 1, 0, 0, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba9b08df445296e8b68cd8887890cfddde}{KING\_\-CODE\_\-BG0\_\-BAT\_\-0} =  KING\_\-CODE(0, 2, 0, 0, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081bad4ec313b49d06c208510d570551fcd06}{KING\_\-CODE\_\-BG0\_\-BAT\_\-1} =  KING\_\-CODE(1, 2, 0, 0, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba0ff5fb1ee6d589b5d21b83563fd54db3}{KING\_\-CODE\_\-BG0\_\-BAT\_\-2} =  KING\_\-CODE(2, 2, 0, 0, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081bae28fde99dcbcf4949eadc622a8eed593}{KING\_\-CODE\_\-BG0\_\-BAT\_\-3} =  KING\_\-CODE(3, 2, 0, 0, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba6900d9a0c138f701643c2056bbc959b9}{KING\_\-CODE\_\-BG0\_\-BAT\_\-4} =  KING\_\-CODE(4, 2, 0, 0, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba1f87a65e4ce6963150323caaef947899}{KING\_\-CODE\_\-BG0\_\-BAT\_\-5} =  KING\_\-CODE(5, 2, 0, 0, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081bacda7467878b8c60a34fe8b8f69ce8ea6}{KING\_\-CODE\_\-BG0\_\-BAT\_\-6} =  KING\_\-CODE(6, 2, 0, 0, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba8661ff3e82ebb5e70d60764920c280fe}{KING\_\-CODE\_\-BG0\_\-BAT\_\-7} =  KING\_\-CODE(7, 2, 0, 0, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba6e73f81902d577347684d760f94d7c55}{KING\_\-CODE\_\-BG1\_\-CG\_\-0} =  KING\_\-CODE(0, 0, 0, 1, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba3586f1a1caf1f060ea7c145162a8c77c}{KING\_\-CODE\_\-BG1\_\-CG\_\-1} =  KING\_\-CODE(1, 0, 0, 1, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081baa1b431d3f2b5ab931826eaec6a4ce468}{KING\_\-CODE\_\-BG1\_\-CG\_\-2} =  KING\_\-CODE(2, 0, 0, 1, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba54f0992ba7b3e980f1209fbb7af26b17}{KING\_\-CODE\_\-BG1\_\-CG\_\-3} =  KING\_\-CODE(3, 0, 0, 1, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba9dd8889051594584bc371d75fbdb8abe}{KING\_\-CODE\_\-BG1\_\-CG\_\-4} =  KING\_\-CODE(4, 0, 0, 1, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081bae415fbf5d24128df473d6234d0f18022}{KING\_\-CODE\_\-BG1\_\-CG\_\-5} =  KING\_\-CODE(5, 0, 0, 1, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba17d000161edad9e9cbf72b6d0259033e}{KING\_\-CODE\_\-BG1\_\-CG\_\-6} =  KING\_\-CODE(6, 0, 0, 1, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba4e22e50eb504e70af7bdaaa539c62aa6}{KING\_\-CODE\_\-BG1\_\-CG\_\-7} =  KING\_\-CODE(7, 0, 0, 1, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba075354f28f492b90847ae57f4a1163e6}{KING\_\-CODE\_\-BG1\_\-BATCG\_\-0} =  KING\_\-CODE(0, 1, 0, 1, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba9c78dbeefd35843ce48c00f66ff206ed}{KING\_\-CODE\_\-BG1\_\-BATCG\_\-1} =  KING\_\-CODE(1, 1, 0, 1, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba7f5362d6803a0b797960373daf60a216}{KING\_\-CODE\_\-BG1\_\-BATCG\_\-2} =  KING\_\-CODE(2, 1, 0, 1, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba87ec2260a8b99309b38ecf65290399cf}{KING\_\-CODE\_\-BG1\_\-BATCG\_\-3} =  KING\_\-CODE(3, 1, 0, 1, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba1054a694d3f20691937d821308ae376a}{KING\_\-CODE\_\-BG1\_\-BATCG\_\-4} =  KING\_\-CODE(4, 1, 0, 1, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba0c6bff05440e5e806421657ed0faa1ef}{KING\_\-CODE\_\-BG1\_\-BATCG\_\-5} =  KING\_\-CODE(5, 1, 0, 1, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081baf3c91b072e4ebd17a5922ea4fee40caa}{KING\_\-CODE\_\-BG1\_\-BATCG\_\-6} =  KING\_\-CODE(6, 1, 0, 1, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba7b40a92c83e720ccbe099aae5989c883}{KING\_\-CODE\_\-BG1\_\-BATCG\_\-7} =  KING\_\-CODE(7, 1, 0, 1, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba178dc0d881628d1b4167297d39688a1a}{KING\_\-CODE\_\-BG1\_\-BAT\_\-0} =  KING\_\-CODE(0, 2, 0, 1, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba72839ba11b77291ae1e7920e99b26706}{KING\_\-CODE\_\-BG1\_\-BAT\_\-1} =  KING\_\-CODE(1, 2, 0, 1, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba2e37c984e24311c166b28bb7e5a36c32}{KING\_\-CODE\_\-BG1\_\-BAT\_\-2} =  KING\_\-CODE(2, 2, 0, 1, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba99efbc003f5e2ed752b9e409755e2240}{KING\_\-CODE\_\-BG1\_\-BAT\_\-3} =  KING\_\-CODE(3, 2, 0, 1, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba73d5dc6032218664b53f14d447f44b3f}{KING\_\-CODE\_\-BG1\_\-BAT\_\-4} =  KING\_\-CODE(4, 2, 0, 1, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba7f8f31b9b9679a078014d1b72f58fda8}{KING\_\-CODE\_\-BG1\_\-BAT\_\-5} =  KING\_\-CODE(5, 2, 0, 1, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba5178f2fb79cb3a5faeb8d576c2360130}{KING\_\-CODE\_\-BG1\_\-BAT\_\-6} =  KING\_\-CODE(6, 2, 0, 1, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba034b726116fece612dbf38d6b33146aa}{KING\_\-CODE\_\-BG1\_\-BAT\_\-7} =  KING\_\-CODE(7, 2, 0, 1, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081babd1e6af6a6eb795d6d7df6874345b48a}{KING\_\-CODE\_\-BG2\_\-CG\_\-0} =  KING\_\-CODE(0, 0, 0, 2, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba2c223875538211604b7ee6106b395103}{KING\_\-CODE\_\-BG2\_\-CG\_\-1} =  KING\_\-CODE(1, 0, 0, 2, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba28763755dd0f781021f105082cb4130b}{KING\_\-CODE\_\-BG2\_\-CG\_\-2} =  KING\_\-CODE(2, 0, 0, 2, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba8b5da37af6ea7f556b643384094d4994}{KING\_\-CODE\_\-BG2\_\-CG\_\-3} =  KING\_\-CODE(3, 0, 0, 2, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba2c895702a401309ce3e41e4c112e65a7}{KING\_\-CODE\_\-BG2\_\-CG\_\-4} =  KING\_\-CODE(4, 0, 0, 2, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081bab7c2221fbdf47fba122205502730c775}{KING\_\-CODE\_\-BG2\_\-CG\_\-5} =  KING\_\-CODE(5, 0, 0, 2, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba822f6cf4ca40674d2cfe8c3958d0b394}{KING\_\-CODE\_\-BG2\_\-CG\_\-6} =  KING\_\-CODE(6, 0, 0, 2, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba92aaa761b0342a44c9f1a64025a3ef01}{KING\_\-CODE\_\-BG2\_\-CG\_\-7} =  KING\_\-CODE(7, 0, 0, 2, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba6dbaabb0081feef81337bfffcb3c00c4}{KING\_\-CODE\_\-BG2\_\-BATCG\_\-0} =  KING\_\-CODE(0, 1, 0, 2, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba4920d46bcecdebff695bedf4edaf63e5}{KING\_\-CODE\_\-BG2\_\-BATCG\_\-1} =  KING\_\-CODE(1, 1, 0, 2, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081baeaef0c4624779a2eec45d3bfc5de0ac1}{KING\_\-CODE\_\-BG2\_\-BATCG\_\-2} =  KING\_\-CODE(2, 1, 0, 2, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081bafd629987bd54726a596aa8a487c27a9c}{KING\_\-CODE\_\-BG2\_\-BATCG\_\-3} =  KING\_\-CODE(3, 1, 0, 2, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba0bfb55a33c96d3e935d617c4f8ca1ae2}{KING\_\-CODE\_\-BG2\_\-BATCG\_\-4} =  KING\_\-CODE(4, 1, 0, 2, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081bae4f0612e00e5a9ab424f26b0fbf09c22}{KING\_\-CODE\_\-BG2\_\-BATCG\_\-5} =  KING\_\-CODE(5, 1, 0, 2, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba36e3cccfc28238761afa6e4a6173fde8}{KING\_\-CODE\_\-BG2\_\-BATCG\_\-6} =  KING\_\-CODE(6, 1, 0, 2, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba71208a7ae73237cbe5bba812f50b41a7}{KING\_\-CODE\_\-BG2\_\-BATCG\_\-7} =  KING\_\-CODE(7, 1, 0, 2, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba72b13efcf183db9d8451b06b37912b26}{KING\_\-CODE\_\-BG2\_\-BAT\_\-0} =  KING\_\-CODE(0, 2, 0, 2, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081bace67485697fb812b4f40bd4827f1b23f}{KING\_\-CODE\_\-BG2\_\-BAT\_\-1} =  KING\_\-CODE(1, 2, 0, 2, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba2652399898f66b62f9a93997f6d7f56d}{KING\_\-CODE\_\-BG2\_\-BAT\_\-2} =  KING\_\-CODE(2, 2, 0, 2, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba215104401dff2aa3e6eba34184d7083f}{KING\_\-CODE\_\-BG2\_\-BAT\_\-3} =  KING\_\-CODE(3, 2, 0, 2, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba07c759ad0bbdd7aa9b5319766fe517e8}{KING\_\-CODE\_\-BG2\_\-BAT\_\-4} =  KING\_\-CODE(4, 2, 0, 2, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba29d17c5cb50abb588029077495b42206}{KING\_\-CODE\_\-BG2\_\-BAT\_\-5} =  KING\_\-CODE(5, 2, 0, 2, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081baa0429b23e03db0fc9285a0e3fa532eb1}{KING\_\-CODE\_\-BG2\_\-BAT\_\-6} =  KING\_\-CODE(6, 2, 0, 2, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba6f06702e1d700a8ffb49ed590ef4cd84}{KING\_\-CODE\_\-BG2\_\-BAT\_\-7} =  KING\_\-CODE(7, 2, 0, 2, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081baf965bbeb44ad8a7f521ad3f364e145f6}{KING\_\-CODE\_\-BG3\_\-CG\_\-0} =  KING\_\-CODE(0, 0, 0, 3, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba07a9335147fcb5e89a0ef301b0acc427}{KING\_\-CODE\_\-BG3\_\-CG\_\-1} =  KING\_\-CODE(1, 0, 0, 3, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba359fc5f968b6dc8e2dfd2228bfc73207}{KING\_\-CODE\_\-BG3\_\-CG\_\-2} =  KING\_\-CODE(2, 0, 0, 3, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba51ee5dd9f5a9025041dc5e55b1c94ff7}{KING\_\-CODE\_\-BG3\_\-CG\_\-3} =  KING\_\-CODE(3, 0, 0, 3, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba7177195ad2a4d24f9d72387fb20490dc}{KING\_\-CODE\_\-BG3\_\-CG\_\-4} =  KING\_\-CODE(4, 0, 0, 3, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba932d2444de8d5da602946c00e122facc}{KING\_\-CODE\_\-BG3\_\-CG\_\-5} =  KING\_\-CODE(5, 0, 0, 3, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba0e9d0b73093e3fcb34d931eed69719f9}{KING\_\-CODE\_\-BG3\_\-CG\_\-6} =  KING\_\-CODE(6, 0, 0, 3, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081bacf0315c7eee053c4892c446dc1735f9b}{KING\_\-CODE\_\-BG3\_\-CG\_\-7} =  KING\_\-CODE(7, 0, 0, 3, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba9f42bf9a070029661d6f6b02230b26eb}{KING\_\-CODE\_\-BG3\_\-BATCG\_\-0} =  KING\_\-CODE(0, 1, 0, 3, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba8a0425e4aefa3667824887ff5c169f91}{KING\_\-CODE\_\-BG3\_\-BATCG\_\-1} =  KING\_\-CODE(1, 1, 0, 3, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba1b1a1302d5c0fe6e0dd0086f10e2fbfa}{KING\_\-CODE\_\-BG3\_\-BATCG\_\-2} =  KING\_\-CODE(2, 1, 0, 3, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba05543376d1c49ffd73f6a9f5b1fc5f13}{KING\_\-CODE\_\-BG3\_\-BATCG\_\-3} =  KING\_\-CODE(3, 1, 0, 3, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081baf9b02ad3d8701ae5606cfd09a082db9a}{KING\_\-CODE\_\-BG3\_\-BATCG\_\-4} =  KING\_\-CODE(4, 1, 0, 3, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba43498dcf7f23eea4d2ae65284ecde806}{KING\_\-CODE\_\-BG3\_\-BATCG\_\-5} =  KING\_\-CODE(5, 1, 0, 3, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081babfda871a1e199c6eef7a57e81a0567f0}{KING\_\-CODE\_\-BG3\_\-BATCG\_\-6} =  KING\_\-CODE(6, 1, 0, 3, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba637f8f24fe748fe6d060a87e0c55b959}{KING\_\-CODE\_\-BG3\_\-BATCG\_\-7} =  KING\_\-CODE(7, 1, 0, 3, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081bacd733d9342fd602830b91b4cdc5fb670}{KING\_\-CODE\_\-BG3\_\-BAT\_\-0} =  KING\_\-CODE(0, 2, 0, 3, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081babb728c69f541763919d4055ed17e2c62}{KING\_\-CODE\_\-BG3\_\-BAT\_\-1} =  KING\_\-CODE(1, 2, 0, 3, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba2159f19db12bd5fe444ab3e85b3b98ab}{KING\_\-CODE\_\-BG3\_\-BAT\_\-2} =  KING\_\-CODE(2, 2, 0, 3, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba3b70ff459176f3bd22de41e506cc32fe}{KING\_\-CODE\_\-BG3\_\-BAT\_\-3} =  KING\_\-CODE(3, 2, 0, 3, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba505214d4907ee18f703fb6007faf7fe6}{KING\_\-CODE\_\-BG3\_\-BAT\_\-4} =  KING\_\-CODE(4, 2, 0, 3, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba6b25730039f688d70077c29c6a7e1c55}{KING\_\-CODE\_\-BG3\_\-BAT\_\-5} =  KING\_\-CODE(5, 2, 0, 3, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba493044065d9fe0c2650ced162a3a110d}{KING\_\-CODE\_\-BG3\_\-BAT\_\-6} =  KING\_\-CODE(6, 2, 0, 3, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba60e1a5b3291f7f1651fd59ab57606c2b}{KING\_\-CODE\_\-BG3\_\-BAT\_\-7} =  KING\_\-CODE(7, 2, 0, 3, 0), 
+\par
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081bafdc194dabc2e0c480cdc8a11b961aa9e}{KING\_\-CODE\_\-ROTATE} =  KING\_\-CODE(0, 0, 1, 0, 0), 
+\hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba3f26e075925eb2b18d47cc9fb183cb64}{KING\_\-CODE\_\-NOP} =  KING\_\-CODE(0, 0, 0, 0, 1)
+ \}
+\begin{DoxyCompactList}\small\item\em KING microprogram opcodes. \item\end{DoxyCompactList}\item 
+enum \hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfe}{king\_\-bgmode} \{ \par
+\hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfea0a9db3796069e49c29228687f9d8053b}{KING\_\-BGMODE\_\-4\_\-PAL} =  0x1, 
+\hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfea9af8390aa158732a7d52759cc3a67c21}{KING\_\-BGMODE\_\-16\_\-PAL} =  0x2, 
+\hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfea25c4e8b28fc1da42cf6b2882e68f4a70}{KING\_\-BGMODE\_\-256\_\-PAL} =  0x3, 
+\hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfea5f5db790c7d2159ca73605676c2d6338}{KING\_\-BGMODE\_\-64K} =  0x4, 
+\par
+\hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfeaf936128612783914b7244ed88425cf3f}{KING\_\-BGMODE\_\-16M} =  0x5, 
+\hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfea299360125c1efb3dc58ced9dbea7729d}{KING\_\-BGMODE\_\-BAT} =  0x8, 
+\hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfea6a791fdca83d80c33131c44ebcdec0c9}{KING\_\-BGMODE\_\-64K\_\-BAT\_\-EXTDOT} =  0xE, 
+\hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfeabe13f98639614626e9667d3dc6b00cba}{KING\_\-BGMODE\_\-16M\_\-BAT\_\-EXTDOT} =  0xF
+ \}
+\begin{DoxyCompactList}\small\item\em Color mode for a KING background. \item\end{DoxyCompactList}\item 
+enum \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} \{ \par
+\hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781caa4df9ecc3d31a457ecb19d385bec23b16}{KING\_\-BGPRIO\_\-HIDE} =  0, 
+\hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781caa3ef3b17b257eccca3b87c6f97bf3bf3d}{KING\_\-BGPRIO\_\-0} =  1, 
+\hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781caafddd54b2cd60bfee55a90adc235ce5a2}{KING\_\-BGPRIO\_\-1} =  2, 
+\hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781caa024d6d7ca0a14e4fae1f2a2e3291a351}{KING\_\-BGPRIO\_\-2} =  3, 
+\par
+\hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781caa47893799a0e21f32cc02384bf053e9bf}{KING\_\-BGPRIO\_\-3} =  4
+ \}
+\begin{DoxyCompactList}\small\item\em Background priority. \item\end{DoxyCompactList}\item 
+enum \hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2}{king\_\-bgsize} \{ \par
+\hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2a0ca0cef5fc3c77a56cea6ead6602eca3}{KING\_\-BGSIZE\_\-8} =  3, 
+\hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2afb9e043e6fa1f7f8644dfbd1fdbc5706}{KING\_\-BGSIZE\_\-16} =  4, 
+\hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2aa32654952672119752710021026839a3}{KING\_\-BGSIZE\_\-32} =  5, 
+\hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2a24520ee051a98ff32a6ff27e3d1d27c8}{KING\_\-BGSIZE\_\-64} =  6, 
+\par
+\hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2af35911a54b3be27f4a47874f2f9ba4e4}{KING\_\-BGSIZE\_\-128} =  7, 
+\hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2aafdb54e04a14863d46855b58ff01bdd4}{KING\_\-BGSIZE\_\-256} =  8, 
+\hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2af29638acecfd127e66e7d8970c573eb2}{KING\_\-BGSIZE\_\-512} =  9, 
+\hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2a91e74a5b5627f6ad961c1d7c3055b1be}{KING\_\-BGSIZE\_\-1024} =  10
+ \}
+\begin{DoxyCompactList}\small\item\em Background axis size. \item\end{DoxyCompactList}\item 
+enum \hyperlink{king_8h_aaf11211af868e940089238a64bfae457}{king\_\-bg} \{ \par
+\hyperlink{king_8h_aaf11211af868e940089238a64bfae457a41fdd1ef106a5114a60999cdb7457baf}{KING\_\-BG0} =  0, 
+\hyperlink{king_8h_aaf11211af868e940089238a64bfae457a4f39186b74f38433dd7995c0d1e52bdb}{KING\_\-BG0SUB} =  1, 
+\hyperlink{king_8h_aaf11211af868e940089238a64bfae457a60ead78b5c4db1359719128f3f8ab099}{KING\_\-BG1} =  2, 
+\hyperlink{king_8h_aaf11211af868e940089238a64bfae457add036f916a1f90219f32b2e0d1f49c13}{KING\_\-BG2} =  3, 
+\par
+\hyperlink{king_8h_aaf11211af868e940089238a64bfae457ac64438b7c59f216a2b7036fd1d1721e9}{KING\_\-BG3} =  4
+ \}
+\begin{DoxyCompactList}\small\item\em KING background. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{king_8h_aec3b801f730499bf5a968e89090253fa}{
+void \hyperlink{king_8h_aec3b801f730499bf5a968e89090253fa}{eris\_\-king\_\-init} (void)}
+\label{king_8h_aec3b801f730499bf5a968e89090253fa}
+
+\begin{DoxyCompactList}\small\item\em Initialize KING. \item\end{DoxyCompactList}\item 
+void \hyperlink{king_8h_a79bec0c788804001bf0a7f2eed61b09e}{eris\_\-king\_\-set\_\-kram\_\-read} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} addr, int incr)
+\begin{DoxyCompactList}\small\item\em Set KRAM read address. \item\end{DoxyCompactList}\item 
+void \hyperlink{king_8h_af2b0f82121fd41a450d3f8402f5adeb6}{eris\_\-king\_\-set\_\-kram\_\-write} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} addr, int incr)
+\begin{DoxyCompactList}\small\item\em Set KRAM write address. \item\end{DoxyCompactList}\item 
+\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} \hyperlink{king_8h_ae717f35077e1edfe5a0405a292636c84}{eris\_\-king\_\-kram\_\-read} (void)
+\begin{DoxyCompactList}\small\item\em Read from KRAM. \item\end{DoxyCompactList}\item 
+void \hyperlink{king_8h_a1ae21d6c9a979c65dc035404c034d2af}{eris\_\-king\_\-kram\_\-write} (\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} data)
+\begin{DoxyCompactList}\small\item\em Write to KRAM. \item\end{DoxyCompactList}\item 
+void \hyperlink{king_8h_a22f046ab1fb829e49f62dbfb7b0a99f5}{eris\_\-king\_\-set\_\-kram\_\-pages} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} scsi, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} bg, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} rainbow, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} adpcm)
+\begin{DoxyCompactList}\small\item\em Set the KRAM page for various peripherals. \item\end{DoxyCompactList}\item 
+void \hyperlink{king_8h_a1ccc79dfc2bb3515c7b6a76aa1a7924d}{eris\_\-king\_\-set\_\-bg\_\-mode} (\hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfe}{king\_\-bgmode} bg0, \hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfe}{king\_\-bgmode} bg1, \hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfe}{king\_\-bgmode} bg2, \hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfe}{king\_\-bgmode} bg3)
+\begin{DoxyCompactList}\small\item\em Set color modes for the backgrounds. \item\end{DoxyCompactList}\item 
+void \hyperlink{king_8h_a4d9e554977d525040e97bc99d193405c}{eris\_\-king\_\-set\_\-bg\_\-prio} (\hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} bg0, \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} bg1, \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} bg2, \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} bg3, \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} bgrot)
+\begin{DoxyCompactList}\small\item\em Set priorities for the backgrounds. \item\end{DoxyCompactList}\item 
+void \hyperlink{king_8h_aa3afe2b35e323d3bd0595ac4c65e8416}{eris\_\-king\_\-set\_\-bg\_\-size} (\hyperlink{king_8h_aaf11211af868e940089238a64bfae457}{king\_\-bg} bg, \hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2}{king\_\-bgsize} h, \hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2}{king\_\-bgsize} w, \hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2}{king\_\-bgsize} sub\_\-h, \hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2}{king\_\-bgsize} sub\_\-w)
+\begin{DoxyCompactList}\small\item\em Set background sizes. \item\end{DoxyCompactList}\item 
+void \hyperlink{king_8h_a91ff7f65d6f59d95691308a63de58eca}{eris\_\-king\_\-set\_\-bat\_\-cg\_\-addr} (\hyperlink{king_8h_aaf11211af868e940089238a64bfae457}{king\_\-bg} bg, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} bat, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} cg)
+\begin{DoxyCompactList}\small\item\em Set background BAT and CG addresses. \item\end{DoxyCompactList}\item 
+void \hyperlink{king_8h_a68b1b653cf1ab9bc11a41615771f4504}{eris\_\-king\_\-set\_\-scroll} (\hyperlink{king_8h_aaf11211af868e940089238a64bfae457}{king\_\-bg} bg, \hyperlink{types_8h_aa980e2c02ba2305e0f489d5650655425}{s16} x, \hyperlink{types_8h_aa980e2c02ba2305e0f489d5650655425}{s16} y)
+\begin{DoxyCompactList}\small\item\em Set background scrolling. \item\end{DoxyCompactList}\item 
+void \hyperlink{king_8h_a99c8e8e448d9ade9e080ce6231f12a42}{eris\_\-king\_\-write\_\-microprogram} (\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} $\ast$data, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} addr, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} len)
+\begin{DoxyCompactList}\small\item\em Write the KING microprogram. \item\end{DoxyCompactList}\item 
+void \hyperlink{king_8h_afc40971e4af657c0ca318095961f0d0f}{eris\_\-king\_\-fill\_\-microprogram} (\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} data, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} addr, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} len)
+\begin{DoxyCompactList}\small\item\em Write the KING microprogram. \item\end{DoxyCompactList}\item 
+\hypertarget{king_8h_a2c0ce70d621f4cb70465f11dca835862}{
+void \hyperlink{king_8h_a2c0ce70d621f4cb70465f11dca835862}{eris\_\-king\_\-enable\_\-microprogram} (void)}
+\label{king_8h_a2c0ce70d621f4cb70465f11dca835862}
+
+\begin{DoxyCompactList}\small\item\em Enable the KING microprogram. \item\end{DoxyCompactList}\item 
+\hypertarget{king_8h_a2def62e7cfce6370c461c7955961c847}{
+void \hyperlink{king_8h_a2def62e7cfce6370c461c7955961c847}{eris\_\-king\_\-disable\_\-microprogram} (void)}
+\label{king_8h_a2def62e7cfce6370c461c7955961c847}
+
+\begin{DoxyCompactList}\small\item\em Disable the KING microprogram. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Controls the KING processor. 
+
+\subsection{Define Documentation}
+\hypertarget{king_8h_a7e2c2196c11ea75d81b6636510d43d57}{
+\index{king.h@{king.h}!KING\_\-CODE@{KING\_\-CODE}}
+\index{KING\_\-CODE@{KING\_\-CODE}!king.h@{king.h}}
+\subsubsection[{KING\_\-CODE}]{\setlength{\rightskip}{0pt plus 5cm}\#define KING\_\-CODE(
+\begin{DoxyParamCaption}
+\item[{}]{off, }
+\item[{}]{type, }
+\item[{}]{rot, }
+\item[{}]{bg, }
+\item[{}]{nop}
+\end{DoxyParamCaption}
+)}}
+\label{king_8h_a7e2c2196c11ea75d81b6636510d43d57}
+{\bfseries Value:}
+\begin{DoxyCode}
+(((off & 7) << 0) | ((type & 3) << 3) | ((rot & 1) << 5) | \
+                ((bg & 3) << 6) | ((nop & 1) << 8))
+\end{DoxyCode}
+
+
+KING microprogram opcode generator. 
+
+off Offset. type Type of access. rot Rotate processing. bg Which background to operate on. nop Whether this is a NOP opcode or not. 
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{king_8h_aaf11211af868e940089238a64bfae457}{
+\index{king.h@{king.h}!king\_\-bg@{king\_\-bg}}
+\index{king\_\-bg@{king\_\-bg}!king.h@{king.h}}
+\subsubsection[{king\_\-bg}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf king\_\-bg}}}
+\label{king_8h_aaf11211af868e940089238a64bfae457}
+
+
+KING background. 
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{KING\_\-BG0@{KING\_\-BG0}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BG0@{KING\_\-BG0}}\item[{\em 
+\hypertarget{king_8h_aaf11211af868e940089238a64bfae457a41fdd1ef106a5114a60999cdb7457baf}{
+KING\_\-BG0}
+\label{king_8h_aaf11211af868e940089238a64bfae457a41fdd1ef106a5114a60999cdb7457baf}
+}]Background 0 \index{KING\_\-BG0SUB@{KING\_\-BG0SUB}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BG0SUB@{KING\_\-BG0SUB}}\item[{\em 
+\hypertarget{king_8h_aaf11211af868e940089238a64bfae457a4f39186b74f38433dd7995c0d1e52bdb}{
+KING\_\-BG0SUB}
+\label{king_8h_aaf11211af868e940089238a64bfae457a4f39186b74f38433dd7995c0d1e52bdb}
+}]Background 0 (sub) \index{KING\_\-BG1@{KING\_\-BG1}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BG1@{KING\_\-BG1}}\item[{\em 
+\hypertarget{king_8h_aaf11211af868e940089238a64bfae457a60ead78b5c4db1359719128f3f8ab099}{
+KING\_\-BG1}
+\label{king_8h_aaf11211af868e940089238a64bfae457a60ead78b5c4db1359719128f3f8ab099}
+}]Background 1 \index{KING\_\-BG2@{KING\_\-BG2}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BG2@{KING\_\-BG2}}\item[{\em 
+\hypertarget{king_8h_aaf11211af868e940089238a64bfae457add036f916a1f90219f32b2e0d1f49c13}{
+KING\_\-BG2}
+\label{king_8h_aaf11211af868e940089238a64bfae457add036f916a1f90219f32b2e0d1f49c13}
+}]Background 2 \index{KING\_\-BG3@{KING\_\-BG3}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BG3@{KING\_\-BG3}}\item[{\em 
+\hypertarget{king_8h_aaf11211af868e940089238a64bfae457ac64438b7c59f216a2b7036fd1d1721e9}{
+KING\_\-BG3}
+\label{king_8h_aaf11211af868e940089238a64bfae457ac64438b7c59f216a2b7036fd1d1721e9}
+}]Background 3 \end{description}
+\end{Desc}
+
+\hypertarget{king_8h_a53106e424c4fdb04583c16a78da56cfe}{
+\index{king.h@{king.h}!king\_\-bgmode@{king\_\-bgmode}}
+\index{king\_\-bgmode@{king\_\-bgmode}!king.h@{king.h}}
+\subsubsection[{king\_\-bgmode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf king\_\-bgmode}}}
+\label{king_8h_a53106e424c4fdb04583c16a78da56cfe}
+
+
+Color mode for a KING background. 
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{KING\_\-BGMODE\_\-4\_\-PAL@{KING\_\-BGMODE\_\-4\_\-PAL}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGMODE\_\-4\_\-PAL@{KING\_\-BGMODE\_\-4\_\-PAL}}\item[{\em 
+\hypertarget{king_8h_a53106e424c4fdb04583c16a78da56cfea0a9db3796069e49c29228687f9d8053b}{
+KING\_\-BGMODE\_\-4\_\-PAL}
+\label{king_8h_a53106e424c4fdb04583c16a78da56cfea0a9db3796069e49c29228687f9d8053b}
+}]Paletted 4 color mode \index{KING\_\-BGMODE\_\-16\_\-PAL@{KING\_\-BGMODE\_\-16\_\-PAL}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGMODE\_\-16\_\-PAL@{KING\_\-BGMODE\_\-16\_\-PAL}}\item[{\em 
+\hypertarget{king_8h_a53106e424c4fdb04583c16a78da56cfea9af8390aa158732a7d52759cc3a67c21}{
+KING\_\-BGMODE\_\-16\_\-PAL}
+\label{king_8h_a53106e424c4fdb04583c16a78da56cfea9af8390aa158732a7d52759cc3a67c21}
+}]Paletted 16 color mode \index{KING\_\-BGMODE\_\-256\_\-PAL@{KING\_\-BGMODE\_\-256\_\-PAL}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGMODE\_\-256\_\-PAL@{KING\_\-BGMODE\_\-256\_\-PAL}}\item[{\em 
+\hypertarget{king_8h_a53106e424c4fdb04583c16a78da56cfea25c4e8b28fc1da42cf6b2882e68f4a70}{
+KING\_\-BGMODE\_\-256\_\-PAL}
+\label{king_8h_a53106e424c4fdb04583c16a78da56cfea25c4e8b28fc1da42cf6b2882e68f4a70}
+}]Paletted 256 color mode \index{KING\_\-BGMODE\_\-64K@{KING\_\-BGMODE\_\-64K}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGMODE\_\-64K@{KING\_\-BGMODE\_\-64K}}\item[{\em 
+\hypertarget{king_8h_a53106e424c4fdb04583c16a78da56cfea5f5db790c7d2159ca73605676c2d6338}{
+KING\_\-BGMODE\_\-64K}
+\label{king_8h_a53106e424c4fdb04583c16a78da56cfea5f5db790c7d2159ca73605676c2d6338}
+}]Non-\/paletted 65536 color mode \index{KING\_\-BGMODE\_\-16M@{KING\_\-BGMODE\_\-16M}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGMODE\_\-16M@{KING\_\-BGMODE\_\-16M}}\item[{\em 
+\hypertarget{king_8h_a53106e424c4fdb04583c16a78da56cfeaf936128612783914b7244ed88425cf3f}{
+KING\_\-BGMODE\_\-16M}
+\label{king_8h_a53106e424c4fdb04583c16a78da56cfeaf936128612783914b7244ed88425cf3f}
+}]Non-\/paletted 16777216 color mode \index{KING\_\-BGMODE\_\-BAT@{KING\_\-BGMODE\_\-BAT}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGMODE\_\-BAT@{KING\_\-BGMODE\_\-BAT}}\item[{\em 
+\hypertarget{king_8h_a53106e424c4fdb04583c16a78da56cfea299360125c1efb3dc58ced9dbea7729d}{
+KING\_\-BGMODE\_\-BAT}
+\label{king_8h_a53106e424c4fdb04583c16a78da56cfea299360125c1efb3dc58ced9dbea7729d}
+}]OR this for a Block Attribute Table mode \index{KING\_\-BGMODE\_\-64K\_\-BAT\_\-EXTDOT@{KING\_\-BGMODE\_\-64K\_\-BAT\_\-EXTDOT}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGMODE\_\-64K\_\-BAT\_\-EXTDOT@{KING\_\-BGMODE\_\-64K\_\-BAT\_\-EXTDOT}}\item[{\em 
+\hypertarget{king_8h_a53106e424c4fdb04583c16a78da56cfea6a791fdca83d80c33131c44ebcdec0c9}{
+KING\_\-BGMODE\_\-64K\_\-BAT\_\-EXTDOT}
+\label{king_8h_a53106e424c4fdb04583c16a78da56cfea6a791fdca83d80c33131c44ebcdec0c9}
+}]Block Attribute Tabled 65536 color mode. EXTDOT? \index{KING\_\-BGMODE\_\-16M\_\-BAT\_\-EXTDOT@{KING\_\-BGMODE\_\-16M\_\-BAT\_\-EXTDOT}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGMODE\_\-16M\_\-BAT\_\-EXTDOT@{KING\_\-BGMODE\_\-16M\_\-BAT\_\-EXTDOT}}\item[{\em 
+\hypertarget{king_8h_a53106e424c4fdb04583c16a78da56cfeabe13f98639614626e9667d3dc6b00cba}{
+KING\_\-BGMODE\_\-16M\_\-BAT\_\-EXTDOT}
+\label{king_8h_a53106e424c4fdb04583c16a78da56cfeabe13f98639614626e9667d3dc6b00cba}
+}]Block Attribute Tabled 16777216 color mode. EXTDOT? \end{description}
+\end{Desc}
+
+\hypertarget{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{
+\index{king.h@{king.h}!king\_\-bgprio@{king\_\-bgprio}}
+\index{king\_\-bgprio@{king\_\-bgprio}!king.h@{king.h}}
+\subsubsection[{king\_\-bgprio}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf king\_\-bgprio}}}
+\label{king_8h_a2bee689f7d2508a1a79c588cad9781ca}
+
+
+Background priority. 
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{KING\_\-BGPRIO\_\-HIDE@{KING\_\-BGPRIO\_\-HIDE}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGPRIO\_\-HIDE@{KING\_\-BGPRIO\_\-HIDE}}\item[{\em 
+\hypertarget{king_8h_a2bee689f7d2508a1a79c588cad9781caa4df9ecc3d31a457ecb19d385bec23b16}{
+KING\_\-BGPRIO\_\-HIDE}
+\label{king_8h_a2bee689f7d2508a1a79c588cad9781caa4df9ecc3d31a457ecb19d385bec23b16}
+}]The background is hidden. \index{KING\_\-BGPRIO\_\-0@{KING\_\-BGPRIO\_\-0}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGPRIO\_\-0@{KING\_\-BGPRIO\_\-0}}\item[{\em 
+\hypertarget{king_8h_a2bee689f7d2508a1a79c588cad9781caa3ef3b17b257eccca3b87c6f97bf3bf3d}{
+KING\_\-BGPRIO\_\-0}
+\label{king_8h_a2bee689f7d2508a1a79c588cad9781caa3ef3b17b257eccca3b87c6f97bf3bf3d}
+}]Farthest back background. \index{KING\_\-BGPRIO\_\-1@{KING\_\-BGPRIO\_\-1}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGPRIO\_\-1@{KING\_\-BGPRIO\_\-1}}\item[{\em 
+\hypertarget{king_8h_a2bee689f7d2508a1a79c588cad9781caafddd54b2cd60bfee55a90adc235ce5a2}{
+KING\_\-BGPRIO\_\-1}
+\label{king_8h_a2bee689f7d2508a1a79c588cad9781caafddd54b2cd60bfee55a90adc235ce5a2}
+}]2nd to back background. \index{KING\_\-BGPRIO\_\-2@{KING\_\-BGPRIO\_\-2}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGPRIO\_\-2@{KING\_\-BGPRIO\_\-2}}\item[{\em 
+\hypertarget{king_8h_a2bee689f7d2508a1a79c588cad9781caa024d6d7ca0a14e4fae1f2a2e3291a351}{
+KING\_\-BGPRIO\_\-2}
+\label{king_8h_a2bee689f7d2508a1a79c588cad9781caa024d6d7ca0a14e4fae1f2a2e3291a351}
+}]2nd to front background. \index{KING\_\-BGPRIO\_\-3@{KING\_\-BGPRIO\_\-3}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGPRIO\_\-3@{KING\_\-BGPRIO\_\-3}}\item[{\em 
+\hypertarget{king_8h_a2bee689f7d2508a1a79c588cad9781caa47893799a0e21f32cc02384bf053e9bf}{
+KING\_\-BGPRIO\_\-3}
+\label{king_8h_a2bee689f7d2508a1a79c588cad9781caa47893799a0e21f32cc02384bf053e9bf}
+}]Farthest forward background. \end{description}
+\end{Desc}
+
+\hypertarget{king_8h_a41903e92db19d92d9ab1bf9dab926ea2}{
+\index{king.h@{king.h}!king\_\-bgsize@{king\_\-bgsize}}
+\index{king\_\-bgsize@{king\_\-bgsize}!king.h@{king.h}}
+\subsubsection[{king\_\-bgsize}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf king\_\-bgsize}}}
+\label{king_8h_a41903e92db19d92d9ab1bf9dab926ea2}
+
+
+Background axis size. 
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{KING\_\-BGSIZE\_\-8@{KING\_\-BGSIZE\_\-8}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGSIZE\_\-8@{KING\_\-BGSIZE\_\-8}}\item[{\em 
+\hypertarget{king_8h_a41903e92db19d92d9ab1bf9dab926ea2a0ca0cef5fc3c77a56cea6ead6602eca3}{
+KING\_\-BGSIZE\_\-8}
+\label{king_8h_a41903e92db19d92d9ab1bf9dab926ea2a0ca0cef5fc3c77a56cea6ead6602eca3}
+}]8px axis. \index{KING\_\-BGSIZE\_\-16@{KING\_\-BGSIZE\_\-16}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGSIZE\_\-16@{KING\_\-BGSIZE\_\-16}}\item[{\em 
+\hypertarget{king_8h_a41903e92db19d92d9ab1bf9dab926ea2afb9e043e6fa1f7f8644dfbd1fdbc5706}{
+KING\_\-BGSIZE\_\-16}
+\label{king_8h_a41903e92db19d92d9ab1bf9dab926ea2afb9e043e6fa1f7f8644dfbd1fdbc5706}
+}]16px axis. \index{KING\_\-BGSIZE\_\-32@{KING\_\-BGSIZE\_\-32}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGSIZE\_\-32@{KING\_\-BGSIZE\_\-32}}\item[{\em 
+\hypertarget{king_8h_a41903e92db19d92d9ab1bf9dab926ea2aa32654952672119752710021026839a3}{
+KING\_\-BGSIZE\_\-32}
+\label{king_8h_a41903e92db19d92d9ab1bf9dab926ea2aa32654952672119752710021026839a3}
+}]32px axis. \index{KING\_\-BGSIZE\_\-64@{KING\_\-BGSIZE\_\-64}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGSIZE\_\-64@{KING\_\-BGSIZE\_\-64}}\item[{\em 
+\hypertarget{king_8h_a41903e92db19d92d9ab1bf9dab926ea2a24520ee051a98ff32a6ff27e3d1d27c8}{
+KING\_\-BGSIZE\_\-64}
+\label{king_8h_a41903e92db19d92d9ab1bf9dab926ea2a24520ee051a98ff32a6ff27e3d1d27c8}
+}]64px axis. \index{KING\_\-BGSIZE\_\-128@{KING\_\-BGSIZE\_\-128}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGSIZE\_\-128@{KING\_\-BGSIZE\_\-128}}\item[{\em 
+\hypertarget{king_8h_a41903e92db19d92d9ab1bf9dab926ea2af35911a54b3be27f4a47874f2f9ba4e4}{
+KING\_\-BGSIZE\_\-128}
+\label{king_8h_a41903e92db19d92d9ab1bf9dab926ea2af35911a54b3be27f4a47874f2f9ba4e4}
+}]128px axis. \index{KING\_\-BGSIZE\_\-256@{KING\_\-BGSIZE\_\-256}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGSIZE\_\-256@{KING\_\-BGSIZE\_\-256}}\item[{\em 
+\hypertarget{king_8h_a41903e92db19d92d9ab1bf9dab926ea2aafdb54e04a14863d46855b58ff01bdd4}{
+KING\_\-BGSIZE\_\-256}
+\label{king_8h_a41903e92db19d92d9ab1bf9dab926ea2aafdb54e04a14863d46855b58ff01bdd4}
+}]256px axis. \index{KING\_\-BGSIZE\_\-512@{KING\_\-BGSIZE\_\-512}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGSIZE\_\-512@{KING\_\-BGSIZE\_\-512}}\item[{\em 
+\hypertarget{king_8h_a41903e92db19d92d9ab1bf9dab926ea2af29638acecfd127e66e7d8970c573eb2}{
+KING\_\-BGSIZE\_\-512}
+\label{king_8h_a41903e92db19d92d9ab1bf9dab926ea2af29638acecfd127e66e7d8970c573eb2}
+}]512px axis. \index{KING\_\-BGSIZE\_\-1024@{KING\_\-BGSIZE\_\-1024}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-BGSIZE\_\-1024@{KING\_\-BGSIZE\_\-1024}}\item[{\em 
+\hypertarget{king_8h_a41903e92db19d92d9ab1bf9dab926ea2a91e74a5b5627f6ad961c1d7c3055b1be}{
+KING\_\-BGSIZE\_\-1024}
+\label{king_8h_a41903e92db19d92d9ab1bf9dab926ea2a91e74a5b5627f6ad961c1d7c3055b1be}
+}]1024px axis. Only available on BG0. \end{description}
+\end{Desc}
+
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081b}{
+\index{king.h@{king.h}!king\_\-opcode@{king\_\-opcode}}
+\index{king\_\-opcode@{king\_\-opcode}!king.h@{king.h}}
+\subsubsection[{king\_\-opcode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf king\_\-opcode}}}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081b}
+
+
+KING microprogram opcodes. 
+
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{KING\_\-CODE\_\-BG0\_\-CG\_\-0@{KING\_\-CODE\_\-BG0\_\-CG\_\-0}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-CG\_\-0@{KING\_\-CODE\_\-BG0\_\-CG\_\-0}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba662fced2e9eee665e65904dfea3f993f}{
+KING\_\-CODE\_\-BG0\_\-CG\_\-0}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba662fced2e9eee665e65904dfea3f993f}
+}]Background 0, CG, +0 \index{KING\_\-CODE\_\-BG0\_\-CG\_\-1@{KING\_\-CODE\_\-BG0\_\-CG\_\-1}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-CG\_\-1@{KING\_\-CODE\_\-BG0\_\-CG\_\-1}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081bab92058c31c1145a7c2291be2cc43aac8}{
+KING\_\-CODE\_\-BG0\_\-CG\_\-1}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081bab92058c31c1145a7c2291be2cc43aac8}
+}]Background 0, CG, +1 \index{KING\_\-CODE\_\-BG0\_\-CG\_\-2@{KING\_\-CODE\_\-BG0\_\-CG\_\-2}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-CG\_\-2@{KING\_\-CODE\_\-BG0\_\-CG\_\-2}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba8eae8efffebd76893b09130cc39b70fc}{
+KING\_\-CODE\_\-BG0\_\-CG\_\-2}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba8eae8efffebd76893b09130cc39b70fc}
+}]Background 0, CG, +2 \index{KING\_\-CODE\_\-BG0\_\-CG\_\-3@{KING\_\-CODE\_\-BG0\_\-CG\_\-3}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-CG\_\-3@{KING\_\-CODE\_\-BG0\_\-CG\_\-3}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081bac3d2b9b9da6a790e86da39608c5a9ecb}{
+KING\_\-CODE\_\-BG0\_\-CG\_\-3}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081bac3d2b9b9da6a790e86da39608c5a9ecb}
+}]Background 0, CG, +3 \index{KING\_\-CODE\_\-BG0\_\-CG\_\-4@{KING\_\-CODE\_\-BG0\_\-CG\_\-4}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-CG\_\-4@{KING\_\-CODE\_\-BG0\_\-CG\_\-4}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba30572e0b4a914ce5bc7be1398d891605}{
+KING\_\-CODE\_\-BG0\_\-CG\_\-4}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba30572e0b4a914ce5bc7be1398d891605}
+}]Background 0, CG, +4 \index{KING\_\-CODE\_\-BG0\_\-CG\_\-5@{KING\_\-CODE\_\-BG0\_\-CG\_\-5}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-CG\_\-5@{KING\_\-CODE\_\-BG0\_\-CG\_\-5}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba4225717e24aef88f653b9a480a6e3e5f}{
+KING\_\-CODE\_\-BG0\_\-CG\_\-5}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba4225717e24aef88f653b9a480a6e3e5f}
+}]Background 0, CG, +5 \index{KING\_\-CODE\_\-BG0\_\-CG\_\-6@{KING\_\-CODE\_\-BG0\_\-CG\_\-6}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-CG\_\-6@{KING\_\-CODE\_\-BG0\_\-CG\_\-6}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba7baddf4ad535fb46d3e06824245be2ab}{
+KING\_\-CODE\_\-BG0\_\-CG\_\-6}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba7baddf4ad535fb46d3e06824245be2ab}
+}]Background 0, CG, +6 \index{KING\_\-CODE\_\-BG0\_\-CG\_\-7@{KING\_\-CODE\_\-BG0\_\-CG\_\-7}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-CG\_\-7@{KING\_\-CODE\_\-BG0\_\-CG\_\-7}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba2e4909b9637d24b551c3815497268ee1}{
+KING\_\-CODE\_\-BG0\_\-CG\_\-7}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba2e4909b9637d24b551c3815497268ee1}
+}]Background 0, CG, +7 \index{KING\_\-CODE\_\-BG0\_\-BATCG\_\-0@{KING\_\-CODE\_\-BG0\_\-BATCG\_\-0}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-BATCG\_\-0@{KING\_\-CODE\_\-BG0\_\-BATCG\_\-0}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba535cc55dcecdc941e38695b18d48ff36}{
+KING\_\-CODE\_\-BG0\_\-BATCG\_\-0}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba535cc55dcecdc941e38695b18d48ff36}
+}]Background 0, BAT-\/$>$CG, +0 \index{KING\_\-CODE\_\-BG0\_\-BATCG\_\-1@{KING\_\-CODE\_\-BG0\_\-BATCG\_\-1}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-BATCG\_\-1@{KING\_\-CODE\_\-BG0\_\-BATCG\_\-1}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba55b4ccc1a324e6de7af6d4ae88ea49db}{
+KING\_\-CODE\_\-BG0\_\-BATCG\_\-1}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba55b4ccc1a324e6de7af6d4ae88ea49db}
+}]Background 0, BAT-\/$>$CG, +1 \index{KING\_\-CODE\_\-BG0\_\-BATCG\_\-2@{KING\_\-CODE\_\-BG0\_\-BATCG\_\-2}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-BATCG\_\-2@{KING\_\-CODE\_\-BG0\_\-BATCG\_\-2}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba0cb625906007b4e15e671100bc0769ff}{
+KING\_\-CODE\_\-BG0\_\-BATCG\_\-2}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba0cb625906007b4e15e671100bc0769ff}
+}]Background 0, BAT-\/$>$CG, +2 \index{KING\_\-CODE\_\-BG0\_\-BATCG\_\-3@{KING\_\-CODE\_\-BG0\_\-BATCG\_\-3}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-BATCG\_\-3@{KING\_\-CODE\_\-BG0\_\-BATCG\_\-3}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba6c7f2cefe67ec8251450d9d3896b8b71}{
+KING\_\-CODE\_\-BG0\_\-BATCG\_\-3}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba6c7f2cefe67ec8251450d9d3896b8b71}
+}]Background 0, BAT-\/$>$CG, +3 \index{KING\_\-CODE\_\-BG0\_\-BATCG\_\-4@{KING\_\-CODE\_\-BG0\_\-BATCG\_\-4}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-BATCG\_\-4@{KING\_\-CODE\_\-BG0\_\-BATCG\_\-4}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081baa77885b057e73871fe29cfdc7d96fd98}{
+KING\_\-CODE\_\-BG0\_\-BATCG\_\-4}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081baa77885b057e73871fe29cfdc7d96fd98}
+}]Background 0, BAT-\/$>$CG, +4 \index{KING\_\-CODE\_\-BG0\_\-BATCG\_\-5@{KING\_\-CODE\_\-BG0\_\-BATCG\_\-5}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-BATCG\_\-5@{KING\_\-CODE\_\-BG0\_\-BATCG\_\-5}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081bab12a2971e3fee96bdea7786444d59326}{
+KING\_\-CODE\_\-BG0\_\-BATCG\_\-5}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081bab12a2971e3fee96bdea7786444d59326}
+}]Background 0, BAT-\/$>$CG, +5 \index{KING\_\-CODE\_\-BG0\_\-BATCG\_\-6@{KING\_\-CODE\_\-BG0\_\-BATCG\_\-6}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-BATCG\_\-6@{KING\_\-CODE\_\-BG0\_\-BATCG\_\-6}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081baab6a3dc4bf912b1a54824d6c05a95deb}{
+KING\_\-CODE\_\-BG0\_\-BATCG\_\-6}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081baab6a3dc4bf912b1a54824d6c05a95deb}
+}]Background 0, BAT-\/$>$CG, +6 \index{KING\_\-CODE\_\-BG0\_\-BATCG\_\-7@{KING\_\-CODE\_\-BG0\_\-BATCG\_\-7}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-BATCG\_\-7@{KING\_\-CODE\_\-BG0\_\-BATCG\_\-7}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba0198ff0a80927ddcf58deb72fcc11df0}{
+KING\_\-CODE\_\-BG0\_\-BATCG\_\-7}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba0198ff0a80927ddcf58deb72fcc11df0}
+}]Background 0, BAT-\/$>$CG, +7 \index{KING\_\-CODE\_\-BG0\_\-BAT\_\-0@{KING\_\-CODE\_\-BG0\_\-BAT\_\-0}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-BAT\_\-0@{KING\_\-CODE\_\-BG0\_\-BAT\_\-0}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba9b08df445296e8b68cd8887890cfddde}{
+KING\_\-CODE\_\-BG0\_\-BAT\_\-0}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba9b08df445296e8b68cd8887890cfddde}
+}]Background 0, BAT, +0 \index{KING\_\-CODE\_\-BG0\_\-BAT\_\-1@{KING\_\-CODE\_\-BG0\_\-BAT\_\-1}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-BAT\_\-1@{KING\_\-CODE\_\-BG0\_\-BAT\_\-1}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081bad4ec313b49d06c208510d570551fcd06}{
+KING\_\-CODE\_\-BG0\_\-BAT\_\-1}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081bad4ec313b49d06c208510d570551fcd06}
+}]Background 0, BAT, +1 \index{KING\_\-CODE\_\-BG0\_\-BAT\_\-2@{KING\_\-CODE\_\-BG0\_\-BAT\_\-2}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-BAT\_\-2@{KING\_\-CODE\_\-BG0\_\-BAT\_\-2}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba0ff5fb1ee6d589b5d21b83563fd54db3}{
+KING\_\-CODE\_\-BG0\_\-BAT\_\-2}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba0ff5fb1ee6d589b5d21b83563fd54db3}
+}]Background 0, BAT, +2 \index{KING\_\-CODE\_\-BG0\_\-BAT\_\-3@{KING\_\-CODE\_\-BG0\_\-BAT\_\-3}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-BAT\_\-3@{KING\_\-CODE\_\-BG0\_\-BAT\_\-3}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081bae28fde99dcbcf4949eadc622a8eed593}{
+KING\_\-CODE\_\-BG0\_\-BAT\_\-3}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081bae28fde99dcbcf4949eadc622a8eed593}
+}]Background 0, BAT, +3 \index{KING\_\-CODE\_\-BG0\_\-BAT\_\-4@{KING\_\-CODE\_\-BG0\_\-BAT\_\-4}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-BAT\_\-4@{KING\_\-CODE\_\-BG0\_\-BAT\_\-4}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba6900d9a0c138f701643c2056bbc959b9}{
+KING\_\-CODE\_\-BG0\_\-BAT\_\-4}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba6900d9a0c138f701643c2056bbc959b9}
+}]Background 0, BAT, +4 \index{KING\_\-CODE\_\-BG0\_\-BAT\_\-5@{KING\_\-CODE\_\-BG0\_\-BAT\_\-5}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-BAT\_\-5@{KING\_\-CODE\_\-BG0\_\-BAT\_\-5}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba1f87a65e4ce6963150323caaef947899}{
+KING\_\-CODE\_\-BG0\_\-BAT\_\-5}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba1f87a65e4ce6963150323caaef947899}
+}]Background 0, BAT, +5 \index{KING\_\-CODE\_\-BG0\_\-BAT\_\-6@{KING\_\-CODE\_\-BG0\_\-BAT\_\-6}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-BAT\_\-6@{KING\_\-CODE\_\-BG0\_\-BAT\_\-6}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081bacda7467878b8c60a34fe8b8f69ce8ea6}{
+KING\_\-CODE\_\-BG0\_\-BAT\_\-6}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081bacda7467878b8c60a34fe8b8f69ce8ea6}
+}]Background 0, BAT, +6 \index{KING\_\-CODE\_\-BG0\_\-BAT\_\-7@{KING\_\-CODE\_\-BG0\_\-BAT\_\-7}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG0\_\-BAT\_\-7@{KING\_\-CODE\_\-BG0\_\-BAT\_\-7}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba8661ff3e82ebb5e70d60764920c280fe}{
+KING\_\-CODE\_\-BG0\_\-BAT\_\-7}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba8661ff3e82ebb5e70d60764920c280fe}
+}]Background 0, BAT, +7 \index{KING\_\-CODE\_\-BG1\_\-CG\_\-0@{KING\_\-CODE\_\-BG1\_\-CG\_\-0}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-CG\_\-0@{KING\_\-CODE\_\-BG1\_\-CG\_\-0}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba6e73f81902d577347684d760f94d7c55}{
+KING\_\-CODE\_\-BG1\_\-CG\_\-0}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba6e73f81902d577347684d760f94d7c55}
+}]Background 1, CG, +0 \index{KING\_\-CODE\_\-BG1\_\-CG\_\-1@{KING\_\-CODE\_\-BG1\_\-CG\_\-1}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-CG\_\-1@{KING\_\-CODE\_\-BG1\_\-CG\_\-1}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba3586f1a1caf1f060ea7c145162a8c77c}{
+KING\_\-CODE\_\-BG1\_\-CG\_\-1}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba3586f1a1caf1f060ea7c145162a8c77c}
+}]Background 1, CG, +1 \index{KING\_\-CODE\_\-BG1\_\-CG\_\-2@{KING\_\-CODE\_\-BG1\_\-CG\_\-2}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-CG\_\-2@{KING\_\-CODE\_\-BG1\_\-CG\_\-2}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081baa1b431d3f2b5ab931826eaec6a4ce468}{
+KING\_\-CODE\_\-BG1\_\-CG\_\-2}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081baa1b431d3f2b5ab931826eaec6a4ce468}
+}]Background 1, CG, +2 \index{KING\_\-CODE\_\-BG1\_\-CG\_\-3@{KING\_\-CODE\_\-BG1\_\-CG\_\-3}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-CG\_\-3@{KING\_\-CODE\_\-BG1\_\-CG\_\-3}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba54f0992ba7b3e980f1209fbb7af26b17}{
+KING\_\-CODE\_\-BG1\_\-CG\_\-3}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba54f0992ba7b3e980f1209fbb7af26b17}
+}]Background 1, CG, +3 \index{KING\_\-CODE\_\-BG1\_\-CG\_\-4@{KING\_\-CODE\_\-BG1\_\-CG\_\-4}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-CG\_\-4@{KING\_\-CODE\_\-BG1\_\-CG\_\-4}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba9dd8889051594584bc371d75fbdb8abe}{
+KING\_\-CODE\_\-BG1\_\-CG\_\-4}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba9dd8889051594584bc371d75fbdb8abe}
+}]Background 1, CG, +4 \index{KING\_\-CODE\_\-BG1\_\-CG\_\-5@{KING\_\-CODE\_\-BG1\_\-CG\_\-5}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-CG\_\-5@{KING\_\-CODE\_\-BG1\_\-CG\_\-5}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081bae415fbf5d24128df473d6234d0f18022}{
+KING\_\-CODE\_\-BG1\_\-CG\_\-5}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081bae415fbf5d24128df473d6234d0f18022}
+}]Background 1, CG, +5 \index{KING\_\-CODE\_\-BG1\_\-CG\_\-6@{KING\_\-CODE\_\-BG1\_\-CG\_\-6}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-CG\_\-6@{KING\_\-CODE\_\-BG1\_\-CG\_\-6}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba17d000161edad9e9cbf72b6d0259033e}{
+KING\_\-CODE\_\-BG1\_\-CG\_\-6}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba17d000161edad9e9cbf72b6d0259033e}
+}]Background 1, CG, +6 \index{KING\_\-CODE\_\-BG1\_\-CG\_\-7@{KING\_\-CODE\_\-BG1\_\-CG\_\-7}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-CG\_\-7@{KING\_\-CODE\_\-BG1\_\-CG\_\-7}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba4e22e50eb504e70af7bdaaa539c62aa6}{
+KING\_\-CODE\_\-BG1\_\-CG\_\-7}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba4e22e50eb504e70af7bdaaa539c62aa6}
+}]Background 1, CG, +7 \index{KING\_\-CODE\_\-BG1\_\-BATCG\_\-0@{KING\_\-CODE\_\-BG1\_\-BATCG\_\-0}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-BATCG\_\-0@{KING\_\-CODE\_\-BG1\_\-BATCG\_\-0}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba075354f28f492b90847ae57f4a1163e6}{
+KING\_\-CODE\_\-BG1\_\-BATCG\_\-0}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba075354f28f492b90847ae57f4a1163e6}
+}]Background 1, BAT-\/$>$CG, +0 \index{KING\_\-CODE\_\-BG1\_\-BATCG\_\-1@{KING\_\-CODE\_\-BG1\_\-BATCG\_\-1}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-BATCG\_\-1@{KING\_\-CODE\_\-BG1\_\-BATCG\_\-1}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba9c78dbeefd35843ce48c00f66ff206ed}{
+KING\_\-CODE\_\-BG1\_\-BATCG\_\-1}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba9c78dbeefd35843ce48c00f66ff206ed}
+}]Background 1, BAT-\/$>$CG, +1 \index{KING\_\-CODE\_\-BG1\_\-BATCG\_\-2@{KING\_\-CODE\_\-BG1\_\-BATCG\_\-2}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-BATCG\_\-2@{KING\_\-CODE\_\-BG1\_\-BATCG\_\-2}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba7f5362d6803a0b797960373daf60a216}{
+KING\_\-CODE\_\-BG1\_\-BATCG\_\-2}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba7f5362d6803a0b797960373daf60a216}
+}]Background 1, BAT-\/$>$CG, +2 \index{KING\_\-CODE\_\-BG1\_\-BATCG\_\-3@{KING\_\-CODE\_\-BG1\_\-BATCG\_\-3}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-BATCG\_\-3@{KING\_\-CODE\_\-BG1\_\-BATCG\_\-3}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba87ec2260a8b99309b38ecf65290399cf}{
+KING\_\-CODE\_\-BG1\_\-BATCG\_\-3}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba87ec2260a8b99309b38ecf65290399cf}
+}]Background 1, BAT-\/$>$CG, +3 \index{KING\_\-CODE\_\-BG1\_\-BATCG\_\-4@{KING\_\-CODE\_\-BG1\_\-BATCG\_\-4}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-BATCG\_\-4@{KING\_\-CODE\_\-BG1\_\-BATCG\_\-4}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba1054a694d3f20691937d821308ae376a}{
+KING\_\-CODE\_\-BG1\_\-BATCG\_\-4}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba1054a694d3f20691937d821308ae376a}
+}]Background 1, BAT-\/$>$CG, +4 \index{KING\_\-CODE\_\-BG1\_\-BATCG\_\-5@{KING\_\-CODE\_\-BG1\_\-BATCG\_\-5}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-BATCG\_\-5@{KING\_\-CODE\_\-BG1\_\-BATCG\_\-5}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba0c6bff05440e5e806421657ed0faa1ef}{
+KING\_\-CODE\_\-BG1\_\-BATCG\_\-5}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba0c6bff05440e5e806421657ed0faa1ef}
+}]Background 1, BAT-\/$>$CG, +5 \index{KING\_\-CODE\_\-BG1\_\-BATCG\_\-6@{KING\_\-CODE\_\-BG1\_\-BATCG\_\-6}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-BATCG\_\-6@{KING\_\-CODE\_\-BG1\_\-BATCG\_\-6}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081baf3c91b072e4ebd17a5922ea4fee40caa}{
+KING\_\-CODE\_\-BG1\_\-BATCG\_\-6}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081baf3c91b072e4ebd17a5922ea4fee40caa}
+}]Background 1, BAT-\/$>$CG, +6 \index{KING\_\-CODE\_\-BG1\_\-BATCG\_\-7@{KING\_\-CODE\_\-BG1\_\-BATCG\_\-7}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-BATCG\_\-7@{KING\_\-CODE\_\-BG1\_\-BATCG\_\-7}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba7b40a92c83e720ccbe099aae5989c883}{
+KING\_\-CODE\_\-BG1\_\-BATCG\_\-7}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba7b40a92c83e720ccbe099aae5989c883}
+}]Background 1, BAT-\/$>$CG, +7 \index{KING\_\-CODE\_\-BG1\_\-BAT\_\-0@{KING\_\-CODE\_\-BG1\_\-BAT\_\-0}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-BAT\_\-0@{KING\_\-CODE\_\-BG1\_\-BAT\_\-0}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba178dc0d881628d1b4167297d39688a1a}{
+KING\_\-CODE\_\-BG1\_\-BAT\_\-0}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba178dc0d881628d1b4167297d39688a1a}
+}]Background 1, BAT, +0 \index{KING\_\-CODE\_\-BG1\_\-BAT\_\-1@{KING\_\-CODE\_\-BG1\_\-BAT\_\-1}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-BAT\_\-1@{KING\_\-CODE\_\-BG1\_\-BAT\_\-1}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba72839ba11b77291ae1e7920e99b26706}{
+KING\_\-CODE\_\-BG1\_\-BAT\_\-1}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba72839ba11b77291ae1e7920e99b26706}
+}]Background 1, BAT, +1 \index{KING\_\-CODE\_\-BG1\_\-BAT\_\-2@{KING\_\-CODE\_\-BG1\_\-BAT\_\-2}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-BAT\_\-2@{KING\_\-CODE\_\-BG1\_\-BAT\_\-2}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba2e37c984e24311c166b28bb7e5a36c32}{
+KING\_\-CODE\_\-BG1\_\-BAT\_\-2}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba2e37c984e24311c166b28bb7e5a36c32}
+}]Background 1, BAT, +2 \index{KING\_\-CODE\_\-BG1\_\-BAT\_\-3@{KING\_\-CODE\_\-BG1\_\-BAT\_\-3}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-BAT\_\-3@{KING\_\-CODE\_\-BG1\_\-BAT\_\-3}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba99efbc003f5e2ed752b9e409755e2240}{
+KING\_\-CODE\_\-BG1\_\-BAT\_\-3}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba99efbc003f5e2ed752b9e409755e2240}
+}]Background 1, BAT, +3 \index{KING\_\-CODE\_\-BG1\_\-BAT\_\-4@{KING\_\-CODE\_\-BG1\_\-BAT\_\-4}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-BAT\_\-4@{KING\_\-CODE\_\-BG1\_\-BAT\_\-4}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba73d5dc6032218664b53f14d447f44b3f}{
+KING\_\-CODE\_\-BG1\_\-BAT\_\-4}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba73d5dc6032218664b53f14d447f44b3f}
+}]Background 1, BAT, +4 \index{KING\_\-CODE\_\-BG1\_\-BAT\_\-5@{KING\_\-CODE\_\-BG1\_\-BAT\_\-5}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-BAT\_\-5@{KING\_\-CODE\_\-BG1\_\-BAT\_\-5}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba7f8f31b9b9679a078014d1b72f58fda8}{
+KING\_\-CODE\_\-BG1\_\-BAT\_\-5}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba7f8f31b9b9679a078014d1b72f58fda8}
+}]Background 1, BAT, +5 \index{KING\_\-CODE\_\-BG1\_\-BAT\_\-6@{KING\_\-CODE\_\-BG1\_\-BAT\_\-6}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-BAT\_\-6@{KING\_\-CODE\_\-BG1\_\-BAT\_\-6}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba5178f2fb79cb3a5faeb8d576c2360130}{
+KING\_\-CODE\_\-BG1\_\-BAT\_\-6}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba5178f2fb79cb3a5faeb8d576c2360130}
+}]Background 1, BAT, +6 \index{KING\_\-CODE\_\-BG1\_\-BAT\_\-7@{KING\_\-CODE\_\-BG1\_\-BAT\_\-7}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG1\_\-BAT\_\-7@{KING\_\-CODE\_\-BG1\_\-BAT\_\-7}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba034b726116fece612dbf38d6b33146aa}{
+KING\_\-CODE\_\-BG1\_\-BAT\_\-7}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba034b726116fece612dbf38d6b33146aa}
+}]Background 1, BAT, +7 \index{KING\_\-CODE\_\-BG2\_\-CG\_\-0@{KING\_\-CODE\_\-BG2\_\-CG\_\-0}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-CG\_\-0@{KING\_\-CODE\_\-BG2\_\-CG\_\-0}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081babd1e6af6a6eb795d6d7df6874345b48a}{
+KING\_\-CODE\_\-BG2\_\-CG\_\-0}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081babd1e6af6a6eb795d6d7df6874345b48a}
+}]Background 2, CG, +0 \index{KING\_\-CODE\_\-BG2\_\-CG\_\-1@{KING\_\-CODE\_\-BG2\_\-CG\_\-1}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-CG\_\-1@{KING\_\-CODE\_\-BG2\_\-CG\_\-1}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba2c223875538211604b7ee6106b395103}{
+KING\_\-CODE\_\-BG2\_\-CG\_\-1}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba2c223875538211604b7ee6106b395103}
+}]Background 2, CG, +1 \index{KING\_\-CODE\_\-BG2\_\-CG\_\-2@{KING\_\-CODE\_\-BG2\_\-CG\_\-2}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-CG\_\-2@{KING\_\-CODE\_\-BG2\_\-CG\_\-2}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba28763755dd0f781021f105082cb4130b}{
+KING\_\-CODE\_\-BG2\_\-CG\_\-2}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba28763755dd0f781021f105082cb4130b}
+}]Background 2, CG, +2 \index{KING\_\-CODE\_\-BG2\_\-CG\_\-3@{KING\_\-CODE\_\-BG2\_\-CG\_\-3}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-CG\_\-3@{KING\_\-CODE\_\-BG2\_\-CG\_\-3}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba8b5da37af6ea7f556b643384094d4994}{
+KING\_\-CODE\_\-BG2\_\-CG\_\-3}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba8b5da37af6ea7f556b643384094d4994}
+}]Background 2, CG, +3 \index{KING\_\-CODE\_\-BG2\_\-CG\_\-4@{KING\_\-CODE\_\-BG2\_\-CG\_\-4}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-CG\_\-4@{KING\_\-CODE\_\-BG2\_\-CG\_\-4}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba2c895702a401309ce3e41e4c112e65a7}{
+KING\_\-CODE\_\-BG2\_\-CG\_\-4}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba2c895702a401309ce3e41e4c112e65a7}
+}]Background 2, CG, +4 \index{KING\_\-CODE\_\-BG2\_\-CG\_\-5@{KING\_\-CODE\_\-BG2\_\-CG\_\-5}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-CG\_\-5@{KING\_\-CODE\_\-BG2\_\-CG\_\-5}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081bab7c2221fbdf47fba122205502730c775}{
+KING\_\-CODE\_\-BG2\_\-CG\_\-5}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081bab7c2221fbdf47fba122205502730c775}
+}]Background 2, CG, +5 \index{KING\_\-CODE\_\-BG2\_\-CG\_\-6@{KING\_\-CODE\_\-BG2\_\-CG\_\-6}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-CG\_\-6@{KING\_\-CODE\_\-BG2\_\-CG\_\-6}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba822f6cf4ca40674d2cfe8c3958d0b394}{
+KING\_\-CODE\_\-BG2\_\-CG\_\-6}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba822f6cf4ca40674d2cfe8c3958d0b394}
+}]Background 2, CG, +6 \index{KING\_\-CODE\_\-BG2\_\-CG\_\-7@{KING\_\-CODE\_\-BG2\_\-CG\_\-7}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-CG\_\-7@{KING\_\-CODE\_\-BG2\_\-CG\_\-7}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba92aaa761b0342a44c9f1a64025a3ef01}{
+KING\_\-CODE\_\-BG2\_\-CG\_\-7}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba92aaa761b0342a44c9f1a64025a3ef01}
+}]Background 2, CG, +7 \index{KING\_\-CODE\_\-BG2\_\-BATCG\_\-0@{KING\_\-CODE\_\-BG2\_\-BATCG\_\-0}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-BATCG\_\-0@{KING\_\-CODE\_\-BG2\_\-BATCG\_\-0}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba6dbaabb0081feef81337bfffcb3c00c4}{
+KING\_\-CODE\_\-BG2\_\-BATCG\_\-0}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba6dbaabb0081feef81337bfffcb3c00c4}
+}]Background 2, BAT-\/$>$CG, +0 \index{KING\_\-CODE\_\-BG2\_\-BATCG\_\-1@{KING\_\-CODE\_\-BG2\_\-BATCG\_\-1}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-BATCG\_\-1@{KING\_\-CODE\_\-BG2\_\-BATCG\_\-1}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba4920d46bcecdebff695bedf4edaf63e5}{
+KING\_\-CODE\_\-BG2\_\-BATCG\_\-1}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba4920d46bcecdebff695bedf4edaf63e5}
+}]Background 2, BAT-\/$>$CG, +1 \index{KING\_\-CODE\_\-BG2\_\-BATCG\_\-2@{KING\_\-CODE\_\-BG2\_\-BATCG\_\-2}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-BATCG\_\-2@{KING\_\-CODE\_\-BG2\_\-BATCG\_\-2}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081baeaef0c4624779a2eec45d3bfc5de0ac1}{
+KING\_\-CODE\_\-BG2\_\-BATCG\_\-2}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081baeaef0c4624779a2eec45d3bfc5de0ac1}
+}]Background 2, BAT-\/$>$CG, +2 \index{KING\_\-CODE\_\-BG2\_\-BATCG\_\-3@{KING\_\-CODE\_\-BG2\_\-BATCG\_\-3}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-BATCG\_\-3@{KING\_\-CODE\_\-BG2\_\-BATCG\_\-3}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081bafd629987bd54726a596aa8a487c27a9c}{
+KING\_\-CODE\_\-BG2\_\-BATCG\_\-3}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081bafd629987bd54726a596aa8a487c27a9c}
+}]Background 2, BAT-\/$>$CG, +3 \index{KING\_\-CODE\_\-BG2\_\-BATCG\_\-4@{KING\_\-CODE\_\-BG2\_\-BATCG\_\-4}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-BATCG\_\-4@{KING\_\-CODE\_\-BG2\_\-BATCG\_\-4}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba0bfb55a33c96d3e935d617c4f8ca1ae2}{
+KING\_\-CODE\_\-BG2\_\-BATCG\_\-4}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba0bfb55a33c96d3e935d617c4f8ca1ae2}
+}]Background 2, BAT-\/$>$CG, +4 \index{KING\_\-CODE\_\-BG2\_\-BATCG\_\-5@{KING\_\-CODE\_\-BG2\_\-BATCG\_\-5}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-BATCG\_\-5@{KING\_\-CODE\_\-BG2\_\-BATCG\_\-5}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081bae4f0612e00e5a9ab424f26b0fbf09c22}{
+KING\_\-CODE\_\-BG2\_\-BATCG\_\-5}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081bae4f0612e00e5a9ab424f26b0fbf09c22}
+}]Background 2, BAT-\/$>$CG, +5 \index{KING\_\-CODE\_\-BG2\_\-BATCG\_\-6@{KING\_\-CODE\_\-BG2\_\-BATCG\_\-6}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-BATCG\_\-6@{KING\_\-CODE\_\-BG2\_\-BATCG\_\-6}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba36e3cccfc28238761afa6e4a6173fde8}{
+KING\_\-CODE\_\-BG2\_\-BATCG\_\-6}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba36e3cccfc28238761afa6e4a6173fde8}
+}]Background 2, BAT-\/$>$CG, +6 \index{KING\_\-CODE\_\-BG2\_\-BATCG\_\-7@{KING\_\-CODE\_\-BG2\_\-BATCG\_\-7}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-BATCG\_\-7@{KING\_\-CODE\_\-BG2\_\-BATCG\_\-7}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba71208a7ae73237cbe5bba812f50b41a7}{
+KING\_\-CODE\_\-BG2\_\-BATCG\_\-7}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba71208a7ae73237cbe5bba812f50b41a7}
+}]Background 2, BAT-\/$>$CG, +7 \index{KING\_\-CODE\_\-BG2\_\-BAT\_\-0@{KING\_\-CODE\_\-BG2\_\-BAT\_\-0}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-BAT\_\-0@{KING\_\-CODE\_\-BG2\_\-BAT\_\-0}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba72b13efcf183db9d8451b06b37912b26}{
+KING\_\-CODE\_\-BG2\_\-BAT\_\-0}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba72b13efcf183db9d8451b06b37912b26}
+}]Background 2, BAT, +0 \index{KING\_\-CODE\_\-BG2\_\-BAT\_\-1@{KING\_\-CODE\_\-BG2\_\-BAT\_\-1}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-BAT\_\-1@{KING\_\-CODE\_\-BG2\_\-BAT\_\-1}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081bace67485697fb812b4f40bd4827f1b23f}{
+KING\_\-CODE\_\-BG2\_\-BAT\_\-1}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081bace67485697fb812b4f40bd4827f1b23f}
+}]Background 2, BAT, +1 \index{KING\_\-CODE\_\-BG2\_\-BAT\_\-2@{KING\_\-CODE\_\-BG2\_\-BAT\_\-2}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-BAT\_\-2@{KING\_\-CODE\_\-BG2\_\-BAT\_\-2}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba2652399898f66b62f9a93997f6d7f56d}{
+KING\_\-CODE\_\-BG2\_\-BAT\_\-2}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba2652399898f66b62f9a93997f6d7f56d}
+}]Background 2, BAT, +2 \index{KING\_\-CODE\_\-BG2\_\-BAT\_\-3@{KING\_\-CODE\_\-BG2\_\-BAT\_\-3}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-BAT\_\-3@{KING\_\-CODE\_\-BG2\_\-BAT\_\-3}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba215104401dff2aa3e6eba34184d7083f}{
+KING\_\-CODE\_\-BG2\_\-BAT\_\-3}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba215104401dff2aa3e6eba34184d7083f}
+}]Background 2, BAT, +3 \index{KING\_\-CODE\_\-BG2\_\-BAT\_\-4@{KING\_\-CODE\_\-BG2\_\-BAT\_\-4}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-BAT\_\-4@{KING\_\-CODE\_\-BG2\_\-BAT\_\-4}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba07c759ad0bbdd7aa9b5319766fe517e8}{
+KING\_\-CODE\_\-BG2\_\-BAT\_\-4}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba07c759ad0bbdd7aa9b5319766fe517e8}
+}]Background 2, BAT, +4 \index{KING\_\-CODE\_\-BG2\_\-BAT\_\-5@{KING\_\-CODE\_\-BG2\_\-BAT\_\-5}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-BAT\_\-5@{KING\_\-CODE\_\-BG2\_\-BAT\_\-5}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba29d17c5cb50abb588029077495b42206}{
+KING\_\-CODE\_\-BG2\_\-BAT\_\-5}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba29d17c5cb50abb588029077495b42206}
+}]Background 2, BAT, +5 \index{KING\_\-CODE\_\-BG2\_\-BAT\_\-6@{KING\_\-CODE\_\-BG2\_\-BAT\_\-6}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-BAT\_\-6@{KING\_\-CODE\_\-BG2\_\-BAT\_\-6}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081baa0429b23e03db0fc9285a0e3fa532eb1}{
+KING\_\-CODE\_\-BG2\_\-BAT\_\-6}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081baa0429b23e03db0fc9285a0e3fa532eb1}
+}]Background 2, BAT, +6 \index{KING\_\-CODE\_\-BG2\_\-BAT\_\-7@{KING\_\-CODE\_\-BG2\_\-BAT\_\-7}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG2\_\-BAT\_\-7@{KING\_\-CODE\_\-BG2\_\-BAT\_\-7}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba6f06702e1d700a8ffb49ed590ef4cd84}{
+KING\_\-CODE\_\-BG2\_\-BAT\_\-7}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba6f06702e1d700a8ffb49ed590ef4cd84}
+}]Background 2, BAT, +7 \index{KING\_\-CODE\_\-BG3\_\-CG\_\-0@{KING\_\-CODE\_\-BG3\_\-CG\_\-0}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-CG\_\-0@{KING\_\-CODE\_\-BG3\_\-CG\_\-0}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081baf965bbeb44ad8a7f521ad3f364e145f6}{
+KING\_\-CODE\_\-BG3\_\-CG\_\-0}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081baf965bbeb44ad8a7f521ad3f364e145f6}
+}]Background 3, CG, +0 \index{KING\_\-CODE\_\-BG3\_\-CG\_\-1@{KING\_\-CODE\_\-BG3\_\-CG\_\-1}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-CG\_\-1@{KING\_\-CODE\_\-BG3\_\-CG\_\-1}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba07a9335147fcb5e89a0ef301b0acc427}{
+KING\_\-CODE\_\-BG3\_\-CG\_\-1}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba07a9335147fcb5e89a0ef301b0acc427}
+}]Background 3, CG, +1 \index{KING\_\-CODE\_\-BG3\_\-CG\_\-2@{KING\_\-CODE\_\-BG3\_\-CG\_\-2}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-CG\_\-2@{KING\_\-CODE\_\-BG3\_\-CG\_\-2}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba359fc5f968b6dc8e2dfd2228bfc73207}{
+KING\_\-CODE\_\-BG3\_\-CG\_\-2}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba359fc5f968b6dc8e2dfd2228bfc73207}
+}]Background 3, CG, +2 \index{KING\_\-CODE\_\-BG3\_\-CG\_\-3@{KING\_\-CODE\_\-BG3\_\-CG\_\-3}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-CG\_\-3@{KING\_\-CODE\_\-BG3\_\-CG\_\-3}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba51ee5dd9f5a9025041dc5e55b1c94ff7}{
+KING\_\-CODE\_\-BG3\_\-CG\_\-3}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba51ee5dd9f5a9025041dc5e55b1c94ff7}
+}]Background 3, CG, +3 \index{KING\_\-CODE\_\-BG3\_\-CG\_\-4@{KING\_\-CODE\_\-BG3\_\-CG\_\-4}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-CG\_\-4@{KING\_\-CODE\_\-BG3\_\-CG\_\-4}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba7177195ad2a4d24f9d72387fb20490dc}{
+KING\_\-CODE\_\-BG3\_\-CG\_\-4}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba7177195ad2a4d24f9d72387fb20490dc}
+}]Background 3, CG, +4 \index{KING\_\-CODE\_\-BG3\_\-CG\_\-5@{KING\_\-CODE\_\-BG3\_\-CG\_\-5}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-CG\_\-5@{KING\_\-CODE\_\-BG3\_\-CG\_\-5}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba932d2444de8d5da602946c00e122facc}{
+KING\_\-CODE\_\-BG3\_\-CG\_\-5}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba932d2444de8d5da602946c00e122facc}
+}]Background 3, CG, +5 \index{KING\_\-CODE\_\-BG3\_\-CG\_\-6@{KING\_\-CODE\_\-BG3\_\-CG\_\-6}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-CG\_\-6@{KING\_\-CODE\_\-BG3\_\-CG\_\-6}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba0e9d0b73093e3fcb34d931eed69719f9}{
+KING\_\-CODE\_\-BG3\_\-CG\_\-6}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba0e9d0b73093e3fcb34d931eed69719f9}
+}]Background 3, CG, +6 \index{KING\_\-CODE\_\-BG3\_\-CG\_\-7@{KING\_\-CODE\_\-BG3\_\-CG\_\-7}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-CG\_\-7@{KING\_\-CODE\_\-BG3\_\-CG\_\-7}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081bacf0315c7eee053c4892c446dc1735f9b}{
+KING\_\-CODE\_\-BG3\_\-CG\_\-7}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081bacf0315c7eee053c4892c446dc1735f9b}
+}]Background 3, CG, +7 \index{KING\_\-CODE\_\-BG3\_\-BATCG\_\-0@{KING\_\-CODE\_\-BG3\_\-BATCG\_\-0}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-BATCG\_\-0@{KING\_\-CODE\_\-BG3\_\-BATCG\_\-0}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba9f42bf9a070029661d6f6b02230b26eb}{
+KING\_\-CODE\_\-BG3\_\-BATCG\_\-0}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba9f42bf9a070029661d6f6b02230b26eb}
+}]Background 3, BAT-\/$>$CG, +0 \index{KING\_\-CODE\_\-BG3\_\-BATCG\_\-1@{KING\_\-CODE\_\-BG3\_\-BATCG\_\-1}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-BATCG\_\-1@{KING\_\-CODE\_\-BG3\_\-BATCG\_\-1}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba8a0425e4aefa3667824887ff5c169f91}{
+KING\_\-CODE\_\-BG3\_\-BATCG\_\-1}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba8a0425e4aefa3667824887ff5c169f91}
+}]Background 3, BAT-\/$>$CG, +1 \index{KING\_\-CODE\_\-BG3\_\-BATCG\_\-2@{KING\_\-CODE\_\-BG3\_\-BATCG\_\-2}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-BATCG\_\-2@{KING\_\-CODE\_\-BG3\_\-BATCG\_\-2}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba1b1a1302d5c0fe6e0dd0086f10e2fbfa}{
+KING\_\-CODE\_\-BG3\_\-BATCG\_\-2}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba1b1a1302d5c0fe6e0dd0086f10e2fbfa}
+}]Background 3, BAT-\/$>$CG, +2 \index{KING\_\-CODE\_\-BG3\_\-BATCG\_\-3@{KING\_\-CODE\_\-BG3\_\-BATCG\_\-3}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-BATCG\_\-3@{KING\_\-CODE\_\-BG3\_\-BATCG\_\-3}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba05543376d1c49ffd73f6a9f5b1fc5f13}{
+KING\_\-CODE\_\-BG3\_\-BATCG\_\-3}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba05543376d1c49ffd73f6a9f5b1fc5f13}
+}]Background 3, BAT-\/$>$CG, +3 \index{KING\_\-CODE\_\-BG3\_\-BATCG\_\-4@{KING\_\-CODE\_\-BG3\_\-BATCG\_\-4}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-BATCG\_\-4@{KING\_\-CODE\_\-BG3\_\-BATCG\_\-4}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081baf9b02ad3d8701ae5606cfd09a082db9a}{
+KING\_\-CODE\_\-BG3\_\-BATCG\_\-4}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081baf9b02ad3d8701ae5606cfd09a082db9a}
+}]Background 3, BAT-\/$>$CG, +4 \index{KING\_\-CODE\_\-BG3\_\-BATCG\_\-5@{KING\_\-CODE\_\-BG3\_\-BATCG\_\-5}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-BATCG\_\-5@{KING\_\-CODE\_\-BG3\_\-BATCG\_\-5}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba43498dcf7f23eea4d2ae65284ecde806}{
+KING\_\-CODE\_\-BG3\_\-BATCG\_\-5}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba43498dcf7f23eea4d2ae65284ecde806}
+}]Background 3, BAT-\/$>$CG, +5 \index{KING\_\-CODE\_\-BG3\_\-BATCG\_\-6@{KING\_\-CODE\_\-BG3\_\-BATCG\_\-6}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-BATCG\_\-6@{KING\_\-CODE\_\-BG3\_\-BATCG\_\-6}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081babfda871a1e199c6eef7a57e81a0567f0}{
+KING\_\-CODE\_\-BG3\_\-BATCG\_\-6}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081babfda871a1e199c6eef7a57e81a0567f0}
+}]Background 3, BAT-\/$>$CG, +6 \index{KING\_\-CODE\_\-BG3\_\-BATCG\_\-7@{KING\_\-CODE\_\-BG3\_\-BATCG\_\-7}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-BATCG\_\-7@{KING\_\-CODE\_\-BG3\_\-BATCG\_\-7}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba637f8f24fe748fe6d060a87e0c55b959}{
+KING\_\-CODE\_\-BG3\_\-BATCG\_\-7}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba637f8f24fe748fe6d060a87e0c55b959}
+}]Background 3, BAT-\/$>$CG, +7 \index{KING\_\-CODE\_\-BG3\_\-BAT\_\-0@{KING\_\-CODE\_\-BG3\_\-BAT\_\-0}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-BAT\_\-0@{KING\_\-CODE\_\-BG3\_\-BAT\_\-0}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081bacd733d9342fd602830b91b4cdc5fb670}{
+KING\_\-CODE\_\-BG3\_\-BAT\_\-0}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081bacd733d9342fd602830b91b4cdc5fb670}
+}]Background 3, BAT, +0 \index{KING\_\-CODE\_\-BG3\_\-BAT\_\-1@{KING\_\-CODE\_\-BG3\_\-BAT\_\-1}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-BAT\_\-1@{KING\_\-CODE\_\-BG3\_\-BAT\_\-1}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081babb728c69f541763919d4055ed17e2c62}{
+KING\_\-CODE\_\-BG3\_\-BAT\_\-1}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081babb728c69f541763919d4055ed17e2c62}
+}]Background 3, BAT, +1 \index{KING\_\-CODE\_\-BG3\_\-BAT\_\-2@{KING\_\-CODE\_\-BG3\_\-BAT\_\-2}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-BAT\_\-2@{KING\_\-CODE\_\-BG3\_\-BAT\_\-2}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba2159f19db12bd5fe444ab3e85b3b98ab}{
+KING\_\-CODE\_\-BG3\_\-BAT\_\-2}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba2159f19db12bd5fe444ab3e85b3b98ab}
+}]Background 3, BAT, +2 \index{KING\_\-CODE\_\-BG3\_\-BAT\_\-3@{KING\_\-CODE\_\-BG3\_\-BAT\_\-3}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-BAT\_\-3@{KING\_\-CODE\_\-BG3\_\-BAT\_\-3}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba3b70ff459176f3bd22de41e506cc32fe}{
+KING\_\-CODE\_\-BG3\_\-BAT\_\-3}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba3b70ff459176f3bd22de41e506cc32fe}
+}]Background 3, BAT, +3 \index{KING\_\-CODE\_\-BG3\_\-BAT\_\-4@{KING\_\-CODE\_\-BG3\_\-BAT\_\-4}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-BAT\_\-4@{KING\_\-CODE\_\-BG3\_\-BAT\_\-4}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba505214d4907ee18f703fb6007faf7fe6}{
+KING\_\-CODE\_\-BG3\_\-BAT\_\-4}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba505214d4907ee18f703fb6007faf7fe6}
+}]Background 3, BAT, +4 \index{KING\_\-CODE\_\-BG3\_\-BAT\_\-5@{KING\_\-CODE\_\-BG3\_\-BAT\_\-5}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-BAT\_\-5@{KING\_\-CODE\_\-BG3\_\-BAT\_\-5}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba6b25730039f688d70077c29c6a7e1c55}{
+KING\_\-CODE\_\-BG3\_\-BAT\_\-5}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba6b25730039f688d70077c29c6a7e1c55}
+}]Background 3, BAT, +5 \index{KING\_\-CODE\_\-BG3\_\-BAT\_\-6@{KING\_\-CODE\_\-BG3\_\-BAT\_\-6}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-BAT\_\-6@{KING\_\-CODE\_\-BG3\_\-BAT\_\-6}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba493044065d9fe0c2650ced162a3a110d}{
+KING\_\-CODE\_\-BG3\_\-BAT\_\-6}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba493044065d9fe0c2650ced162a3a110d}
+}]Background 3, BAT, +6 \index{KING\_\-CODE\_\-BG3\_\-BAT\_\-7@{KING\_\-CODE\_\-BG3\_\-BAT\_\-7}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-BG3\_\-BAT\_\-7@{KING\_\-CODE\_\-BG3\_\-BAT\_\-7}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba60e1a5b3291f7f1651fd59ab57606c2b}{
+KING\_\-CODE\_\-BG3\_\-BAT\_\-7}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba60e1a5b3291f7f1651fd59ab57606c2b}
+}]Background 3, BAT, +7 \index{KING\_\-CODE\_\-ROTATE@{KING\_\-CODE\_\-ROTATE}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-ROTATE@{KING\_\-CODE\_\-ROTATE}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081bafdc194dabc2e0c480cdc8a11b961aa9e}{
+KING\_\-CODE\_\-ROTATE}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081bafdc194dabc2e0c480cdc8a11b961aa9e}
+}]Rotate background \index{KING\_\-CODE\_\-NOP@{KING\_\-CODE\_\-NOP}!king.h@{king.h}}\index{king.h@{king.h}!KING\_\-CODE\_\-NOP@{KING\_\-CODE\_\-NOP}}\item[{\em 
+\hypertarget{king_8h_ae121aae256ccda53b313fa8aa0b5081ba3f26e075925eb2b18d47cc9fb183cb64}{
+KING\_\-CODE\_\-NOP}
+\label{king_8h_ae121aae256ccda53b313fa8aa0b5081ba3f26e075925eb2b18d47cc9fb183cb64}
+}]No Operation \end{description}
+\end{Desc}
+
+
+
+\subsection{Function Documentation}
+\hypertarget{king_8h_afc40971e4af657c0ca318095961f0d0f}{
+\index{king.h@{king.h}!eris\_\-king\_\-fill\_\-microprogram@{eris\_\-king\_\-fill\_\-microprogram}}
+\index{eris\_\-king\_\-fill\_\-microprogram@{eris\_\-king\_\-fill\_\-microprogram}!king.h@{king.h}}
+\subsubsection[{eris\_\-king\_\-fill\_\-microprogram}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-king\_\-fill\_\-microprogram (
+\begin{DoxyParamCaption}
+\item[{{\bf u16}}]{data, }
+\item[{{\bf u8}}]{addr, }
+\item[{{\bf u8}}]{len}
+\end{DoxyParamCaption}
+)}}
+\label{king_8h_afc40971e4af657c0ca318095961f0d0f}
+
+
+Write the KING microprogram. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Opcode to fill microprogram with. \\
+\hline
+{\em addr} & Address to start writing the microprogram. \\
+\hline
+{\em len} & How many opcodes to write. \\
+\hline
+\end{DoxyParams}
+\hypertarget{king_8h_ae717f35077e1edfe5a0405a292636c84}{
+\index{king.h@{king.h}!eris\_\-king\_\-kram\_\-read@{eris\_\-king\_\-kram\_\-read}}
+\index{eris\_\-king\_\-kram\_\-read@{eris\_\-king\_\-kram\_\-read}!king.h@{king.h}}
+\subsubsection[{eris\_\-king\_\-kram\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} eris\_\-king\_\-kram\_\-read (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{king_8h_ae717f35077e1edfe5a0405a292636c84}
+
+
+Read from KRAM. 
+
+\begin{DoxyReturn}{Returns}
+Value read from KRAM. 
+\end{DoxyReturn}
+\hypertarget{king_8h_a1ae21d6c9a979c65dc035404c034d2af}{
+\index{king.h@{king.h}!eris\_\-king\_\-kram\_\-write@{eris\_\-king\_\-kram\_\-write}}
+\index{eris\_\-king\_\-kram\_\-write@{eris\_\-king\_\-kram\_\-write}!king.h@{king.h}}
+\subsubsection[{eris\_\-king\_\-kram\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-king\_\-kram\_\-write (
+\begin{DoxyParamCaption}
+\item[{{\bf u16}}]{data}
+\end{DoxyParamCaption}
+)}}
+\label{king_8h_a1ae21d6c9a979c65dc035404c034d2af}
+
+
+Write to KRAM. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Value to write to KRAM. \\
+\hline
+\end{DoxyParams}
+\hypertarget{king_8h_a91ff7f65d6f59d95691308a63de58eca}{
+\index{king.h@{king.h}!eris\_\-king\_\-set\_\-bat\_\-cg\_\-addr@{eris\_\-king\_\-set\_\-bat\_\-cg\_\-addr}}
+\index{eris\_\-king\_\-set\_\-bat\_\-cg\_\-addr@{eris\_\-king\_\-set\_\-bat\_\-cg\_\-addr}!king.h@{king.h}}
+\subsubsection[{eris\_\-king\_\-set\_\-bat\_\-cg\_\-addr}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-king\_\-set\_\-bat\_\-cg\_\-addr (
+\begin{DoxyParamCaption}
+\item[{{\bf king\_\-bg}}]{bg, }
+\item[{{\bf u32}}]{bat, }
+\item[{{\bf u32}}]{cg}
+\end{DoxyParamCaption}
+)}}
+\label{king_8h_a91ff7f65d6f59d95691308a63de58eca}
+
+
+Set background BAT and CG addresses. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bg} & Which background to set the size of. \\
+\hline
+{\em bat} & The KRAM address for the BAT. \\
+\hline
+{\em cg} & The KRAM address of the CG. \\
+\hline
+\end{DoxyParams}
+\hypertarget{king_8h_a1ccc79dfc2bb3515c7b6a76aa1a7924d}{
+\index{king.h@{king.h}!eris\_\-king\_\-set\_\-bg\_\-mode@{eris\_\-king\_\-set\_\-bg\_\-mode}}
+\index{eris\_\-king\_\-set\_\-bg\_\-mode@{eris\_\-king\_\-set\_\-bg\_\-mode}!king.h@{king.h}}
+\subsubsection[{eris\_\-king\_\-set\_\-bg\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-king\_\-set\_\-bg\_\-mode (
+\begin{DoxyParamCaption}
+\item[{{\bf king\_\-bgmode}}]{bg0, }
+\item[{{\bf king\_\-bgmode}}]{bg1, }
+\item[{{\bf king\_\-bgmode}}]{bg2, }
+\item[{{\bf king\_\-bgmode}}]{bg3}
+\end{DoxyParamCaption}
+)}}
+\label{king_8h_a1ccc79dfc2bb3515c7b6a76aa1a7924d}
+
+
+Set color modes for the backgrounds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bg0} & Color mode for background 0. \\
+\hline
+{\em bg1} & Color mode for background 1. \\
+\hline
+{\em bg2} & Color mode for background 2. \\
+\hline
+{\em bg3} & Color mode for background 3. \\
+\hline
+\end{DoxyParams}
+\hypertarget{king_8h_a4d9e554977d525040e97bc99d193405c}{
+\index{king.h@{king.h}!eris\_\-king\_\-set\_\-bg\_\-prio@{eris\_\-king\_\-set\_\-bg\_\-prio}}
+\index{eris\_\-king\_\-set\_\-bg\_\-prio@{eris\_\-king\_\-set\_\-bg\_\-prio}!king.h@{king.h}}
+\subsubsection[{eris\_\-king\_\-set\_\-bg\_\-prio}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-king\_\-set\_\-bg\_\-prio (
+\begin{DoxyParamCaption}
+\item[{{\bf king\_\-bgprio}}]{bg0, }
+\item[{{\bf king\_\-bgprio}}]{bg1, }
+\item[{{\bf king\_\-bgprio}}]{bg2, }
+\item[{{\bf king\_\-bgprio}}]{bg3, }
+\item[{{\bf king\_\-bgprio}}]{bgrot}
+\end{DoxyParamCaption}
+)}}
+\label{king_8h_a4d9e554977d525040e97bc99d193405c}
+
+
+Set priorities for the backgrounds. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bg0} & Priority for background 0. \\
+\hline
+{\em bg1} & Priority for background 1. \\
+\hline
+{\em bg2} & Priority for background 2. \\
+\hline
+{\em bg3} & Priority for background 3. \\
+\hline
+{\em bgrot} & Priority for rotation background (bg0sub?). \\
+\hline
+\end{DoxyParams}
+\hypertarget{king_8h_aa3afe2b35e323d3bd0595ac4c65e8416}{
+\index{king.h@{king.h}!eris\_\-king\_\-set\_\-bg\_\-size@{eris\_\-king\_\-set\_\-bg\_\-size}}
+\index{eris\_\-king\_\-set\_\-bg\_\-size@{eris\_\-king\_\-set\_\-bg\_\-size}!king.h@{king.h}}
+\subsubsection[{eris\_\-king\_\-set\_\-bg\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-king\_\-set\_\-bg\_\-size (
+\begin{DoxyParamCaption}
+\item[{{\bf king\_\-bg}}]{bg, }
+\item[{{\bf king\_\-bgsize}}]{h, }
+\item[{{\bf king\_\-bgsize}}]{w, }
+\item[{{\bf king\_\-bgsize}}]{sub\_\-h, }
+\item[{{\bf king\_\-bgsize}}]{sub\_\-w}
+\end{DoxyParamCaption}
+)}}
+\label{king_8h_aa3afe2b35e323d3bd0595ac4c65e8416}
+
+
+Set background sizes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bg} & Which background to set the size of (BG0SUB is not allowed). \\
+\hline
+{\em h} & Height of the background. \\
+\hline
+{\em w} & Width of the background. \\
+\hline
+{\em sub\_\-h} & Height of the sub background (BG0 only). \\
+\hline
+{\em sub\_\-w} & Width of the sub background (BG0 only). \\
+\hline
+\end{DoxyParams}
+\hypertarget{king_8h_a22f046ab1fb829e49f62dbfb7b0a99f5}{
+\index{king.h@{king.h}!eris\_\-king\_\-set\_\-kram\_\-pages@{eris\_\-king\_\-set\_\-kram\_\-pages}}
+\index{eris\_\-king\_\-set\_\-kram\_\-pages@{eris\_\-king\_\-set\_\-kram\_\-pages}!king.h@{king.h}}
+\subsubsection[{eris\_\-king\_\-set\_\-kram\_\-pages}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-king\_\-set\_\-kram\_\-pages (
+\begin{DoxyParamCaption}
+\item[{{\bf u8}}]{scsi, }
+\item[{{\bf u8}}]{bg, }
+\item[{{\bf u8}}]{rainbow, }
+\item[{{\bf u8}}]{adpcm}
+\end{DoxyParamCaption}
+)}}
+\label{king_8h_a22f046ab1fb829e49f62dbfb7b0a99f5}
+
+
+Set the KRAM page for various peripherals. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em scsi} & The KRAM page used for SCSI. (0 $\sim$ 1) \\
+\hline
+{\em bg} & The KRAM page used for backgrounds. (0 $\sim$ 1) \\
+\hline
+{\em rainbow} & The KRAM page used for RAINBOW. (0 $\sim$ 1) \\
+\hline
+{\em adpcm} & The KRAM page used for the ADPCM. (0 $\sim$ 1) \\
+\hline
+\end{DoxyParams}
+\hypertarget{king_8h_a79bec0c788804001bf0a7f2eed61b09e}{
+\index{king.h@{king.h}!eris\_\-king\_\-set\_\-kram\_\-read@{eris\_\-king\_\-set\_\-kram\_\-read}}
+\index{eris\_\-king\_\-set\_\-kram\_\-read@{eris\_\-king\_\-set\_\-kram\_\-read}!king.h@{king.h}}
+\subsubsection[{eris\_\-king\_\-set\_\-kram\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-king\_\-set\_\-kram\_\-read (
+\begin{DoxyParamCaption}
+\item[{{\bf u32}}]{addr, }
+\item[{int}]{incr}
+\end{DoxyParamCaption}
+)}}
+\label{king_8h_a79bec0c788804001bf0a7f2eed61b09e}
+
+
+Set KRAM read address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & New read address. \\
+\hline
+{\em incr} & How many 16bit words to increase on every read. \\
+\hline
+\end{DoxyParams}
+\hypertarget{king_8h_af2b0f82121fd41a450d3f8402f5adeb6}{
+\index{king.h@{king.h}!eris\_\-king\_\-set\_\-kram\_\-write@{eris\_\-king\_\-set\_\-kram\_\-write}}
+\index{eris\_\-king\_\-set\_\-kram\_\-write@{eris\_\-king\_\-set\_\-kram\_\-write}!king.h@{king.h}}
+\subsubsection[{eris\_\-king\_\-set\_\-kram\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-king\_\-set\_\-kram\_\-write (
+\begin{DoxyParamCaption}
+\item[{{\bf u32}}]{addr, }
+\item[{int}]{incr}
+\end{DoxyParamCaption}
+)}}
+\label{king_8h_af2b0f82121fd41a450d3f8402f5adeb6}
+
+
+Set KRAM write address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em addr} & New write address. \\
+\hline
+{\em incr} & How many 16bit words to increase on every write. \\
+\hline
+\end{DoxyParams}
+\hypertarget{king_8h_a68b1b653cf1ab9bc11a41615771f4504}{
+\index{king.h@{king.h}!eris\_\-king\_\-set\_\-scroll@{eris\_\-king\_\-set\_\-scroll}}
+\index{eris\_\-king\_\-set\_\-scroll@{eris\_\-king\_\-set\_\-scroll}!king.h@{king.h}}
+\subsubsection[{eris\_\-king\_\-set\_\-scroll}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-king\_\-set\_\-scroll (
+\begin{DoxyParamCaption}
+\item[{{\bf king\_\-bg}}]{bg, }
+\item[{{\bf s16}}]{x, }
+\item[{{\bf s16}}]{y}
+\end{DoxyParamCaption}
+)}}
+\label{king_8h_a68b1b653cf1ab9bc11a41615771f4504}
+
+
+Set background scrolling. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bg} & Which background to scroll (BG0SUB is not allowed). \\
+\hline
+{\em x} & Signed X value correlating to the upper-\/left corner of the BG. \\
+\hline
+{\em y} & Signed Y value correlating to the upper-\/left corner of the BG. \\
+\hline
+\end{DoxyParams}
+\hypertarget{king_8h_a99c8e8e448d9ade9e080ce6231f12a42}{
+\index{king.h@{king.h}!eris\_\-king\_\-write\_\-microprogram@{eris\_\-king\_\-write\_\-microprogram}}
+\index{eris\_\-king\_\-write\_\-microprogram@{eris\_\-king\_\-write\_\-microprogram}!king.h@{king.h}}
+\subsubsection[{eris\_\-king\_\-write\_\-microprogram}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-king\_\-write\_\-microprogram (
+\begin{DoxyParamCaption}
+\item[{{\bf u16} $\ast$}]{data, }
+\item[{{\bf u8}}]{addr, }
+\item[{{\bf u8}}]{len}
+\end{DoxyParamCaption}
+)}}
+\label{king_8h_a99c8e8e448d9ade9e080ce6231f12a42}
+
+
+Write the KING microprogram. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Array containing microprogram. \\
+\hline
+{\em addr} & Address to start writing the microprogram. \\
+\hline
+{\em len} & How many opcodes to write. \\
+\hline
+\end{DoxyParams}
