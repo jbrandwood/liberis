@@ -42,10 +42,10 @@ int main(int argc, char *argv[])
 	eris_king_set_kram_pages(0, 0, 0, 0);
 
 	for(i = 0; i < 16; i++) {
-		microprog[i] = 0x100; /* NOP */
+		microprog[i] = KING_CODE_NOP;
 	}
 
-	microprog[0] = 0; /* CG +0 */
+	microprog[0] = KING_CODE_BG0_CG_0;
 	eris_king_disable_microprogram();
 	eris_king_write_microprogram(microprog, 0, 16);
 	eris_king_enable_microprogram();
