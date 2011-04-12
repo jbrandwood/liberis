@@ -1672,6 +1672,16 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>eris_low_cdda_set_volume</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>soundbox_8h.html</Path>
+    <Anchor>a40e2bdbba999c1141f07657c243e37cd</Anchor>
+    <Abstract>Set CDDA volume.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>ADPCM_RATE_32000</Name>
       <APILanguage>c</APILanguage>
       <Type>econst</Type>

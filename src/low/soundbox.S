@@ -100,3 +100,13 @@ _eris_low_adpcm_set_volume:
 	out.b	r8, 0x124[r6]
 	jmp	[lp]
 
+/*****************************************************************************
+ *  Low-level CDDA functions                                             []  *
+ *****************************************************************************/
+	.global	_eris_low_cdda_set_volume
+
+_eris_low_cdda_set_volume:
+	out.b	r6, 0x12A[r6]
+	out.b	r7, 0x12C[r6]
+	jmp	[lp]
+

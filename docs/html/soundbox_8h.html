@@ -109,6 +109,8 @@ Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set ADPCM controls.  <a href="#a9eb745994a0e50778c37b16eb2031914"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="soundbox_8h.html#a94c47603be16275dcd77e85a341b4c90">eris_low_adpcm_set_volume</a> (<a class="el" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> chan, <a class="el" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> left, <a class="el" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> right)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set ADPCM channel volume.  <a href="#a94c47603be16275dcd77e85a341b4c90"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="soundbox_8h.html#a40e2bdbba999c1141f07657c243e37cd">eris_low_cdda_set_volume</a> (<a class="el" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> left, <a class="el" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> right)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set CDDA volume.  <a href="#a40e2bdbba999c1141f07657c243e37cd"></a><br/></td></tr>
 </table>
 <hr/><a name="_details"></a><h2>Detailed Description</h2>
 <div class="textblock"><p>Low-level access to the SoundBox. </p>
@@ -237,6 +239,42 @@ Functions</h2></td></tr>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
     <tr><td class="paramname">chan</td><td>Which channel to set the volume of. </td></tr>
+    <tr><td class="paramname">left</td><td>Left speaker volume. (0 ~ 63) </td></tr>
+    <tr><td class="paramname">right</td><td>Right speaker volume. (0 ~ 63) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a40e2bdbba999c1141f07657c243e37cd"></a><!-- doxytag: member="soundbox.h::eris_low_cdda_set_volume" ref="a40e2bdbba999c1141f07657c243e37cd" args="(u8 left, u8 right)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void eris_low_cdda_set_volume </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td>
+          <td class="paramname"><em>left</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a>&#160;</td>
+          <td class="paramname"><em>right</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set CDDA volume. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
     <tr><td class="paramname">left</td><td>Left speaker volume. (0 ~ 63) </td></tr>
     <tr><td class="paramname">right</td><td>Right speaker volume. (0 ~ 63) </td></tr>
   </table>

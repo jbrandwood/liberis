@@ -40,7 +40,9 @@ void \hyperlink{soundbox_8h_add3211b1b4ca3505a3b4199e2769d9b4}{eris\_\-low\_\-ps
 void \hyperlink{soundbox_8h_a9eb745994a0e50778c37b16eb2031914}{eris\_\-low\_\-adpcm\_\-set\_\-control} (\hyperlink{soundbox_8h_ad792729ca50fcaf9c54f56c576020168}{adpcm\_\-rate} rate, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} ch0\_\-interp, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} ch1\_\-interp, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} ch0\_\-reset, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} ch1\_\-reset)
 \begin{DoxyCompactList}\small\item\em Set ADPCM controls. \item\end{DoxyCompactList}\item 
 void \hyperlink{soundbox_8h_a94c47603be16275dcd77e85a341b4c90}{eris\_\-low\_\-adpcm\_\-set\_\-volume} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} chan, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} left, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} right)
-\begin{DoxyCompactList}\small\item\em Set ADPCM channel volume. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Set ADPCM channel volume. \item\end{DoxyCompactList}\item 
+void \hyperlink{soundbox_8h_a40e2bdbba999c1141f07657c243e37cd}{eris\_\-low\_\-cdda\_\-set\_\-volume} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} left, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} right)
+\begin{DoxyCompactList}\small\item\em Set CDDA volume. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -130,6 +132,27 @@ Set ADPCM channel volume.
 \begin{DoxyParams}{Parameters}
 {\em chan} & Which channel to set the volume of. \\
 \hline
+{\em left} & Left speaker volume. (0 $\sim$ 63) \\
+\hline
+{\em right} & Right speaker volume. (0 $\sim$ 63) \\
+\hline
+\end{DoxyParams}
+\hypertarget{soundbox_8h_a40e2bdbba999c1141f07657c243e37cd}{
+\index{soundbox.h@{soundbox.h}!eris\_\-low\_\-cdda\_\-set\_\-volume@{eris\_\-low\_\-cdda\_\-set\_\-volume}}
+\index{eris\_\-low\_\-cdda\_\-set\_\-volume@{eris\_\-low\_\-cdda\_\-set\_\-volume}!soundbox.h@{soundbox.h}}
+\subsubsection[{eris\_\-low\_\-cdda\_\-set\_\-volume}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-cdda\_\-set\_\-volume (
+\begin{DoxyParamCaption}
+\item[{{\bf u8}}]{left, }
+\item[{{\bf u8}}]{right}
+\end{DoxyParamCaption}
+)}}
+\label{soundbox_8h_a40e2bdbba999c1141f07657c243e37cd}
+
+
+Set CDDA volume. 
+
+
+\begin{DoxyParams}{Parameters}
 {\em left} & Left speaker volume. (0 $\sim$ 63) \\
 \hline
 {\em right} & Right speaker volume. (0 $\sim$ 63) \\

@@ -103,6 +103,12 @@ void eris_low_adpcm_set_control(adpcm_rate rate, u8 ch0_interp, u8 ch1_interp,
  * \param right Right speaker volume. (0 ~ 63)
  */
 void eris_low_adpcm_set_volume(u8 chan, u8 left, u8 right);
+/*! \brief Set CDDA volume.
+ *
+ * \param left Left speaker volume. (0 ~ 63)
+ * \param right Right speaker volume. (0 ~ 63)
+ */
+void eris_low_cdda_set_volume(u8 left, u8 right);
 
 #endif
 
