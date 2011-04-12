@@ -18,7 +18,7 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
 	.global	_eris_low_7up_vram_read
 	.global	_eris_low_7up_set_control
 	.global	_eris_low_7up_set_interrupts
-	.global	_eris_low_7up_get_raster
+	.global _eris_low_7up_set_interrupt_raster
 	.global _eris_low_7up_set_scroll
 	.global	_eris_low_7up_do_dma
 	.global	_eris_low_7up_setup_dma
@@ -174,10 +174,10 @@ _eris_low_7up_set_interrupts:
 	out.h	r13, 4[r10]
 	jmp	[lp]
 
-_eris_low_7up_get_raster:
+_eris_low_7up_set_interrupt_raster:
 	shl	8, r6
 	set_reg	6, r6, r10, r11
-	in.h	4[r10], r10
+	out.h	r7, 4[r10]
 	jmp	[lp]
 
 _eris_low_7up_set_scroll:

@@ -90,12 +90,12 @@ void eris_low_7up_set_control(int chip, int increment, int bg_show,
  */
 void eris_low_7up_set_interrupts(int chip, int vblank_irq, int raster_irq,
 				int excess_spr, int spr_collision);
-/*! \brief Get the current raster being displayed by a 7up.
+/*! \brief Set the raster to generate an IRQ from.
  *
- * \param chip Which 7up to get the raster from. (0 ~ 1)
- * \return The currently displaying raster.
+ * \param chip Which 7up to set the raster on. (0 ~ 1)
+ * \param raster Which raster to generate an IRQ on.
  */
-u16 eris_low_7up_get_raster(int chip);
+void eris_low_7up_set_interrupt_raster(int chip, int raster);
 /*! \brief Scroll a 7up background.
  *
  * \param chip Which 7up to scroll. (0 ~ 1)

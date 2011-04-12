@@ -108,8 +108,8 @@ Functions</h2></td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set controls for a 7up chip.  <a href="#a20e07bf7d87f2679eaa106ef18ab9b90"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="7up_8h.html#afb5fd8b6e112fb7cdc92a231908a6a7d">eris_low_7up_set_interrupts</a> (int chip, int vblank_irq, int raster_irq, int excess_spr, int spr_collision)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set interrupt information for a 7up chip.  <a href="#afb5fd8b6e112fb7cdc92a231908a6a7d"></a><br/></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="7up_8h.html#a2bb3010320168c269f02c3e9016f51f4">eris_low_7up_get_raster</a> (int chip)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current raster being displayed by a 7up.  <a href="#a2bb3010320168c269f02c3e9016f51f4"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="7up_8h.html#a0f2076c4ee7626b5c0bc79c51e620241">eris_low_7up_set_interrupt_raster</a> (int chip, int raster)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the raster to generate an IRQ from.  <a href="#a0f2076c4ee7626b5c0bc79c51e620241"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="7up_8h.html#a9eef7b6af3383d9cba0682d4bf4bfbec">eris_low_7up_set_scroll</a> (int chip, <a class="el" href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> x, <a class="el" href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> y)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Scroll a 7up background.  <a href="#a9eef7b6af3383d9cba0682d4bf4bfbec"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="7up_8h.html#ab332d9a0d07cf4f51cc54c3715df86e7">eris_low_7up_do_dma</a> (int chip, <a class="el" href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> src, <a class="el" href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> dst, <a class="el" href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> len)</td></tr>
@@ -209,32 +209,6 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a class="anchor" id="a2bb3010320168c269f02c3e9016f51f4"></a><!-- doxytag: member="7up.h::eris_low_7up_get_raster" ref="a2bb3010320168c269f02c3e9016f51f4" args="(int chip)" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> eris_low_7up_get_raster </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>chip</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>Get the current raster being displayed by a 7up. </p>
-<dl><dt><b>Parameters:</b></dt><dd>
-  <table class="params">
-    <tr><td class="paramname">chip</td><td>Which 7up to get the raster from. (0 ~ 1) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="return"><dt><b>Returns:</b></dt><dd>The currently displaying raster. </dd></dl>
 
 </div>
 </div>
@@ -365,6 +339,42 @@ Functions</h2></td></tr>
     <tr><td class="paramname">increment</td><td>How much to increment on every VRAM read/write. See hardwre documentation for which values. </td></tr>
     <tr><td class="paramname">bg_show</td><td>Whether the BG should show or not. </td></tr>
     <tr><td class="paramname">spr_show</td><td>Whether sprites should show or not. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a0f2076c4ee7626b5c0bc79c51e620241"></a><!-- doxytag: member="7up.h::eris_low_7up_set_interrupt_raster" ref="a0f2076c4ee7626b5c0bc79c51e620241" args="(int chip, int raster)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void eris_low_7up_set_interrupt_raster </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>chip</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>raster</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Set the raster to generate an IRQ from. </p>
+<dl><dt><b>Parameters:</b></dt><dd>
+  <table class="params">
+    <tr><td class="paramname">chip</td><td>Which 7up to set the raster on. (0 ~ 1) </td></tr>
+    <tr><td class="paramname">raster</td><td>Which raster to generate an IRQ on. </td></tr>
   </table>
   </dd>
 </dl>

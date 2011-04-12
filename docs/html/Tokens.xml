@@ -1388,13 +1388,13 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>eris_low_7up_get_raster</Name>
+      <Name>eris_low_7up_set_interrupt_raster</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>a2bb3010320168c269f02c3e9016f51f4</Anchor>
-    <Abstract>Get the current raster being displayed by a 7up.</Abstract>
+    <Anchor>a0f2076c4ee7626b5c0bc79c51e620241</Anchor>
+    <Abstract>Set the raster to generate an IRQ from.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>

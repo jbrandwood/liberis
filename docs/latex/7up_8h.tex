@@ -39,8 +39,8 @@ void \hyperlink{7up_8h_a20e07bf7d87f2679eaa106ef18ab9b90}{eris\_\-low\_\-7up\_\-
 \begin{DoxyCompactList}\small\item\em Set controls for a 7up chip. \item\end{DoxyCompactList}\item 
 void \hyperlink{7up_8h_afb5fd8b6e112fb7cdc92a231908a6a7d}{eris\_\-low\_\-7up\_\-set\_\-interrupts} (int chip, int vblank\_\-irq, int raster\_\-irq, int excess\_\-spr, int spr\_\-collision)
 \begin{DoxyCompactList}\small\item\em Set interrupt information for a 7up chip. \item\end{DoxyCompactList}\item 
-\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} \hyperlink{7up_8h_a2bb3010320168c269f02c3e9016f51f4}{eris\_\-low\_\-7up\_\-get\_\-raster} (int chip)
-\begin{DoxyCompactList}\small\item\em Get the current raster being displayed by a 7up. \item\end{DoxyCompactList}\item 
+void \hyperlink{7up_8h_a0f2076c4ee7626b5c0bc79c51e620241}{eris\_\-low\_\-7up\_\-set\_\-interrupt\_\-raster} (int chip, int raster)
+\begin{DoxyCompactList}\small\item\em Set the raster to generate an IRQ from. \item\end{DoxyCompactList}\item 
 void \hyperlink{7up_8h_a9eef7b6af3383d9cba0682d4bf4bfbec}{eris\_\-low\_\-7up\_\-set\_\-scroll} (int chip, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} x, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} y)
 \begin{DoxyCompactList}\small\item\em Scroll a 7up background. \item\end{DoxyCompactList}\item 
 void \hyperlink{7up_8h_ab332d9a0d07cf4f51cc54c3715df86e7}{eris\_\-low\_\-7up\_\-do\_\-dma} (int chip, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} src, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} dst, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} len)
@@ -126,27 +126,6 @@ Perform a 7up DMA.
 {\em len} & How many 16bit words to transfer. \\
 \hline
 \end{DoxyParams}
-\hypertarget{7up_8h_a2bb3010320168c269f02c3e9016f51f4}{
-\index{7up.h@{7up.h}!eris\_\-low\_\-7up\_\-get\_\-raster@{eris\_\-low\_\-7up\_\-get\_\-raster}}
-\index{eris\_\-low\_\-7up\_\-get\_\-raster@{eris\_\-low\_\-7up\_\-get\_\-raster}!7up.h@{7up.h}}
-\subsubsection[{eris\_\-low\_\-7up\_\-get\_\-raster}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} eris\_\-low\_\-7up\_\-get\_\-raster (
-\begin{DoxyParamCaption}
-\item[{int}]{chip}
-\end{DoxyParamCaption}
-)}}
-\label{7up_8h_a2bb3010320168c269f02c3e9016f51f4}
-
-
-Get the current raster being displayed by a 7up. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em chip} & Which 7up to get the raster from. (0 $\sim$ 1) \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-The currently displaying raster. 
-\end{DoxyReturn}
 \hypertarget{7up_8h_a76583c50fd0882f82b135d6db48f05c6}{
 \index{7up.h@{7up.h}!eris\_\-low\_\-7up\_\-init@{eris\_\-low\_\-7up\_\-init}}
 \index{eris\_\-low\_\-7up\_\-init@{eris\_\-low\_\-7up\_\-init}!7up.h@{7up.h}}
@@ -220,6 +199,27 @@ Set controls for a 7up chip.
 {\em bg\_\-show} & Whether the BG should show or not. \\
 \hline
 {\em spr\_\-show} & Whether sprites should show or not. \\
+\hline
+\end{DoxyParams}
+\hypertarget{7up_8h_a0f2076c4ee7626b5c0bc79c51e620241}{
+\index{7up.h@{7up.h}!eris\_\-low\_\-7up\_\-set\_\-interrupt\_\-raster@{eris\_\-low\_\-7up\_\-set\_\-interrupt\_\-raster}}
+\index{eris\_\-low\_\-7up\_\-set\_\-interrupt\_\-raster@{eris\_\-low\_\-7up\_\-set\_\-interrupt\_\-raster}!7up.h@{7up.h}}
+\subsubsection[{eris\_\-low\_\-7up\_\-set\_\-interrupt\_\-raster}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-7up\_\-set\_\-interrupt\_\-raster (
+\begin{DoxyParamCaption}
+\item[{int}]{chip, }
+\item[{int}]{raster}
+\end{DoxyParamCaption}
+)}}
+\label{7up_8h_a0f2076c4ee7626b5c0bc79c51e620241}
+
+
+Set the raster to generate an IRQ from. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em chip} & Which 7up to set the raster on. (0 $\sim$ 1) \\
+\hline
+{\em raster} & Which raster to generate an IRQ on. \\
 \hline
 \end{DoxyParams}
 \hypertarget{7up_8h_afb5fd8b6e112fb7cdc92a231908a6a7d}{
