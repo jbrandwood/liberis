@@ -129,6 +129,20 @@ void eris_tetsu_set_priorities(u8 bg7up, u8 spr7up, u8 bg0, u8 bg1, u8 bg2,
  */
 void eris_tetsu_set_chroma_key(u8 maxy, u8 miny, u8 maxu, u8 minu,
 				u8 maxv, u8 minv);
+/*! \brief Get the current raster.
+ *
+ * \return Current raster.
+ */
+int eris_tetsu_get_raster(void);
+/*! \brief Check which field is being displayed for interlaced mode.
+ *
+ * \return 1 if displaying odd field, 0 for even field.
+ */
+int eris_tetsu_get_field(void);
+/*! \brief Checks if we are currently displaying (not in H or V blank)
+ *
+ * \return 1 if we are displaying, 0 for in blank.
+int eris_tetsu_is_displaying(void);
 /*! \brief Sets the constant color for the cellophane.
  *
  * This color is either the color of the cellophane (in the case of it being

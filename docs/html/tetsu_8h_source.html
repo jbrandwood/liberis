@@ -118,19 +118,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00119"></a>00119                                 <a class="code" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> bg3, <a class="code" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> rainbow);
 <a name="l00130"></a>00130 <span class="keywordtype">void</span> <a class="code" href="tetsu_8h.html#aca0fefa37358d3d28ea8661e999d396a" title="Set chroma color key values.">eris_tetsu_set_chroma_key</a>(<a class="code" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> maxy, <a class="code" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> miny, <a class="code" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> maxu, <a class="code" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> minu,
 <a name="l00131"></a>00131                                 <a class="code" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> maxv, <a class="code" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> minv);
-<a name="l00138"></a>00138 <span class="keywordtype">void</span> <a class="code" href="tetsu_8h.html#a7d5331b018d29a22b40fefc60000855d" title="Sets the constant color for the cellophane.">eris_tetsu_set_cellophane_color</a>(<a class="code" href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> color);
-<a name="l00144"></a>00144 <span class="keywordtype">void</span> <a class="code" href="tetsu_8h.html#a1da577330feacee986037badf5e137a8" title="Sets cellophane activity on sprites.">eris_tetsu_set_cellophane_sprites</a>(<span class="keywordtype">int</span>* banks); <span class="comment">/* 16 element array */</span>
-<a name="l00158"></a>00158 <span class="keywordtype">void</span> <a class="code" href="tetsu_8h.html#a68ad431e322a17d73f0122816cc55e22" title="Set cellophane control.">eris_tetsu_set_cellophane_control</a>(<span class="keywordtype">int</span> enable, <span class="keywordtype">int</span> in_front,
-<a name="l00159"></a>00159                                 <a class="code" href="tetsu_8h.html#a0f2e0ad1845d3fb87930f6a2e98d59cf" title="Which coefficient to use for cellophane.">tetsu_coeff</a> bg7up, <a class="code" href="tetsu_8h.html#a0f2e0ad1845d3fb87930f6a2e98d59cf" title="Which coefficient to use for cellophane.">tetsu_coeff</a> spr7up,
-<a name="l00160"></a>00160                                 <a class="code" href="tetsu_8h.html#a0f2e0ad1845d3fb87930f6a2e98d59cf" title="Which coefficient to use for cellophane.">tetsu_coeff</a> bg0, <a class="code" href="tetsu_8h.html#a0f2e0ad1845d3fb87930f6a2e98d59cf" title="Which coefficient to use for cellophane.">tetsu_coeff</a> bg1,
-<a name="l00161"></a>00161                                 <a class="code" href="tetsu_8h.html#a0f2e0ad1845d3fb87930f6a2e98d59cf" title="Which coefficient to use for cellophane.">tetsu_coeff</a> bg2, <a class="code" href="tetsu_8h.html#a0f2e0ad1845d3fb87930f6a2e98d59cf" title="Which coefficient to use for cellophane.">tetsu_coeff</a> bg3,
-<a name="l00162"></a>00162                                 <a class="code" href="tetsu_8h.html#a0f2e0ad1845d3fb87930f6a2e98d59cf" title="Which coefficient to use for cellophane.">tetsu_coeff</a> rainbow);
-<a name="l00174"></a>00174 <span class="keywordtype">void</span> <a class="code" href="tetsu_8h.html#a3970c60af44628bc2d904b16bde7af92" title="Set a cellophane coefficient.">eris_tetsu_set_cellophane_coeffs</a>(<span class="keywordtype">int</span> coeff, <a class="code" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> ay, <a class="code" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> au, <a class="code" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> av,
-<a name="l00175"></a>00175                                 <a class="code" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> by, <a class="code" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> bu, <a class="code" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> bv);
-<a name="l00176"></a>00176 
-<a name="l00177"></a>00177 <span class="preprocessor">#endif</span>
-<a name="l00178"></a>00178 <span class="preprocessor"></span>
-</pre></div></div>
+<a name="l00136"></a>00136 <span class="keywordtype">int</span> <a class="code" href="tetsu_8h.html#a1a4acfbda8316095bde55ada8abd5aad" title="Get the current raster.">eris_tetsu_get_raster</a>(<span class="keywordtype">void</span>);
+<a name="l00141"></a>00141 <span class="keywordtype">int</span> <a class="code" href="tetsu_8h.html#a2a66abf4ce7d95d246d88ae6afbc540a" title="Check which field is being displayed for interlaced mode.">eris_tetsu_get_field</a>(<span class="keywordtype">void</span>);
+<a name="l00152"></a>00152 
+<a name="l00158"></a>00158 
+<a name="l00172"></a>00172 
+<a name="l00188"></a>00188 </pre></div></div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"

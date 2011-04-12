@@ -121,8 +121,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tets
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set layer priorities.  <a href="#a10fb83dd3870bfb5a77d10206902a9be"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tetsu_8h.html#aca0fefa37358d3d28ea8661e999d396a">eris_tetsu_set_chroma_key</a> (<a class="el" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> maxy, <a class="el" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> miny, <a class="el" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> maxu, <a class="el" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> minu, <a class="el" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> maxv, <a class="el" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> minv)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set chroma color key values.  <a href="#aca0fefa37358d3d28ea8661e999d396a"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tetsu_8h.html#a1a4acfbda8316095bde55ada8abd5aad">eris_tetsu_get_raster</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current raster.  <a href="#a1a4acfbda8316095bde55ada8abd5aad"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tetsu_8h.html#a2a66abf4ce7d95d246d88ae6afbc540a">eris_tetsu_get_field</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Check which field is being displayed for interlaced mode.  <a href="#a2a66abf4ce7d95d246d88ae6afbc540a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tetsu_8h.html#a7d5331b018d29a22b40fefc60000855d">eris_tetsu_set_cellophane_color</a> (<a class="el" href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> color)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the constant color for the cellophane.  <a href="#a7d5331b018d29a22b40fefc60000855d"></a><br/></td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if we are currently displaying (not in H or V blank)  <a href="#a7d5331b018d29a22b40fefc60000855d"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tetsu_8h.html#a1da577330feacee986037badf5e137a8">eris_tetsu_set_cellophane_sprites</a> (int *banks)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets cellophane activity on sprites.  <a href="#a1da577330feacee986037badf5e137a8"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tetsu_8h.html#a68ad431e322a17d73f0122816cc55e22">eris_tetsu_set_cellophane_control</a> (int enable, int in_front, <a class="el" href="tetsu_8h.html#a0f2e0ad1845d3fb87930f6a2e98d59cf">tetsu_coeff</a> bg7up, <a class="el" href="tetsu_8h.html#a0f2e0ad1845d3fb87930f6a2e98d59cf">tetsu_coeff</a> spr7up, <a class="el" href="tetsu_8h.html#a0f2e0ad1845d3fb87930f6a2e98d59cf">tetsu_coeff</a> bg0, <a class="el" href="tetsu_8h.html#a0f2e0ad1845d3fb87930f6a2e98d59cf">tetsu_coeff</a> bg1, <a class="el" href="tetsu_8h.html#a0f2e0ad1845d3fb87930f6a2e98d59cf">tetsu_coeff</a> bg2, <a class="el" href="tetsu_8h.html#a0f2e0ad1845d3fb87930f6a2e98d59cf">tetsu_coeff</a> bg3, <a class="el" href="tetsu_8h.html#a0f2e0ad1845d3fb87930f6a2e98d59cf">tetsu_coeff</a> rainbow)</td></tr>
@@ -246,6 +250,46 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tets
 </div>
 </div>
 <hr/><h2>Function Documentation</h2>
+<a class="anchor" id="a2a66abf4ce7d95d246d88ae6afbc540a"></a><!-- doxytag: member="tetsu.h::eris_tetsu_get_field" ref="a2a66abf4ce7d95d246d88ae6afbc540a" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int eris_tetsu_get_field </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Check which field is being displayed for interlaced mode. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>1 if displaying odd field, 0 for even field. </dd></dl>
+
+</div>
+</div>
+<a class="anchor" id="a1a4acfbda8316095bde55ada8abd5aad"></a><!-- doxytag: member="tetsu.h::eris_tetsu_get_raster" ref="a1a4acfbda8316095bde55ada8abd5aad" args="(void)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int eris_tetsu_get_raster </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Get the current raster. </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>Current raster. </dd></dl>
+
+</div>
+</div>
 <a class="anchor" id="a6ce7b48204cfcb69f26b1b4d9d4a68a0"></a><!-- doxytag: member="tetsu.h::eris_tetsu_set_7up_palette" ref="a6ce7b48204cfcb69f26b1b4d9d4a68a0" args="(u8 bg7up, u8 spr7up)" -->
 <div class="memitem">
 <div class="memproto">
@@ -370,7 +414,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tets
 </div>
 <div class="memdoc">
 
-<p>Sets the constant color for the cellophane. </p>
+<p>Checks if we are currently displaying (not in H or V blank) </p>
+<dl class="return"><dt><b>Returns:</b></dt><dd>1 if we are displaying, 0 for in blank. int eris_tetsu_is_displaying(void); /*!Sets the constant color for the cellophane.</dd></dl>
 <p>This color is either the color of the cellophane (in the case of it being in front) or the color of the background (in the case of it being in back). </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">

@@ -18,6 +18,9 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
 	.global	_eris_tetsu_set_rainbow_palette
 	.global _eris_tetsu_set_priorities
 	.global	_eris_tetsu_set_chroma_key
+	.global	_eris_tetsu_get_raster
+	.global	_eris_tetsu_get_field
+	.global	_eris_tetsu_is_displaying
 	.global	_eris_tetsu_set_cellophane_color
 	.global	_eris_tetsu_set_cellophane_sprites
 	.global	_eris_tetsu_set_cellophane_control
@@ -170,6 +173,24 @@ _eris_tetsu_set_chroma_key:
 	shl	8, r10
 	or	r11, r10
 	out.h	r10, 0x304[r0]
+	jmp	[lp]
+
+_eris_tetsu_get_raster:
+	in.h	0x300[r0], r10
+	shr	5, r10
+	andi	0x1FF, r10, r10
+	jmp	[lp]
+
+_eris_tetsu_get_field:
+	in.h	0x300[r0], r10
+	shr	14, r10
+	andi	1, r10, r10
+	jmp	[lp]
+
+_eris_tetsu_is_displaying:
+	in.h	0x300[r0], r10
+	shr	15, r10
+	andi	1, r10, r10
 	jmp	[lp]
 
 _eris_tetsu_set_cellophane_color:

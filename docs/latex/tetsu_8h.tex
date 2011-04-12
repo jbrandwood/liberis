@@ -53,8 +53,12 @@ void \hyperlink{tetsu_8h_a10fb83dd3870bfb5a77d10206902a9be}{eris\_\-tetsu\_\-set
 \begin{DoxyCompactList}\small\item\em Set layer priorities. \item\end{DoxyCompactList}\item 
 void \hyperlink{tetsu_8h_aca0fefa37358d3d28ea8661e999d396a}{eris\_\-tetsu\_\-set\_\-chroma\_\-key} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} maxy, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} miny, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} maxu, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} minu, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} maxv, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} minv)
 \begin{DoxyCompactList}\small\item\em Set chroma color key values. \item\end{DoxyCompactList}\item 
+int \hyperlink{tetsu_8h_a1a4acfbda8316095bde55ada8abd5aad}{eris\_\-tetsu\_\-get\_\-raster} (void)
+\begin{DoxyCompactList}\small\item\em Get the current raster. \item\end{DoxyCompactList}\item 
+int \hyperlink{tetsu_8h_a2a66abf4ce7d95d246d88ae6afbc540a}{eris\_\-tetsu\_\-get\_\-field} (void)
+\begin{DoxyCompactList}\small\item\em Check which field is being displayed for interlaced mode. \item\end{DoxyCompactList}\item 
 void \hyperlink{tetsu_8h_a7d5331b018d29a22b40fefc60000855d}{eris\_\-tetsu\_\-set\_\-cellophane\_\-color} (\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} color)
-\begin{DoxyCompactList}\small\item\em Sets the constant color for the cellophane. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Checks if we are currently displaying (not in H or V blank) \item\end{DoxyCompactList}\item 
 void \hyperlink{tetsu_8h_a1da577330feacee986037badf5e137a8}{eris\_\-tetsu\_\-set\_\-cellophane\_\-sprites} (int $\ast$banks)
 \begin{DoxyCompactList}\small\item\em Sets cellophane activity on sprites. \item\end{DoxyCompactList}\item 
 void \hyperlink{tetsu_8h_a68ad431e322a17d73f0122816cc55e22}{eris\_\-tetsu\_\-set\_\-cellophane\_\-control} (int enable, int in\_\-front, \hyperlink{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cf}{tetsu\_\-coeff} bg7up, \hyperlink{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cf}{tetsu\_\-coeff} spr7up, \hyperlink{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cf}{tetsu\_\-coeff} bg0, \hyperlink{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cf}{tetsu\_\-coeff} bg1, \hyperlink{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cf}{tetsu\_\-coeff} bg2, \hyperlink{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cf}{tetsu\_\-coeff} bg3, \hyperlink{tetsu_8h_a0f2e0ad1845d3fb87930f6a2e98d59cf}{tetsu\_\-coeff} rainbow)
@@ -178,6 +182,38 @@ TETSU\_\-LINES\_\-UNKNOWN}
 
 
 \subsection{Function Documentation}
+\hypertarget{tetsu_8h_a2a66abf4ce7d95d246d88ae6afbc540a}{
+\index{tetsu.h@{tetsu.h}!eris\_\-tetsu\_\-get\_\-field@{eris\_\-tetsu\_\-get\_\-field}}
+\index{eris\_\-tetsu\_\-get\_\-field@{eris\_\-tetsu\_\-get\_\-field}!tetsu.h@{tetsu.h}}
+\subsubsection[{eris\_\-tetsu\_\-get\_\-field}]{\setlength{\rightskip}{0pt plus 5cm}int eris\_\-tetsu\_\-get\_\-field (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{tetsu_8h_a2a66abf4ce7d95d246d88ae6afbc540a}
+
+
+Check which field is being displayed for interlaced mode. 
+
+\begin{DoxyReturn}{Returns}
+1 if displaying odd field, 0 for even field. 
+\end{DoxyReturn}
+\hypertarget{tetsu_8h_a1a4acfbda8316095bde55ada8abd5aad}{
+\index{tetsu.h@{tetsu.h}!eris\_\-tetsu\_\-get\_\-raster@{eris\_\-tetsu\_\-get\_\-raster}}
+\index{eris\_\-tetsu\_\-get\_\-raster@{eris\_\-tetsu\_\-get\_\-raster}!tetsu.h@{tetsu.h}}
+\subsubsection[{eris\_\-tetsu\_\-get\_\-raster}]{\setlength{\rightskip}{0pt plus 5cm}int eris\_\-tetsu\_\-get\_\-raster (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{tetsu_8h_a1a4acfbda8316095bde55ada8abd5aad}
+
+
+Get the current raster. 
+
+\begin{DoxyReturn}{Returns}
+Current raster. 
+\end{DoxyReturn}
 \hypertarget{tetsu_8h_a6ce7b48204cfcb69f26b1b4d9d4a68a0}{
 \index{tetsu.h@{tetsu.h}!eris\_\-tetsu\_\-set\_\-7up\_\-palette@{eris\_\-tetsu\_\-set\_\-7up\_\-palette}}
 \index{eris\_\-tetsu\_\-set\_\-7up\_\-palette@{eris\_\-tetsu\_\-set\_\-7up\_\-palette}!tetsu.h@{tetsu.h}}
@@ -246,8 +282,11 @@ For coefficient information, see hardware documentation.
 \label{tetsu_8h_a7d5331b018d29a22b40fefc60000855d}
 
 
-Sets the constant color for the cellophane. 
+Checks if we are currently displaying (not in H or V blank) 
 
+\begin{DoxyReturn}{Returns}
+1 if we are displaying, 0 for in blank. int eris\_\-tetsu\_\-is\_\-displaying(void); /$\ast$!Sets the constant color for the cellophane.
+\end{DoxyReturn}
 This color is either the color of the cellophane (in the case of it being in front) or the color of the background (in the case of it being in back). 
 \begin{DoxyParams}{Parameters}
 {\em color} & Color in Y8U4V4 format. \\

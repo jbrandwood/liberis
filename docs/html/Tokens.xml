@@ -1862,13 +1862,33 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>eris_tetsu_get_raster</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>tetsu_8h.html</Path>
+    <Anchor>a1a4acfbda8316095bde55ada8abd5aad</Anchor>
+    <Abstract>Get the current raster.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_tetsu_get_field</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>tetsu_8h.html</Path>
+    <Anchor>a2a66abf4ce7d95d246d88ae6afbc540a</Anchor>
+    <Abstract>Check which field is being displayed for interlaced mode.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>eris_tetsu_set_cellophane_color</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
     <Path>tetsu_8h.html</Path>
     <Anchor>a7d5331b018d29a22b40fefc60000855d</Anchor>
-    <Abstract>Sets the constant color for the cellophane.</Abstract>
+    <Abstract>Checks if we are currently displaying (not in H or V blank)</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
