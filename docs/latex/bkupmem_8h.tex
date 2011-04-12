@@ -11,7 +11,7 @@ Backup memory control.
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{bkupmem_8h_a92aa75f920d4d3a1eadec0492b196844}{eris\_\-bkupmem\_\-set\_\-access} (int b0, int b1)
+void \hyperlink{bkupmem_8h_a5221eaeac2ac65aeb092f0d892b4b85a}{eris\_\-bkupmem\_\-set\_\-access} (int internal, int external)
 \begin{DoxyCompactList}\small\item\em Set access bits. \item\end{DoxyCompactList}\item 
 void \hyperlink{bkupmem_8h_a9a0123a726df40295d5ee72afce8db76}{eris\_\-bkupmem\_\-read} (int ext, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} $\ast$buf, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} addr, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} len)
 \begin{DoxyCompactList}\small\item\em Read backup memory. \item\end{DoxyCompactList}\item 
@@ -53,25 +53,25 @@ Read backup memory.
 \begin{DoxySeeAlso}{See also}
 \hyperlink{bkupmem_8h_ab739d1b63311be9d61eef014ca426caf}{eris\_\-bkupmem\_\-write()} 
 \end{DoxySeeAlso}
-\hypertarget{bkupmem_8h_a92aa75f920d4d3a1eadec0492b196844}{
+\hypertarget{bkupmem_8h_a5221eaeac2ac65aeb092f0d892b4b85a}{
 \index{bkupmem.h@{bkupmem.h}!eris\_\-bkupmem\_\-set\_\-access@{eris\_\-bkupmem\_\-set\_\-access}}
 \index{eris\_\-bkupmem\_\-set\_\-access@{eris\_\-bkupmem\_\-set\_\-access}!bkupmem.h@{bkupmem.h}}
 \subsubsection[{eris\_\-bkupmem\_\-set\_\-access}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-bkupmem\_\-set\_\-access (
 \begin{DoxyParamCaption}
-\item[{int}]{b0, }
-\item[{int}]{b1}
+\item[{int}]{internal, }
+\item[{int}]{external}
 \end{DoxyParamCaption}
 )}}
-\label{bkupmem_8h_a92aa75f920d4d3a1eadec0492b196844}
+\label{bkupmem_8h_a5221eaeac2ac65aeb092f0d892b4b85a}
 
 
 Set access bits. 
 
 These bits control access to external and internal backup memory. 
 \begin{DoxyParams}{Parameters}
-{\em b0} & Bit0 of the access bits. (External or Internal?) \\
+{\em internal} & Allow writing of internal backup memory. \\
 \hline
-{\em b1} & Bit1 of the access bits. (External or Internal?) \\
+{\em external} & Allow writing of external backup memory. \\
 \hline
 \end{DoxyParams}
 \hypertarget{bkupmem_8h_ab739d1b63311be9d61eef014ca426caf}{

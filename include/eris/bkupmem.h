@@ -19,10 +19,10 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
 /*! \brief Set access bits.
  *
  * These bits control access to external and internal backup memory.
- * \param b0 Bit0 of the access bits. (External or Internal?)
- * \param b1 Bit1 of the access bits. (External or Internal?)
+ * \param internal Allow writing of internal backup memory.
+ * \param external Allow writing of external backup memory.
  */
-void eris_bkupmem_set_access(int b0, int b1);
+void eris_bkupmem_set_access(int internal, int external);
 /*! \brief Read backup memory.
  *
  * \param ext If 1, read from external memory. 0 is internal memory.

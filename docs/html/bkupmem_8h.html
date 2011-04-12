@@ -77,8 +77,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bkupmem_8h.html#a92aa75f920d4d3a1eadec0492b196844">eris_bkupmem_set_access</a> (int b0, int b1)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set access bits.  <a href="#a92aa75f920d4d3a1eadec0492b196844"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bkupmem_8h.html#a5221eaeac2ac65aeb092f0d892b4b85a">eris_bkupmem_set_access</a> (int internal, int external)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Set access bits.  <a href="#a5221eaeac2ac65aeb092f0d892b4b85a"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bkupmem_8h.html#a9a0123a726df40295d5ee72afce8db76">eris_bkupmem_read</a> (int ext, <a class="el" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *buf, <a class="el" href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> addr, <a class="el" href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> len)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Read backup memory.  <a href="#a9a0123a726df40295d5ee72afce8db76"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="bkupmem_8h.html#ab739d1b63311be9d61eef014ca426caf">eris_bkupmem_write</a> (int ext, <a class="el" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *buf, <a class="el" href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> addr, <a class="el" href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> len)</td></tr>
@@ -138,7 +138,7 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="a92aa75f920d4d3a1eadec0492b196844"></a><!-- doxytag: member="bkupmem.h::eris_bkupmem_set_access" ref="a92aa75f920d4d3a1eadec0492b196844" args="(int b0, int b1)" -->
+<a class="anchor" id="a5221eaeac2ac65aeb092f0d892b4b85a"></a><!-- doxytag: member="bkupmem.h::eris_bkupmem_set_access" ref="a5221eaeac2ac65aeb092f0d892b4b85a" args="(int internal, int external)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -146,13 +146,13 @@ Functions</h2></td></tr>
           <td class="memname">void eris_bkupmem_set_access </td>
           <td>(</td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>b0</em>, </td>
+          <td class="paramname"><em>internal</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>b1</em>&#160;</td>
+          <td class="paramname"><em>external</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -167,8 +167,8 @@ Functions</h2></td></tr>
 <p>These bits control access to external and internal backup memory. </p>
 <dl><dt><b>Parameters:</b></dt><dd>
   <table class="params">
-    <tr><td class="paramname">b0</td><td>Bit0 of the access bits. (External or Internal?) </td></tr>
-    <tr><td class="paramname">b1</td><td>Bit1 of the access bits. (External or Internal?) </td></tr>
+    <tr><td class="paramname">internal</td><td>Allow writing of internal backup memory. </td></tr>
+    <tr><td class="paramname">external</td><td>Allow writing of external backup memory. </td></tr>
   </table>
   </dd>
 </dl>
