@@ -227,10 +227,10 @@ void eris_king_set_bg_mode(king_bgmode bg0, king_bgmode bg1, king_bgmode bg2,
  * \param bg1 Priority for background 1.
  * \param bg2 Priority for background 2.
  * \param bg3 Priority for background 3.
- * \param bgrot Priority for rotation background (bg0sub?).
+ * \param bgrot Background 0 rotation enable.
  */
 void eris_king_set_bg_prio(king_bgprio bg0, king_bgprio bg1, king_bgprio bg2,
-			king_bgprio bg3, king_bgprio bgrot);
+			king_bgprio bg3, int bgrot);
 /*! \brief Set background sizes.
  *
  * \param bg Which background to set the size of (BG0SUB is not allowed).

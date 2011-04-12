@@ -203,7 +203,7 @@ void \hyperlink{king_8h_a22f046ab1fb829e49f62dbfb7b0a99f5}{eris\_\-king\_\-set\_
 \begin{DoxyCompactList}\small\item\em Set the KRAM page for various peripherals. \item\end{DoxyCompactList}\item 
 void \hyperlink{king_8h_a1ccc79dfc2bb3515c7b6a76aa1a7924d}{eris\_\-king\_\-set\_\-bg\_\-mode} (\hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfe}{king\_\-bgmode} bg0, \hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfe}{king\_\-bgmode} bg1, \hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfe}{king\_\-bgmode} bg2, \hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfe}{king\_\-bgmode} bg3)
 \begin{DoxyCompactList}\small\item\em Set color modes for the backgrounds. \item\end{DoxyCompactList}\item 
-void \hyperlink{king_8h_a4d9e554977d525040e97bc99d193405c}{eris\_\-king\_\-set\_\-bg\_\-prio} (\hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} bg0, \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} bg1, \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} bg2, \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} bg3, \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} bgrot)
+void \hyperlink{king_8h_a062c1b57439e3bf2137c6ae4ce2a81d9}{eris\_\-king\_\-set\_\-bg\_\-prio} (\hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} bg0, \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} bg1, \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} bg2, \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} bg3, int bgrot)
 \begin{DoxyCompactList}\small\item\em Set priorities for the backgrounds. \item\end{DoxyCompactList}\item 
 void \hyperlink{king_8h_aa3afe2b35e323d3bd0595ac4c65e8416}{eris\_\-king\_\-set\_\-bg\_\-size} (\hyperlink{king_8h_aaf11211af868e940089238a64bfae457}{king\_\-bg} bg, \hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2}{king\_\-bgsize} h, \hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2}{king\_\-bgsize} w, \hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2}{king\_\-bgsize} sub\_\-h, \hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2}{king\_\-bgsize} sub\_\-w)
 \begin{DoxyCompactList}\small\item\em Set background sizes. \item\end{DoxyCompactList}\item 
@@ -939,7 +939,7 @@ Set color modes for the backgrounds.
 {\em bg3} & Color mode for background 3. \\
 \hline
 \end{DoxyParams}
-\hypertarget{king_8h_a4d9e554977d525040e97bc99d193405c}{
+\hypertarget{king_8h_a062c1b57439e3bf2137c6ae4ce2a81d9}{
 \index{king.h@{king.h}!eris\_\-king\_\-set\_\-bg\_\-prio@{eris\_\-king\_\-set\_\-bg\_\-prio}}
 \index{eris\_\-king\_\-set\_\-bg\_\-prio@{eris\_\-king\_\-set\_\-bg\_\-prio}!king.h@{king.h}}
 \subsubsection[{eris\_\-king\_\-set\_\-bg\_\-prio}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-king\_\-set\_\-bg\_\-prio (
@@ -948,10 +948,10 @@ Set color modes for the backgrounds.
 \item[{{\bf king\_\-bgprio}}]{bg1, }
 \item[{{\bf king\_\-bgprio}}]{bg2, }
 \item[{{\bf king\_\-bgprio}}]{bg3, }
-\item[{{\bf king\_\-bgprio}}]{bgrot}
+\item[{int}]{bgrot}
 \end{DoxyParamCaption}
 )}}
-\label{king_8h_a4d9e554977d525040e97bc99d193405c}
+\label{king_8h_a062c1b57439e3bf2137c6ae4ce2a81d9}
 
 
 Set priorities for the backgrounds. 
@@ -966,7 +966,7 @@ Set priorities for the backgrounds.
 \hline
 {\em bg3} & Priority for background 3. \\
 \hline
-{\em bgrot} & Priority for rotation background (bg0sub?). \\
+{\em bgrot} & Background 0 rotation enable. \\
 \hline
 \end{DoxyParams}
 \hypertarget{king_8h_aa3afe2b35e323d3bd0595ac4c65e8416}{

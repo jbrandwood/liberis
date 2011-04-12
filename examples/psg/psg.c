@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 	eris_tetsu_set_king_palette(0, 0, 0, 0);
 	eris_tetsu_set_rainbow_palette(0);
 
-	eris_king_set_bg_prio(KING_BGPRIO_3, KING_BGPRIO_HIDE, KING_BGPRIO_HIDE, KING_BGPRIO_HIDE, KING_BGPRIO_HIDE);
+	eris_king_set_bg_prio(KING_BGPRIO_3, KING_BGPRIO_HIDE, KING_BGPRIO_HIDE, KING_BGPRIO_HIDE, 0);
 	eris_king_set_bg_mode(KING_BGMODE_4_PAL, 0, 0, 0);
 	eris_king_set_kram_pages(0, 0, 0, 0);
 
