@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>liberis: File List</title>
+<title>liberis: include/eris/timer.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -50,30 +50,48 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   </div>
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
-      <li class="current"><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
       <li><a href="globals.html"><span>Globals</span></a></li>
+    </ul>
+  </div>
+  <div id="nav-path" class="navpath">
+    <ul>
+      <li class="navelem"><a class="el" href="dir_8f116553fe7074dca49f00568aa4298a.html">include</a>      </li>
+      <li class="navelem"><a class="el" href="dir_4e83aef933d9f47ab7074821a25ad35d.html">eris</a>      </li>
     </ul>
   </div>
 </div>
 <div class="header">
   <div class="headertitle">
-<h1>File List</h1>  </div>
+<h1>timer.h</h1>  </div>
 </div>
 <div class="contents">
-<div class="textblock">Here is a list of all documented files with brief descriptions:</div><table>
-  <tr><td class="indexkey">include/<a class="el" href="stdarg_8h.html">stdarg.h</a> <a href="stdarg_8h_source.html">[code]</a></td><td class="indexvalue">V810 stdarg implementation </td></tr>
-  <tr><td class="indexkey">include/eris/<a class="el" href="bkupmem_8h.html">bkupmem.h</a> <a href="bkupmem_8h_source.html">[code]</a></td><td class="indexvalue">Backup memory control </td></tr>
-  <tr><td class="indexkey">include/eris/<a class="el" href="king_8h.html">king.h</a> <a href="king_8h_source.html">[code]</a></td><td class="indexvalue">Controls the KING processor </td></tr>
-  <tr><td class="indexkey">include/eris/<a class="el" href="romfont_8h.html">romfont.h</a> <a href="romfont_8h_source.html">[code]</a></td><td class="indexvalue">Access fonts from ROM </td></tr>
-  <tr><td class="indexkey">include/eris/<a class="el" href="std_8h.html">std.h</a> <a href="std_8h_source.html">[code]</a></td><td class="indexvalue">Implementation of standard functions, with modifications for speed </td></tr>
-  <tr><td class="indexkey">include/eris/<a class="el" href="tetsu_8h.html">tetsu.h</a> <a href="tetsu_8h_source.html">[code]</a></td><td class="indexvalue">Controls the NEW Iron Guanyin (Tetsu kannon) chip (Video Controller) </td></tr>
-  <tr><td class="indexkey">include/eris/<a class="el" href="timer_8h.html">timer.h</a> <a href="timer_8h_source.html">[code]</a></td><td class="indexvalue">Utilize the built-in timer </td></tr>
-  <tr><td class="indexkey">include/eris/<a class="el" href="types_8h.html">types.h</a> <a href="types_8h_source.html">[code]</a></td><td class="indexvalue">Standard integer types </td></tr>
-  <tr><td class="indexkey">include/eris/<a class="el" href="v810_8h.html">v810.h</a> <a href="v810_8h_source.html">[code]</a></td><td class="indexvalue">Functions to handle V810 specific functionality </td></tr>
-  <tr><td class="indexkey">include/eris/low/<a class="el" href="7up_8h.html">7up.h</a> <a href="7up_8h_source.html">[code]</a></td><td class="indexvalue">Low-level access to the 7up video chips </td></tr>
-  <tr><td class="indexkey">include/eris/low/<a class="el" href="pad_8h.html">pad.h</a> <a href="pad_8h_source.html">[code]</a></td><td class="indexvalue">Low-level access to FX-PADs </td></tr>
-  <tr><td class="indexkey">include/eris/low/<a class="el" href="soundbox_8h.html">soundbox.h</a> <a href="soundbox_8h_source.html">[code]</a></td><td class="indexvalue">Low-level access to the SoundBox </td></tr>
-</table>
+<a href="timer_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment">        liberis -- A set of libraries for controlling the NEC PC-FX</span>
+<a name="l00003"></a>00003 <span class="comment"></span>
+<a name="l00004"></a>00004 <span class="comment">Copyright (C) 2011              Alex Marshall &quot;trap15&quot; &lt;trap15@raidenii.net&gt;</span>
+<a name="l00005"></a>00005 <span class="comment"></span>
+<a name="l00006"></a>00006 <span class="comment"># This code is licensed to you under the terms of the MIT license;</span>
+<a name="l00007"></a>00007 <span class="comment"># see file LICENSE or http://www.opensource.org/licenses/mit-license.php</span>
+<a name="l00008"></a>00008 <span class="comment">*/</span>
+<a name="l00009"></a>00009 
+<a name="l00014"></a>00014 <span class="preprocessor">#ifndef _LIBERIS_TIMER_H_</span>
+<a name="l00015"></a>00015 <span class="preprocessor"></span><span class="preprocessor">#define _LIBERIS_TIMER_H_</span>
+<a name="l00016"></a>00016 <span class="preprocessor"></span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &lt;eris/types.h&gt;</span>
+<a name="l00018"></a>00018 
+<a name="l00021"></a>00021 <span class="keywordtype">void</span> <a class="code" href="timer_8h.html#ad12c867ba6e082986be0736bbfbd88df" title="Initialize the timer.">eris_timer_init</a>(<span class="keywordtype">void</span>);
+<a name="l00028"></a>00028 <span class="keywordtype">void</span> <a class="code" href="timer_8h.html#a7510c29145f46f6368e3dd95a3e01ee7" title="Set the period of the timer.">eris_timer_set_period</a>(<span class="keywordtype">int</span> period);
+<a name="l00033"></a>00033 <span class="keywordtype">int</span> <a class="code" href="timer_8h.html#a8652ea74a0c4c56e26ec56346381c7cd" title="Read the current value of the timer.">eris_timer_read_counter</a>(<span class="keywordtype">void</span>);
+<a name="l00036"></a>00036 <span class="keywordtype">void</span> <a class="code" href="timer_8h.html#aca7f91bef10700a105fc4f65eaab30d3" title="Acknowledge a timer IRQ.">eris_timer_ack_irq</a>(<span class="keywordtype">void</span>);
+<a name="l00041"></a>00041 <a class="code" href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> <a class="code" href="timer_8h.html#a6fd04e3d4818391e0b8172d61584f786" title="Read the timer&amp;#39;s control register.">eris_timer_read_control</a>(<span class="keywordtype">void</span>);
+<a name="l00046"></a>00046 <span class="keywordtype">void</span> <a class="code" href="timer_8h.html#ad68f91eeea4113f7125a79a834d6cd66" title="Write the timer&amp;#39;s control register.">eris_timer_write_control</a>(<span class="keywordtype">int</span> cr);
+<a name="l00051"></a>00051 <span class="keywordtype">void</span> <a class="code" href="timer_8h.html#a0c89ff1ef286f559d3e6f93c43ca3353" title="Start the timer.">eris_timer_start</a>(<span class="keywordtype">int</span> irq);
+<a name="l00054"></a>00054 <span class="keywordtype">void</span> <a class="code" href="timer_8h.html#a4df297d82283e80ee10110f5c058421b" title="Stop the timer.">eris_timer_stop</a>(<span class="keywordtype">void</span>);
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 <span class="preprocessor">#endif</span>
+<a name="l00057"></a>00057 <span class="preprocessor"></span>
+</pre></div></div>
 </div>
 <!--- window showing the filter options -->
 <div id="MSearchSelectWindow"

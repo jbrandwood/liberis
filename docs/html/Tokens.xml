@@ -2010,6 +2010,86 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>eris_timer_init</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>timer_8h.html</Path>
+    <Anchor>ad12c867ba6e082986be0736bbfbd88df</Anchor>
+    <Abstract>Initialize the timer.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_timer_set_period</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>timer_8h.html</Path>
+    <Anchor>a7510c29145f46f6368e3dd95a3e01ee7</Anchor>
+    <Abstract>Set the period of the timer.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_timer_read_counter</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>timer_8h.html</Path>
+    <Anchor>a8652ea74a0c4c56e26ec56346381c7cd</Anchor>
+    <Abstract>Read the current value of the timer.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_timer_ack_irq</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>timer_8h.html</Path>
+    <Anchor>aca7f91bef10700a105fc4f65eaab30d3</Anchor>
+    <Abstract>Acknowledge a timer IRQ.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_timer_read_control</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>timer_8h.html</Path>
+    <Anchor>a6fd04e3d4818391e0b8172d61584f786</Anchor>
+    <Abstract>Read the timer&amp;#39;s control register.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_timer_write_control</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>timer_8h.html</Path>
+    <Anchor>ad68f91eeea4113f7125a79a834d6cd66</Anchor>
+    <Abstract>Write the timer&amp;#39;s control register.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_timer_start</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>timer_8h.html</Path>
+    <Anchor>a0c89ff1ef286f559d3e6f93c43ca3353</Anchor>
+    <Abstract>Start the timer.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_timer_stop</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>timer_8h.html</Path>
+    <Anchor>a4df297d82283e80ee10110f5c058421b</Anchor>
+    <Abstract>Stop the timer.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>uint32_t</Name>
       <APILanguage>c</APILanguage>
       <Type>tdef</Type>

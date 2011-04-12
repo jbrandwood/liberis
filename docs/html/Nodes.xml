@@ -34,6 +34,10 @@
           <Path>tetsu_8h.html</Path>
          </Node>
          <Node>
+          <Name>include/eris/timer.h</Name>
+          <Path>timer_8h.html</Path>
+         </Node>
+         <Node>
           <Name>include/eris/types.h</Name>
           <Path>types_8h.html</Path>
          </Node>
