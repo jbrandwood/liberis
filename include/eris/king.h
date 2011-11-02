@@ -276,5 +276,47 @@ void eris_king_enable_microprogram(void);
  */
 void eris_king_disable_microprogram(void);
 
+/* SCSI */
+typedef enum {
+	KING_SCSI_SEL = 0x02,
+	KING_SCSI_IO = 0x04,
+	KING_SCSI_CD = 0x08,
+	KING_SCSI_MSG = 0x10,
+	KING_SCSI_REQ = 0x20,
+	KING_SCSI_BUSY = 0x40,
+	KING_SCSI_RESET = 0x80
+} king_scsi_status;
+/*! \brief Get SCSI status.
+ *
+ * \return Returns the current state of the SCSI drive.
+ */
+int eris_king_scsi_status(void);
+/*! \brief Reset the SCSI drive.
+ */
+void eris_king_scsi_reset(void);
+/*! \brief Read data from the SCSI drive.
+ *
+ * \param buf Buffer to read into.
+ * \param maxlen Maximum length to read from.
+ * \return Bytes read.
+ */
+u32 eris_king_scsi_data_in(u8 *buf, u32 maxlen);
+/*! \brief Write data to the SCSI drive.
+ *
+ * \param buf Buffer to write from.
+ * \param len Length of the buffer.
+ */
+u32 eris_king_scsi_data_out(u8 *buf, u32 len);
+/*! \brief Abort the current SCSI operation.
+ */
+void eris_king_scsi_abort(void);
+/*! \brief Send a command to the SCSI drive.
+ *
+ * \param cdb Command bytes.
+ * \param len Length of the command data.
+ */
+int eris_king_scsi_command(u8 *cdb, u32 len);
+// Get Error?
+
 #endif
 

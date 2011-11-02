@@ -19,38 +19,38 @@ enum \hyperlink{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438}{eris\_\-low\_\-7up\_\-
 \hyperlink{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438a04489855b63a1984442a0062f5bc289b}{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-64X64} =  5, 
 \hyperlink{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438afcfe38338e527a0528095f952789ed65}{ERIS\_\-LOW\_\-7UP\_\-MAP\_\-128X64} =  7
  \}
-\begin{DoxyCompactList}\small\item\em Map sizes for the backgrounds. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Map sizes for the backgrounds. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{7up_8h_a76583c50fd0882f82b135d6db48f05c6}{eris\_\-low\_\-7up\_\-init} (int chip)
-\begin{DoxyCompactList}\small\item\em Initialize a 7up. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Initialize a 7up. \end{DoxyCompactList}\item 
 void \hyperlink{7up_8h_aa6b87665c017830cdebaf72e3f8af239}{eris\_\-low\_\-7up\_\-set\_\-video\_\-mode} (int chip, int hdispstrt, int hsyncwid, int hdispend, int hdispwid, int vdispstrt, int vsyncwid, int vdispwid, int vdispend)
-\begin{DoxyCompactList}\small\item\em Setup a 7up's video mode. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Setup a 7up's video mode. \end{DoxyCompactList}\item 
 void \hyperlink{7up_8h_a72ab5becfd89ad0c3ff50c4b9e09c077}{eris\_\-low\_\-7up\_\-set\_\-vram\_\-write} (int chip, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} addr)
-\begin{DoxyCompactList}\small\item\em Set the VRAM write address for a 7up chip. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set the VRAM write address for a 7up chip. \end{DoxyCompactList}\item 
 void \hyperlink{7up_8h_af0e1412692695f255478e8f19d90ebd2}{eris\_\-low\_\-7up\_\-vram\_\-write} (int chip, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} data)
-\begin{DoxyCompactList}\small\item\em Write to VRAM on a 7up chip. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Write to VRAM on a 7up chip. \end{DoxyCompactList}\item 
 void \hyperlink{7up_8h_a7fb809dcd73584b6500f66805b800128}{eris\_\-low\_\-7up\_\-set\_\-vram\_\-read} (int chip, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} addr)
-\begin{DoxyCompactList}\small\item\em Set the VRAM read address for a 7up chip. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set the VRAM read address for a 7up chip. \end{DoxyCompactList}\item 
 \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} \hyperlink{7up_8h_a0969c0d7a59ed19ad3514d30dd4a887d}{eris\_\-low\_\-7up\_\-vram\_\-read} (int chip)
-\begin{DoxyCompactList}\small\item\em Read from VRAM from a 7up chip. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Read from VRAM from a 7up chip. \end{DoxyCompactList}\item 
 void \hyperlink{7up_8h_a20e07bf7d87f2679eaa106ef18ab9b90}{eris\_\-low\_\-7up\_\-set\_\-control} (int chip, int increment, int bg\_\-show, int spr\_\-show)
-\begin{DoxyCompactList}\small\item\em Set controls for a 7up chip. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set controls for a 7up chip. \end{DoxyCompactList}\item 
 void \hyperlink{7up_8h_afb5fd8b6e112fb7cdc92a231908a6a7d}{eris\_\-low\_\-7up\_\-set\_\-interrupts} (int chip, int vblank\_\-irq, int raster\_\-irq, int excess\_\-spr, int spr\_\-collision)
-\begin{DoxyCompactList}\small\item\em Set interrupt information for a 7up chip. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set interrupt information for a 7up chip. \end{DoxyCompactList}\item 
 void \hyperlink{7up_8h_a0f2076c4ee7626b5c0bc79c51e620241}{eris\_\-low\_\-7up\_\-set\_\-interrupt\_\-raster} (int chip, int raster)
-\begin{DoxyCompactList}\small\item\em Set the raster to generate an IRQ from. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set the raster to generate an IRQ from. \end{DoxyCompactList}\item 
 void \hyperlink{7up_8h_a9eef7b6af3383d9cba0682d4bf4bfbec}{eris\_\-low\_\-7up\_\-set\_\-scroll} (int chip, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} x, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} y)
-\begin{DoxyCompactList}\small\item\em Scroll a 7up background. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Scroll a 7up background. \end{DoxyCompactList}\item 
 void \hyperlink{7up_8h_ab332d9a0d07cf4f51cc54c3715df86e7}{eris\_\-low\_\-7up\_\-do\_\-dma} (int chip, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} src, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} dst, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} len)
-\begin{DoxyCompactList}\small\item\em Perform a 7up DMA. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Perform a 7up DMA. \end{DoxyCompactList}\item 
 void \hyperlink{7up_8h_a010e137a4b3cf483ddaadfabf3c7bca8}{eris\_\-low\_\-7up\_\-setup\_\-dma} (int chip, int satb\_\-repeat, int src\_\-dec, int dst\_\-dec, int vram\_\-irq, int satb\_\-irq)
-\begin{DoxyCompactList}\small\item\em Setup the DMA on a 7up. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Setup the DMA on a 7up. \end{DoxyCompactList}\item 
 void \hyperlink{7up_8h_abd57c83be21a665c3b877d4c61f36647}{eris\_\-low\_\-7up\_\-set\_\-satb\_\-address} (int chip, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} addr)
-\begin{DoxyCompactList}\small\item\em Sets the Sprite Attribute Table Block address. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Sets the Sprite Attribute Table Block address. \end{DoxyCompactList}\item 
 void \hyperlink{7up_8h_ae789826c10da6b77facbff5ad85f5417}{eris\_\-low\_\-7up\_\-set\_\-access\_\-width} (int chip, int cg\_\-mode, \hyperlink{7up_8h_a8a7fff6454eb4c790111fa6dd2d3f438}{eris\_\-low\_\-7up\_\-mapsize} mapsize, int spr\_\-px\_\-w, int vram\_\-px\_\-w)
-\begin{DoxyCompactList}\small\item\em Set access width information. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Set access width information. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}

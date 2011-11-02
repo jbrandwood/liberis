@@ -1,0 +1,7 @@
+binary ./scsi.bin
+name SCSI Test
+maker trap15
+makerid TFX
+date 20110211
+country 1
+version 256

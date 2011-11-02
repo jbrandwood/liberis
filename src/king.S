@@ -25,6 +25,13 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
 	.global _eris_king_fill_microprogram
 	.global	_eris_king_enable_microprogram
 	.global _eris_king_disable_microprogram
+	.global _eris_king_scsi_status
+	.global _eris_king_scsi_reset
+	.global _eris_king_scsi_data_in
+	.global _eris_king_scsi_data_out
+	.global _eris_king_scsi_abort
+	.global _eris_king_scsi_command
+	.global _eris_king_scsi_test_unit_ready
 
 .macro	set_rrg	reg
 	out.h	\reg, 0x600[r0]
@@ -197,3 +204,261 @@ _eris_king_disable_microprogram:
 	out.h	r0, 0x604[r0]
 	jmp	[lp]
 
+eris_king_scsi_get_phase:
+	in.h	0x602[r0], r11
+	mov	0, r10         # Bus Free
+	andi	0x40, r11, r12
+	be	1f
+	mov	1, r10         # Select
+	andi	0x2, r11, r12
+	bne	1f
+	mov	0, r10         # Bus Free
+	andi	0x1C, r11, r12
+	mov	2, r10         # Data Out
+	cmp	0, r12
+	be	1f
+	mov	3, r10         # Data In
+	cmp	4, r12
+	be	1f
+	mov	4, r10         # Command
+	cmp	8, r12
+	be	1f
+	mov	5, r10         # Status
+	cmp	0xC, r12
+	be	1f
+	mov	6, r10         # Message Out
+	cmp	0x18, r12
+	be	1f
+	mov	7, r10         # Message In
+	cmp	0x1C, r12
+	be	1f
+	mov	8, r10         # Illegal
+1:
+	jmp	[lp]
+
+_eris_king_scsi_status:
+	in.h	0x602[r0], r10
+	jmp	[lp]
+
+_eris_king_scsi_reset:
+	movea	0x1000, r0, r10
+	mov	1, r11
+	movea	0x80, r0, r12
+1:
+	out.h	r11, 0x600[r0]
+	out.h	r12, 0x604[r0]
+	add	-1, r10
+	bne	1b
+
+	out.h	r11, 0x600[r0]
+	out.h	r0, 0x604[r0]
+	jmp	[lp]
+
+_eris_king_scsi_data_in:
+	mov	0, r14
+	mov	lp, r15
+1:	in.h	0x602[r0], r10
+	andi	0x20, r10, r10
+	be	1b
+
+	br	2f
+1:
+	mov	1, r10
+	mov	0x10, r12
+	out.h	r0, 0x600[r0]
+	in.h	0x604[r0], r11
+	st.b	r11, 0[r6]
+	add	1, r14
+
+	out.h	r10, 0x600[r0]
+	out.h	r12, 0x604[r0]
+
+3:	in.h	0x602[r0], r11
+	andi	0x20, r11, r11
+	bne	3b
+
+	out.h	r10, 0x600[r0]
+	out.h	r0, 0x604[r0]
+
+3:	in.h	0x602[r0], r11
+	andi	0x20, r11, r11
+	be	3b
+
+2:	jal	eris_king_scsi_get_phase
+	cmp	3, r10 # data in
+	bne	1f
+	add	1, r6
+	add	-1, r7
+	bne	1b
+
+1:
+	mov	r14, r10
+	mov	r15, lp
+	jmp	[lp]
+
+_eris_king_scsi_data_out:
+	mov	0, r14
+	mov	lp, r15
+	mov	3, r11
+1:	in.h	0x602[r0], r10
+	andi	0x20, r10, r10
+	be	1b
+
+	out.h	r11, 0x600[r0]
+	out.h	r0, 0x604[r0]
+	br	2f
+1:
+	ld.b	0[r6], r11
+	mov	1, r10
+	mov	0x11, r12
+	out.h	r0, 0x600[r0]
+	out.h	r11, 0x604[r0]
+	add	1, r14
+
+	out.h	r10, 0x600[r0]
+	out.h	r12, 0x604[r0]
+
+3:	in.h	0x602[r0], r11
+	andi	0x20, r11, r11
+	bne	3b
+
+	out.h	r10, 0x600[r0]
+	out.h	r0, 0x604[r0]
+
+3:	in.h	0x602[r0], r11
+	andi	0x20, r11, r11
+	be	3b
+
+2:	jal	eris_king_scsi_get_phase
+	cmp	2, r10 # data in
+	bne	1f
+	add	1, r6
+	add	-1, r7
+	bne	1b
+
+1:
+	mov	r14, r10
+	mov	r15, lp
+	jmp	[lp]
+
+_eris_king_scsi_abort:
+	mov	1, r10
+	out.h	r0, 0x600[r0]
+	out.h	r0, 0x604[r0]
+
+	out.h	r0, 0x600[r0]
+	out.h	r10, 0x604[r0]
+	add	1, r10
+
+	out.h	r0, 0x600[r0]
+	out.h	r10, 0x604[r0]
+	add	1, r10
+
+	out.h	r0, 0x600[r0]
+	out.h	r10, 0x604[r0]
+	add	3, r10
+
+	out.h	r0, 0x600[r0]
+	out.h	r10, 0x604[r0]
+	add	-5, r10
+
+	out.h	r10, 0x600[r0]
+	out.h	r10, 0x604[r0]
+
+	out.h	r10, 0x600[r0]
+	add	2, r10
+	out.h	r10, 0x604[r0]
+	jmp	[lp]
+
+.macro scsi_delay
+	movea	(262144/8), r0, r10
+9:
+.rept 8
+	mov	r0, r0
+.endr
+	add	-1, r10
+	bne	9b
+.endm
+
+_eris_king_scsi_command:
+	mov	lp, r15
+	mov	0, r14
+	mov	1, r13
+	movea	0x84, r0, r12
+	mov	3, r11
+	mov	r0, r10
+	out.h	r11, 0x600[r0]
+	out.h	r0, 0x604[r0]
+	out.h	r0, 0x600[r0]
+	add	2, r11
+	out.h	r12, 0x604[r0]
+
+	scsi_delay
+
+	out.h	r13, 0x600[r0]
+	out.h	r13, 0x604[r0]
+
+	scsi_delay
+
+	out.h	r13, 0x600[r0]
+	out.h	r11, 0x604[r0]
+
+	scsi_delay
+
+1:	jal	eris_king_scsi_get_phase
+	be	1b
+
+	scsi_delay
+
+	out.h	r13, 0x600[r0]
+	out.h	r0, 0x604[r0]
+
+	scsi_delay
+
+1:	jal	eris_king_scsi_get_phase
+	cmp	4, r10 # command
+	bne	1b
+	mov	3, r11
+	mov	2, r10
+	out.h	r11, 0x600[r0]
+	out.h	r10, 0x604[r0]
+1:	in.h	0x602[r0], r11
+	andi	0x20, r11, r11
+	be	1b
+
+	br	2f
+1:
+	mov	1, r10
+	mov	0, r11
+	cmp	r14, r7
+	bnh	3f
+	ld.b	0[r6], r11
+3:
+	add	1, r14
+	mov	0x11, r12
+	out.h	r10, 0x600[r0]
+	out.h	r11, 0x604[r0]
+
+	out.h	r10, 0x600[r0]
+	out.h	r10, 0x604[r0]
+
+	out.h	r10, 0x600[r0]
+	out.h	r12, 0x604[r0]
+
+3:	in.h	0x602[r0], r11
+	andi	0x20, r11, r11
+	bne	3b
+
+	out.h	r10, 0x600[r0]
+	out.h	r10, 0x600[r0]
+
+3:	in.h	0x602[r0], r11
+	andi	0x20, r11, r11
+	be	3b
+
+2:	jal	eris_king_scsi_get_phase
+	cmp	4, r10 # command
+	be	1b
+
+	mov	r15, lp
+	jmp	[lp]

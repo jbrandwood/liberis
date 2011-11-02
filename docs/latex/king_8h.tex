@@ -12,7 +12,7 @@ Controls the KING processor.
 \begin{DoxyCompactItemize}
 \item 
 \#define \hyperlink{king_8h_a7e2c2196c11ea75d81b6636510d43d57}{KING\_\-CODE}(off, type, rot, bg, nop)
-\begin{DoxyCompactList}\small\item\em KING microprogram opcode generator. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em KING microprogram opcode generator. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
@@ -140,7 +140,7 @@ enum \hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081b}{king\_\-opcode} \{ \p
 \hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081bafdc194dabc2e0c480cdc8a11b961aa9e}{KING\_\-CODE\_\-ROTATE} =  KING\_\-CODE(0, 0, 1, 0, 0), 
 \hyperlink{king_8h_ae121aae256ccda53b313fa8aa0b5081ba3f26e075925eb2b18d47cc9fb183cb64}{KING\_\-CODE\_\-NOP} =  KING\_\-CODE(0, 0, 0, 0, 1)
  \}
-\begin{DoxyCompactList}\small\item\em KING microprogram opcodes. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em KING microprogram opcodes. \end{DoxyCompactList}\item 
 enum \hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfe}{king\_\-bgmode} \{ \par
 \hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfea0a9db3796069e49c29228687f9d8053b}{KING\_\-BGMODE\_\-4\_\-PAL} =  0x1, 
 \hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfea9af8390aa158732a7d52759cc3a67c21}{KING\_\-BGMODE\_\-16\_\-PAL} =  0x2, 
@@ -152,7 +152,7 @@ enum \hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfe}{king\_\-bgmode} \{ \p
 \hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfea6a791fdca83d80c33131c44ebcdec0c9}{KING\_\-BGMODE\_\-64K\_\-BAT\_\-EXTDOT} =  0xE, 
 \hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfeabe13f98639614626e9667d3dc6b00cba}{KING\_\-BGMODE\_\-16M\_\-BAT\_\-EXTDOT} =  0xF
  \}
-\begin{DoxyCompactList}\small\item\em Color mode for a KING background. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Color mode for a KING background. \end{DoxyCompactList}\item 
 enum \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} \{ \par
 \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781caa4df9ecc3d31a457ecb19d385bec23b16}{KING\_\-BGPRIO\_\-HIDE} =  0, 
 \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781caa3ef3b17b257eccca3b87c6f97bf3bf3d}{KING\_\-BGPRIO\_\-0} =  1, 
@@ -161,7 +161,7 @@ enum \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} \{ \p
 \par
 \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781caa47893799a0e21f32cc02384bf053e9bf}{KING\_\-BGPRIO\_\-3} =  4
  \}
-\begin{DoxyCompactList}\small\item\em Background priority. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Background priority. \end{DoxyCompactList}\item 
 enum \hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2}{king\_\-bgsize} \{ \par
 \hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2a0ca0cef5fc3c77a56cea6ead6602eca3}{KING\_\-BGSIZE\_\-8} =  3, 
 \hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2afb9e043e6fa1f7f8644dfbd1fdbc5706}{KING\_\-BGSIZE\_\-16} =  4, 
@@ -173,7 +173,7 @@ enum \hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2}{king\_\-bgsize} \{ \p
 \hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2af29638acecfd127e66e7d8970c573eb2}{KING\_\-BGSIZE\_\-512} =  9, 
 \hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2a91e74a5b5627f6ad961c1d7c3055b1be}{KING\_\-BGSIZE\_\-1024} =  10
  \}
-\begin{DoxyCompactList}\small\item\em Background axis size. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Background axis size. \end{DoxyCompactList}\item 
 enum \hyperlink{king_8h_aaf11211af868e940089238a64bfae457}{king\_\-bg} \{ \par
 \hyperlink{king_8h_aaf11211af868e940089238a64bfae457a41fdd1ef106a5114a60999cdb7457baf}{KING\_\-BG0} =  0, 
 \hyperlink{king_8h_aaf11211af868e940089238a64bfae457a4f39186b74f38433dd7995c0d1e52bdb}{KING\_\-BG0SUB} =  1, 
@@ -182,7 +182,18 @@ enum \hyperlink{king_8h_aaf11211af868e940089238a64bfae457}{king\_\-bg} \{ \par
 \par
 \hyperlink{king_8h_aaf11211af868e940089238a64bfae457ac64438b7c59f216a2b7036fd1d1721e9}{KING\_\-BG3} =  4
  \}
-\begin{DoxyCompactList}\small\item\em KING background. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em KING background. \end{DoxyCompactList}\item 
+enum {\bfseries king\_\-scsi\_\-status} \{ \par
+{\bfseries KING\_\-SCSI\_\-SEL} =  0x02, 
+{\bfseries KING\_\-SCSI\_\-IO} =  0x04, 
+{\bfseries KING\_\-SCSI\_\-CD} =  0x08, 
+{\bfseries KING\_\-SCSI\_\-MSG} =  0x10, 
+\par
+{\bfseries KING\_\-SCSI\_\-REQ} =  0x20, 
+{\bfseries KING\_\-SCSI\_\-BUSY} =  0x40, 
+{\bfseries KING\_\-SCSI\_\-RESET} =  0x80
+ \}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -190,41 +201,59 @@ enum \hyperlink{king_8h_aaf11211af868e940089238a64bfae457}{king\_\-bg} \{ \par
 void \hyperlink{king_8h_aec3b801f730499bf5a968e89090253fa}{eris\_\-king\_\-init} (void)}
 \label{king_8h_aec3b801f730499bf5a968e89090253fa}
 
-\begin{DoxyCompactList}\small\item\em Initialize KING. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Initialize KING. \end{DoxyCompactList}\item 
 void \hyperlink{king_8h_a79bec0c788804001bf0a7f2eed61b09e}{eris\_\-king\_\-set\_\-kram\_\-read} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} addr, int incr)
-\begin{DoxyCompactList}\small\item\em Set KRAM read address. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set KRAM read address. \end{DoxyCompactList}\item 
 void \hyperlink{king_8h_af2b0f82121fd41a450d3f8402f5adeb6}{eris\_\-king\_\-set\_\-kram\_\-write} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} addr, int incr)
-\begin{DoxyCompactList}\small\item\em Set KRAM write address. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set KRAM write address. \end{DoxyCompactList}\item 
 \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} \hyperlink{king_8h_ae717f35077e1edfe5a0405a292636c84}{eris\_\-king\_\-kram\_\-read} (void)
-\begin{DoxyCompactList}\small\item\em Read from KRAM. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Read from KRAM. \end{DoxyCompactList}\item 
 void \hyperlink{king_8h_a1ae21d6c9a979c65dc035404c034d2af}{eris\_\-king\_\-kram\_\-write} (\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} data)
-\begin{DoxyCompactList}\small\item\em Write to KRAM. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Write to KRAM. \end{DoxyCompactList}\item 
 void \hyperlink{king_8h_a22f046ab1fb829e49f62dbfb7b0a99f5}{eris\_\-king\_\-set\_\-kram\_\-pages} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} scsi, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} bg, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} rainbow, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} adpcm)
-\begin{DoxyCompactList}\small\item\em Set the KRAM page for various peripherals. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set the KRAM page for various peripherals. \end{DoxyCompactList}\item 
 void \hyperlink{king_8h_a1ccc79dfc2bb3515c7b6a76aa1a7924d}{eris\_\-king\_\-set\_\-bg\_\-mode} (\hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfe}{king\_\-bgmode} bg0, \hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfe}{king\_\-bgmode} bg1, \hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfe}{king\_\-bgmode} bg2, \hyperlink{king_8h_a53106e424c4fdb04583c16a78da56cfe}{king\_\-bgmode} bg3)
-\begin{DoxyCompactList}\small\item\em Set color modes for the backgrounds. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set color modes for the backgrounds. \end{DoxyCompactList}\item 
 void \hyperlink{king_8h_a062c1b57439e3bf2137c6ae4ce2a81d9}{eris\_\-king\_\-set\_\-bg\_\-prio} (\hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} bg0, \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} bg1, \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} bg2, \hyperlink{king_8h_a2bee689f7d2508a1a79c588cad9781ca}{king\_\-bgprio} bg3, int bgrot)
-\begin{DoxyCompactList}\small\item\em Set priorities for the backgrounds. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set priorities for the backgrounds. \end{DoxyCompactList}\item 
 void \hyperlink{king_8h_aa3afe2b35e323d3bd0595ac4c65e8416}{eris\_\-king\_\-set\_\-bg\_\-size} (\hyperlink{king_8h_aaf11211af868e940089238a64bfae457}{king\_\-bg} bg, \hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2}{king\_\-bgsize} h, \hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2}{king\_\-bgsize} w, \hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2}{king\_\-bgsize} sub\_\-h, \hyperlink{king_8h_a41903e92db19d92d9ab1bf9dab926ea2}{king\_\-bgsize} sub\_\-w)
-\begin{DoxyCompactList}\small\item\em Set background sizes. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set background sizes. \end{DoxyCompactList}\item 
 void \hyperlink{king_8h_a91ff7f65d6f59d95691308a63de58eca}{eris\_\-king\_\-set\_\-bat\_\-cg\_\-addr} (\hyperlink{king_8h_aaf11211af868e940089238a64bfae457}{king\_\-bg} bg, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} bat, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} cg)
-\begin{DoxyCompactList}\small\item\em Set background BAT and CG addresses. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set background BAT and CG addresses. \end{DoxyCompactList}\item 
 void \hyperlink{king_8h_a68b1b653cf1ab9bc11a41615771f4504}{eris\_\-king\_\-set\_\-scroll} (\hyperlink{king_8h_aaf11211af868e940089238a64bfae457}{king\_\-bg} bg, \hyperlink{types_8h_aa980e2c02ba2305e0f489d5650655425}{s16} x, \hyperlink{types_8h_aa980e2c02ba2305e0f489d5650655425}{s16} y)
-\begin{DoxyCompactList}\small\item\em Set background scrolling. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set background scrolling. \end{DoxyCompactList}\item 
 void \hyperlink{king_8h_a99c8e8e448d9ade9e080ce6231f12a42}{eris\_\-king\_\-write\_\-microprogram} (\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} $\ast$data, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} addr, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} len)
-\begin{DoxyCompactList}\small\item\em Write the KING microprogram. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Write the KING microprogram. \end{DoxyCompactList}\item 
 void \hyperlink{king_8h_afc40971e4af657c0ca318095961f0d0f}{eris\_\-king\_\-fill\_\-microprogram} (\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} data, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} addr, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} len)
-\begin{DoxyCompactList}\small\item\em Write the KING microprogram. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Write the KING microprogram. \end{DoxyCompactList}\item 
 \hypertarget{king_8h_a2c0ce70d621f4cb70465f11dca835862}{
 void \hyperlink{king_8h_a2c0ce70d621f4cb70465f11dca835862}{eris\_\-king\_\-enable\_\-microprogram} (void)}
 \label{king_8h_a2c0ce70d621f4cb70465f11dca835862}
 
-\begin{DoxyCompactList}\small\item\em Enable the KING microprogram. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Enable the KING microprogram. \end{DoxyCompactList}\item 
 \hypertarget{king_8h_a2def62e7cfce6370c461c7955961c847}{
 void \hyperlink{king_8h_a2def62e7cfce6370c461c7955961c847}{eris\_\-king\_\-disable\_\-microprogram} (void)}
 \label{king_8h_a2def62e7cfce6370c461c7955961c847}
 
-\begin{DoxyCompactList}\small\item\em Disable the KING microprogram. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Disable the KING microprogram. \end{DoxyCompactList}\item 
+int \hyperlink{king_8h_ac8e17c1dfd500e0173f09790e71eb97a}{eris\_\-king\_\-scsi\_\-status} (void)
+\begin{DoxyCompactList}\small\item\em Get SCSI status. \end{DoxyCompactList}\item 
+\hypertarget{king_8h_a8352c305dea888eaad9659443478d1f3}{
+void \hyperlink{king_8h_a8352c305dea888eaad9659443478d1f3}{eris\_\-king\_\-scsi\_\-reset} (void)}
+\label{king_8h_a8352c305dea888eaad9659443478d1f3}
+
+\begin{DoxyCompactList}\small\item\em Reset the SCSI drive. \end{DoxyCompactList}\item 
+\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{king_8h_a22818b98687b449702c6e48343f96750}{eris\_\-king\_\-scsi\_\-data\_\-in} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} $\ast$buf, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} maxlen)
+\begin{DoxyCompactList}\small\item\em Read data from the SCSI drive. \end{DoxyCompactList}\item 
+\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{king_8h_a4b54a8d8b4b2bc4a37f3452f133d5c77}{eris\_\-king\_\-scsi\_\-data\_\-out} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} $\ast$buf, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} len)
+\begin{DoxyCompactList}\small\item\em Write data to the SCSI drive. \end{DoxyCompactList}\item 
+\hypertarget{king_8h_aeca0d54e19094023dcba60f5605ed988}{
+void \hyperlink{king_8h_aeca0d54e19094023dcba60f5605ed988}{eris\_\-king\_\-scsi\_\-abort} (void)}
+\label{king_8h_aeca0d54e19094023dcba60f5605ed988}
+
+\begin{DoxyCompactList}\small\item\em Abort the current SCSI operation. \end{DoxyCompactList}\item 
+int \hyperlink{king_8h_ac6f84388ad4c706438f4c39c1a15cd21}{eris\_\-king\_\-scsi\_\-command} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} $\ast$cdb, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} len)
+\begin{DoxyCompactList}\small\item\em Send a command to the SCSI drive. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -888,6 +917,88 @@ Write to KRAM.
 {\em data} & Value to write to KRAM. \\
 \hline
 \end{DoxyParams}
+\hypertarget{king_8h_ac6f84388ad4c706438f4c39c1a15cd21}{
+\index{king.h@{king.h}!eris\_\-king\_\-scsi\_\-command@{eris\_\-king\_\-scsi\_\-command}}
+\index{eris\_\-king\_\-scsi\_\-command@{eris\_\-king\_\-scsi\_\-command}!king.h@{king.h}}
+\subsubsection[{eris\_\-king\_\-scsi\_\-command}]{\setlength{\rightskip}{0pt plus 5cm}int eris\_\-king\_\-scsi\_\-command (
+\begin{DoxyParamCaption}
+\item[{{\bf u8} $\ast$}]{cdb, }
+\item[{{\bf u32}}]{len}
+\end{DoxyParamCaption}
+)}}
+\label{king_8h_ac6f84388ad4c706438f4c39c1a15cd21}
+
+
+Send a command to the SCSI drive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cdb} & Command bytes. \\
+\hline
+{\em len} & Length of the command data. \\
+\hline
+\end{DoxyParams}
+\hypertarget{king_8h_a22818b98687b449702c6e48343f96750}{
+\index{king.h@{king.h}!eris\_\-king\_\-scsi\_\-data\_\-in@{eris\_\-king\_\-scsi\_\-data\_\-in}}
+\index{eris\_\-king\_\-scsi\_\-data\_\-in@{eris\_\-king\_\-scsi\_\-data\_\-in}!king.h@{king.h}}
+\subsubsection[{eris\_\-king\_\-scsi\_\-data\_\-in}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} eris\_\-king\_\-scsi\_\-data\_\-in (
+\begin{DoxyParamCaption}
+\item[{{\bf u8} $\ast$}]{buf, }
+\item[{{\bf u32}}]{maxlen}
+\end{DoxyParamCaption}
+)}}
+\label{king_8h_a22818b98687b449702c6e48343f96750}
+
+
+Read data from the SCSI drive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & Buffer to read into. \\
+\hline
+{\em maxlen} & Maximum length to read from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Bytes read. 
+\end{DoxyReturn}
+\hypertarget{king_8h_a4b54a8d8b4b2bc4a37f3452f133d5c77}{
+\index{king.h@{king.h}!eris\_\-king\_\-scsi\_\-data\_\-out@{eris\_\-king\_\-scsi\_\-data\_\-out}}
+\index{eris\_\-king\_\-scsi\_\-data\_\-out@{eris\_\-king\_\-scsi\_\-data\_\-out}!king.h@{king.h}}
+\subsubsection[{eris\_\-king\_\-scsi\_\-data\_\-out}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} eris\_\-king\_\-scsi\_\-data\_\-out (
+\begin{DoxyParamCaption}
+\item[{{\bf u8} $\ast$}]{buf, }
+\item[{{\bf u32}}]{len}
+\end{DoxyParamCaption}
+)}}
+\label{king_8h_a4b54a8d8b4b2bc4a37f3452f133d5c77}
+
+
+Write data to the SCSI drive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & Buffer to write from. \\
+\hline
+{\em len} & Length of the buffer. \\
+\hline
+\end{DoxyParams}
+\hypertarget{king_8h_ac8e17c1dfd500e0173f09790e71eb97a}{
+\index{king.h@{king.h}!eris\_\-king\_\-scsi\_\-status@{eris\_\-king\_\-scsi\_\-status}}
+\index{eris\_\-king\_\-scsi\_\-status@{eris\_\-king\_\-scsi\_\-status}!king.h@{king.h}}
+\subsubsection[{eris\_\-king\_\-scsi\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}int eris\_\-king\_\-scsi\_\-status (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{king_8h_ac8e17c1dfd500e0173f09790e71eb97a}
+
+
+Get SCSI status. 
+
+\begin{DoxyReturn}{Returns}
+Returns the current state of the SCSI drive. 
+\end{DoxyReturn}
 \hypertarget{king_8h_a91ff7f65d6f59d95691308a63de58eca}{
 \index{king.h@{king.h}!eris\_\-king\_\-set\_\-bat\_\-cg\_\-addr@{eris\_\-king\_\-set\_\-bat\_\-cg\_\-addr}}
 \index{eris\_\-king\_\-set\_\-bat\_\-cg\_\-addr@{eris\_\-king\_\-set\_\-bat\_\-cg\_\-addr}!king.h@{king.h}}

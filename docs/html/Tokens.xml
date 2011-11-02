@@ -192,6 +192,66 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>eris_king_scsi_status</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>king_8h.html</Path>
+    <Anchor>ac8e17c1dfd500e0173f09790e71eb97a</Anchor>
+    <Abstract>Get SCSI status.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_king_scsi_reset</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>king_8h.html</Path>
+    <Anchor>a8352c305dea888eaad9659443478d1f3</Anchor>
+    <Abstract>Reset the SCSI drive.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_king_scsi_data_in</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>king_8h.html</Path>
+    <Anchor>a22818b98687b449702c6e48343f96750</Anchor>
+    <Abstract>Read data from the SCSI drive.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_king_scsi_data_out</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>king_8h.html</Path>
+    <Anchor>a4b54a8d8b4b2bc4a37f3452f133d5c77</Anchor>
+    <Abstract>Write data to the SCSI drive.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_king_scsi_abort</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>king_8h.html</Path>
+    <Anchor>aeca0d54e19094023dcba60f5605ed988</Anchor>
+    <Abstract>Abort the current SCSI operation.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_king_scsi_command</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>king_8h.html</Path>
+    <Anchor>ac6f84388ad4c706438f4c39c1a15cd21</Anchor>
+    <Abstract>Send a command to the SCSI drive.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>KING_BG0</Name>
       <APILanguage>c</APILanguage>
       <Type>econst</Type>

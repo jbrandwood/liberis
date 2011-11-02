@@ -12,47 +12,47 @@ Functions to handle V810 specific functionality.
 \begin{DoxyCompactItemize}
 \item 
 void \hyperlink{v810_8h_a8c56c4c4a9e578ad50002d8d751b94e1}{cache\_\-enable} (void)
-\begin{DoxyCompactList}\small\item\em Enable V810 cache. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Enable V810 cache. \end{DoxyCompactList}\item 
 void \hyperlink{v810_8h_af8da62d251048a6a57365ef1541338c4}{cache\_\-disable} (void)
-\begin{DoxyCompactList}\small\item\em Disable V810 cache. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Disable V810 cache. \end{DoxyCompactList}\item 
 void \hyperlink{v810_8h_a5e1d9384022a10d9b5554675f6164330}{cache\_\-clear} (int entry, int count)
-\begin{DoxyCompactList}\small\item\em Clear select entries in the V810 cache. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Clear select entries in the V810 cache. \end{DoxyCompactList}\item 
 void \hyperlink{v810_8h_a733e45eb9edc0ef2a2327b64ebdc646d}{cache\_\-dump} (void $\ast$dumpaddr)
-\begin{DoxyCompactList}\small\item\em Dump the V810 cache. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Dump the V810 cache. \end{DoxyCompactList}\item 
 void \hyperlink{v810_8h_ab26aa7eec29f5e76690dee929feb4110}{cache\_\-restore} (void $\ast$restaddr)
-\begin{DoxyCompactList}\small\item\em Restore the V810 cache. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Restore the V810 cache. \end{DoxyCompactList}\item 
 int \hyperlink{v810_8h_ab567d37023e2ba14a8e5e3d9c79d57f8}{irq\_\-enable} (void)
-\begin{DoxyCompactList}\small\item\em Enable V810 IRQs. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Enable V810 IRQs. \end{DoxyCompactList}\item 
 int \hyperlink{v810_8h_afb0c3c3a580a4319c69c2a46c71b5d15}{irq\_\-disable} (void)
-\begin{DoxyCompactList}\small\item\em Disable V810 IRQs. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Disable V810 IRQs. \end{DoxyCompactList}\item 
 void \hyperlink{v810_8h_aeede5bcf4c994bc7e730fad7cd5b3717}{irq\_\-restore} (int on)
-\begin{DoxyCompactList}\small\item\em Restore V810 IRQs. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Restore V810 IRQs. \end{DoxyCompactList}\item 
 void \hyperlink{v810_8h_a2613d815f07b7ddb630a698dd184702c}{irq\_\-set\_\-level} (int lv)
-\begin{DoxyCompactList}\small\item\em Set minimum V810 maskable interrupt level. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set minimum V810 maskable interrupt level. \end{DoxyCompactList}\item 
 void \hyperlink{v810_8h_af3d2a1012f96ae66d9638c02d2d0c66d}{irq\_\-set\_\-mask} (int mask)
-\begin{DoxyCompactList}\small\item\em Set interrupt masking. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set interrupt masking. \end{DoxyCompactList}\item 
 void \hyperlink{v810_8h_a96baf8e3edf522a2c01f4592ea7cd7a1}{irq\_\-set\_\-priority} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} prio)
-\begin{DoxyCompactList}\small\item\em Set priorities for each interrupt level. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set priorities for each interrupt level. \end{DoxyCompactList}\item 
 int \hyperlink{v810_8h_a4eed80137bd56e0932c0a49e9cb35339}{irq\_\-get\_\-level} (void)
-\begin{DoxyCompactList}\small\item\em Get minimum/current V810 maskable interrupt level. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Get minimum/current V810 maskable interrupt level. \end{DoxyCompactList}\item 
 \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} \hyperlink{v810_8h_afb68f79bf6fb1a882aa8ce16ba6c2d97}{irq\_\-get\_\-mask} (void)
-\begin{DoxyCompactList}\small\item\em Get interrupt masking. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Get interrupt masking. \end{DoxyCompactList}\item 
 \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{v810_8h_a9196c64c51dbb95b3987fb0c68be0f8f}{irq\_\-get\_\-priority} (void)
-\begin{DoxyCompactList}\small\item\em Get priorities for each interrupt level. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Get priorities for each interrupt level. \end{DoxyCompactList}\item 
 void \hyperlink{v810_8h_a88f20a51be7c389049aad30710957bc0}{irq\_\-set\_\-handler} (int level, void($\ast$fn)(void))
-\begin{DoxyCompactList}\small\item\em Set an IRQ handler. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Set an IRQ handler. \end{DoxyCompactList}\item 
 void \hyperlink{v810_8h_a12887415f6722944e089a608473ae220}{out32} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} port, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} data)
-\begin{DoxyCompactList}\small\item\em Output 32bit data. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Output 32bit data. \end{DoxyCompactList}\item 
 void \hyperlink{v810_8h_a5c0ad5f4c6f636f302ca66e30d2c9073}{out16} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} port, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} data)
-\begin{DoxyCompactList}\small\item\em Output 16bit data. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Output 16bit data. \end{DoxyCompactList}\item 
 void \hyperlink{v810_8h_a80b5da5d08e357c85ee1302de82dc4e3}{out8} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} port, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} data)
-\begin{DoxyCompactList}\small\item\em Output 8bit data. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Output 8bit data. \end{DoxyCompactList}\item 
 \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{v810_8h_ad520189d0517af71d200166fc8319684}{in32} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} port)
-\begin{DoxyCompactList}\small\item\em Input 32bit data. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Input 32bit data. \end{DoxyCompactList}\item 
 \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} \hyperlink{v810_8h_a06ea13d06befb3dfc3c79b05b82d617d}{in16} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} port)
-\begin{DoxyCompactList}\small\item\em Input 16bit data. \item\end{DoxyCompactList}\item 
+\begin{DoxyCompactList}\small\item\em Input 16bit data. \end{DoxyCompactList}\item 
 \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} \hyperlink{v810_8h_a452666e30cdb11f274653ea1ed39a932}{in8} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} port)
-\begin{DoxyCompactList}\small\item\em Input 8bit data. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Input 8bit data. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
