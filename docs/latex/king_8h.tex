@@ -182,18 +182,7 @@ enum \hyperlink{king_8h_aaf11211af868e940089238a64bfae457}{king\_\-bg} \{ \par
 \par
 \hyperlink{king_8h_aaf11211af868e940089238a64bfae457ac64438b7c59f216a2b7036fd1d1721e9}{KING\_\-BG3} =  4
  \}
-\begin{DoxyCompactList}\small\item\em KING background. \end{DoxyCompactList}\item 
-enum {\bfseries king\_\-scsi\_\-status} \{ \par
-{\bfseries KING\_\-SCSI\_\-SEL} =  0x02, 
-{\bfseries KING\_\-SCSI\_\-IO} =  0x04, 
-{\bfseries KING\_\-SCSI\_\-CD} =  0x08, 
-{\bfseries KING\_\-SCSI\_\-MSG} =  0x10, 
-\par
-{\bfseries KING\_\-SCSI\_\-REQ} =  0x20, 
-{\bfseries KING\_\-SCSI\_\-BUSY} =  0x40, 
-{\bfseries KING\_\-SCSI\_\-RESET} =  0x80
- \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em KING background. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -235,25 +224,7 @@ void \hyperlink{king_8h_a2c0ce70d621f4cb70465f11dca835862}{eris\_\-king\_\-enabl
 void \hyperlink{king_8h_a2def62e7cfce6370c461c7955961c847}{eris\_\-king\_\-disable\_\-microprogram} (void)}
 \label{king_8h_a2def62e7cfce6370c461c7955961c847}
 
-\begin{DoxyCompactList}\small\item\em Disable the KING microprogram. \end{DoxyCompactList}\item 
-int \hyperlink{king_8h_ac8e17c1dfd500e0173f09790e71eb97a}{eris\_\-king\_\-scsi\_\-status} (void)
-\begin{DoxyCompactList}\small\item\em Get SCSI status. \end{DoxyCompactList}\item 
-\hypertarget{king_8h_a8352c305dea888eaad9659443478d1f3}{
-void \hyperlink{king_8h_a8352c305dea888eaad9659443478d1f3}{eris\_\-king\_\-scsi\_\-reset} (void)}
-\label{king_8h_a8352c305dea888eaad9659443478d1f3}
-
-\begin{DoxyCompactList}\small\item\em Reset the SCSI drive. \end{DoxyCompactList}\item 
-\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{king_8h_a22818b98687b449702c6e48343f96750}{eris\_\-king\_\-scsi\_\-data\_\-in} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} $\ast$buf, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} maxlen)
-\begin{DoxyCompactList}\small\item\em Read data from the SCSI drive. \end{DoxyCompactList}\item 
-\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{king_8h_a4b54a8d8b4b2bc4a37f3452f133d5c77}{eris\_\-king\_\-scsi\_\-data\_\-out} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} $\ast$buf, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} len)
-\begin{DoxyCompactList}\small\item\em Write data to the SCSI drive. \end{DoxyCompactList}\item 
-\hypertarget{king_8h_aeca0d54e19094023dcba60f5605ed988}{
-void \hyperlink{king_8h_aeca0d54e19094023dcba60f5605ed988}{eris\_\-king\_\-scsi\_\-abort} (void)}
-\label{king_8h_aeca0d54e19094023dcba60f5605ed988}
-
-\begin{DoxyCompactList}\small\item\em Abort the current SCSI operation. \end{DoxyCompactList}\item 
-int \hyperlink{king_8h_ac6f84388ad4c706438f4c39c1a15cd21}{eris\_\-king\_\-scsi\_\-command} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} $\ast$cdb, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} len)
-\begin{DoxyCompactList}\small\item\em Send a command to the SCSI drive. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Disable the KING microprogram. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
@@ -917,88 +888,6 @@ Write to KRAM.
 {\em data} & Value to write to KRAM. \\
 \hline
 \end{DoxyParams}
-\hypertarget{king_8h_ac6f84388ad4c706438f4c39c1a15cd21}{
-\index{king.h@{king.h}!eris\_\-king\_\-scsi\_\-command@{eris\_\-king\_\-scsi\_\-command}}
-\index{eris\_\-king\_\-scsi\_\-command@{eris\_\-king\_\-scsi\_\-command}!king.h@{king.h}}
-\subsubsection[{eris\_\-king\_\-scsi\_\-command}]{\setlength{\rightskip}{0pt plus 5cm}int eris\_\-king\_\-scsi\_\-command (
-\begin{DoxyParamCaption}
-\item[{{\bf u8} $\ast$}]{cdb, }
-\item[{{\bf u32}}]{len}
-\end{DoxyParamCaption}
-)}}
-\label{king_8h_ac6f84388ad4c706438f4c39c1a15cd21}
-
-
-Send a command to the SCSI drive. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em cdb} & Command bytes. \\
-\hline
-{\em len} & Length of the command data. \\
-\hline
-\end{DoxyParams}
-\hypertarget{king_8h_a22818b98687b449702c6e48343f96750}{
-\index{king.h@{king.h}!eris\_\-king\_\-scsi\_\-data\_\-in@{eris\_\-king\_\-scsi\_\-data\_\-in}}
-\index{eris\_\-king\_\-scsi\_\-data\_\-in@{eris\_\-king\_\-scsi\_\-data\_\-in}!king.h@{king.h}}
-\subsubsection[{eris\_\-king\_\-scsi\_\-data\_\-in}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} eris\_\-king\_\-scsi\_\-data\_\-in (
-\begin{DoxyParamCaption}
-\item[{{\bf u8} $\ast$}]{buf, }
-\item[{{\bf u32}}]{maxlen}
-\end{DoxyParamCaption}
-)}}
-\label{king_8h_a22818b98687b449702c6e48343f96750}
-
-
-Read data from the SCSI drive. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em buf} & Buffer to read into. \\
-\hline
-{\em maxlen} & Maximum length to read from. \\
-\hline
-\end{DoxyParams}
-\begin{DoxyReturn}{Returns}
-Bytes read. 
-\end{DoxyReturn}
-\hypertarget{king_8h_a4b54a8d8b4b2bc4a37f3452f133d5c77}{
-\index{king.h@{king.h}!eris\_\-king\_\-scsi\_\-data\_\-out@{eris\_\-king\_\-scsi\_\-data\_\-out}}
-\index{eris\_\-king\_\-scsi\_\-data\_\-out@{eris\_\-king\_\-scsi\_\-data\_\-out}!king.h@{king.h}}
-\subsubsection[{eris\_\-king\_\-scsi\_\-data\_\-out}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} eris\_\-king\_\-scsi\_\-data\_\-out (
-\begin{DoxyParamCaption}
-\item[{{\bf u8} $\ast$}]{buf, }
-\item[{{\bf u32}}]{len}
-\end{DoxyParamCaption}
-)}}
-\label{king_8h_a4b54a8d8b4b2bc4a37f3452f133d5c77}
-
-
-Write data to the SCSI drive. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em buf} & Buffer to write from. \\
-\hline
-{\em len} & Length of the buffer. \\
-\hline
-\end{DoxyParams}
-\hypertarget{king_8h_ac8e17c1dfd500e0173f09790e71eb97a}{
-\index{king.h@{king.h}!eris\_\-king\_\-scsi\_\-status@{eris\_\-king\_\-scsi\_\-status}}
-\index{eris\_\-king\_\-scsi\_\-status@{eris\_\-king\_\-scsi\_\-status}!king.h@{king.h}}
-\subsubsection[{eris\_\-king\_\-scsi\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}int eris\_\-king\_\-scsi\_\-status (
-\begin{DoxyParamCaption}
-\item[{void}]{}
-\end{DoxyParamCaption}
-)}}
-\label{king_8h_ac8e17c1dfd500e0173f09790e71eb97a}
-
-
-Get SCSI status. 
-
-\begin{DoxyReturn}{Returns}
-Returns the current state of the SCSI drive. 
-\end{DoxyReturn}
 \hypertarget{king_8h_a91ff7f65d6f59d95691308a63de58eca}{
 \index{king.h@{king.h}!eris\_\-king\_\-set\_\-bat\_\-cg\_\-addr@{eris\_\-king\_\-set\_\-bat\_\-cg\_\-addr}}
 \index{eris\_\-king\_\-set\_\-bat\_\-cg\_\-addr@{eris\_\-king\_\-set\_\-bat\_\-cg\_\-addr}!king.h@{king.h}}

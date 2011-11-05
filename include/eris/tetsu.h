@@ -19,10 +19,10 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
 /*! \brief Number of vertical lines to display.
  */
 typedef enum {
-	TETSU_LINES_263 = 0, /*!< 263 lines. A little flickery, but less cross-talk. */
-	TETSU_LINES_262 = 1, /*!< 262 lines. No flicker, but lots of cross-talk. */
+	TETSU_LINES_263        = 0, /*!< 263 lines. A little flickery, but less cross-talk. */
+	TETSU_LINES_262        = 1, /*!< 262 lines. No flicker, but lots of cross-talk. */
 	TETSU_LINES_INTERLACED = 2, /*!< Interlaced. Very flickery. */
-	TETSU_LINES_UNKNOWN = 3, /*!< Interlaced + 1/2dot shift?. Flickery^2 */
+	TETSU_LINES_UNKNOWN    = 3, /*!< Interlaced + 1/2dot shift?. Flickery^2 */
 } tetsu_lines;
 
 /*! \brief Dot clock. Determines screen width.
@@ -35,7 +35,7 @@ typedef enum {
 /*! \brief Amount of colors (to display?).
  */
 typedef enum {
-	TETSU_COLORS_16 = 0, /*!< 16 colors */
+	TETSU_COLORS_16  = 0, /*!< 16 colors */
 	TETSU_COLORS_256 = 1, /*!< 256 colors */
 } tetsu_colordepth;
 
@@ -43,9 +43,9 @@ typedef enum {
  */
 typedef enum {
 	TETSU_NO_COEFF = 0, /*!< No coefficient (no cellophane). */
-	TETSU_COEFF_1 = 1, /*!< Coefficient 1 */
-	TETSU_COEFF_2 = 2, /*!< Coefficient 2 */
-	TETSU_COEFF_3 = 3, /*!< Coefficient 3 */
+	TETSU_COEFF_1  = 1, /*!< Coefficient 1 */
+	TETSU_COEFF_2  = 2, /*!< Coefficient 2 */
+	TETSU_COEFF_3  = 3, /*!< Coefficient 3 */
 } tetsu_coeff;
 
 /*! \brief Initialize the NEW Iron Guanyin.
@@ -142,6 +142,7 @@ int eris_tetsu_get_field(void);
 /*! \brief Checks if we are currently displaying (not in H or V blank)
  *
  * \return 1 if we are displaying, 0 for in blank.
+ */
 int eris_tetsu_is_displaying(void);
 /*! \brief Sets the constant color for the cellophane.
  *

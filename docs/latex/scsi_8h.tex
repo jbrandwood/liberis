@@ -1,0 +1,167 @@
+\hypertarget{scsi_8h}{
+\section{include/eris/low/scsi.h File Reference}
+\label{scsi_8h}\index{include/eris/low/scsi.h@{include/eris/low/scsi.h}}
+}
+
+
+Low-\/level control of the KING processor's SCSI controller.  
+
+
+{\ttfamily \#include $<$eris/types.h$>$}\par
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries scsi\_\-low\_\-status} \{ \par
+{\bfseries SCSI\_\-LOW\_\-SEL} =  0x02, 
+{\bfseries SCSI\_\-LOW\_\-IO} =  0x04, 
+{\bfseries SCSI\_\-LOW\_\-CD} =  0x08, 
+{\bfseries SCSI\_\-LOW\_\-MSG} =  0x10, 
+\par
+{\bfseries SCSI\_\-LOW\_\-REQ} =  0x20, 
+{\bfseries SCSI\_\-LOW\_\-BUSY} =  0x40, 
+{\bfseries SCSI\_\-LOW\_\-RESET} =  0x80
+ \}
+\item 
+enum {\bfseries scsi\_\-low\_\-cmd} \{ \par
+{\bfseries SCSI\_\-LOW\_\-CMD\_\-TEST\_\-UNIT\_\-READY} =  0x00, 
+{\bfseries SCSI\_\-LOW\_\-CMD\_\-REQ\_\-SENSE} =  0x03, 
+{\bfseries SCSI\_\-LOW\_\-CMD\_\-READ10} =  0x28, 
+{\bfseries SCSI\_\-LOW\_\-CMD\_\-SEEK10} =  0x2B, 
+\par
+{\bfseries SCSI\_\-LOW\_\-CMD\_\-PREFETCH10} =  0x34, 
+{\bfseries SCSI\_\-LOW\_\-CMD\_\-READ\_\-SUBQ} =  0x42, 
+{\bfseries SCSI\_\-LOW\_\-CMD\_\-READ\_\-TOC} =  0x43, 
+{\bfseries SCSI\_\-LOW\_\-CMD\_\-READ\_\-HEADER} =  0x44, 
+\par
+{\bfseries SCSI\_\-LOW\_\-CMD\_\-PLAY\_\-AUDIO\_\-INDEX} =  0x48, 
+{\bfseries SCSI\_\-LOW\_\-CMD\_\-PAUSE} =  0x4B, 
+{\bfseries SCSI\_\-LOW\_\-CMD\_\-READ12} =  0xA8
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{scsi_8h_a85119b3ea1bf1acf30eada64c269f4d6}{eris\_\-low\_\-scsi\_\-get\_\-phase} (void)
+\begin{DoxyCompactList}\small\item\em Get SCSI phase. \end{DoxyCompactList}\item 
+scsi\_\-low\_\-status \hyperlink{scsi_8h_a489e86ac962c500f24cc42fb03c44194}{eris\_\-low\_\-scsi\_\-status} (void)
+\begin{DoxyCompactList}\small\item\em Get SCSI status. \end{DoxyCompactList}\item 
+\hypertarget{scsi_8h_ab8b519d0dc9d6faed63609d7f1f6c611}{
+void \hyperlink{scsi_8h_ab8b519d0dc9d6faed63609d7f1f6c611}{eris\_\-low\_\-scsi\_\-reset} (void)}
+\label{scsi_8h_ab8b519d0dc9d6faed63609d7f1f6c611}
+
+\begin{DoxyCompactList}\small\item\em Reset the SCSI drive. \end{DoxyCompactList}\item 
+\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{scsi_8h_ae686918cef3d90cad367d7c96f4912d3}{eris\_\-low\_\-scsi\_\-data\_\-in} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} $\ast$buf, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} maxlen)
+\begin{DoxyCompactList}\small\item\em Read data from the SCSI drive. \end{DoxyCompactList}\item 
+\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{scsi_8h_a07f4214f7e6fc72b716a579ff5fed6bc}{eris\_\-low\_\-scsi\_\-data\_\-out} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} $\ast$buf, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} len)
+\begin{DoxyCompactList}\small\item\em Write data to the SCSI drive. \end{DoxyCompactList}\item 
+\hypertarget{scsi_8h_a3ff384425ae87c294ca64f1beaaeb51a}{
+void \hyperlink{scsi_8h_a3ff384425ae87c294ca64f1beaaeb51a}{eris\_\-low\_\-scsi\_\-abort} (void)}
+\label{scsi_8h_a3ff384425ae87c294ca64f1beaaeb51a}
+
+\begin{DoxyCompactList}\small\item\em Abort the current SCSI operation. \end{DoxyCompactList}\item 
+int \hyperlink{scsi_8h_a5ccf761f58c12c597dc623e79dc4087d}{eris\_\-low\_\-scsi\_\-command} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} $\ast$cdb, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} len)
+\begin{DoxyCompactList}\small\item\em Send a command to the SCSI drive. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Low-\/level control of the KING processor's SCSI controller. 
+
+\subsection{Function Documentation}
+\hypertarget{scsi_8h_a5ccf761f58c12c597dc623e79dc4087d}{
+\index{scsi.h@{scsi.h}!eris\_\-low\_\-scsi\_\-command@{eris\_\-low\_\-scsi\_\-command}}
+\index{eris\_\-low\_\-scsi\_\-command@{eris\_\-low\_\-scsi\_\-command}!scsi.h@{scsi.h}}
+\subsubsection[{eris\_\-low\_\-scsi\_\-command}]{\setlength{\rightskip}{0pt plus 5cm}int eris\_\-low\_\-scsi\_\-command (
+\begin{DoxyParamCaption}
+\item[{{\bf u8} $\ast$}]{cdb, }
+\item[{{\bf u32}}]{len}
+\end{DoxyParamCaption}
+)}}
+\label{scsi_8h_a5ccf761f58c12c597dc623e79dc4087d}
+
+
+Send a command to the SCSI drive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cdb} & Command bytes. \\
+\hline
+{\em len} & Length of the command data. \\
+\hline
+\end{DoxyParams}
+\hypertarget{scsi_8h_ae686918cef3d90cad367d7c96f4912d3}{
+\index{scsi.h@{scsi.h}!eris\_\-low\_\-scsi\_\-data\_\-in@{eris\_\-low\_\-scsi\_\-data\_\-in}}
+\index{eris\_\-low\_\-scsi\_\-data\_\-in@{eris\_\-low\_\-scsi\_\-data\_\-in}!scsi.h@{scsi.h}}
+\subsubsection[{eris\_\-low\_\-scsi\_\-data\_\-in}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} eris\_\-low\_\-scsi\_\-data\_\-in (
+\begin{DoxyParamCaption}
+\item[{{\bf u8} $\ast$}]{buf, }
+\item[{{\bf u32}}]{maxlen}
+\end{DoxyParamCaption}
+)}}
+\label{scsi_8h_ae686918cef3d90cad367d7c96f4912d3}
+
+
+Read data from the SCSI drive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & Buffer to read into. \\
+\hline
+{\em maxlen} & Maximum length to read from. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Bytes read. 
+\end{DoxyReturn}
+\hypertarget{scsi_8h_a07f4214f7e6fc72b716a579ff5fed6bc}{
+\index{scsi.h@{scsi.h}!eris\_\-low\_\-scsi\_\-data\_\-out@{eris\_\-low\_\-scsi\_\-data\_\-out}}
+\index{eris\_\-low\_\-scsi\_\-data\_\-out@{eris\_\-low\_\-scsi\_\-data\_\-out}!scsi.h@{scsi.h}}
+\subsubsection[{eris\_\-low\_\-scsi\_\-data\_\-out}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} eris\_\-low\_\-scsi\_\-data\_\-out (
+\begin{DoxyParamCaption}
+\item[{{\bf u8} $\ast$}]{buf, }
+\item[{{\bf u32}}]{len}
+\end{DoxyParamCaption}
+)}}
+\label{scsi_8h_a07f4214f7e6fc72b716a579ff5fed6bc}
+
+
+Write data to the SCSI drive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buf} & Buffer to write from. \\
+\hline
+{\em len} & Length of the buffer. \\
+\hline
+\end{DoxyParams}
+\hypertarget{scsi_8h_a85119b3ea1bf1acf30eada64c269f4d6}{
+\index{scsi.h@{scsi.h}!eris\_\-low\_\-scsi\_\-get\_\-phase@{eris\_\-low\_\-scsi\_\-get\_\-phase}}
+\index{eris\_\-low\_\-scsi\_\-get\_\-phase@{eris\_\-low\_\-scsi\_\-get\_\-phase}!scsi.h@{scsi.h}}
+\subsubsection[{eris\_\-low\_\-scsi\_\-get\_\-phase}]{\setlength{\rightskip}{0pt plus 5cm}int eris\_\-low\_\-scsi\_\-get\_\-phase (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{scsi_8h_a85119b3ea1bf1acf30eada64c269f4d6}
+
+
+Get SCSI phase. 
+
+\begin{DoxyReturn}{Returns}
+Returns the current phase of the SCSI drive. 
+\end{DoxyReturn}
+\hypertarget{scsi_8h_a489e86ac962c500f24cc42fb03c44194}{
+\index{scsi.h@{scsi.h}!eris\_\-low\_\-scsi\_\-status@{eris\_\-low\_\-scsi\_\-status}}
+\index{eris\_\-low\_\-scsi\_\-status@{eris\_\-low\_\-scsi\_\-status}!scsi.h@{scsi.h}}
+\subsubsection[{eris\_\-low\_\-scsi\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}scsi\_\-low\_\-status eris\_\-low\_\-scsi\_\-status (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{scsi_8h_a489e86ac962c500f24cc42fb03c44194}
+
+
+Get SCSI status. 
+
+\begin{DoxyReturn}{Returns}
+Returns the current state of the SCSI drive. 
+\end{DoxyReturn}

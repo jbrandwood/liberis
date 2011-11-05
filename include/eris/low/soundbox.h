@@ -19,8 +19,8 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
 typedef enum {
 	ADPCM_RATE_32000 = 0, /*!< 32kHz sample rate */
 	ADPCM_RATE_16000 = 1, /*!< 16kHz sample rate */
-	ADPCM_RATE_8000 = 2, /*!< 8kHz sample rate */
-	ADPCM_RATE_4000 = 3, /*!< 4kHz sample rate */
+	ADPCM_RATE_8000  = 2, /*!< 8kHz sample rate */
+	ADPCM_RATE_4000  = 3, /*!< 4kHz sample rate */
 } adpcm_rate;
 
 /*! \brief Set main volume.

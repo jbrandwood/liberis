@@ -13,19 +13,33 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 #include <eris/king.h>
 #include <eris/tetsu.h>
 #include <eris/romfont.h>
+#include <eris/low/pad.h>
+#include <eris/low/scsi.h>
 
 void printch(u32 sjis, u32 kram, int tall);
 void printstr(u32* str, int x, int y, int tall);
 void chartou32(char* str, u32* o);
+void printhex(void* data, int x, int y, int bytes, int addr, int tall);
 char x1toa(int val);
+
+#define CLEAN_SCSICDB(cmd, len) { \
+	scsicdb[0] = cmd; \
+	for(i = 1; i < 32; i++) { \
+		scsicdb[i] = 0; \
+	} \
+}
 
 int main(int argc, char *argv[])
 {
-	int i;
+	int i, l;
 	u32 str[256];
 	u16 microprog[16];
 	int status;
 	u32 paddata;
+	u8 scsimem[4096];
+	u8 scsicdb[32];
+	u32 seekaddr = 0;
+	u32 bytes = 0;
 
 	eris_king_init();
 	eris_tetsu_init();
@@ -67,34 +81,82 @@ int main(int argc, char *argv[])
 	eris_king_set_kram_write(0, 1);
 	eris_low_pad_init(0);
 
+	for(i = 0; i < 4096; i++) {
+		scsimem[i] = 0;
+	}
+
 	chartou32("SCSI Test/Example", str);
-	printstr(str, 10, 8, 1);
-	chartou32("Run = RESET  Select = ABORT", str);
-	printstr(str, 0, 0x18, 0);
-	chartou32("Run = RESET", str);
-	printstr(str, 0, 0x18, 0);
-	chartou32("SEL IO  CD  MSG REQ BSY RST ", str);
-	printstr(str, 0, 0x20, 0);
+	printstr(str, 10, 0, 1);
 	for(;;) {
 		if(eris_low_pad_data_ready(0)) {
 			paddata = eris_low_pad_read_data(0);
 			if(paddata & (1 << 6)) { // Select
-				eris_king_scsi_abort();
+				eris_low_scsi_abort();
 			}
 			if(paddata & (1 << 7)) { // Run
-				eris_king_scsi_reset();
+				eris_low_scsi_reset();
+			}
+			if(paddata & (1 << 0)) { // (I) Send Seek/Read
+				eris_low_scsi_reset();
+				for(l = 0; l < 8000; l++)
+					asm volatile("mov r0, r0\n");
+/*				CLEAN_SCSICDB(SCSI_LOW_CMD_SEEK10, 10)
+				scsicdb[2] = (seekaddr >> 24) & 0xFF;
+				scsicdb[3] = (seekaddr >> 16) & 0xFF;
+				scsicdb[4] = (seekaddr >>  8) & 0xFF;
+				scsicdb[5] = (seekaddr >>  0) & 0xFF;
+				eris_low_scsi_command(scsicdb, 10);*/
+				CLEAN_SCSICDB(SCSI_LOW_CMD_READ10, 10)
+				scsicdb[1] = 0x8;
+				scsicdb[2] = (seekaddr >> 24) & 0xFF;
+				scsicdb[3] = (seekaddr >> 16) & 0xFF;
+				scsicdb[4] = (seekaddr >>  8) & 0xFF;
+				scsicdb[5] = (seekaddr >>  0) & 0xFF;
+				scsicdb[8] = 1;
+				seekaddr += 1;
+				eris_low_scsi_command(scsicdb, 10);
+				bytes = eris_low_scsi_data_in(scsimem, 2048);
 			}
 		}
-		status = eris_king_scsi_status();
-		chartou32("                            ", str);
-		str[1]  = status & KING_SCSI_SEL   ? 'X' : ' ';
-		str[5]  = status & KING_SCSI_IO    ? 'X' : ' ';
-		str[9]  = status & KING_SCSI_CD    ? 'X' : ' ';
-		str[13] = status & KING_SCSI_MSG   ? 'X' : ' ';
-		str[17] = status & KING_SCSI_REQ   ? 'X' : ' ';
-		str[21] = status & KING_SCSI_BUSY  ? 'X' : ' ';
-		str[25] = status & KING_SCSI_RESET ? 'X' : ' ';
-		printstr(str, 0, 0x28, 0);
+		chartou32("Read bytes:", str);
+		printstr(str, 0, 0x18, 0);
+		str[0] = x1toa(bytes>>28);
+		str[1] = x1toa(bytes>>24);
+		str[2] = x1toa(bytes>>16);
+		str[3] = x1toa(bytes>>12);
+		str[4] = x1toa(bytes>>8);
+		str[5] = x1toa(bytes>>4);
+		str[6] = x1toa(bytes);
+		str[7] = 0;
+		printstr(str, 12, 0x18, 0);
+		chartou32("Addr:", str);
+		printstr(str, 0, 0x20, 0);
+		str[0] = x1toa(seekaddr>>28);
+		str[1] = x1toa(seekaddr>>24);
+		str[2] = x1toa(seekaddr>>16);
+		str[3] = x1toa(seekaddr>>12);
+		str[4] = x1toa(seekaddr>>8);
+		str[5] = x1toa(seekaddr>>4);
+		str[6] = x1toa(seekaddr);
+		str[7] = 0;
+		printstr(str, 12, 0x20, 0);
+		status = eris_low_scsi_status();
+		chartou32("Transfer buffer:", str);
+		printstr(str, 0, 0x30, 0);
+		printhex(scsimem+0x800-32, 0, 0x38, 200, 0, 0);
+		str[0] = '<';
+		str[1] = (i & 7) == 0 ? '*' : '-';
+		str[2] = (i & 7) == 1 ? '*' : '-';
+		str[3] = (i & 7) == 2 ? '*' : '-';
+		str[4] = (i & 7) == 3 ? '*' : '-';
+		str[5] = (i & 7) == 4 ? '*' : '-';
+		str[6] = (i & 7) == 5 ? '*' : '-';
+		str[7] = (i & 7) == 6 ? '*' : '-';
+		str[8] = (i & 7) == 7 ? '*' : '-';
+		str[9] = '>';
+		str[10] = 0;
+		i++;
+		printstr(str, 10, 0x10, 0);
 	}
 
 	return 0;
@@ -107,6 +169,33 @@ char x1toa(int val)
 		return (val - 0xA) + 'A';
 	else
 		return val + '0';
+}
+
+void printhex(void* data, int x, int y, int bytes, int addr, int tall)
+{
+	u32 ostr[256];
+	char tmpstr[256];
+	int tmpptr = 0;
+	int i, l;
+	for(i = 0; i < bytes; i += 8) {
+		tmpptr = 0;
+		if(addr) {
+			tmpstr[tmpptr++] = x1toa(i >> 12);
+			tmpstr[tmpptr++] = x1toa(i >> 8);
+			tmpstr[tmpptr++] = x1toa(i >> 4);
+			tmpstr[tmpptr++] = x1toa(i);
+			tmpstr[tmpptr++] = ' ';
+			tmpstr[tmpptr++] = ' ';
+		}
+		for(l = 0; (l < 8) && ((l + i) < bytes); l++) {
+			tmpstr[tmpptr++] = x1toa(((char*)data)[i + l] >> 4);
+			tmpstr[tmpptr++] = x1toa(((char*)data)[i + l]);
+			tmpstr[tmpptr++] = ' ';
+		}
+		tmpstr[tmpptr] = 0;
+		chartou32(tmpstr, ostr);
+		printstr(ostr, x, y + i, tall);
+	}
 }
 
 void chartou32(char* str, u32* o)

@@ -21,10 +21,10 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
 typedef enum {
 	ROMFONT_KANJI_16x16 = 0, /*!< 16x16 kanji font */
 	ROMFONT_KANJI_12x12 = 1, /*!< 12x12 kanji font */
-	ROMFONT_ANK_8x16 = 2, /*!< 8x16 alpha/numeric/kana font */
-	ROMFONT_ANK_6x12 = 3, /*!< 6x12 alpha/numeric/kana font */
-	ROMFONT_ANK_8x8 = 4, /*!< 8x8 alpha/numeric/kana font */
-	ROMFONT_ANK_8x12 = 5, /*!< 8x12 alpha/numeric/kana font */
+	ROMFONT_ANK_8x16    = 2, /*!< 8x16 alpha/numeric/kana font */
+	ROMFONT_ANK_6x12    = 3, /*!< 6x12 alpha/numeric/kana font */
+	ROMFONT_ANK_8x8     = 4, /*!< 8x8 alpha/numeric/kana font */
+	ROMFONT_ANK_8x12    = 5, /*!< 8x12 alpha/numeric/kana font */
 } romfont_type;
 
 /*! \brief Get font data.

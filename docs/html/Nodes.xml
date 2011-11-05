@@ -54,6 +54,10 @@
           <Path>pad_8h.html</Path>
          </Node>
          <Node>
+          <Name>include/eris/low/scsi.h</Name>
+          <Path>scsi_8h.html</Path>
+         </Node>
+         <Node>
           <Name>include/eris/low/soundbox.h</Name>
           <Path>soundbox_8h.html</Path>
          </Node>

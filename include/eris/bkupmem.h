@@ -31,7 +31,7 @@ void eris_bkupmem_set_access(int internal, int external);
  * \param len Bytes to read.
  * \sa eris_bkupmem_write()
  */
-void eris_bkupmem_read(int ext, u8* buf, u32 addr, u32 len);
+void eris_bkupmem_read(int ext, u8 *buf, u32 addr, u32 len);
 /*! \brief Write backup memory.
  *
  * \param ext If 1, write to external memory. 0 is internal memory.
@@ -40,7 +40,7 @@ void eris_bkupmem_read(int ext, u8* buf, u32 addr, u32 len);
  * \param len Bytes to write.
  * \sa eris_bkupmem_read()
  */
-void eris_bkupmem_write(int ext, u8* buf, u32 addr, u32 len);
+void eris_bkupmem_write(int ext, u8 *buf, u32 addr, u32 len);
 
 #endif
 

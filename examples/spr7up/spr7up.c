@@ -25,8 +25,8 @@ int main(int argc, char *argv[])
 	u32 str[256];
 	u16 microprog[16];
 
-	eris_low_7up_init(0);
-	eris_low_7up_init(1);
+	eris_low_sup_init(0);
+	eris_low_sup_init(1);
 	eris_king_init();
 	eris_tetsu_init();
 	
@@ -62,10 +62,10 @@ int main(int argc, char *argv[])
 	eris_king_set_bat_cg_addr(KING_BG0SUB, 0, 0);
 	eris_king_set_scroll(KING_BG0, 0, 0);
 	eris_king_set_bg_size(KING_BG0, KING_BGSIZE_256, KING_BGSIZE_256, KING_BGSIZE_256, KING_BGSIZE_256);
-	eris_low_7up_set_control(0, 0, 0, 1);
-	eris_low_7up_set_access_width(0, 0, ERIS_LOW_7UP_MAP_32X32, 0, 0);
-	eris_low_7up_set_scroll(0, 0, 0);
-	eris_low_7up_set_video_mode(0, 2, 2, 4, 0x1F, 0x11, 2, 239, 2);
+	eris_low_sup_set_control(0, 0, 0, 1);
+	eris_low_sup_set_access_width(0, 0, SUP_LOW_MAP_32X32, 0, 0);
+	eris_low_sup_set_scroll(0, 0, 0);
+	eris_low_sup_set_video_mode(0, 2, 2, 4, 0x1F, 0x11, 2, 239, 2);
 
 	eris_king_set_kram_read(0, 1);
 	eris_king_set_kram_write(0, 1);
@@ -73,22 +73,22 @@ int main(int argc, char *argv[])
 	for(i = 0; i < 0x1E00; i++) {
 		eris_king_kram_write(0);
 	}
-	eris_low_7up_set_vram_write(0, 0);
-	eris_low_7up_vram_write(0, 0x0040);
-	eris_low_7up_vram_write(0, 0x0040);
-	eris_low_7up_vram_write(0, 0x0008);
-	eris_low_7up_vram_write(0, 0x0080);
+	eris_low_sup_set_vram_write(0, 0);
+	eris_low_sup_vram_write(0, 0x0040);
+	eris_low_sup_vram_write(0, 0x0040);
+	eris_low_sup_vram_write(0, 0x0008);
+	eris_low_sup_vram_write(0, 0x0080);
 	for(i = 4; i < 0x100; i += 4) {
-		eris_low_7up_vram_write(0, 0x03FF);
-		eris_low_7up_vram_write(0, 0x03FF);
-		eris_low_7up_vram_write(0, 0x0000);
-		eris_low_7up_vram_write(0, 0x0000);
+		eris_low_sup_vram_write(0, 0x03FF);
+		eris_low_sup_vram_write(0, 0x03FF);
+		eris_low_sup_vram_write(0, 0x0000);
+		eris_low_sup_vram_write(0, 0x0000);
 	}
 	for(i = 0; i < 8*4; i++) {
-		eris_low_7up_vram_write(0, i ^ (i << 3) ^ (i << 6) ^ (i << 9) ^ (i << 12) ^ (i >> 3) ^ 0xAAAA); /* Yay pseudo rando noise */
+		eris_low_sup_vram_write(0, i ^ (i << 3) ^ (i << 6) ^ (i << 9) ^ (i << 12) ^ (i >> 3) ^ 0xAAAA); /* Yay pseudo rando noise */
 	}
-	eris_low_7up_setup_dma(0, 1, 0, 0, 0, 0);
-	eris_low_7up_set_satb_address(0, 0);
+	eris_low_sup_setup_dma(0, 1, 0, 0, 0, 0);
+	eris_low_sup_set_satb_address(0, 0);
 	eris_king_set_kram_write(0, 1);
 	chartou32("7up sprite example", str);
 	printstr(str, 7, 0x10, 1);
@@ -96,9 +96,9 @@ int main(int argc, char *argv[])
 	x = y = 0x40;
 	xl = yl = 1;
 	for(;;) {
-		eris_low_7up_set_vram_write(0, 0);
-		eris_low_7up_vram_write(0, y);
-		eris_low_7up_vram_write(0, x);
+		eris_low_sup_set_vram_write(0, 0);
+		eris_low_sup_vram_write(0, y);
+		eris_low_sup_vram_write(0, x);
 		if(yl)
 			y++;
 		else

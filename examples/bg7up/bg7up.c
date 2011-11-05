@@ -25,8 +25,8 @@ int main(int argc, char *argv[])
 	u32 str[256];
 	u16 microprog[16];
 
-	eris_low_7up_init(0);
-	eris_low_7up_init(1);
+	eris_low_sup_init(0);
+	eris_low_sup_init(1);
 	eris_king_init();
 	eris_tetsu_init();
 	
@@ -62,10 +62,10 @@ int main(int argc, char *argv[])
 	eris_king_set_bat_cg_addr(KING_BG0SUB, 0, 0);
 	eris_king_set_scroll(KING_BG0, 0, 0);
 	eris_king_set_bg_size(KING_BG0, KING_BGSIZE_256, KING_BGSIZE_256, KING_BGSIZE_256, KING_BGSIZE_256);
-	eris_low_7up_set_control(0, 0, 1, 0);
-	eris_low_7up_set_access_width(0, 0, ERIS_LOW_7UP_MAP_32X32, 0, 0);
-	eris_low_7up_set_scroll(0, 0, 0);
-	eris_low_7up_set_video_mode(0, 2, 2, 4, 0x1F, 0x11, 2, 239, 2);
+	eris_low_sup_set_control(0, 0, 1, 0);
+	eris_low_sup_set_access_width(0, 0, SUP_LOW_MAP_32X32, 0, 0);
+	eris_low_sup_set_scroll(0, 0, 0);
+	eris_low_sup_set_video_mode(0, 2, 2, 4, 0x1F, 0x11, 2, 239, 2);
 
 	eris_king_set_kram_read(0, 1);
 	eris_king_set_kram_write(0, 1);
@@ -73,12 +73,12 @@ int main(int argc, char *argv[])
 	for(i = 0; i < 0x1E00; i++) {
 		eris_king_kram_write(0);
 	}
-	eris_low_7up_set_vram_write(0, 0);
+	eris_low_sup_set_vram_write(0, 0);
 	for(i = 0; i < 0x800; i++) {
-		eris_low_7up_vram_write(0, 0x80); /* All tiles are at tile 0x80 */
+		eris_low_sup_vram_write(0, 0x80); /* All tiles are at tile 0x80 */
 	}
 	for(i = 0; i < 8*4; i++) {
-		eris_low_7up_vram_write(0, ((i | (i << 3) | (i >> 3)) ^ 0xAA) & 0x77); /* Yay pseudo rando noise */
+		eris_low_sup_vram_write(0, ((i | (i << 3) | (i >> 3)) ^ 0xAA) & 0x77); /* Yay pseudo rando noise */
 	}
 	eris_king_set_kram_write(0, 1);
 	chartou32("7up BG example", str);

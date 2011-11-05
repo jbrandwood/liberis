@@ -192,66 +192,6 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>eris_king_scsi_status</Name>
-      <APILanguage>c</APILanguage>
-      <Type>func</Type>
-    </TokenIdentifier>
-    <Path>king_8h.html</Path>
-    <Anchor>ac8e17c1dfd500e0173f09790e71eb97a</Anchor>
-    <Abstract>Get SCSI status.</Abstract>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>eris_king_scsi_reset</Name>
-      <APILanguage>c</APILanguage>
-      <Type>func</Type>
-    </TokenIdentifier>
-    <Path>king_8h.html</Path>
-    <Anchor>a8352c305dea888eaad9659443478d1f3</Anchor>
-    <Abstract>Reset the SCSI drive.</Abstract>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>eris_king_scsi_data_in</Name>
-      <APILanguage>c</APILanguage>
-      <Type>func</Type>
-    </TokenIdentifier>
-    <Path>king_8h.html</Path>
-    <Anchor>a22818b98687b449702c6e48343f96750</Anchor>
-    <Abstract>Read data from the SCSI drive.</Abstract>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>eris_king_scsi_data_out</Name>
-      <APILanguage>c</APILanguage>
-      <Type>func</Type>
-    </TokenIdentifier>
-    <Path>king_8h.html</Path>
-    <Anchor>a4b54a8d8b4b2bc4a37f3452f133d5c77</Anchor>
-    <Abstract>Write data to the SCSI drive.</Abstract>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>eris_king_scsi_abort</Name>
-      <APILanguage>c</APILanguage>
-      <Type>func</Type>
-    </TokenIdentifier>
-    <Path>king_8h.html</Path>
-    <Anchor>aeca0d54e19094023dcba60f5605ed988</Anchor>
-    <Abstract>Abort the current SCSI operation.</Abstract>
-  </Token>
-  <Token>
-    <TokenIdentifier>
-      <Name>eris_king_scsi_command</Name>
-      <APILanguage>c</APILanguage>
-      <Type>func</Type>
-    </TokenIdentifier>
-    <Path>king_8h.html</Path>
-    <Anchor>ac6f84388ad4c706438f4c39c1a15cd21</Anchor>
-    <Abstract>Send a command to the SCSI drive.</Abstract>
-  </Token>
-  <Token>
-    <TokenIdentifier>
       <Name>KING_BG0</Name>
       <APILanguage>c</APILanguage>
       <Type>econst</Type>
@@ -1368,197 +1308,197 @@
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>eris_low_7up_init</Name>
+      <Name>eris_low_sup_init</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>a76583c50fd0882f82b135d6db48f05c6</Anchor>
+    <Anchor>af39a4c6ff90ec4108583bc968b276c55</Anchor>
     <Abstract>Initialize a 7up.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>eris_low_7up_set_video_mode</Name>
+      <Name>eris_low_sup_set_video_mode</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>aa6b87665c017830cdebaf72e3f8af239</Anchor>
+    <Anchor>ad8548f081c079e21dedf3128f6809a11</Anchor>
     <Abstract>Setup a 7up&amp;#39;s video mode.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>eris_low_7up_set_vram_write</Name>
+      <Name>eris_low_sup_set_vram_write</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>a72ab5becfd89ad0c3ff50c4b9e09c077</Anchor>
+    <Anchor>a4b0ec9778f85a6869c5a4ecba257cfe4</Anchor>
     <Abstract>Set the VRAM write address for a 7up chip.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>eris_low_7up_vram_write</Name>
+      <Name>eris_low_sup_vram_write</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>af0e1412692695f255478e8f19d90ebd2</Anchor>
+    <Anchor>acf422265aac4a8c5a5ece0485b3b2167</Anchor>
     <Abstract>Write to VRAM on a 7up chip.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>eris_low_7up_set_vram_read</Name>
+      <Name>eris_low_sup_set_vram_read</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>a7fb809dcd73584b6500f66805b800128</Anchor>
+    <Anchor>a6c366aef23dcaadd017aec9cdb9835a6</Anchor>
     <Abstract>Set the VRAM read address for a 7up chip.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>eris_low_7up_vram_read</Name>
+      <Name>eris_low_sup_vram_read</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>a0969c0d7a59ed19ad3514d30dd4a887d</Anchor>
+    <Anchor>ac5eeb6ac0d31af8c373272fe0cc84b6c</Anchor>
     <Abstract>Read from VRAM from a 7up chip.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>eris_low_7up_set_control</Name>
+      <Name>eris_low_sup_set_control</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>a20e07bf7d87f2679eaa106ef18ab9b90</Anchor>
+    <Anchor>abc0ece7451c139659b833a561f441a22</Anchor>
     <Abstract>Set controls for a 7up chip.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>eris_low_7up_set_interrupts</Name>
+      <Name>eris_low_sup_set_interrupts</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>afb5fd8b6e112fb7cdc92a231908a6a7d</Anchor>
+    <Anchor>a6d1ba9a0fe060cd84ef63a116cc104d5</Anchor>
     <Abstract>Set interrupt information for a 7up chip.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>eris_low_7up_set_interrupt_raster</Name>
+      <Name>eris_low_sup_set_interrupt_raster</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>a0f2076c4ee7626b5c0bc79c51e620241</Anchor>
+    <Anchor>a998d7cd7bea78b98424fc1756780fc42</Anchor>
     <Abstract>Set the raster to generate an IRQ from.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>eris_low_7up_set_scroll</Name>
+      <Name>eris_low_sup_set_scroll</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>a9eef7b6af3383d9cba0682d4bf4bfbec</Anchor>
+    <Anchor>a3bd8368efe552ddfdfe901f3ab14e179</Anchor>
     <Abstract>Scroll a 7up background.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>eris_low_7up_do_dma</Name>
+      <Name>eris_low_sup_do_dma</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>ab332d9a0d07cf4f51cc54c3715df86e7</Anchor>
+    <Anchor>a5f021c2b2f024b0a7af033dac30b691b</Anchor>
     <Abstract>Perform a 7up DMA.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>eris_low_7up_setup_dma</Name>
+      <Name>eris_low_sup_setup_dma</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>a010e137a4b3cf483ddaadfabf3c7bca8</Anchor>
+    <Anchor>a82997c393525c940b89b46ed67c18c42</Anchor>
     <Abstract>Setup the DMA on a 7up.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>eris_low_7up_set_satb_address</Name>
+      <Name>eris_low_sup_set_satb_address</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>abd57c83be21a665c3b877d4c61f36647</Anchor>
+    <Anchor>a7e7a6e8c8873e5c155a772e9f34ac09d</Anchor>
     <Abstract>Sets the Sprite Attribute Table Block address.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>eris_low_7up_set_access_width</Name>
+      <Name>eris_low_sup_set_access_width</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>ae789826c10da6b77facbff5ad85f5417</Anchor>
+    <Anchor>a01de496ec49e3ff069691852d129e63f</Anchor>
     <Abstract>Set access width information.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>ERIS_LOW_7UP_MAP_32X32</Name>
+      <Name>SUP_LOW_MAP_32X32</Name>
       <APILanguage>c</APILanguage>
       <Type>econst</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>a8a7fff6454eb4c790111fa6dd2d3f438ac28a94dfb00d493eaafba74d81671a94</Anchor>
+    <Anchor>ad460691cf7afb5dcadff0912c45c20aba75a9f424467e2f9069c3f14b1f5585df</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>ERIS_LOW_7UP_MAP_64X32</Name>
+      <Name>SUP_LOW_MAP_64X32</Name>
       <APILanguage>c</APILanguage>
       <Type>econst</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>a8a7fff6454eb4c790111fa6dd2d3f438aac2d5f38aad645c9ab82b974b6881bf3</Anchor>
+    <Anchor>ad460691cf7afb5dcadff0912c45c20ababc66ca37cbd3187035e08741fc57ee24</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>ERIS_LOW_7UP_MAP_128X32</Name>
+      <Name>SUP_LOW_MAP_128X32</Name>
       <APILanguage>c</APILanguage>
       <Type>econst</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>a8a7fff6454eb4c790111fa6dd2d3f438a29a95a9b38b642b4d03218829d48a5a7</Anchor>
+    <Anchor>ad460691cf7afb5dcadff0912c45c20aba059c9e2b9cd8b47e63c3acd63219e6dc</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>ERIS_LOW_7UP_MAP_32X64</Name>
+      <Name>SUP_LOW_MAP_32X64</Name>
       <APILanguage>c</APILanguage>
       <Type>econst</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>a8a7fff6454eb4c790111fa6dd2d3f438aca3e91cda2d5298be46d256c159acbf7</Anchor>
+    <Anchor>ad460691cf7afb5dcadff0912c45c20abaa2c74e6f188bf02104f7ecd300268f37</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>ERIS_LOW_7UP_MAP_64X64</Name>
+      <Name>SUP_LOW_MAP_64X64</Name>
       <APILanguage>c</APILanguage>
       <Type>econst</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>a8a7fff6454eb4c790111fa6dd2d3f438a04489855b63a1984442a0062f5bc289b</Anchor>
+    <Anchor>ad460691cf7afb5dcadff0912c45c20aba1d2865d761d33a0adf701f59d2a77e39</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
-      <Name>ERIS_LOW_7UP_MAP_128X64</Name>
+      <Name>SUP_LOW_MAP_128X64</Name>
       <APILanguage>c</APILanguage>
       <Type>econst</Type>
     </TokenIdentifier>
     <Path>7up_8h.html</Path>
-    <Anchor>a8a7fff6454eb4c790111fa6dd2d3f438afcfe38338e527a0528095f952789ed65</Anchor>
+    <Anchor>ad460691cf7afb5dcadff0912c45c20aba9ca6198b96d17e438d6123d6a45a9127</Anchor>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1619,6 +1559,76 @@
     <Path>pad_8h.html</Path>
     <Anchor>a1b9a62792904d868cc426b2a60c36b6a</Anchor>
     <Abstract>Write pad data.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_low_scsi_get_phase</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>scsi_8h.html</Path>
+    <Anchor>a85119b3ea1bf1acf30eada64c269f4d6</Anchor>
+    <Abstract>Get SCSI phase.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_low_scsi_status</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>scsi_8h.html</Path>
+    <Anchor>a489e86ac962c500f24cc42fb03c44194</Anchor>
+    <Abstract>Get SCSI status.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_low_scsi_reset</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>scsi_8h.html</Path>
+    <Anchor>ab8b519d0dc9d6faed63609d7f1f6c611</Anchor>
+    <Abstract>Reset the SCSI drive.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_low_scsi_data_in</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>scsi_8h.html</Path>
+    <Anchor>ae686918cef3d90cad367d7c96f4912d3</Anchor>
+    <Abstract>Read data from the SCSI drive.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_low_scsi_data_out</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>scsi_8h.html</Path>
+    <Anchor>a07f4214f7e6fc72b716a579ff5fed6bc</Anchor>
+    <Abstract>Write data to the SCSI drive.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_low_scsi_abort</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>scsi_8h.html</Path>
+    <Anchor>a3ff384425ae87c294ca64f1beaaeb51a</Anchor>
+    <Abstract>Abort the current SCSI operation.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_low_scsi_command</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>scsi_8h.html</Path>
+    <Anchor>a5ccf761f58c12c597dc623e79dc4087d</Anchor>
+    <Abstract>Send a command to the SCSI drive.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
@@ -1942,13 +1952,23 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>eris_tetsu_is_displaying</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>tetsu_8h.html</Path>
+    <Anchor>a767b694ee29d1538d8fbd4bf6c0542fb</Anchor>
+    <Abstract>Checks if we are currently displaying (not in H or V blank)</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>eris_tetsu_set_cellophane_color</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
     <Path>tetsu_8h.html</Path>
     <Anchor>a7d5331b018d29a22b40fefc60000855d</Anchor>
-    <Abstract>Checks if we are currently displaying (not in H or V blank)</Abstract>
+    <Abstract>Sets the constant color for the cellophane.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>
