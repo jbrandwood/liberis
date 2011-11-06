@@ -22,6 +22,8 @@ void chartou32(char* str, u32* o);
 void printhex(void* data, int x, int y, int bytes, int addr, int tall);
 char x1toa(int val);
 
+u32 test_data_in(u8 *buf, u32 maxlen);
+
 #define CLEAN_SCSICDB(cmd, len) { \
 	scsicdb[0] = cmd; \
 	for(i = 1; i < 32; i++) { \
@@ -35,7 +37,7 @@ int main(int argc, char *argv[])
 	u32 str[256];
 	u16 microprog[16];
 	int status;
-	u32 paddata;
+	u32 paddata, lastpad;
 	u8 scsimem[4096];
 	u8 scsicdb[32];
 	u32 seekaddr = 0;
@@ -89,25 +91,16 @@ int main(int argc, char *argv[])
 	printstr(str, 10, 0, 1);
 	for(;;) {
 		if(eris_low_pad_data_ready(0)) {
+			lastpad = paddata;
 			paddata = eris_low_pad_read_data(0);
-			if(paddata & (1 << 6)) { // Select
+			if(paddata & (1 << 6) && !(lastpad & (1 << 6))) { // Select
 				eris_low_scsi_abort();
 			}
-			if(paddata & (1 << 7)) { // Run
+			if(paddata & (1 << 7) && !(lastpad & (1 << 7))) { // Run
 				eris_low_scsi_reset();
 			}
-			if(paddata & (1 << 0)) { // (I) Send Seek/Read
-				eris_low_scsi_reset();
-				for(l = 0; l < 8000; l++)
-					asm volatile("mov r0, r0\n");
-/*				CLEAN_SCSICDB(SCSI_LOW_CMD_SEEK10, 10)
-				scsicdb[2] = (seekaddr >> 24) & 0xFF;
-				scsicdb[3] = (seekaddr >> 16) & 0xFF;
-				scsicdb[4] = (seekaddr >>  8) & 0xFF;
-				scsicdb[5] = (seekaddr >>  0) & 0xFF;
-				eris_low_scsi_command(scsicdb, 10);*/
+			if(paddata & (1 << 0) && !(lastpad & (1 << 0))) { // (I) Send Seek/Read
 				CLEAN_SCSICDB(SCSI_LOW_CMD_READ10, 10)
-				scsicdb[1] = 0x8;
 				scsicdb[2] = (seekaddr >> 24) & 0xFF;
 				scsicdb[3] = (seekaddr >> 16) & 0xFF;
 				scsicdb[4] = (seekaddr >>  8) & 0xFF;
@@ -115,7 +108,12 @@ int main(int argc, char *argv[])
 				scsicdb[8] = 1;
 				seekaddr += 1;
 				eris_low_scsi_command(scsicdb, 10);
+				for(l = 0; l < 2048; l++)
+					asm volatile("mov r0, r0\n");
 				bytes = eris_low_scsi_data_in(scsimem, 2048);
+				for(l = 0; l < 2048; l++)
+					asm volatile("mov r0, r0\n");
+				status = eris_low_scsi_status();
 			}
 		}
 		chartou32("Read bytes:", str);
@@ -140,10 +138,9 @@ int main(int argc, char *argv[])
 		str[6] = x1toa(seekaddr);
 		str[7] = 0;
 		printstr(str, 12, 0x20, 0);
-		status = eris_low_scsi_status();
 		chartou32("Transfer buffer:", str);
 		printstr(str, 0, 0x30, 0);
-		printhex(scsimem+0x800-32, 0, 0x38, 200, 0, 0);
+		printhex(scsimem, 0, 0x38, 200, 0, 0);
 		str[0] = '<';
 		str[1] = (i & 7) == 0 ? '*' : '-';
 		str[2] = (i & 7) == 1 ? '*' : '-';
@@ -233,4 +230,3 @@ void printch(u32 sjis, u32 kram, int tall)
 		eris_king_kram_write(px);
 	}
 }
-

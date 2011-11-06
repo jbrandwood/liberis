@@ -6,7 +6,7 @@ AS             = $(PREFIX)as
 AR             = $(PREFIX)ar
 LD             = $(PREFIX)ld
 OBJCOPY        = $(PREFIX)objcopy
-CFLAGS         = -I$(V810DEV)/include/ -mspace -mv810 -O2 -Wall
+CFLAGS         = -I$(V810DEV)/include/ -mspace -mv810 -O0 -Wall
 LDFLAGS        = -L$(V810DEV)/lib/ $(V810DEV)/lib/crt0.o -leris -lgcc
 
 .PHONY: all clean install

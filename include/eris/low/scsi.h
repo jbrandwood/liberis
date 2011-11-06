@@ -16,14 +16,32 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
 
 #include <eris/types.h>
 
-typedef enum {
-	SCSI_LOW_SEL   = 0x02,
-	SCSI_LOW_IO    = 0x04,
-	SCSI_LOW_CD    = 0x08,
-	SCSI_LOW_MSG   = 0x10,
-	SCSI_LOW_REQ   = 0x20,
-	SCSI_LOW_BUSY  = 0x40,
-	SCSI_LOW_RESET = 0x80
+typedef enum
+{
+	SCSI_LOW_PHASE_BUS_FREE    = 0,
+	SCSI_LOW_PHASE_SELECT      = 1,
+	SCSI_LOW_PHASE_DATA_OUT    = 2,
+	SCSI_LOW_PHASE_DATA_IN     = 3,
+	SCSI_LOW_PHASE_COMMAND     = 4,
+	SCSI_LOW_PHASE_STATUS      = 5,
+	SCSI_LOW_PHASE_MESSAGE_OUT = 6,
+	SCSI_LOW_PHASE_MESSAGE_IN  = 7,
+	SCSI_LOW_PHASE_ILLEGAL     = 8
+} scsi_low_phase;
+typedef enum
+{
+	// Our special statuses, indicating that the command is still in-progress.
+	SCSI_LOW_STATUS_MISC            = -5,
+	SCSI_LOW_STATUS_NEED_MESSAGE    = -4,
+	SCSI_LOW_STATUS_NEED_DATA       = -3,
+	SCSI_LOW_STATUS_HAVE_DATA       = -2,
+	SCSI_LOW_STATUS_IN_PROGRESS     = -1,
+
+	SCSI_LOW_STATUS_GOOD            = 0x0,
+	SCSI_LOW_STATUS_CHECK_CONDITION = 0x2,
+	SCSI_LOW_STATUS_CONDITION_MET   = 0x4,
+	SCSI_LOW_STATUS_BUSY            = 0x6,
+	SCSI_LOW_STATUS_INTERMEDIATE    = 0x10
 } scsi_low_status;
 typedef enum {
 	SCSI_LOW_CMD_TEST_UNIT_READY  = 0x00,
@@ -36,12 +54,11 @@ typedef enum {
 	SCSI_LOW_CMD_READ_HEADER      = 0x44,
 	SCSI_LOW_CMD_PLAY_AUDIO_INDEX = 0x48,
 	SCSI_LOW_CMD_PAUSE            = 0x4B,
-	SCSI_LOW_CMD_READ12           = 0xA8,
 } scsi_low_cmd;
 /*! \brief Get SCSI phase.
  * \return Returns the current phase of the SCSI drive.
  */
-int eris_low_scsi_get_phase(void);
+scsi_low_phase eris_low_scsi_get_phase(void);
 /*! \brief Get SCSI status.
  *
  * \return Returns the current state of the SCSI drive.

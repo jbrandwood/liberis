@@ -11,15 +11,33 @@ Low-\/level control of the KING processor's SCSI controller.
 \subsection*{Enumerations}
 \begin{DoxyCompactItemize}
 \item 
-enum {\bfseries scsi\_\-low\_\-status} \{ \par
-{\bfseries SCSI\_\-LOW\_\-SEL} =  0x02, 
-{\bfseries SCSI\_\-LOW\_\-IO} =  0x04, 
-{\bfseries SCSI\_\-LOW\_\-CD} =  0x08, 
-{\bfseries SCSI\_\-LOW\_\-MSG} =  0x10, 
+enum {\bfseries scsi\_\-low\_\-phase} \{ \par
+{\bfseries SCSI\_\-LOW\_\-PHASE\_\-BUS\_\-FREE} =  0, 
+{\bfseries SCSI\_\-LOW\_\-PHASE\_\-SELECT} =  1, 
+{\bfseries SCSI\_\-LOW\_\-PHASE\_\-DATA\_\-OUT} =  2, 
+{\bfseries SCSI\_\-LOW\_\-PHASE\_\-DATA\_\-IN} =  3, 
 \par
-{\bfseries SCSI\_\-LOW\_\-REQ} =  0x20, 
-{\bfseries SCSI\_\-LOW\_\-BUSY} =  0x40, 
-{\bfseries SCSI\_\-LOW\_\-RESET} =  0x80
+{\bfseries SCSI\_\-LOW\_\-PHASE\_\-COMMAND} =  4, 
+{\bfseries SCSI\_\-LOW\_\-PHASE\_\-STATUS} =  5, 
+{\bfseries SCSI\_\-LOW\_\-PHASE\_\-MESSAGE\_\-OUT} =  6, 
+{\bfseries SCSI\_\-LOW\_\-PHASE\_\-MESSAGE\_\-IN} =  7, 
+\par
+{\bfseries SCSI\_\-LOW\_\-PHASE\_\-ILLEGAL} =  8
+ \}
+\item 
+enum {\bfseries scsi\_\-low\_\-status} \{ \par
+{\bfseries SCSI\_\-LOW\_\-STATUS\_\-MISC} =  -\/5, 
+{\bfseries SCSI\_\-LOW\_\-STATUS\_\-NEED\_\-MESSAGE} =  -\/4, 
+{\bfseries SCSI\_\-LOW\_\-STATUS\_\-NEED\_\-DATA} =  -\/3, 
+{\bfseries SCSI\_\-LOW\_\-STATUS\_\-HAVE\_\-DATA} =  -\/2, 
+\par
+{\bfseries SCSI\_\-LOW\_\-STATUS\_\-IN\_\-PROGRESS} =  -\/1, 
+{\bfseries SCSI\_\-LOW\_\-STATUS\_\-GOOD} =  0x0, 
+{\bfseries SCSI\_\-LOW\_\-STATUS\_\-CHECK\_\-CONDITION} =  0x2, 
+{\bfseries SCSI\_\-LOW\_\-STATUS\_\-CONDITION\_\-MET} =  0x4, 
+\par
+{\bfseries SCSI\_\-LOW\_\-STATUS\_\-BUSY} =  0x6, 
+{\bfseries SCSI\_\-LOW\_\-STATUS\_\-INTERMEDIATE} =  0x10
  \}
 \item 
 enum {\bfseries scsi\_\-low\_\-cmd} \{ \par
@@ -34,14 +52,13 @@ enum {\bfseries scsi\_\-low\_\-cmd} \{ \par
 {\bfseries SCSI\_\-LOW\_\-CMD\_\-READ\_\-HEADER} =  0x44, 
 \par
 {\bfseries SCSI\_\-LOW\_\-CMD\_\-PLAY\_\-AUDIO\_\-INDEX} =  0x48, 
-{\bfseries SCSI\_\-LOW\_\-CMD\_\-PAUSE} =  0x4B, 
-{\bfseries SCSI\_\-LOW\_\-CMD\_\-READ12} =  0xA8
+{\bfseries SCSI\_\-LOW\_\-CMD\_\-PAUSE} =  0x4B
  \}
 \end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-int \hyperlink{scsi_8h_a85119b3ea1bf1acf30eada64c269f4d6}{eris\_\-low\_\-scsi\_\-get\_\-phase} (void)
+scsi\_\-low\_\-phase \hyperlink{scsi_8h_a071c2566873818092254b844276e4900}{eris\_\-low\_\-scsi\_\-get\_\-phase} (void)
 \begin{DoxyCompactList}\small\item\em Get SCSI phase. \end{DoxyCompactList}\item 
 scsi\_\-low\_\-status \hyperlink{scsi_8h_a489e86ac962c500f24cc42fb03c44194}{eris\_\-low\_\-scsi\_\-status} (void)
 \begin{DoxyCompactList}\small\item\em Get SCSI status. \end{DoxyCompactList}\item 
@@ -133,15 +150,15 @@ Write data to the SCSI drive.
 {\em len} & Length of the buffer. \\
 \hline
 \end{DoxyParams}
-\hypertarget{scsi_8h_a85119b3ea1bf1acf30eada64c269f4d6}{
+\hypertarget{scsi_8h_a071c2566873818092254b844276e4900}{
 \index{scsi.h@{scsi.h}!eris\_\-low\_\-scsi\_\-get\_\-phase@{eris\_\-low\_\-scsi\_\-get\_\-phase}}
 \index{eris\_\-low\_\-scsi\_\-get\_\-phase@{eris\_\-low\_\-scsi\_\-get\_\-phase}!scsi.h@{scsi.h}}
-\subsubsection[{eris\_\-low\_\-scsi\_\-get\_\-phase}]{\setlength{\rightskip}{0pt plus 5cm}int eris\_\-low\_\-scsi\_\-get\_\-phase (
+\subsubsection[{eris\_\-low\_\-scsi\_\-get\_\-phase}]{\setlength{\rightskip}{0pt plus 5cm}scsi\_\-low\_\-phase eris\_\-low\_\-scsi\_\-get\_\-phase (
 \begin{DoxyParamCaption}
 \item[{void}]{}
 \end{DoxyParamCaption}
 )}}
-\label{scsi_8h_a85119b3ea1bf1acf30eada64c269f4d6}
+\label{scsi_8h_a071c2566873818092254b844276e4900}
 
 
 Get SCSI phase. 

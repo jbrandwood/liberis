@@ -79,15 +79,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>scsi_low_status</b> { <br/>
-&#160;&#160;<b>SCSI_LOW_SEL</b> =  0x02, 
-<b>SCSI_LOW_IO</b> =  0x04, 
-<b>SCSI_LOW_CD</b> =  0x08, 
-<b>SCSI_LOW_MSG</b> =  0x10, 
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>scsi_low_phase</b> { <br/>
+&#160;&#160;<b>SCSI_LOW_PHASE_BUS_FREE</b> =  0, 
+<b>SCSI_LOW_PHASE_SELECT</b> =  1, 
+<b>SCSI_LOW_PHASE_DATA_OUT</b> =  2, 
+<b>SCSI_LOW_PHASE_DATA_IN</b> =  3, 
 <br/>
-&#160;&#160;<b>SCSI_LOW_REQ</b> =  0x20, 
-<b>SCSI_LOW_BUSY</b> =  0x40, 
-<b>SCSI_LOW_RESET</b> =  0x80
+&#160;&#160;<b>SCSI_LOW_PHASE_COMMAND</b> =  4, 
+<b>SCSI_LOW_PHASE_STATUS</b> =  5, 
+<b>SCSI_LOW_PHASE_MESSAGE_OUT</b> =  6, 
+<b>SCSI_LOW_PHASE_MESSAGE_IN</b> =  7, 
+<br/>
+&#160;&#160;<b>SCSI_LOW_PHASE_ILLEGAL</b> =  8
+<br/>
+ }</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>scsi_low_status</b> { <br/>
+&#160;&#160;<b>SCSI_LOW_STATUS_MISC</b> =  -5, 
+<b>SCSI_LOW_STATUS_NEED_MESSAGE</b> =  -4, 
+<b>SCSI_LOW_STATUS_NEED_DATA</b> =  -3, 
+<b>SCSI_LOW_STATUS_HAVE_DATA</b> =  -2, 
+<br/>
+&#160;&#160;<b>SCSI_LOW_STATUS_IN_PROGRESS</b> =  -1, 
+<b>SCSI_LOW_STATUS_GOOD</b> =  0x0, 
+<b>SCSI_LOW_STATUS_CHECK_CONDITION</b> =  0x2, 
+<b>SCSI_LOW_STATUS_CONDITION_MET</b> =  0x4, 
+<br/>
+&#160;&#160;<b>SCSI_LOW_STATUS_BUSY</b> =  0x6, 
+<b>SCSI_LOW_STATUS_INTERMEDIATE</b> =  0x10
 <br/>
  }</td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><b>scsi_low_cmd</b> { <br/>
@@ -102,14 +120,13 @@ Enumerations</h2></td></tr>
 <b>SCSI_LOW_CMD_READ_HEADER</b> =  0x44, 
 <br/>
 &#160;&#160;<b>SCSI_LOW_CMD_PLAY_AUDIO_INDEX</b> =  0x48, 
-<b>SCSI_LOW_CMD_PAUSE</b> =  0x4B, 
-<b>SCSI_LOW_CMD_READ12</b> =  0xA8
+<b>SCSI_LOW_CMD_PAUSE</b> =  0x4B
 <br/>
  }</td></tr>
 <tr><td colspan="2"><h2><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scsi_8h.html#a85119b3ea1bf1acf30eada64c269f4d6">eris_low_scsi_get_phase</a> (void)</td></tr>
-<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get SCSI phase.  <a href="#a85119b3ea1bf1acf30eada64c269f4d6"></a><br/></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">scsi_low_phase&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scsi_8h.html#a071c2566873818092254b844276e4900">eris_low_scsi_get_phase</a> (void)</td></tr>
+<tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get SCSI phase.  <a href="#a071c2566873818092254b844276e4900"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">scsi_low_status&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scsi_8h.html#a489e86ac962c500f24cc42fb03c44194">eris_low_scsi_status</a> (void)</td></tr>
 <tr><td class="mdescLeft">&#160;</td><td class="mdescRight">Get SCSI status.  <a href="#a489e86ac962c500f24cc42fb03c44194"></a><br/></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab8b519d0dc9d6faed63609d7f1f6c611"></a><!-- doxytag: member="scsi.h::eris_low_scsi_reset" ref="ab8b519d0dc9d6faed63609d7f1f6c611" args="(void)" -->
@@ -237,12 +254,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scsi
 
 </div>
 </div>
-<a class="anchor" id="a85119b3ea1bf1acf30eada64c269f4d6"></a><!-- doxytag: member="scsi.h::eris_low_scsi_get_phase" ref="a85119b3ea1bf1acf30eada64c269f4d6" args="(void)" -->
+<a class="anchor" id="a071c2566873818092254b844276e4900"></a><!-- doxytag: member="scsi.h::eris_low_scsi_get_phase" ref="a071c2566873818092254b844276e4900" args="(void)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int eris_low_scsi_get_phase </td>
+          <td class="memname">scsi_low_phase eris_low_scsi_get_phase </td>
           <td>(</td>
           <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
