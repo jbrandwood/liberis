@@ -1,4 +1,4 @@
-binary ./fxpad.bin
+binary ./out.bin
 name FX-PAD Example
 maker trap15
 makerid TFX

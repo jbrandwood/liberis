@@ -1612,6 +1612,36 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>eris_low_scsi_begin_dma</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>scsi_8h.html</Path>
+    <Anchor>a4be9a5d82aafe74aa8bbf4f1ee94835d</Anchor>
+    <Abstract>Begin a DMA from the SCSI drive.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_low_scsi_check_dma</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>scsi_8h.html</Path>
+    <Anchor>a17824589c0c37a17e58d7e9ad7fab749</Anchor>
+    <Abstract>Check if a DMA is in progress.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_low_scsi_finish_dma</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>scsi_8h.html</Path>
+    <Anchor>a6b4cba084abde50811082ec79c52f957</Anchor>
+    <Abstract>Finish a DMA from the SCSI drive.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>eris_low_scsi_abort</Name>
       <APILanguage>c</APILanguage>
       <Type>func</Type>

@@ -17,6 +17,8 @@ romfont        -- Activates the in-ROM font processing. Tested working.
 soundbox       -- SoundBox PSG support. Similar to the PSG in the PC-Engine.
                   PSG support is tested working. Other support is untested.
                   Only low-level API exists currently.
+scsi           -- Interface to the SCSI interface on KING. Tested working. Only
+                  low-level API exists currently.
 std            -- "Standard" function replicas, with modifications for
                   efficiency.
 tetsu          -- Controls NEW Tetsukannon, the video controller. Tested

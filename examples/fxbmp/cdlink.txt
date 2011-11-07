@@ -1,4 +1,4 @@
-binary ./fxbmp.bin
+binary ./out.bin
 name FX-BMP Example
 maker trap15
 makerid TFX

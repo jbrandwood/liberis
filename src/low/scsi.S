@@ -15,6 +15,9 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
 	.global _eris_low_scsi_reset
 	.global _eris_low_scsi_data_in
 	.global _eris_low_scsi_data_out
+	.global _eris_low_scsi_begin_dma
+	.global _eris_low_scsi_check_dma
+	.global _eris_low_scsi_finish_dma
 	.global _eris_low_scsi_abort
 	.global _eris_low_scsi_command
 	.global _eris_low_scsi_test_unit_ready
@@ -210,7 +213,7 @@ _eris_low_scsi_data_out:
 	be	3b
 
 2:	jal	_eris_low_scsi_get_phase
-	cmp	2, r10 # data in
+	cmp	2, r10 # data out
 	bne	1f
 	add	1, r6
 	add	-1, r7
@@ -219,6 +222,83 @@ _eris_low_scsi_data_out:
 1:
 	mov	r14, r10
 	mov	r15, lp
+	jmp	[lp]
+
+_eris_low_scsi_begin_dma:
+	mov	3, r10
+	mov	2, r12
+	mov	1, r11
+	out.h	r10, 0x600[r0]
+	add	6, r10
+	out.h	r11, 0x604[r0]
+
+	out.h	r10, 0x600[r0]
+	add	1, r10
+	out.w	r6, 0x604[r0]
+
+	out.h	r10, 0x600[r0]
+	add	-8, r10
+	out.w	r7, 0x604[r0]
+
+	out.h	r10, 0x600[r0]
+	add	9, r10
+	out.h	r12, 0x604[r0]
+
+	out.h	r10, 0x600[r0]
+	add	-4, r10
+	out.h	r11, 0x604[r0]
+
+	out.h	r10, 0x600[r0]
+	out.h	r11, 0x604[r0]
+
+	jmp	[lp]
+
+_eris_low_scsi_check_dma:
+	mov	11, r11
+	out.h	r11, 0x600[r0]
+	add	-1, r11
+	in.h	0x604[r0], r10
+	andi	1, r10, r10
+	bne	1f
+
+	out.h	r11, 0x600[r0]
+	in.w	0x604[r0], r10
+	cmp	0, r10
+	setf	nz, r10
+1:
+	jmp	[lp]
+
+_eris_low_scsi_finish_dma:
+	mov	2, r13
+	out.h	r13, 0x600[r0]
+	add	1, r13
+	out.h	r0, 0x604[r0]
+	out.h	r13, 0x600[r0]
+	add	-2, r13
+	out.h	r0, 0x604[r0]
+
+	mov	0xF, r14
+	add	1, r14
+	br	2f
+1:
+	out.h	r13, 0x600[r0]
+	out.h	r14, 0x604[r0]
+
+3:	in.h	0x602[r0], r11
+	andi	0x20, r11, r11
+	bne	3b
+
+	out.h	r13, 0x600[r0]
+	out.h	r0, 0x604[r0]
+
+3:	in.h	0x602[r0], r11
+	andi	0x20, r11, r11
+	be	3b
+
+2:	jal	_eris_low_scsi_get_phase
+	cmp	3, r10 # data in
+	be	1b
+
 	jmp	[lp]
 
 _eris_low_scsi_abort:

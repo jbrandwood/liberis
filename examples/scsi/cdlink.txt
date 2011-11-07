@@ -1,4 +1,4 @@
-binary ./scsi.bin
+binary ./out.bin
 name SCSI Test
 maker trap15
 makerid TFX

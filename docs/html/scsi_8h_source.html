@@ -125,12 +125,15 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00069"></a>00069 <span class="keywordtype">void</span> <a class="code" href="scsi_8h.html#ab8b519d0dc9d6faed63609d7f1f6c611" title="Reset the SCSI drive.">eris_low_scsi_reset</a>(<span class="keywordtype">void</span>);
 <a name="l00076"></a>00076 <a class="code" href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> <a class="code" href="scsi_8h.html#ae686918cef3d90cad367d7c96f4912d3" title="Read data from the SCSI drive.">eris_low_scsi_data_in</a>(<a class="code" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *buf, <a class="code" href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> maxlen);
 <a name="l00082"></a>00082 <a class="code" href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> <a class="code" href="scsi_8h.html#a07f4214f7e6fc72b716a579ff5fed6bc" title="Write data to the SCSI drive.">eris_low_scsi_data_out</a>(<a class="code" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *buf, <a class="code" href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> len);
-<a name="l00085"></a>00085 <span class="keywordtype">void</span> <a class="code" href="scsi_8h.html#a3ff384425ae87c294ca64f1beaaeb51a" title="Abort the current SCSI operation.">eris_low_scsi_abort</a>(<span class="keywordtype">void</span>);
-<a name="l00091"></a>00091 <span class="keywordtype">int</span> <a class="code" href="scsi_8h.html#a5ccf761f58c12c597dc623e79dc4087d" title="Send a command to the SCSI drive.">eris_low_scsi_command</a>(<a class="code" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *cdb, <a class="code" href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> len);
-<a name="l00092"></a>00092 <span class="comment">// Get Error?</span>
-<a name="l00093"></a>00093 
-<a name="l00094"></a>00094 <span class="preprocessor">#endif</span>
-<a name="l00095"></a>00095 <span class="preprocessor"></span>
+<a name="l00088"></a>00088 <span class="keywordtype">void</span> <a class="code" href="scsi_8h.html#a4be9a5d82aafe74aa8bbf4f1ee94835d" title="Begin a DMA from the SCSI drive.">eris_low_scsi_begin_dma</a>(<a class="code" href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> kram_addr, <a class="code" href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> size);
+<a name="l00093"></a>00093 <span class="keywordtype">int</span> <a class="code" href="scsi_8h.html#a17824589c0c37a17e58d7e9ad7fab749" title="Check if a DMA is in progress.">eris_low_scsi_check_dma</a>(<span class="keywordtype">void</span>);
+<a name="l00096"></a>00096 <span class="keywordtype">void</span> <a class="code" href="scsi_8h.html#a6b4cba084abde50811082ec79c52f957" title="Finish a DMA from the SCSI drive.">eris_low_scsi_finish_dma</a>(<span class="keywordtype">void</span>);
+<a name="l00099"></a>00099 <span class="keywordtype">void</span> <a class="code" href="scsi_8h.html#a3ff384425ae87c294ca64f1beaaeb51a" title="Abort the current SCSI operation.">eris_low_scsi_abort</a>(<span class="keywordtype">void</span>);
+<a name="l00105"></a>00105 <span class="keywordtype">int</span> <a class="code" href="scsi_8h.html#a5ccf761f58c12c597dc623e79dc4087d" title="Send a command to the SCSI drive.">eris_low_scsi_command</a>(<a class="code" href="types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca">u8</a> *cdb, <a class="code" href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> len);
+<a name="l00106"></a>00106 <span class="comment">// Get Error?</span>
+<a name="l00107"></a>00107 
+<a name="l00108"></a>00108 <span class="preprocessor">#endif</span>
+<a name="l00109"></a>00109 <span class="preprocessor"></span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->

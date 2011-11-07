@@ -16,6 +16,8 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 #include <eris/low/pad.h>
 #include <eris/low/scsi.h>
 
+#include "lbas.h"
+
 void printch(u32 sjis, u32 kram, int tall);
 void printstr(u32* str, int x, int y, int tall);
 void chartou32(char* str, u32* o);
@@ -31,6 +33,10 @@ u32 test_data_in(u8 *buf, u32 maxlen);
 	} \
 }
 
+const u16 pornpal[] = {
+0x79A7, 0x57A7, 0x35A7, 0x0088, 0xA687, 0xD987, 0x7387, 0x5187, 0x8C6A, 0xC16A, 0xDB79, 0x4F6B, 0xE779, 0xFF88, 0xA66B, 0x907C, 
+};
+
 int main(int argc, char *argv[])
 {
 	int i, l;
@@ -38,9 +44,8 @@ int main(int argc, char *argv[])
 	u16 microprog[16];
 	int status;
 	u32 paddata, lastpad;
-	u8 scsimem[4096];
 	u8 scsicdb[32];
-	u32 seekaddr = 0;
+	u32 seekaddr = BINARY_LBA_PORN_BIN;
 	u32 bytes = 0;
 
 	eris_king_init();
@@ -51,7 +56,7 @@ int main(int argc, char *argv[])
 	eris_tetsu_set_rainbow_palette(0);
 
 	eris_king_set_bg_prio(KING_BGPRIO_3, KING_BGPRIO_HIDE, KING_BGPRIO_HIDE, KING_BGPRIO_HIDE, 0);
-	eris_king_set_bg_mode(KING_BGMODE_4_PAL, 0, 0, 0);
+	eris_king_set_bg_mode(KING_BGMODE_16_PAL, 0, 0, 0);
 	eris_king_set_kram_pages(0, 0, 0, 0);
 
 	for(i = 0; i < 16; i++) {
@@ -59,14 +64,15 @@ int main(int argc, char *argv[])
 	}
 
 	microprog[0] = KING_CODE_BG0_CG_0;
+	microprog[1] = KING_CODE_BG0_CG_1;
 	eris_king_disable_microprogram();
 	eris_king_write_microprogram(microprog, 0, 16);
 	eris_king_enable_microprogram();
 
-	eris_tetsu_set_palette(0, 0x0088);
-	eris_tetsu_set_palette(1, 0xE088);
-	eris_tetsu_set_palette(2, 0xE0F0);
-	eris_tetsu_set_palette(3, 0x602C);
+	for(i = 0; i < 16; i++) {
+		eris_tetsu_set_palette(i, pornpal[i]);
+	}
+
 	eris_tetsu_set_video_mode(TETSU_LINES_262, 0, TETSU_DOTCLOCK_5MHz, TETSU_COLORS_16,
 				TETSU_COLORS_16, 0, 0, 1, 0, 0, 0, 0);
 	eris_king_set_bat_cg_addr(KING_BG0, 0, 0);
@@ -77,18 +83,14 @@ int main(int argc, char *argv[])
 	eris_king_set_kram_read(0, 1);
 	eris_king_set_kram_write(0, 1);
 	// Clear BG0's RAM
-	for(i = 0x0; i < 0x1E00; i++) {
+	for(i = 0x0; i < 0x7800; i++) {
 		eris_king_kram_write(0);
 	}
 	eris_king_set_kram_write(0, 1);
 	eris_low_pad_init(0);
 
-	for(i = 0; i < 4096; i++) {
-		scsimem[i] = 0;
-	}
-
-	chartou32("SCSI Test/Example", str);
-	printstr(str, 10, 0, 1);
+	chartou32("SCSI Porn", str);
+	printstr(str, 10, 0x8, 1);
 	for(;;) {
 		if(eris_low_pad_data_ready(0)) {
 			lastpad = paddata;
@@ -99,61 +101,29 @@ int main(int argc, char *argv[])
 			if(paddata & (1 << 7) && !(lastpad & (1 << 7))) { // Run
 				eris_low_scsi_reset();
 			}
-			if(paddata & (1 << 0) && !(lastpad & (1 << 0))) { // (I) Read to Buffer
+			if(paddata & (1 << 1) && !(lastpad & (1 << 0))) { // (I) DMA to KRAM
 				CLEAN_SCSICDB(SCSI_LOW_CMD_READ10, 10)
 				scsicdb[2] = (seekaddr >> 24) & 0xFF;
 				scsicdb[3] = (seekaddr >> 16) & 0xFF;
 				scsicdb[4] = (seekaddr >>  8) & 0xFF;
 				scsicdb[5] = (seekaddr >>  0) & 0xFF;
-				scsicdb[8] = 1;
-				seekaddr += 1;
+				scsicdb[8] = 0x21;
 				eris_low_scsi_command(scsicdb, 10);
 				for(l = 0; l < 2048; l++)
 					asm volatile("mov r0, r0\n");
-				bytes = eris_low_scsi_data_in(scsimem, 2048);
-				for(l = 0; l < 2048; l++)
+				while(!(in16(0x602) & 0x20))
 					asm volatile("mov r0, r0\n");
 				status = eris_low_scsi_status();
+				eris_low_scsi_begin_dma(0x600, 0x6400);
+				while(eris_low_scsi_check_dma())
+					asm volatile("mov r0, r0\n");
+
+				eris_low_scsi_finish_dma();
+
+				status = eris_low_scsi_status();
+				bytes = eris_low_scsi_get_phase();
 			}
 		}
-		chartou32("Read bytes:", str);
-		printstr(str, 0, 0x18, 0);
-		str[0] = x1toa(bytes>>28);
-		str[1] = x1toa(bytes>>24);
-		str[2] = x1toa(bytes>>16);
-		str[3] = x1toa(bytes>>12);
-		str[4] = x1toa(bytes>>8);
-		str[5] = x1toa(bytes>>4);
-		str[6] = x1toa(bytes);
-		str[7] = 0;
-		printstr(str, 12, 0x18, 0);
-		chartou32("Addr:", str);
-		printstr(str, 0, 0x20, 0);
-		str[0] = x1toa(seekaddr>>28);
-		str[1] = x1toa(seekaddr>>24);
-		str[2] = x1toa(seekaddr>>16);
-		str[3] = x1toa(seekaddr>>12);
-		str[4] = x1toa(seekaddr>>8);
-		str[5] = x1toa(seekaddr>>4);
-		str[6] = x1toa(seekaddr);
-		str[7] = 0;
-		printstr(str, 12, 0x20, 0);
-		chartou32("Transfer buffer:", str);
-		printstr(str, 0, 0x30, 0);
-		printhex(scsimem, 0, 0x38, 200, 0, 0);
-		str[0] = '<';
-		str[1] = (i & 7) == 0 ? '*' : '-';
-		str[2] = (i & 7) == 1 ? '*' : '-';
-		str[3] = (i & 7) == 2 ? '*' : '-';
-		str[4] = (i & 7) == 3 ? '*' : '-';
-		str[5] = (i & 7) == 4 ? '*' : '-';
-		str[6] = (i & 7) == 5 ? '*' : '-';
-		str[7] = (i & 7) == 6 ? '*' : '-';
-		str[8] = (i & 7) == 7 ? '*' : '-';
-		str[9] = '>';
-		str[10] = 0;
-		i++;
-		printstr(str, 10, 0x10, 0);
 	}
 
 	return 0;
@@ -207,26 +177,28 @@ void chartou32(char* str, u32* o)
 void printstr(u32* str, int x, int y, int tall)
 {
 	int i;
-	u32 kram = x + (y << 5);
+	u32 kram = (x + (y << 5)) << 1;
 	int len = strlen32(str);
 	for(i = 0; i < len; i++) {
-		printch(str[i], kram + i, tall);
+		printch(str[i], kram + (i<<1), tall);
 	}
 }
 
 void printch(u32 sjis, u32 kram, int tall)
 {
 	u16 px;
-	int x, y;
+	int x, y, l;
 	u8* glyph = eris_romfont_get(sjis, tall ? ROMFONT_ANK_8x16 : ROMFONT_ANK_8x8);
 	for(y = 0; y < (tall ? 16 : 8); y++) {
-		eris_king_set_kram_write(kram + (y << 5), 1);
-		px = 0;
-		for(x = 0; x < 8; x++) {
-			if((glyph[y] >> x) & 1) {
-				px |= 1 << (x << 1);
+		eris_king_set_kram_write(kram + (y << 6), 1);
+		for(l = 8-4; l >= 0; l -= 4) {
+			px = 0;
+			for(x = 0; x < 4; x++) {
+				if((glyph[y] >> (x+l)) & 1) {
+					px |= 1 << (x << 3);
+				}
 			}
+			eris_king_kram_write(px);
 		}
-		eris_king_kram_write(px);
 	}
 }

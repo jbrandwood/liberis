@@ -1,7 +1,8 @@
 binary ./out.bin
-name Hello World!
+blocks 3
+name SCSI DMA Test
 maker trap15
 makerid TFX
-date 20110406
+date 20110211
 country 1
 version 256

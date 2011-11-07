@@ -71,6 +71,15 @@ void \hyperlink{scsi_8h_ab8b519d0dc9d6faed63609d7f1f6c611}{eris\_\-low\_\-scsi\_
 \begin{DoxyCompactList}\small\item\em Read data from the SCSI drive. \end{DoxyCompactList}\item 
 \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{scsi_8h_a07f4214f7e6fc72b716a579ff5fed6bc}{eris\_\-low\_\-scsi\_\-data\_\-out} (\hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} $\ast$buf, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} len)
 \begin{DoxyCompactList}\small\item\em Write data to the SCSI drive. \end{DoxyCompactList}\item 
+void \hyperlink{scsi_8h_a4be9a5d82aafe74aa8bbf4f1ee94835d}{eris\_\-low\_\-scsi\_\-begin\_\-dma} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} kram\_\-addr, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} size)
+\begin{DoxyCompactList}\small\item\em Begin a DMA from the SCSI drive. \end{DoxyCompactList}\item 
+int \hyperlink{scsi_8h_a17824589c0c37a17e58d7e9ad7fab749}{eris\_\-low\_\-scsi\_\-check\_\-dma} (void)
+\begin{DoxyCompactList}\small\item\em Check if a DMA is in progress. \end{DoxyCompactList}\item 
+\hypertarget{scsi_8h_a6b4cba084abde50811082ec79c52f957}{
+void \hyperlink{scsi_8h_a6b4cba084abde50811082ec79c52f957}{eris\_\-low\_\-scsi\_\-finish\_\-dma} (void)}
+\label{scsi_8h_a6b4cba084abde50811082ec79c52f957}
+
+\begin{DoxyCompactList}\small\item\em Finish a DMA from the SCSI drive. \end{DoxyCompactList}\item 
 \hypertarget{scsi_8h_a3ff384425ae87c294ca64f1beaaeb51a}{
 void \hyperlink{scsi_8h_a3ff384425ae87c294ca64f1beaaeb51a}{eris\_\-low\_\-scsi\_\-abort} (void)}
 \label{scsi_8h_a3ff384425ae87c294ca64f1beaaeb51a}
@@ -84,6 +93,43 @@ int \hyperlink{scsi_8h_a5ccf761f58c12c597dc623e79dc4087d}{eris\_\-low\_\-scsi\_\
 Low-\/level control of the KING processor's SCSI controller. 
 
 \subsection{Function Documentation}
+\hypertarget{scsi_8h_a4be9a5d82aafe74aa8bbf4f1ee94835d}{
+\index{scsi.h@{scsi.h}!eris\_\-low\_\-scsi\_\-begin\_\-dma@{eris\_\-low\_\-scsi\_\-begin\_\-dma}}
+\index{eris\_\-low\_\-scsi\_\-begin\_\-dma@{eris\_\-low\_\-scsi\_\-begin\_\-dma}!scsi.h@{scsi.h}}
+\subsubsection[{eris\_\-low\_\-scsi\_\-begin\_\-dma}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-scsi\_\-begin\_\-dma (
+\begin{DoxyParamCaption}
+\item[{{\bf u32}}]{kram\_\-addr, }
+\item[{{\bf u32}}]{size}
+\end{DoxyParamCaption}
+)}}
+\label{scsi_8h_a4be9a5d82aafe74aa8bbf4f1ee94835d}
+
+
+Begin a DMA from the SCSI drive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em kram\_\-addr} & Address in KRAM to DMA to. \\
+\hline
+{\em size} & How many bytes to transfer (must be a multiple of 2). \\
+\hline
+\end{DoxyParams}
+\hypertarget{scsi_8h_a17824589c0c37a17e58d7e9ad7fab749}{
+\index{scsi.h@{scsi.h}!eris\_\-low\_\-scsi\_\-check\_\-dma@{eris\_\-low\_\-scsi\_\-check\_\-dma}}
+\index{eris\_\-low\_\-scsi\_\-check\_\-dma@{eris\_\-low\_\-scsi\_\-check\_\-dma}!scsi.h@{scsi.h}}
+\subsubsection[{eris\_\-low\_\-scsi\_\-check\_\-dma}]{\setlength{\rightskip}{0pt plus 5cm}int eris\_\-low\_\-scsi\_\-check\_\-dma (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}
+\label{scsi_8h_a17824589c0c37a17e58d7e9ad7fab749}
+
+
+Check if a DMA is in progress. 
+
+\begin{DoxyReturn}{Returns}
+1 if a DMA is in progress, 0 if not. 
+\end{DoxyReturn}
 \hypertarget{scsi_8h_a5ccf761f58c12c597dc623e79dc4087d}{
 \index{scsi.h@{scsi.h}!eris\_\-low\_\-scsi\_\-command@{eris\_\-low\_\-scsi\_\-command}}
 \index{eris\_\-low\_\-scsi\_\-command@{eris\_\-low\_\-scsi\_\-command}!scsi.h@{scsi.h}}

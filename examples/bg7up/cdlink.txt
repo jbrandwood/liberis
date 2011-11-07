@@ -1,4 +1,4 @@
-binary ./bg7up.bin
+binary ./out.bin
 name 7up Background Example
 maker trap15
 makerid TFX

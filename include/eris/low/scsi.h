@@ -80,6 +80,20 @@ u32 eris_low_scsi_data_in(u8 *buf, u32 maxlen);
  * \param len Length of the buffer.
  */
 u32 eris_low_scsi_data_out(u8 *buf, u32 len);
+/*! \brief Begin a DMA from the SCSI drive.
+ *
+ * \param kram_addr Address in KRAM to DMA to.
+ * \param size How many bytes to transfer (must be a multiple of 2).
+ */
+void eris_low_scsi_begin_dma(u32 kram_addr, u32 size);
+/*! \brief Check if a DMA is in progress.
+ *
+ * \return 1 if a DMA is in progress, 0 if not.
+ */
+int eris_low_scsi_check_dma(void);
+/*! \brief Finish a DMA from the SCSI drive.
+ */
+void eris_low_scsi_finish_dma(void);
 /*! \brief Abort the current SCSI operation.
  */
 void eris_low_scsi_abort(void);

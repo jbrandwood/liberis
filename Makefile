@@ -10,7 +10,7 @@ AS             = $(PREFIX)as
 AR             = $(PREFIX)ar
 CFLAGS         = -O3 -I include
 
-.PHONY: all clean install examples cleanexamples
+.PHONY: all clean install examples example_cds cleanexamples
 
 all: $(OBJECTS) $(TARGETS)
 
@@ -35,6 +35,8 @@ install: $(TARGETS)
 	@cp -R include/* $(V810DEV)/include/
 examples:
 	make -C examples
+example_cds:
+	make -C examples cd
 cleanexamples:
 	make -C examples clean
 

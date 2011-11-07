@@ -1,4 +1,4 @@
-binary ./psg.bin
+binary ./out.bin
 name SoundBox PSG Example
 maker trap15
 makerid TFX
