@@ -3,6 +3,6 @@
 *.a
 *.swp
 *.elf
-*.bin
 *.cue
+out.bin
 
