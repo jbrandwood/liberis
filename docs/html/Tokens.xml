@@ -32,6 +32,36 @@
   </Token>
   <Token>
     <TokenIdentifier>
+      <Name>eris_cd_reset</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>cd_8h.html</Path>
+    <Anchor>af0620932cada52c6a95cf28d2fab641c</Anchor>
+    <Abstract>Reset the CD drive.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_cd_read</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>cd_8h.html</Path>
+    <Anchor>a8de623f5c86477f6501bc25a3838b856</Anchor>
+    <Abstract>Read data from the CD drive.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_cd_read_kram</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>cd_8h.html</Path>
+    <Anchor>a3ca2240f6e6382835ecab421e7f3ee07</Anchor>
+    <Abstract>Read data from the CD drive into KRAM.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
       <Name>KING_CODE</Name>
       <APILanguage>c</APILanguage>
       <Type>macro</Type>

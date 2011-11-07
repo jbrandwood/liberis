@@ -1,0 +1,76 @@
+\hypertarget{cd_8h}{
+\section{include/eris/cd.h File Reference}
+\label{cd_8h}\index{include/eris/cd.h@{include/eris/cd.h}}
+}
+
+
+High-\/level control of the CD drive.  
+
+
+{\ttfamily \#include $<$eris/types.h$>$}\par
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{cd_8h_af0620932cada52c6a95cf28d2fab641c}{
+void \hyperlink{cd_8h_af0620932cada52c6a95cf28d2fab641c}{eris\_\-cd\_\-reset} (void)}
+\label{cd_8h_af0620932cada52c6a95cf28d2fab641c}
+
+\begin{DoxyCompactList}\small\item\em Reset the CD drive. \end{DoxyCompactList}\item 
+\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{cd_8h_a8de623f5c86477f6501bc25a3838b856}{eris\_\-cd\_\-read} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} lba, \hyperlink{types_8h_a92c50087ca0e64fa93fc59402c55f8ca}{u8} $\ast$buf, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} size)
+\begin{DoxyCompactList}\small\item\em Read data from the CD drive. \end{DoxyCompactList}\item 
+void \hyperlink{cd_8h_a3ca2240f6e6382835ecab421e7f3ee07}{eris\_\-cd\_\-read\_\-kram} (\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} lba, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} kram\_\-addr, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} size)
+\begin{DoxyCompactList}\small\item\em Read data from the CD drive into KRAM. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+High-\/level control of the CD drive. 
+
+\subsection{Function Documentation}
+\hypertarget{cd_8h_a8de623f5c86477f6501bc25a3838b856}{
+\index{cd.h@{cd.h}!eris\_\-cd\_\-read@{eris\_\-cd\_\-read}}
+\index{eris\_\-cd\_\-read@{eris\_\-cd\_\-read}!cd.h@{cd.h}}
+\subsubsection[{eris\_\-cd\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} eris\_\-cd\_\-read (
+\begin{DoxyParamCaption}
+\item[{{\bf u32}}]{lba, }
+\item[{{\bf u8} $\ast$}]{buf, }
+\item[{{\bf u32}}]{size}
+\end{DoxyParamCaption}
+)}}
+\label{cd_8h_a8de623f5c86477f6501bc25a3838b856}
+
+
+Read data from the CD drive. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lba} & LBA of the sector to start reading from. \\
+\hline
+{\em buf} & Buffer to store the data into. Must have ((size+2047) \& $\sim$0x2047) bytes available! \\
+\hline
+{\em size} & How many bytes to read. \\
+\hline
+\end{DoxyParams}
+\hypertarget{cd_8h_a3ca2240f6e6382835ecab421e7f3ee07}{
+\index{cd.h@{cd.h}!eris\_\-cd\_\-read\_\-kram@{eris\_\-cd\_\-read\_\-kram}}
+\index{eris\_\-cd\_\-read\_\-kram@{eris\_\-cd\_\-read\_\-kram}!cd.h@{cd.h}}
+\subsubsection[{eris\_\-cd\_\-read\_\-kram}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-cd\_\-read\_\-kram (
+\begin{DoxyParamCaption}
+\item[{{\bf u32}}]{lba, }
+\item[{{\bf u32}}]{kram\_\-addr, }
+\item[{{\bf u32}}]{size}
+\end{DoxyParamCaption}
+)}}
+\label{cd_8h_a3ca2240f6e6382835ecab421e7f3ee07}
+
+
+Read data from the CD drive into KRAM. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em lba} & LBA of the sector to start reading from. \\
+\hline
+{\em kram\_\-addr} & Address in KRAM to start writing into. \\
+\hline
+{\em size} & How many bytes to read. \\
+\hline
+\end{DoxyParams}

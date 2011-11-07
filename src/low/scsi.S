@@ -22,6 +22,8 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
 	.global _eris_low_scsi_command
 	.global _eris_low_scsi_test_unit_ready
 
+	.global	eris_low_scsi_eat_data_in
+
 _eris_low_scsi_get_phase:
 	in.h	0x602[r0], r11
 	mov	0, r10         # Bus Free
@@ -277,29 +279,7 @@ _eris_low_scsi_finish_dma:
 	add	-2, r13
 	out.h	r0, 0x604[r0]
 
-	mov	0xF, r14
-	add	1, r14
-	br	2f
-1:
-	out.h	r13, 0x600[r0]
-	out.h	r14, 0x604[r0]
-
-3:	in.h	0x602[r0], r11
-	andi	0x20, r11, r11
-	bne	3b
-
-	out.h	r13, 0x600[r0]
-	out.h	r0, 0x604[r0]
-
-3:	in.h	0x602[r0], r11
-	andi	0x20, r11, r11
-	be	3b
-
-2:	jal	_eris_low_scsi_get_phase
-	cmp	3, r10 # data in
-	be	1b
-
-	jmp	[lp]
+	jr	eris_low_scsi_eat_data_in
 
 _eris_low_scsi_abort:
 	mov	1, r10
@@ -432,4 +412,31 @@ _eris_low_scsi_command:
 
 	mov	r14, r10
 	mov	r15, lp
+	jmp	[lp]
+
+eris_low_scsi_eat_data_in:
+	mov	lp, r20
+	mov	1, r13
+	movea	0x10, r0, r14
+	br	2f
+1:
+	out.h	r13, 0x600[r0]
+	out.h	r14, 0x604[r0]
+
+3:	in.h	0x602[r0], r11
+	andi	0x20, r11, r11
+	bne	3b
+
+	out.h	r13, 0x600[r0]
+	out.h	r0, 0x604[r0]
+
+3:	in.h	0x602[r0], r11
+	andi	0x20, r11, r11
+	be	3b
+
+2:	jal	_eris_low_scsi_get_phase
+	cmp	3, r10 # data in
+	be	1b
+
+	mov	r20, lp
 	jmp	[lp]

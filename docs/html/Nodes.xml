@@ -18,6 +18,10 @@
           <Path>bkupmem_8h.html</Path>
          </Node>
          <Node>
+          <Name>include/eris/cd.h</Name>
+          <Path>cd_8h.html</Path>
+         </Node>
+         <Node>
           <Name>include/eris/king.h</Name>
           <Path>king_8h.html</Path>
          </Node>

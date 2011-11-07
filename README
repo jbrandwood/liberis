@@ -9,6 +9,7 @@ Subsystems
 7up            -- Controls the two 7up VDPs. These were also used in the
                   PC-Engine. Support is partly tested. Only low-level API exists
                   currently.
+cd             -- High-level interface to the CD drive. Tested working.
 king           -- Controls the KING chip, which controls many other peripherals.
                   Basic support exists and backgrounds have been tested working.
 pad            -- Handles input ports. Tested working. Only low-level API exists

@@ -13,8 +13,8 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 #include <eris/king.h>
 #include <eris/tetsu.h>
 #include <eris/romfont.h>
+#include <eris/cd.h>
 #include <eris/low/pad.h>
-#include <eris/low/scsi.h>
 
 void printch(u32 sjis, u32 kram, int tall);
 void printstr(u32* str, int x, int y, int tall);
@@ -100,20 +100,8 @@ int main(int argc, char *argv[])
 				eris_low_scsi_reset();
 			}
 			if(paddata & (1 << 0) && !(lastpad & (1 << 0))) { // (I) Read to Buffer
-				CLEAN_SCSICDB(SCSI_LOW_CMD_READ10, 10)
-				scsicdb[2] = (seekaddr >> 24) & 0xFF;
-				scsicdb[3] = (seekaddr >> 16) & 0xFF;
-				scsicdb[4] = (seekaddr >>  8) & 0xFF;
-				scsicdb[5] = (seekaddr >>  0) & 0xFF;
-				scsicdb[8] = 1;
-				seekaddr += 1;
-				eris_low_scsi_command(scsicdb, 10);
-				for(l = 0; l < 2048; l++)
-					asm volatile("mov r0, r0\n");
-				bytes = eris_low_scsi_data_in(scsimem, 2048);
-				for(l = 0; l < 2048; l++)
-					asm volatile("mov r0, r0\n");
-				status = eris_low_scsi_status();
+				bytes = eris_cd_read(seekaddr, scsimem, 2048);
+				seekaddr++;
 			}
 		}
 		chartou32("Read bytes:", str);

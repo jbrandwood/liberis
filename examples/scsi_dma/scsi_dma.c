@@ -13,8 +13,8 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 #include <eris/king.h>
 #include <eris/tetsu.h>
 #include <eris/romfont.h>
+#include <eris/cd.h>
 #include <eris/low/pad.h>
-#include <eris/low/scsi.h>
 
 #include "lbas.h"
 
@@ -45,7 +45,6 @@ int main(int argc, char *argv[])
 	int status;
 	u32 paddata, lastpad;
 	u8 scsicdb[32];
-	u32 seekaddr = BINARY_LBA_PORN_BIN;
 	u32 bytes = 0;
 
 	eris_king_init();
@@ -102,26 +101,7 @@ int main(int argc, char *argv[])
 				eris_low_scsi_reset();
 			}
 			if(paddata & (1 << 1) && !(lastpad & (1 << 0))) { // (I) DMA to KRAM
-				CLEAN_SCSICDB(SCSI_LOW_CMD_READ10, 10)
-				scsicdb[2] = (seekaddr >> 24) & 0xFF;
-				scsicdb[3] = (seekaddr >> 16) & 0xFF;
-				scsicdb[4] = (seekaddr >>  8) & 0xFF;
-				scsicdb[5] = (seekaddr >>  0) & 0xFF;
-				scsicdb[8] = 0x21;
-				eris_low_scsi_command(scsicdb, 10);
-				for(l = 0; l < 2048; l++)
-					asm volatile("mov r0, r0\n");
-				while(!(in16(0x602) & 0x20))
-					asm volatile("mov r0, r0\n");
-				status = eris_low_scsi_status();
-				eris_low_scsi_begin_dma(0x600, 0x6400);
-				while(eris_low_scsi_check_dma())
-					asm volatile("mov r0, r0\n");
-
-				eris_low_scsi_finish_dma();
-
-				status = eris_low_scsi_status();
-				bytes = eris_low_scsi_get_phase();
+				eris_cd_read_kram(BINARY_LBA_PORN_BIN, 0x600, 0x6800);
 			}
 		}
 	}
