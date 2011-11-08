@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>liberis: include/eris/low/ Directory Reference</title>
+<title>liberis: include/eris/low/pad.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -28,7 +28,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
-      <li><a href="files.html"><span>Files</span></a></li>
+      <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li><a href="dirs.html"><span>Directories</span></a></li>
       <li id="searchli">
         <div id="MSearchBox" class="MSearchBoxInactive">
@@ -48,6 +48,12 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
       </li>
     </ul>
   </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>Globals</span></a></li>
+    </ul>
+  </div>
   <div id="nav-path" class="navpath">
     <ul>
       <li class="navelem"><a class="el" href="dir_c6a3e0611b419d72c1eb09ac5d338a31.html">include</a>      </li>
@@ -58,33 +64,34 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="header">
   <div class="headertitle">
-<div class="title">low Directory Reference</div>  </div>
+<div class="title">pad.h</div>  </div>
 </div>
 <div class="contents">
-<table class="memberdecls">
-<tr><td colspan="2"><h2><a name="files"></a>
-Files</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="7up_8h.html">7up.h</a> <a href="7up_8h_source.html">[code]</a></td></tr>
-
-<p><tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Low-level access to the 7up video chips. </p>
-<br/></td></tr>
-</p>
-<tr><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="low_2pad_8h.html">pad.h</a> <a href="low_2pad_8h_source.html">[code]</a></td></tr>
-
-<p><tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Low-level access to FX-PADs. </p>
-<br/></td></tr>
-</p>
-<tr><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="scsi_8h.html">scsi.h</a> <a href="scsi_8h_source.html">[code]</a></td></tr>
-
-<p><tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Low-level control of the KING processor's SCSI controller. </p>
-<br/></td></tr>
-</p>
-<tr><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="soundbox_8h.html">soundbox.h</a> <a href="soundbox_8h_source.html">[code]</a></td></tr>
-
-<p><tr><td class="mdescLeft">&#160;</td><td class="mdescRight"><p>Low-level access to the SoundBox. </p>
-<br/></td></tr>
-</p>
-</table>
+<a href="low_2pad_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a name="l00002"></a>00002 <span class="comment">        liberis -- A set of libraries for controlling the NEC PC-FX</span>
+<a name="l00003"></a>00003 <span class="comment"></span>
+<a name="l00004"></a>00004 <span class="comment">Copyright (C) 2011              Alex Marshall &quot;trap15&quot; &lt;trap15@raidenii.net&gt;</span>
+<a name="l00005"></a>00005 <span class="comment"></span>
+<a name="l00006"></a>00006 <span class="comment"># This code is licensed to you under the terms of the MIT license;</span>
+<a name="l00007"></a>00007 <span class="comment"># see file LICENSE or http://www.opensource.org/licenses/mit-license.php</span>
+<a name="l00008"></a>00008 <span class="comment">*/</span>
+<a name="l00009"></a>00009 
+<a name="l00014"></a>00014 <span class="preprocessor">#ifndef _LIBERIS_LOW_PAD_H_</span>
+<a name="l00015"></a>00015 <span class="preprocessor"></span><span class="preprocessor">#define _LIBERIS_LOW_PAD_H_</span>
+<a name="l00016"></a>00016 <span class="preprocessor"></span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &lt;<a class="code" href="types_8h.html" title="Standard integer types.">eris/types.h</a>&gt;</span>
+<a name="l00018"></a>00018 
+<a name="l00023"></a>00023 <span class="keywordtype">void</span> <a class="code" href="low_2pad_8h.html#ad11c367468dea7a0e43900fa4ae8bc56" title="Initialize a pad.">eris_low_pad_init</a>(<span class="keywordtype">int</span> pad);
+<a name="l00024"></a>00024 
+<a name="l00030"></a>00030 <a class="code" href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> <a class="code" href="low_2pad_8h.html#a6654e59f267c20b37b9cec0b0c6703fe" title="Read pad status.">eris_low_pad_read_status</a>(<span class="keywordtype">int</span> pad);
+<a name="l00036"></a>00036 <a class="code" href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> <a class="code" href="low_2pad_8h.html#abbb69584e6887746ff92678ae50ceb8f" title="Read pad data.">eris_low_pad_read_data</a>(<span class="keywordtype">int</span> pad);
+<a name="l00042"></a>00042 <span class="keywordtype">int</span> <a class="code" href="low_2pad_8h.html#a75f28621bba916585331831eeb8431c5" title="Check if pad has data ready.">eris_low_pad_data_ready</a>(<span class="keywordtype">int</span> pad);
+<a name="l00048"></a>00048 <span class="keywordtype">void</span> <a class="code" href="low_2pad_8h.html#af1cf05619c539a23b51c3986348e76ab" title="Write pad control.">eris_low_pad_write_control</a>(<span class="keywordtype">int</span> pad, <a class="code" href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> ctl);
+<a name="l00054"></a>00054 <span class="keywordtype">void</span> <a class="code" href="low_2pad_8h.html#a1b9a62792904d868cc426b2a60c36b6a" title="Write pad data.">eris_low_pad_write_data</a>(<span class="keywordtype">int</span> pad, <a class="code" href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> data);
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056 <span class="preprocessor">#endif</span>
+<a name="l00057"></a>00057 <span class="preprocessor"></span>
+</pre></div></div>
 </div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"

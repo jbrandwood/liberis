@@ -12,8 +12,8 @@ Subsystems
 cd             -- High-level interface to the CD drive. Tested working.
 king           -- Controls the KING chip, which controls many other peripherals.
                   Basic support exists and backgrounds have been tested working.
-pad            -- Handles input ports. Tested working. Only low-level API exists
-                  currently.
+pad            -- Handles input ports. Tested working. High- and low-level
+                  interfaces exist.
 romfont        -- Activates the in-ROM font processing. Tested working.
 soundbox       -- SoundBox PSG support. Similar to the PSG in the PC-Engine.
                   PSG support is tested working. Other support is untested.

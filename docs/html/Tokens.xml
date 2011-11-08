@@ -1536,7 +1536,7 @@
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
-    <Path>pad_8h.html</Path>
+    <Path>low_2pad_8h.html</Path>
     <Anchor>ad11c367468dea7a0e43900fa4ae8bc56</Anchor>
     <Abstract>Initialize a pad.</Abstract>
   </Token>
@@ -1546,7 +1546,7 @@
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
-    <Path>pad_8h.html</Path>
+    <Path>low_2pad_8h.html</Path>
     <Anchor>a6654e59f267c20b37b9cec0b0c6703fe</Anchor>
     <Abstract>Read pad status.</Abstract>
   </Token>
@@ -1556,7 +1556,7 @@
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
-    <Path>pad_8h.html</Path>
+    <Path>low_2pad_8h.html</Path>
     <Anchor>abbb69584e6887746ff92678ae50ceb8f</Anchor>
     <Abstract>Read pad data.</Abstract>
   </Token>
@@ -1566,7 +1566,7 @@
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
-    <Path>pad_8h.html</Path>
+    <Path>low_2pad_8h.html</Path>
     <Anchor>a75f28621bba916585331831eeb8431c5</Anchor>
     <Abstract>Check if pad has data ready.</Abstract>
   </Token>
@@ -1576,7 +1576,7 @@
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
-    <Path>pad_8h.html</Path>
+    <Path>low_2pad_8h.html</Path>
     <Anchor>af1cf05619c539a23b51c3986348e76ab</Anchor>
     <Abstract>Write pad control.</Abstract>
   </Token>
@@ -1586,9 +1586,49 @@
       <APILanguage>c</APILanguage>
       <Type>func</Type>
     </TokenIdentifier>
-    <Path>pad_8h.html</Path>
+    <Path>low_2pad_8h.html</Path>
     <Anchor>a1b9a62792904d868cc426b2a60c36b6a</Anchor>
     <Abstract>Write pad data.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_pad_init</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>pad_8h.html</Path>
+    <Anchor>afcc60dc957dcbfc483b9569b84b0b570</Anchor>
+    <Abstract>Initialize a pad.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_pad_read</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>pad_8h.html</Path>
+    <Anchor>ac58532d5ece2ae5c848c5f3be1a8384a</Anchor>
+    <Abstract>Read the pad data.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_pad_type</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>pad_8h.html</Path>
+    <Anchor>aaadc2d957c39e29b3518cb6888627fd7</Anchor>
+    <Abstract>Get the pad type.</Abstract>
+  </Token>
+  <Token>
+    <TokenIdentifier>
+      <Name>eris_pad_connected</Name>
+      <APILanguage>c</APILanguage>
+      <Type>func</Type>
+    </TokenIdentifier>
+    <Path>pad_8h.html</Path>
+    <Anchor>a94247406419daacdb88edcaf331dbf86</Anchor>
+    <Abstract>Check if a pad is connected.</Abstract>
   </Token>
   <Token>
     <TokenIdentifier>

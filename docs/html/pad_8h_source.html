@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>liberis: include/eris/low/pad.h Source File</title>
+<title>liberis: include/eris/pad.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -58,7 +58,6 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
     <ul>
       <li class="navelem"><a class="el" href="dir_c6a3e0611b419d72c1eb09ac5d338a31.html">include</a>      </li>
       <li class="navelem"><a class="el" href="dir_043cc09a52970f004b63685ce9235070.html">eris</a>      </li>
-      <li class="navelem"><a class="el" href="dir_11910da966de11ce0031d61cfb4ada16.html">low</a>      </li>
     </ul>
   </div>
 </div>
@@ -76,21 +75,24 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00007"></a>00007 <span class="comment"># see file LICENSE or http://www.opensource.org/licenses/mit-license.php</span>
 <a name="l00008"></a>00008 <span class="comment">*/</span>
 <a name="l00009"></a>00009 
-<a name="l00014"></a>00014 <span class="preprocessor">#ifndef _LIBERIS_LOW_PAD_H_</span>
-<a name="l00015"></a>00015 <span class="preprocessor"></span><span class="preprocessor">#define _LIBERIS_LOW_PAD_H_</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#ifndef _LIBERIS_PAD_H_</span>
+<a name="l00015"></a>00015 <span class="preprocessor"></span><span class="preprocessor">#define _LIBERIS_PAD_H_</span>
 <a name="l00016"></a>00016 <span class="preprocessor"></span>
 <a name="l00017"></a>00017 <span class="preprocessor">#include &lt;<a class="code" href="types_8h.html" title="Standard integer types.">eris/types.h</a>&gt;</span>
 <a name="l00018"></a>00018 
-<a name="l00023"></a>00023 <span class="keywordtype">void</span> <a class="code" href="pad_8h.html#ad11c367468dea7a0e43900fa4ae8bc56" title="Initialize a pad.">eris_low_pad_init</a>(<span class="keywordtype">int</span> pad);
-<a name="l00024"></a>00024 
-<a name="l00030"></a>00030 <a class="code" href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> <a class="code" href="pad_8h.html#a6654e59f267c20b37b9cec0b0c6703fe" title="Read pad status.">eris_low_pad_read_status</a>(<span class="keywordtype">int</span> pad);
-<a name="l00036"></a>00036 <a class="code" href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> <a class="code" href="pad_8h.html#abbb69584e6887746ff92678ae50ceb8f" title="Read pad data.">eris_low_pad_read_data</a>(<span class="keywordtype">int</span> pad);
-<a name="l00042"></a>00042 <span class="keywordtype">int</span> <a class="code" href="pad_8h.html#a75f28621bba916585331831eeb8431c5" title="Check if pad has data ready.">eris_low_pad_data_ready</a>(<span class="keywordtype">int</span> pad);
-<a name="l00048"></a>00048 <span class="keywordtype">void</span> <a class="code" href="pad_8h.html#af1cf05619c539a23b51c3986348e76ab" title="Write pad control.">eris_low_pad_write_control</a>(<span class="keywordtype">int</span> pad, <a class="code" href="types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa">u16</a> ctl);
-<a name="l00054"></a>00054 <span class="keywordtype">void</span> <a class="code" href="pad_8h.html#a1b9a62792904d868cc426b2a60c36b6a" title="Write pad data.">eris_low_pad_write_data</a>(<span class="keywordtype">int</span> pad, <a class="code" href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> data);
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056 <span class="preprocessor">#endif</span>
-<a name="l00057"></a>00057 <span class="preprocessor"></span>
+<a name="l00019"></a>00019 <span class="keyword">typedef</span> <span class="keyword">enum</span> {
+<a name="l00020"></a>00020         PAD_TYPE_NONE = 0,
+<a name="l00021"></a>00021         PAD_TYPE_MOUSE = 13,
+<a name="l00022"></a>00022         PAD_TYPE_MULTITAP = 14,
+<a name="l00023"></a>00023         PAD_TYPE_FXPAD = 15
+<a name="l00024"></a>00024 } pad_type;
+<a name="l00029"></a>00029 <span class="keywordtype">void</span> <a class="code" href="pad_8h.html#afcc60dc957dcbfc483b9569b84b0b570" title="Initialize a pad.">eris_pad_init</a>(<span class="keywordtype">int</span> pad);
+<a name="l00035"></a>00035 <a class="code" href="types_8h.html#afaa62991928fb9fb18ff0db62a040aba">u32</a> <a class="code" href="pad_8h.html#ac58532d5ece2ae5c848c5f3be1a8384a" title="Read the pad data.">eris_pad_read</a>(<span class="keywordtype">int</span> pad);
+<a name="l00041"></a>00041 pad_type <a class="code" href="pad_8h.html#aaadc2d957c39e29b3518cb6888627fd7" title="Get the pad type.">eris_pad_type</a>(<span class="keywordtype">int</span> pad);
+<a name="l00047"></a>00047 <span class="keywordtype">int</span> <a class="code" href="pad_8h.html#a94247406419daacdb88edcaf331dbf86" title="Check if a pad is connected.">eris_pad_connected</a>(<span class="keywordtype">int</span> pad);
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049 <span class="preprocessor">#endif</span>
+<a name="l00050"></a>00050 <span class="preprocessor"></span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->

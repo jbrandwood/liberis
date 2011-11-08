@@ -26,6 +26,10 @@
           <Path>king_8h.html</Path>
          </Node>
          <Node>
+          <Name>include/eris/pad.h</Name>
+          <Path>pad_8h.html</Path>
+         </Node>
+         <Node>
           <Name>include/eris/romfont.h</Name>
           <Path>romfont_8h.html</Path>
          </Node>
@@ -55,7 +59,7 @@
          </Node>
          <Node>
           <Name>include/eris/low/pad.h</Name>
-          <Path>pad_8h.html</Path>
+          <Path>low_2pad_8h.html</Path>
          </Node>
          <Node>
           <Name>include/eris/low/scsi.h</Name>

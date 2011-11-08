@@ -13,7 +13,7 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 #include <eris/king.h>
 #include <eris/tetsu.h>
 #include <eris/romfont.h>
-#include <eris/low/pad.h>
+#include <eris/pad.h>
 
 void printch(u32 sjis, u32 kram, int tall);
 void printstr(u32* str, int x, int y, int tall);
@@ -40,7 +40,7 @@ static int padmap[16][2] = {
 
 int main(int argc, char *argv[])
 {
-	u32 paddata;
+	u32 paddata, padtype;
 	int i;
 	u32 str[256];
 	u32 pstr[3];
@@ -87,29 +87,39 @@ int main(int argc, char *argv[])
 	chartou32("FX-PAD Test", str);
 	printstr(str, 12, 0x8, 1);
 
-	eris_low_pad_init(0);
+	eris_pad_init(0);
 	chartou32("+", pstr);
 	chartou32(" ", sstr);
 	for(;;) {
-		if(eris_low_pad_data_ready(0)) {
-			chartou32("|  UP  | DOWN | LEFT |RIGHT |", str);
-			printstr(str, 0, 0x28, 0);
-			chartou32("|   I  |  II  |  III |", str);
-			printstr(str, 0, 0x38, 0);
-			chartou32("|  IV  |   V  |  VI  |", str);
-			printstr(str, 0, 0x48, 0);
-			chartou32("|  RUN |SELECT|   A  |   B  |", str);
-			printstr(str, 0, 0x58, 0);
-			paddata = eris_low_pad_read_data(0);
-			for(i = 0; i < 16; i++) {
-				if(paddata & (1 << i))
-					printstr(pstr, padmap[i][0], padmap[i][1], 0);
-				else
-					printstr(sstr, padmap[i][0], padmap[i][1], 0);
-			}
-			for(i = 0; i < 0x8000; i++) {
-				asm("mov r0, r0");
-			}
+		chartou32("|  UP  | DOWN | LEFT |RIGHT |", str);
+		printstr(str, 0, 0x28, 0);
+		chartou32("|   I  |  II  |  III |", str);
+		printstr(str, 0, 0x38, 0);
+		chartou32("|  IV  |   V  |  VI  |", str);
+		printstr(str, 0, 0x48, 0);
+		chartou32("|  RUN |SELECT|   A  |   B  |", str);
+		printstr(str, 0, 0x58, 0);
+		chartou32("| TYPE |", str);
+		printstr(str, 0, 0x68, 0);
+		padtype = eris_pad_type(0);
+		if(padtype == PAD_TYPE_NONE)
+			chartou32("| NONE |", str);
+		else if(padtype == PAD_TYPE_MOUSE)
+			chartou32("|MOUSE |", str);
+		else if(padtype == PAD_TYPE_MULTITAP)
+			chartou32("|  TAP |", str);
+		else if(padtype == PAD_TYPE_FXPAD)
+			chartou32("|  PAD |", str);
+		printstr(str, 0, 0x70, 0);
+		paddata = eris_pad_read(0);
+		for(i = 0; i < 16; i++) {
+			if(paddata & (1 << i))
+				printstr(pstr, padmap[i][0], padmap[i][1], 0);
+			else
+				printstr(sstr, padmap[i][0], padmap[i][1], 0);
+		}
+		for(i = 0; i < 0x8000; i++) {
+			asm("mov r0, r0");
 		}
 	}
 

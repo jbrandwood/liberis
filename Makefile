@@ -1,7 +1,7 @@
 OBJECTS        = src/crt0.o
 TARGETS        = liberis.a src/crt0.o
 LIBERISOBJS    = src/v810.o src/tetsu.o src/king.o src/romfont.o src/bkupmem.o\
-                 src/std.o src/timer.o src/cd.o
+                 src/std.o src/timer.o src/cd.o src/pad.o
 LIBERISOBJS   += src/low/pad.o src/low/soundbox.o src/low/7up.o src/low/scsi.o
 OBJECTS       += $(LIBERISOBJS)
 PREFIX         = v810-

@@ -1,46 +1,51 @@
 \hypertarget{pad_8h}{
-\section{include/eris/low/pad.h File Reference}
-\label{pad_8h}\index{include/eris/low/pad.h@{include/eris/low/pad.h}}
+\section{include/eris/pad.h File Reference}
+\label{pad_8h}\index{include/eris/pad.h@{include/eris/pad.h}}
 }
 
 
-Low-\/level access to FX-\/PADs.  
+High-\/level access to pads.  
 
 
 {\ttfamily \#include $<$eris/types.h$>$}\par
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bfseries pad\_\-type} \{ {\bfseries PAD\_\-TYPE\_\-NONE} =  0, 
+{\bfseries PAD\_\-TYPE\_\-MOUSE} =  13, 
+{\bfseries PAD\_\-TYPE\_\-MULTITAP} =  14, 
+{\bfseries PAD\_\-TYPE\_\-FXPAD} =  15
+ \}
+\end{DoxyCompactItemize}
 \subsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-void \hyperlink{pad_8h_ad11c367468dea7a0e43900fa4ae8bc56}{eris\_\-low\_\-pad\_\-init} (int pad)
+void \hyperlink{pad_8h_afcc60dc957dcbfc483b9569b84b0b570}{eris\_\-pad\_\-init} (int pad)
 \begin{DoxyCompactList}\small\item\em Initialize a pad. \end{DoxyCompactList}\item 
-\hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} \hyperlink{pad_8h_a6654e59f267c20b37b9cec0b0c6703fe}{eris\_\-low\_\-pad\_\-read\_\-status} (int pad)
-\begin{DoxyCompactList}\small\item\em Read pad status. \end{DoxyCompactList}\item 
-\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{pad_8h_abbb69584e6887746ff92678ae50ceb8f}{eris\_\-low\_\-pad\_\-read\_\-data} (int pad)
-\begin{DoxyCompactList}\small\item\em Read pad data. \end{DoxyCompactList}\item 
-int \hyperlink{pad_8h_a75f28621bba916585331831eeb8431c5}{eris\_\-low\_\-pad\_\-data\_\-ready} (int pad)
-\begin{DoxyCompactList}\small\item\em Check if pad has data ready. \end{DoxyCompactList}\item 
-void \hyperlink{pad_8h_af1cf05619c539a23b51c3986348e76ab}{eris\_\-low\_\-pad\_\-write\_\-control} (int pad, \hyperlink{types_8h_ace9d960e74685e2cd84b36132dbbf8aa}{u16} ctl)
-\begin{DoxyCompactList}\small\item\em Write pad control. \end{DoxyCompactList}\item 
-void \hyperlink{pad_8h_a1b9a62792904d868cc426b2a60c36b6a}{eris\_\-low\_\-pad\_\-write\_\-data} (int pad, \hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} data)
-\begin{DoxyCompactList}\small\item\em Write pad data. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\hyperlink{types_8h_afaa62991928fb9fb18ff0db62a040aba}{u32} \hyperlink{pad_8h_ac58532d5ece2ae5c848c5f3be1a8384a}{eris\_\-pad\_\-read} (int pad)
+\begin{DoxyCompactList}\small\item\em Read the pad data. \end{DoxyCompactList}\item 
+pad\_\-type \hyperlink{pad_8h_aaadc2d957c39e29b3518cb6888627fd7}{eris\_\-pad\_\-type} (int pad)
+\begin{DoxyCompactList}\small\item\em Get the pad type. \end{DoxyCompactList}\item 
+int \hyperlink{pad_8h_a94247406419daacdb88edcaf331dbf86}{eris\_\-pad\_\-connected} (int pad)
+\begin{DoxyCompactList}\small\item\em Check if a pad is connected. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Detailed Description}
-Low-\/level access to FX-\/PADs. 
+High-\/level access to pads. 
 
 \subsection{Function Documentation}
-\hypertarget{pad_8h_a75f28621bba916585331831eeb8431c5}{
-\index{pad.h@{pad.h}!eris\_\-low\_\-pad\_\-data\_\-ready@{eris\_\-low\_\-pad\_\-data\_\-ready}}
-\index{eris\_\-low\_\-pad\_\-data\_\-ready@{eris\_\-low\_\-pad\_\-data\_\-ready}!pad.h@{pad.h}}
-\subsubsection[{eris\_\-low\_\-pad\_\-data\_\-ready}]{\setlength{\rightskip}{0pt plus 5cm}int eris\_\-low\_\-pad\_\-data\_\-ready (
+\hypertarget{pad_8h_a94247406419daacdb88edcaf331dbf86}{
+\index{pad.h@{pad.h}!eris\_\-pad\_\-connected@{eris\_\-pad\_\-connected}}
+\index{eris\_\-pad\_\-connected@{eris\_\-pad\_\-connected}!pad.h@{pad.h}}
+\subsubsection[{eris\_\-pad\_\-connected}]{\setlength{\rightskip}{0pt plus 5cm}int eris\_\-pad\_\-connected (
 \begin{DoxyParamCaption}
 \item[{int}]{pad}
 \end{DoxyParamCaption}
 )}}
-\label{pad_8h_a75f28621bba916585331831eeb8431c5}
+\label{pad_8h_a94247406419daacdb88edcaf331dbf86}
 
 
-Check if pad has data ready. 
+Check if a pad is connected. 
 
 
 \begin{DoxyParams}{Parameters}
@@ -48,17 +53,17 @@ Check if pad has data ready.
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-If there is data ready, returns 1. Otherwise, it returns 0. 
+1 if there is a pad, 0 if not. 
 \end{DoxyReturn}
-\hypertarget{pad_8h_ad11c367468dea7a0e43900fa4ae8bc56}{
-\index{pad.h@{pad.h}!eris\_\-low\_\-pad\_\-init@{eris\_\-low\_\-pad\_\-init}}
-\index{eris\_\-low\_\-pad\_\-init@{eris\_\-low\_\-pad\_\-init}!pad.h@{pad.h}}
-\subsubsection[{eris\_\-low\_\-pad\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-pad\_\-init (
+\hypertarget{pad_8h_afcc60dc957dcbfc483b9569b84b0b570}{
+\index{pad.h@{pad.h}!eris\_\-pad\_\-init@{eris\_\-pad\_\-init}}
+\index{eris\_\-pad\_\-init@{eris\_\-pad\_\-init}!pad.h@{pad.h}}
+\subsubsection[{eris\_\-pad\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-pad\_\-init (
 \begin{DoxyParamCaption}
 \item[{int}]{pad}
 \end{DoxyParamCaption}
 )}}
-\label{pad_8h_ad11c367468dea7a0e43900fa4ae8bc56}
+\label{pad_8h_afcc60dc957dcbfc483b9569b84b0b570}
 
 
 Initialize a pad. 
@@ -68,87 +73,45 @@ Initialize a pad.
 {\em pad} & The pad to initialize. (0 $\sim$ 1) \\
 \hline
 \end{DoxyParams}
-\hypertarget{pad_8h_abbb69584e6887746ff92678ae50ceb8f}{
-\index{pad.h@{pad.h}!eris\_\-low\_\-pad\_\-read\_\-data@{eris\_\-low\_\-pad\_\-read\_\-data}}
-\index{eris\_\-low\_\-pad\_\-read\_\-data@{eris\_\-low\_\-pad\_\-read\_\-data}!pad.h@{pad.h}}
-\subsubsection[{eris\_\-low\_\-pad\_\-read\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} eris\_\-low\_\-pad\_\-read\_\-data (
+\hypertarget{pad_8h_ac58532d5ece2ae5c848c5f3be1a8384a}{
+\index{pad.h@{pad.h}!eris\_\-pad\_\-read@{eris\_\-pad\_\-read}}
+\index{eris\_\-pad\_\-read@{eris\_\-pad\_\-read}!pad.h@{pad.h}}
+\subsubsection[{eris\_\-pad\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u32} eris\_\-pad\_\-read (
 \begin{DoxyParamCaption}
 \item[{int}]{pad}
 \end{DoxyParamCaption}
 )}}
-\label{pad_8h_abbb69584e6887746ff92678ae50ceb8f}
+\label{pad_8h_ac58532d5ece2ae5c848c5f3be1a8384a}
 
 
-Read pad data. 
+Read the pad data. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em pad} & The pad to read data from. (0 $\sim$ 1) \\
+{\em pad} & The pad to read. (0 $\sim$ 1) \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The pad's data. 
+The current state of the pad. 
 \end{DoxyReturn}
-\hypertarget{pad_8h_a6654e59f267c20b37b9cec0b0c6703fe}{
-\index{pad.h@{pad.h}!eris\_\-low\_\-pad\_\-read\_\-status@{eris\_\-low\_\-pad\_\-read\_\-status}}
-\index{eris\_\-low\_\-pad\_\-read\_\-status@{eris\_\-low\_\-pad\_\-read\_\-status}!pad.h@{pad.h}}
-\subsubsection[{eris\_\-low\_\-pad\_\-read\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}{\bf u16} eris\_\-low\_\-pad\_\-read\_\-status (
+\hypertarget{pad_8h_aaadc2d957c39e29b3518cb6888627fd7}{
+\index{pad.h@{pad.h}!eris\_\-pad\_\-type@{eris\_\-pad\_\-type}}
+\index{eris\_\-pad\_\-type@{eris\_\-pad\_\-type}!pad.h@{pad.h}}
+\subsubsection[{eris\_\-pad\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}pad\_\-type eris\_\-pad\_\-type (
 \begin{DoxyParamCaption}
 \item[{int}]{pad}
 \end{DoxyParamCaption}
 )}}
-\label{pad_8h_a6654e59f267c20b37b9cec0b0c6703fe}
+\label{pad_8h_aaadc2d957c39e29b3518cb6888627fd7}
 
 
-Read pad status. 
+Get the pad type. 
 
 
 \begin{DoxyParams}{Parameters}
-{\em pad} & The pad to read the status of. (0 $\sim$ 1) \\
+{\em pad} & The pad to read. (0 $\sim$ 1) \\
 \hline
 \end{DoxyParams}
 \begin{DoxyReturn}{Returns}
-The pad's status. 
+The pad's type. 
 \end{DoxyReturn}
-\hypertarget{pad_8h_af1cf05619c539a23b51c3986348e76ab}{
-\index{pad.h@{pad.h}!eris\_\-low\_\-pad\_\-write\_\-control@{eris\_\-low\_\-pad\_\-write\_\-control}}
-\index{eris\_\-low\_\-pad\_\-write\_\-control@{eris\_\-low\_\-pad\_\-write\_\-control}!pad.h@{pad.h}}
-\subsubsection[{eris\_\-low\_\-pad\_\-write\_\-control}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-pad\_\-write\_\-control (
-\begin{DoxyParamCaption}
-\item[{int}]{pad, }
-\item[{{\bf u16}}]{ctl}
-\end{DoxyParamCaption}
-)}}
-\label{pad_8h_af1cf05619c539a23b51c3986348e76ab}
-
-
-Write pad control. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em pad} & The pad to write the control of. (0 $\sim$ 1) \\
-\hline
-{\em ctl} & The control data to be written. \\
-\hline
-\end{DoxyParams}
-\hypertarget{pad_8h_a1b9a62792904d868cc426b2a60c36b6a}{
-\index{pad.h@{pad.h}!eris\_\-low\_\-pad\_\-write\_\-data@{eris\_\-low\_\-pad\_\-write\_\-data}}
-\index{eris\_\-low\_\-pad\_\-write\_\-data@{eris\_\-low\_\-pad\_\-write\_\-data}!pad.h@{pad.h}}
-\subsubsection[{eris\_\-low\_\-pad\_\-write\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}void eris\_\-low\_\-pad\_\-write\_\-data (
-\begin{DoxyParamCaption}
-\item[{int}]{pad, }
-\item[{{\bf u32}}]{data}
-\end{DoxyParamCaption}
-)}}
-\label{pad_8h_a1b9a62792904d868cc426b2a60c36b6a}
-
-
-Write pad data. 
-
-
-\begin{DoxyParams}{Parameters}
-{\em pad} & The pad to write data to. (0 $\sim$ 1) \\
-\hline
-{\em data} & The data to be written. \\
-\hline
-\end{DoxyParams}
