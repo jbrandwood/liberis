@@ -41,10 +41,29 @@ void eris_low_sup_init(int chip);
  * \param vsyncwid The length of vsync. (0 ~ 31)
  * \param vdispwid The length of vertical display, -1. (0 ~ 512)
  * \param vdispend The end of vertical display. (0 ~ 255)
+ *
+ * \sa eris_low_sup_get_video_mode()
  */
 void eris_low_sup_set_video_mode(int chip, int hdispstrt, int hsyncwid,
 				int hdispend, int hdispwid, int vdispstrt,
 				int vsyncwid, int vdispwid, int vdispend);
+/*! \brief Get the setup of a 7up's video mode.
+ *
+ * \param chip Which 7up to read the configuration of. (0 ~ 1)
+ * \param hdispstrt The start of horizontal display, -1.
+ * \param hsyncwid The length of hsync.
+ * \param hdispend The end of horizontal display, -1.
+ * \param hdispwid The length of horizontal display, -1.
+ * \param vdispstrt The start of vertical display, -2.
+ * \param vsyncwid The length of vsync.
+ * \param vdispwid The length of vertical display, -1.
+ * \param vdispend The end of vertical display.
+ *
+ * \sa eris_low_sup_set_video_mode()
+ */
+void eris_low_sup_get_video_mode(int chip, int *hdispstrt, int *hsyncwid,
+				int *hdispend, int *hdispwid, int *vdispstrt,
+				int *vsyncwid, int *vdispwid, int *vdispend);
 /*! \brief Set the VRAM write address for a 7up chip.
  *
  * \param chip Which 7up to set the write address for. (0 ~ 1)
@@ -76,9 +95,23 @@ u16 eris_low_sup_vram_read(int chip);
  *                  hardwre documentation for which values.
  * \param bg_show Whether the BG should show or not.
  * \param spr_show Whether sprites should show or not.
+ *
+ * \sa eris_low_sup_get_control()
  */
 void eris_low_sup_set_control(int chip, int increment, int bg_show,
 				int spr_show);
+/*! \brief Get controls from a 7up chip.
+ *
+ * \param chip Which 7up to get controls from. (0 ~ 1)
+ * \param increment How much to increment on every VRAM read/write. See
+ *                  hardwre documentation for which values.
+ * \param bg_show Whether the BG should show or not.
+ * \param spr_show Whether sprites should show or not.
+ *
+ * \sa eris_low_sup_set_control()
+ */
+void eris_low_sup_get_control(int chip, int *increment, int *bg_show,
+				int *spr_show);
 /*! \brief Set interrupt information for a 7up chip.
  *
  * \param chip Which 7up to set interrupts for. (0 ~ 1)
@@ -101,8 +134,19 @@ void eris_low_sup_set_interrupt_raster(int chip, int raster);
  * \param chip Which 7up to scroll. (0 ~ 1)
  * \param x Top-left X coordinate of the background.
  * \param y Top-left Y coordinate of the background.
+ *
+ * \sa eris_low_sup_get_scroll()
  */
 void eris_low_sup_set_scroll(int chip, u16 x, u16 y);
+/*! \brief Read the scroll of a 7up background.
+ *
+ * \param chip Which 7up to read the scroll of. (0 ~ 1)
+ * \param x Top-left X coordinate of the background.
+ * \param y Top-left Y coordinate of the background.
+ *
+ * \sa eris_low_sup_set_scroll()
+ */
+void eris_low_sup_get_scroll(int chip, u16 *x, u16 *y);
 /*! \brief Perform a 7up DMA.
  *
  * \param chip Which 7up to DMA on. (0 ~ 1)
@@ -139,10 +183,26 @@ void eris_low_sup_set_satb_address(int chip, u16 addr);
  * \param mapsize Size of the background map.
  * \param spr_px_w Sprite pixel width. See hardware documentation. (0 ~ 3)
  * \param vram_px_w VRAM pixel width. See hardware documentation. (0 ~ 3)
+ *
+ * \sa eris_low_sup_get_access_width()
  */
 void eris_low_sup_set_access_width(int chip, int cg_mode,
 				sup_low_mapsize mapsize, int spr_px_w,
 				int vram_px_w);
+/*! \brief Get access width information.
+ *
+ * See the hardware documentation for more information.
+ * \param chip Which 7up to get access width information from. (0 ~ 1)
+ * \param cg_mode Which character generation is used on vram_px_w = 3.
+ * \param mapsize Size of the background map.
+ * \param spr_px_w Sprite pixel width. See hardware documentation. (0 ~ 3)
+ * \param vram_px_w VRAM pixel width. See hardware documentation. (0 ~ 3)
+ *
+ * \sa eris_low_sup_set_access_width()
+ */
+void eris_low_sup_get_access_width(int chip, int *cg_mode,
+				sup_low_mapsize *mapsize, int *spr_px_w,
+				int *vram_px_w);
 
 #endif
 

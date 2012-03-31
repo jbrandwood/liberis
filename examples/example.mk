@@ -26,6 +26,7 @@ $(CD_OBJECTS): .FORCE lbas.h
 	$(OBJCOPY) -O binary -R .stack -R .zdata $< $@
 cd: $(TARGETS)
 	bincat out.bin lbas.h $(BIN_TARGET) $(ADD_FILES)
+	make clean -C .
 	make -C .
 	bincat out.bin lbas.h $(BIN_TARGET) $(ADD_FILES)
 	pcfx-cdlink cdlink.txt $(CDOUT)

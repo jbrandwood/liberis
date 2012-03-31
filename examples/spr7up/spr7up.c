@@ -11,9 +11,11 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 #include <eris/std.h>
 #include <eris/v810.h>
 #include <eris/king.h>
-#include <eris/low/7up.h>
+#include <eris/7up.h>
 #include <eris/tetsu.h>
 #include <eris/romfont.h>
+#include <eris/pad.h>
+#include <eris/low/7up.h>
 
 void printch(u32 sjis, u32 kram, int tall);
 void printstr(u32* str, int x, int y, int tall);
@@ -24,11 +26,12 @@ int main(int argc, char *argv[])
 	int i, x, y, xl, yl;
 	u32 str[256];
 	u16 microprog[16];
+	u32 pad;
 
-	eris_low_sup_init(0);
-	eris_low_sup_init(1);
+	eris_sup_init(0, 1);
 	eris_king_init();
 	eris_tetsu_init();
+	eris_pad_init(0);
 	
 	eris_tetsu_set_priorities(0, 0, 1, 0, 0, 0, 0);
 	eris_tetsu_set_7up_palette(0, 0);
@@ -74,21 +77,13 @@ int main(int argc, char *argv[])
 		eris_king_kram_write(0);
 	}
 	eris_low_sup_set_vram_write(0, 0);
-	eris_low_sup_vram_write(0, 0x0040);
-	eris_low_sup_vram_write(0, 0x0040);
-	eris_low_sup_vram_write(0, 0x0008);
-	eris_low_sup_vram_write(0, 0x0080);
-	for(i = 4; i < 0x100; i += 4) {
-		eris_low_sup_vram_write(0, 0x03FF);
-		eris_low_sup_vram_write(0, 0x03FF);
-		eris_low_sup_vram_write(0, 0x0000);
-		eris_low_sup_vram_write(0, 0x0000);
-	}
 	for(i = 0; i < 8*4; i++) {
 		eris_low_sup_vram_write(0, i ^ (i << 3) ^ (i << 6) ^ (i << 9) ^ (i << 12) ^ (i >> 3) ^ 0xAAAA); /* Yay pseudo rando noise */
 	}
-	eris_low_sup_setup_dma(0, 1, 0, 0, 0, 0);
-	eris_low_sup_set_satb_address(0, 0);
+	eris_sup_set(0);
+	eris_sup_spr_set(0);
+	eris_sup_spr_create(0, 0, 0, 0);
+
 	eris_king_set_kram_write(0, 1);
 	chartou32("7up sprite example", str);
 	printstr(str, 7, 0x10, 1);
@@ -96,25 +91,22 @@ int main(int argc, char *argv[])
 	x = y = 0x40;
 	xl = yl = 1;
 	for(;;) {
-		eris_low_sup_set_vram_write(0, 0);
-		eris_low_sup_vram_write(0, y);
-		eris_low_sup_vram_write(0, x);
-		if(yl)
+		pad = eris_pad_read(0);
+		eris_sup_spr_xy(x, y);
+		if((yl != 1) && (pad & (1<<10)))
 			y++;
-		else
+		else if((yl != -1) && (pad & (1<<8)))
 			y--;
-		if(xl)
+		if((xl != 1) && (pad & (1<<9)))
 			x++;
-		else
+		else if((xl != -1) && (pad & (1<<11)))
 			x--;
-		if(x > 256+32-16)
-			xl = 0;
-		if(x < 32)
-			xl = 1;
-		if(y < 64+2)
-			yl = 1;
-		if(y > 238+64-16)
-			yl = 0;
+		if(x > 256+32-16) xl = 1;
+		else if(x < 32)   xl = -1;
+		else              xl = 0;
+		if(y > 238+64-16) yl = 1;
+		else if(y < 64+2) yl = -1;
+		else              yl = 0;
 		for(i = 0; i < 0x4000; i++) {
 			asm("mov r0, r0");
 		}

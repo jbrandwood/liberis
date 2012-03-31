@@ -12,18 +12,22 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
  *****************************************************************************/
 	.global	_eris_low_sup_init
 	.global	_eris_low_sup_set_video_mode
+	.global	_eris_low_sup_get_video_mode
 	.global	_eris_low_sup_set_vram_write
 	.global	_eris_low_sup_vram_write
 	.global	_eris_low_sup_set_vram_read
 	.global	_eris_low_sup_vram_read
 	.global	_eris_low_sup_set_control
+	.global	_eris_low_sup_get_control
 	.global	_eris_low_sup_set_interrupts
 	.global _eris_low_sup_set_interrupt_raster
 	.global _eris_low_sup_set_scroll
+	.global _eris_low_sup_get_scroll
 	.global	_eris_low_sup_do_dma
 	.global	_eris_low_sup_setup_dma
 	.global	_eris_low_sup_set_satb_address
 	.global	_eris_low_sup_set_access_width
+	.global	_eris_low_sup_get_access_width
 
 .macro	set_rrg	reg, ch, tmp
 	movea	0x400, \ch, \tmp
@@ -86,6 +90,45 @@ _eris_low_sup_set_video_mode:
 	out.h	r14, 4[r15]
 	jmp	[lp]
 
+_eris_low_sup_get_video_mode:
+	shl	8, r6
+	ld.w	16[sp], r10
+	ld.w	20[sp], r11
+	ld.w	24[sp], r12
+	ld.w	28[sp], r13
+	ld.w	32[sp], r14
+
+	set_reg	0xA, r6, r15, r16
+	in.h	4[r15], r16
+	andi	0xFF, r16, r17
+	st.w	r17, [r8]
+	shr	8, r16
+	st.w	r16, [r7]
+
+	set_reg	0xB, r6, r15, r16
+	in.h	4[r15], r16
+	andi	0xFF, r16, r17
+	st.w	r17, [r10]
+	shr	8, r16
+	st.w	r16, [r9]
+
+	set_reg	0xC, r6, r15, r16
+	in.h	4[r15], r16
+	andi	0xFF, r16, r17
+	st.w	r17, [r12]
+	shr	8, r16
+	st.w	r16, [r11]
+
+	set_reg	0xD, r6, r15, r16
+	in.h	4[r15], r16
+	st.w	r16, [r13]
+
+	set_reg	0xD, r6, r15, r16
+	in.h	4[r15], r16
+	st.w	r16, [r14]
+
+	jmp	[lp]
+
 /* This will eventually be the set video mode in the high level */
 _eris_7up_set_video_mode:
 	shl	8, r6
@@ -122,7 +165,7 @@ _eris_7up_set_video_mode:
 
 _eris_low_sup_set_vram_write:
 	shl	8, r6
-	set_reg	0, r6, r10, r11
+	set_rrg	r0, r6, r10
 	out.h	r7, 4[r10]
 	jmp	[lp]
 
@@ -158,6 +201,23 @@ _eris_low_sup_set_control:
 	out.h	r7, 4[r10]
 	jmp	[lp]
 
+_eris_low_sup_get_control:
+	shl	8, r6
+	set_reg	5, r6, r10, r11
+	in.h	4[r10], r12
+	mov	r12, r13
+	shr	11, r13
+	andi	3, r13, r13
+	st.w	r13, 0[r7]
+	mov	r12, r13
+	shr	7, r13
+	andi	1, r13, r13
+	st.w	r13, 0[r8]
+	shr	6, r12
+	andi	1, r12, r12
+	st.w	r12, 0[r9]
+	jmp	[lp]
+
 _eris_low_sup_set_interrupts:
 	ld.w	16[sp], r13
 	shl	8, r6
@@ -186,6 +246,16 @@ _eris_low_sup_set_scroll:
 	out.h	r7, 4[r10]
 	set_reg	8, r6, r10, r11
 	out.h	r8, 4[r10]
+	jmp	[lp]
+
+_eris_low_sup_get_scroll:
+	shl	8, r6
+	set_reg	7, r6, r10, r11
+	in.h	4[r10], r11
+	st.h	r11, 0[r7]
+	set_reg	8, r6, r10, r11
+	in.h	4[r10], r11
+	st.h	r11, 0[r8]
 	jmp	[lp]
 
 _eris_low_sup_do_dma:
@@ -231,5 +301,26 @@ _eris_low_sup_set_access_width:
 	or	r8, r7
 	or	r9, r7
 	out.h	r7, 4[r10]
+	jmp	[lp]
+
+_eris_low_sup_get_access_width:
+	shl	8, r6
+	ld.w	16[sp], r10
+	set_reg	9, r6, r11, r12
+	in.h	4[r11], r12
+	mov	r12, r13
+	shr	7, r13
+	addi	1, r13, r13
+	st.w	r13, 0[r7]
+	mov	r12, r13
+	shr	4, r13
+	addi	7, r13, r13
+	st.w	r13, 0[r8]
+	mov	r12, r13
+	shr	2, r13
+	addi	3, r13, r13
+	st.w	r13, 0[r9]
+	addi	3, r12, r12
+	st.w	r12, 0[r10]
 	jmp	[lp]
 
