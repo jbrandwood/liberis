@@ -28,7 +28,9 @@ install: $(TARGETS)
 	@mkdir -p $(V810DEV)/lib
 	@mkdir -p $(V810DEV)/include/eris/
 	@echo "    COPY  crt0.o"
-	@cp src/crt0.o $(V810DEV)/lib/
+	@cp src/crt0.o $(V810DEV)/v810/lib/
+	@echo "    COPY  ldscripts"
+	@cp ldscripts/* $(V810DEV)/v810/lib/ldscripts/
 	@echo "    COPY  liberis.a"
 	@cp liberis.a $(V810DEV)/lib/
 	@echo "    COPY  include/"

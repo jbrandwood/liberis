@@ -118,7 +118,7 @@ int main(int argc, char *argv[])
 void chartou32(char* str, u32* o)
 {
 	int i;
-	int len = strlen(str);
+	int len = strlen8(str);
 	for(i = 0; i < len; i++)
 		o[i] = str[i];
 	o[i] = 0;

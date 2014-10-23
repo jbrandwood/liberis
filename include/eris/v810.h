@@ -127,6 +127,23 @@ u32 irq_get_priority(void);
  *           level is signaled.
  */
 void irq_set_handler(int level, void (*fn)(void));
+/*! \brief Sets mask to add allowing a single level.
+ *
+ */
+void irq_level_enable(int level);
+/*! \brief Sets mask to remove allowing a single level.
+ *
+ */
+void irq_level_disable(int level);
+/*! \brief Set an IRQ handler. This one is not wrapped, and as such must be
+ * written in assembly.
+ *
+ * Sets a handler for a specific IRQ level.
+ * \param level The level that this handler will correspond to.
+ * \param fn The handler that will be run when an interrupt with the correct
+ *           level is signaled.
+ */
+void irq_set_raw_handler(int level, void (*fn)(void));
 
 /* Port functions */
 
@@ -172,6 +189,12 @@ u16 in16(u32 port);
  * \sa in32(), in16()
  */
 u8 in8(u32 port);
+
+/*! \brief Nullsub conveniently statically located at 0x8004.
+ *
+ * Not void parameters, so that you can pass in whatever debug info you want.
+ */
+void dbgbreak();
 
 #endif
 

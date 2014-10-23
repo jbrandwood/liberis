@@ -151,7 +151,7 @@ _eris_king_set_bat_cg_addr:
 	jmp	[lp]
 
 _eris_king_set_scroll:
-	movea	0x2C, r0, r10
+	movea	0x30, r0, r10
 	cmp	0, r6
 	be	1f
 	add	-1, r6

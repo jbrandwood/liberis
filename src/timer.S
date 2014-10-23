@@ -34,8 +34,7 @@ _eris_timer_read_counter:
 
 _eris_timer_ack_irq:
 	in.h	0xF00[r0], r10
-	mov	-5, r11
-	and	r11, r10
+	andi	~4, r10, r10
 	out.h	r10, 0xF00[r0]
 	jmp	[lp]
 
@@ -49,8 +48,7 @@ _eris_timer_write_control:
 
 _eris_timer_start:
 	in.h	0xF00[r0], r10
-	mov	-4, r11
-	and	r11, r10
+	andi	~3, r10, r10
 	ori	2, r6, r6
 	or	r6, r10
 	out.h	r10, 0xF00[r0]
@@ -58,8 +56,6 @@ _eris_timer_start:
 
 _eris_timer_stop:
 	in.h	0xF00[r0], r10
-	mov	-2, r11
-	and	r11, r10
+	andi	~1, r10, r10
 	out.h	r10, 0xF00[r0]
 	jmp	[lp]
-

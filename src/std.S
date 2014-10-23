@@ -12,13 +12,13 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
  *****************************************************************************/
 	.global	_memset32
 	.global	_memset16
-	.global	_memset
+	.global	_memset8
 	.global _memcpy32
 	.global	_memcpy16
-	.global _memcpy
+	.global _memcpy8
 	.global	_memcmp32
 	.global _memcmp16
-	.global _memcmp
+	.global _memcmp8
 
 _memset32:
 	add	r6, r8
@@ -38,7 +38,7 @@ _memset16:
 	bl	1b
 	jmp	[lp]
 
-_memset:
+_memset8:
 	add	r6, r8
 1:
 	st.b	r7, 0[r6]
@@ -69,7 +69,7 @@ _memcpy16:
 	bne	1b
 	jmp	[lp]
 
-_memcpy:
+_memcpy8:
 1:
 	ld.b	0[r6], r10
 	st.b	r10, 0[r7]
@@ -107,7 +107,7 @@ _memcmp16:
 2:	sub	r11, r10
 	jmp	[lp]
 
-_memcmp:
+_memcmp8:
 1:
 	ld.b	0[r6], r10
 	ld.b	0[r7], r11
@@ -125,22 +125,22 @@ _memcmp:
  *****************************************************************************/
 	.global	_strlen32
 	.global	_strlen16
-	.global	_strlen
+	.global	_strlen8
 	.global	_strcpy32
 	.global	_strcpy16
-	.global	_strcpy
+	.global	_strcpy8
 	.global	_strcmp32
 	.global	_strcmp16
-	.global	_strcmp
+	.global	_strcmp8
 	.global	_strnlen32
 	.global	_strnlen16
-	.global	_strnlen
+	.global	_strnlen8
 	.global	_strncpy32
 	.global	_strncpy16
-	.global	_strncpy
+	.global	_strncpy8
 	.global	_strncmp32
 	.global	_strncmp16
-	.global	_strncmp
+	.global	_strncmp8
 
 _strlen32:
 	mov	r0, r10
@@ -162,7 +162,7 @@ _strlen16:
 	bne	1b
 	jmp	[lp]
 
-_strlen:
+_strlen8:
 	mov	r0, r10
 	br	2f
 1:	add	1, r10
@@ -190,7 +190,7 @@ _strcpy16:
 	bne	1b
 	jmp	[lp]
 
-_strcpy:
+_strcpy8:
 1:	ld.b	0[r7], r10
 	st.b	r10, 0[r6]
 	add	1, r7
@@ -225,7 +225,7 @@ _strcmp16:
 2:
 	jmp	[lp]
 
-_strcmp:
+_strcmp8:
 1:	ld.b	0[r6], r10
 	ld.b	0[r7], r11
 	add	1, r6
@@ -264,7 +264,7 @@ _strnlen16:
 3:
 	jmp	[lp]
 
-_strnlen:
+_strnlen8:
 	mov	r0, r10
 	br	2f
 1:	add	1, r10
@@ -307,7 +307,7 @@ _strncpy16:
 3:
 	jmp	[lp]
 
-_strncpy:
+_strncpy8:
 	mov	r0, r10
 	br	2f
 1:	add	1, r10
@@ -358,7 +358,7 @@ _strncmp16:
 2:
 	jmp	[lp]
 
-_strncmp:
+_strncmp8:
 	mov	r0, r10
 	br	1f
 4:	add	1, r10

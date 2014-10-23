@@ -5,8 +5,9 @@ AS             = $(PREFIX)as
 AR             = $(PREFIX)ar
 LD             = $(PREFIX)ld
 OBJCOPY        = $(PREFIX)objcopy
-CFLAGS        += -I$(V810DEV)/include/ -mspace -mv810 -O0 -Wall
-LDFLAGS       += -L$(V810DEV)/lib/ $(V810DEV)/lib/crt0.o -leris -lgcc
+CFLAGS        += -I$(V810DEV)/include/ -nostdlib -mv810 -O0 -Wall
+LIBS           = -leris
+LDFLAGS       += -L$(V810DEV)/lib/ -T$(V810DEV)/v810/lib/ldscripts/v810.x $(V810DEV)/v810/lib/crt0.o
 
 .PHONY: all cd clean install .FORCE
 
@@ -21,13 +22,13 @@ $(CD_OBJECTS): .FORCE lbas.h
 %.o: %.c
 	$(CC) $(CFLAGS) $< -c -o $@
 %.elf: $(OBJECTS)
-	$(LD) $(OBJECTS) $(LDFLAGS) -o $@ 
+	$(LD) $(LDFLAGS) $(OBJECTS) $(LIBS) -o $@ 
 %.bin: %.elf
-	$(OBJCOPY) -O binary -R .stack -R .zdata $< $@
+	$(OBJCOPY) -O binary $< $@
 cd: $(TARGETS)
 	bincat out.bin lbas.h $(BIN_TARGET) $(ADD_FILES)
-	make clean -C .
-	make -C .
+	make cdclean -C .
+	make all -C .
 	bincat out.bin lbas.h $(BIN_TARGET) $(ADD_FILES)
 	pcfx-cdlink cdlink.txt $(CDOUT)
 
@@ -36,3 +37,6 @@ lbas.h:
 
 clean:
 	rm -rf $(OBJECTS) $(TARGETS) lbas.h $(CDOUT).cue $(CDOUT).bin
+
+cdclean:
+	rm -rf $(OBJECTS) $(TARGETS) $(CDOUT).cue $(CDOUT).bin

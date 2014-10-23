@@ -85,7 +85,7 @@ void eris_tetsu_set_palette(u16 pal_entry, u16 color);
  * \param bg7up Which palette to use for 7up backgrounds.
  * \param spr7up Which palette to use for 7up sprites.
  */
-void eris_tetsu_set_7up_palette(u8 bg7up, u8 spr7up);
+void eris_tetsu_set_7up_palette(u16 bg7up, u16 spr7up);
 /*! \brief Which palette to use for the KING backgrounds.
  *
  * Palettes are actually indexes into the palette which is the first color
@@ -96,7 +96,7 @@ void eris_tetsu_set_7up_palette(u8 bg7up, u8 spr7up);
  * \param bg2 Which palette to use for KING background 2.
  * \param bg3 Which palette to use for KING background 3.
  */
-void eris_tetsu_set_king_palette(u8 bg0, u8 bg1, u8 bg2, u8 bg3);
+void eris_tetsu_set_king_palette(u16 bg0, u16 bg1, u16 bg2, u16 bg3);
 /*! \brief Which palette to use for RAIBOW.
  *
  * Palettes are actually indexes into the palette which is the first color
@@ -104,7 +104,7 @@ void eris_tetsu_set_king_palette(u8 bg0, u8 bg1, u8 bg2, u8 bg3);
  * be color 0, 5th would be 1, etc.
  * \param rainbow Which palette to use for RAIBOW.
  */
-void eris_tetsu_set_rainbow_palette(u8 rainbow);
+void eris_tetsu_set_rainbow_palette(u16 rainbow);
 /*! \brief Set layer priorities.
  *
  * \param bg7up Priority for the 7up backgrounds. (0 ~ 7)

@@ -101,31 +101,31 @@ _eris_low_sup_get_video_mode:
 	set_reg	0xA, r6, r15, r16
 	in.h	4[r15], r16
 	andi	0xFF, r16, r17
-	st.w	r17, [r8]
+	st.w	r17, 0[r8]
 	shr	8, r16
-	st.w	r16, [r7]
+	st.w	r16, 0[r7]
 
 	set_reg	0xB, r6, r15, r16
 	in.h	4[r15], r16
 	andi	0xFF, r16, r17
-	st.w	r17, [r10]
+	st.w	r17, 0[r10]
 	shr	8, r16
-	st.w	r16, [r9]
+	st.w	r16, 0[r9]
 
 	set_reg	0xC, r6, r15, r16
 	in.h	4[r15], r16
 	andi	0xFF, r16, r17
-	st.w	r17, [r12]
+	st.w	r17, 0[r12]
 	shr	8, r16
-	st.w	r16, [r11]
+	st.w	r16, 0[r11]
 
 	set_reg	0xD, r6, r15, r16
 	in.h	4[r15], r16
-	st.w	r16, [r13]
+	st.w	r16, 0[r13]
 
 	set_reg	0xD, r6, r15, r16
 	in.h	4[r15], r16
-	st.w	r16, [r14]
+	st.w	r16, 0[r14]
 
 	jmp	[lp]
 

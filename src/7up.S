@@ -150,7 +150,7 @@ _eris_sup_spr_set:
 	st.w	r6, 0[r11]
 	jmp	[lp]
 
-.macro get_sup \supreg
+.macro get_sup supreg
 	movhi	hi(eris_sup_last_sup), r0, \supreg
 	ld.w	lo(eris_sup_last_sup)[\supreg], \supreg
 .endm
@@ -414,7 +414,7 @@ _eris_sup_spr_get_pal:
 	jmp	[lp]
 
 _eris_sup_bg_set_size:
-	add	-36, sp, sp
+	addi	-36, sp, sp
 	mov	lp, r14
 	mov	r6, r16
 
@@ -436,11 +436,11 @@ _eris_sup_bg_set_size:
 	jal	_eris_low_sup_set_access_width
 
 	mov	r14, lp
-	add	36, sp, sp
+	addi	36, sp, sp
 	jmp	[lp]
 
 _eris_sup_bg_set_tile:
-	add	-36, sp, sp
+	addi	-36, sp, sp
 	mov	lp, r14
 	mov	r6, r16
 	mov	r7, r17
@@ -470,11 +470,11 @@ _eris_sup_bg_set_tile:
 	jal	_eris_low_sup_vram_write
 
 	mov	r14, lp
-	add	36, sp, sp
+	addi	36, sp, sp
 	jmp	[lp]
 
 _eris_sup_bg_load_tiles:
-	add	-36, sp, sp
+	addi	-36, sp, sp
 	mov	lp, r14
 	mov	r6, r16
 	mov	r7, r17
@@ -504,7 +504,7 @@ _eris_sup_bg_load_tiles:
 	jal	_eris_low_sup_vram_write
 
 	mov	r14, lp
-	add	36, sp, sp
+	addi	36, sp, sp
 	jmp	[lp]
 
 _eris_sup_bg_scroll_x:
@@ -517,7 +517,7 @@ _eris_sup_bg_scroll_xy:
 	jmp	[lp]
 
 _eris_sup_bg_get_tile:
-	add	-36, sp, sp
+	addi	-36, sp, sp
 	mov	lp, r14
 	mov	r6, r16
 	mov	r7, r17
@@ -545,7 +545,7 @@ _eris_sup_bg_get_tile:
 	jal	_eris_low_sup_vram_read
 
 	mov	r14, lp
-	add	36, sp, sp
+	addi	36, sp, sp
 	jmp	[lp]
 
 _eris_sup_bg_get_scroll_x:

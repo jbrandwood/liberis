@@ -23,7 +23,7 @@ _cache_enable:
 	jmp	[lp]
 
 _cache_disable:
-	mov	-3, r11
+	mov	~2, r11
 	stsr	CHCW, r10
 	and	r11, r10
 	ldsr	r10, CHCW
@@ -68,6 +68,79 @@ _cache_restore:
 	.global	_irq_get_level
 	.global	_irq_get_mask
 	.global	_irq_get_priority
+	.global	_irq_level_enable
+	.global	_irq_level_disable
+	.global	_irq_set_raw_handler
+
+.irp param, 0,1,2,3,4,5,6,7
+_irq_shim\param:
+	add	-0x10, sp
+	st.w	lp, 0x00[sp]
+	stsr	sr0, lp
+	st.w	lp, 0x04[sp]
+	stsr	sr1, lp
+	st.w	lp, 0x08[sp]
+	st.w	r1, 0x0C[sp]
+	addi	-0x3C, sp, sp
+	st.w	r6, 0x00[sp]
+	st.w	r7, 0x04[sp]
+	st.w	r8, 0x08[sp]
+	st.w	r9, 0x0C[sp]
+	st.w	r10, 0x10[sp]
+	st.w	r11, 0x14[sp]
+	st.w	r12, 0x18[sp]
+	st.w	r13, 0x1C[sp]
+	st.w	r14, 0x20[sp]
+	st.w	r15, 0x24[sp]
+	st.w	r16, 0x28[sp]
+	st.w	r17, 0x2C[sp]
+	st.w	r18, 0x30[sp]
+	st.w	r19, 0x34[sp]
+	st.w	r30, 0x38[sp]
+	movhi	hi(_irq_handlers+(\param *4)), r0, r10
+	ld.w	lo(_irq_handlers+(\param *4))[r10], r10
+	jal	.+4
+	add	4, lp
+	jmp	[r10]
+	ld.w	0x38[sp], r30
+	ld.w	0x34[sp], r19
+	ld.w	0x30[sp], r18
+	ld.w	0x2C[sp], r17
+	ld.w	0x28[sp], r16
+	ld.w	0x24[sp], r15
+	ld.w	0x20[sp], r14
+	ld.w	0x1C[sp], r13
+	ld.w	0x18[sp], r12
+	ld.w	0x14[sp], r11
+	ld.w	0x10[sp], r10
+	ld.w	0x0C[sp], r9
+	ld.w	0x08[sp], r8
+	ld.w	0x04[sp], r7
+	ld.w	0x00[sp], r6
+	addi	0x3C, sp, sp
+	ld.w	0x0C[sp], r1
+	ld.w	0x08[sp], lp
+	ldsr	lp, sr1
+	ld.w	0x04[sp], lp
+	ldsr	lp, sr0
+	ld.w	0x00[sp], lp
+	addi	0x10, sp, sp
+	reti
+.endr
+
+	.align	4
+_irq_shim_addr:
+	.long	_irq_shim0
+	.long	_irq_shim1
+	.long	_irq_shim2
+	.long	_irq_shim3
+	.long	_irq_shim4
+	.long	_irq_shim5
+	.long	_irq_shim6
+	.long	_irq_shim7
+
+_irq_handlers:
+	.long	0,0,0,0, 0,0,0,0
 
 _irq_enable:
 	stsr	PSW, r10
@@ -121,12 +194,28 @@ _irq_set_priority:
 	jmp	[lp]
 
 _irq_set_handler:
-	add	-7, r6
+	addi	-7, r6, r6
 	shl	2, r6
 	movea	0x7FE0, r0, r10
 	sub	r6, r10
-	st.w	r7, 0[r10]
-	jmp	[lp]
+
+	addi	-4, r6, r6
+	movhi	hi(_irq_handlers), r6, r11
+	st.w	r7, lo(_irq_handlers)[r11]
+
+	movhi	hi(_irq_shim_addr), r6, r11
+	ld.w	lo(_irq_shim_addr)[r11], r11
+
+	sub	r10, r11
+	st.h	r11, 2[r10]
+	shr	16, r11
+	andi	0x03FF, r11, r11
+	ori	0xA800, r11, r11
+	st.h	r11, 0[r10]
+
+	mov	0, r6
+	movea	128, r0, r7
+	jr	_cache_clear
 
 _irq_get_level:
 	stsr	PSW, r10
@@ -144,6 +233,41 @@ _irq_get_priority:
 	in.h	0xE80[r0], r10
 	or	r11, r10
 	jmp	[lp]
+
+_irq_level_enable:
+	in.h	0xE40[r0], r10
+	add	-8, r6
+	movea	~0x80, r0, r11
+	shr	r6, r11
+	and	r11, r10
+	out.h	r10, 0xE40[r0]
+	jmp	[lp]
+
+_irq_level_disable:
+	in.h	0xE40[r0], r10
+	add	-8, r6
+	movea	0x80, r0, r11
+	shr	r6, r11
+	or	r11, r10
+	out.h	r10, 0xE40[r0]
+	jmp	[lp]
+
+_irq_set_raw_handler:
+	addi	-7, r6, r6
+	shl	2, r6
+	movea	0x7FE0, r0, r10
+	sub	r6, r10
+
+	sub	r10, r7
+	st.h	r7, 2[r10]
+	shr	16, r7
+	andi	0x03FF, r7, r7
+	ori	0xA800, r7, r7
+	st.h	r7, 0[r10]
+
+	mov	0, r6
+	movea	128, r0, r7
+	jr	_cache_clear
 
 /*****************************************************************************
  *  Port functions                                                       []  *

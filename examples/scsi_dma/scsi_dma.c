@@ -100,7 +100,7 @@ int main(int argc, char *argv[])
 			if(paddata & (1 << 7) && !(lastpad & (1 << 7))) { // Run
 				eris_low_scsi_reset();
 			}
-			if(paddata & (1 << 1) && !(lastpad & (1 << 0))) { // (I) DMA to KRAM
+			if(paddata & (1 << 0) && !(lastpad & (1 << 0))) { // (I) DMA to KRAM
 				eris_cd_read_kram(BINARY_LBA_PORN_BIN, 0x600, 0x6800);
 			}
 		}
@@ -148,7 +148,7 @@ void printhex(void* data, int x, int y, int bytes, int addr, int tall)
 void chartou32(char* str, u32* o)
 {
 	int i;
-	int len = strlen(str);
+	int len = strlen8(str);
 	for(i = 0; i < len; i++)
 		o[i] = str[i];
 	o[i] = 0;

@@ -149,7 +149,7 @@ void printhex(void* data, int x, int y, int bytes, int addr, int tall)
 void chartou32(char* str, u32* o)
 {
 	int i;
-	int len = strlen(str);
+	int len = strlen8(str);
 	for(i = 0; i < len; i++)
 		o[i] = str[i];
 	o[i] = 0;
