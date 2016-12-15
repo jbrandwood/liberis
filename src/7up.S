@@ -43,7 +43,7 @@ eris_sup_last_spr:
 	.word	0, 0
 
 _eris_sup_init:
-	addi	-(16+20), sp, sp
+	addi	-20, sp, sp
 	mov	lp, r20
 	andi	1, r6, r19
 	andi	1, r7, r18
@@ -64,7 +64,7 @@ _eris_sup_init:
 	mov	r0, r7
 	mov	r0, r8
 	mov	r0, r9
-	st.w	r0, 16[sp]
+	st.w	r0, 0[sp]
 	jal	_eris_low_sup_set_access_width
 
 	cmp	1, r19 # Never setup the timing on 7up-B
@@ -74,13 +74,13 @@ _eris_sup_init:
 	mov	2, r8
 	mov	4, r9
 	movea	0x1F, r0, r10
-	st.w	r10, 16[sp]
+	st.w	r10, 0[sp]
 	movea	0x11, r0, r10
-	st.w	r10, 20[sp]
-	st.w	r7, 24[sp]
+	st.w	r10, 4[sp]
+	st.w	r7, 8[sp]
 	movea	239, r0, r10
-	st.w	r10, 28[sp]
-	st.w	r7, 32[sp]
+	st.w	r10, 12[sp]
+	st.w	r7, 16[sp]
 	jal	_eris_low_sup_set_video_mode
 1:
 	# bg stuff
@@ -103,15 +103,15 @@ _eris_sup_init:
 	mov	r18, r7
 	mov	0, r8
 	mov	0, r9
-	st.w	r0, 16[sp]
-	st.w	r0, 20[sp]
+	st.w	r0, 0[sp]
+	st.w	r0, 4[sp]
 	jal	_eris_low_sup_setup_dma
 
 	mov	r19, r6
 	ori	0xFF00, r0, r7
 	jal	_eris_low_sup_set_satb_address
 
-	addi	24, sp, sp
+	addi	20, sp, sp
 	mov	r20, lp
 	jmp	[lp]
 
@@ -414,33 +414,33 @@ _eris_sup_spr_get_pal:
 	jmp	[lp]
 
 _eris_sup_bg_set_size:
-	addi	-36, sp, sp
+	addi	-20, sp, sp
 	mov	lp, r14
 	mov	r6, r16
 
 	get_sup	r6
 	mov	r6, r15
-	addi	20, sp, r7
-	addi	24, sp, r8
-	addi	28, sp, r9
-	addi	32, sp, r10
-	st.w	r10, 16[sp]
+	addi	4, sp, r7
+	addi	8, sp, r8
+	addi	12, sp, r9
+	addi	16, sp, r10
+	st.w	r10, 0[sp]
 	jal	_eris_low_sup_get_access_width
 
 	mov	r15, r6
-	ld.w	20[sp], r7
+	ld.w	4[sp], r7
 	mov	r16, r8
-	ld.w	28[sp], r9
-	ld.w	32[sp], r10
-	st.w	r10, 16[sp]
+	ld.w	12[sp], r9
+	ld.w	16[sp], r10
+	st.w	r10, 0[sp]
 	jal	_eris_low_sup_set_access_width
 
 	mov	r14, lp
-	addi	36, sp, sp
+	addi	20, sp, sp
 	jmp	[lp]
 
 _eris_sup_bg_set_tile:
-	addi	-36, sp, sp
+	addi	-20, sp, sp
 	mov	lp, r14
 	mov	r6, r16
 	mov	r7, r17
@@ -448,14 +448,14 @@ _eris_sup_bg_set_tile:
 
 	get_sup	r6
 	mov	r6, r15
-	addi	20, sp, r7
-	addi	24, sp, r8
-	addi	28, sp, r9
-	addi	32, sp, r10
-	st.w	r10, 16[sp]
+	addi	4, sp, r7
+	addi	8, sp, r8
+	addi	12, sp, r9
+	addi	16, sp, r10
+	st.w	r10, 0[sp]
 	jal	_eris_low_sup_get_access_width
 
-	ld.w	24[sp], r10
+	ld.w	8[sp], r10
 	andi	3, r10, r10
 	add	5, r10
 
@@ -470,11 +470,11 @@ _eris_sup_bg_set_tile:
 	jal	_eris_low_sup_vram_write
 
 	mov	r14, lp
-	addi	36, sp, sp
+	addi	20, sp, sp
 	jmp	[lp]
 
 _eris_sup_bg_load_tiles:
-	addi	-36, sp, sp
+	addi	-20, sp, sp
 	mov	lp, r14
 	mov	r6, r16
 	mov	r7, r17
@@ -482,14 +482,14 @@ _eris_sup_bg_load_tiles:
 
 	get_sup	r6
 	mov	r6, r15
-	addi	20, sp, r7
-	addi	24, sp, r8
-	addi	28, sp, r9
-	addi	32, sp, r10
-	st.w	r10, 16[sp]
+	addi	4, sp, r7
+	addi	8, sp, r8
+	addi	12, sp, r9
+	addi	16, sp, r10
+	st.w	r10, 0[sp]
 	jal	_eris_low_sup_get_access_width
 
-	ld.w	24[sp], r10
+	ld.w	8[sp], r10
 	andi	3, r10, r10
 	add	5, r10
 
@@ -504,7 +504,7 @@ _eris_sup_bg_load_tiles:
 	jal	_eris_low_sup_vram_write
 
 	mov	r14, lp
-	addi	36, sp, sp
+	addi	20, sp, sp
 	jmp	[lp]
 
 _eris_sup_bg_scroll_x:
@@ -517,21 +517,21 @@ _eris_sup_bg_scroll_xy:
 	jmp	[lp]
 
 _eris_sup_bg_get_tile:
-	addi	-36, sp, sp
+	addi	-20, sp, sp
 	mov	lp, r14
 	mov	r6, r16
 	mov	r7, r17
 
 	get_sup	r6
 	mov	r6, r15
-	addi	20, sp, r7
-	addi	24, sp, r8
-	addi	28, sp, r9
-	addi	32, sp, r10
-	st.w	r10, 16[sp]
+	addi	4, sp, r7
+	addi	8, sp, r8
+	addi	12, sp, r9
+	addi	16, sp, r10
+	st.w	r10, 0[sp]
 	jal	_eris_low_sup_get_access_width
 
-	ld.w	24[sp], r10
+	ld.w	8[sp], r10
 	andi	3, r10, r10
 	add	5, r10
 
@@ -545,7 +545,7 @@ _eris_sup_bg_get_tile:
 	jal	_eris_low_sup_vram_read
 
 	mov	r14, lp
-	addi	36, sp, sp
+	addi	20, sp, sp
 	jmp	[lp]
 
 _eris_sup_bg_get_scroll_x:

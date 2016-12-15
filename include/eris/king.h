@@ -134,6 +134,7 @@ typedef enum {
 /*! \brief Color mode for a KING background.
  */
 typedef enum {
+	KING_BGMODE_NONE           = 0x0, /*!< Nothing */
 	KING_BGMODE_4_PAL          = 0x1, /*!< Paletted 4 color mode */
 	KING_BGMODE_16_PAL         = 0x2, /*!< Paletted 16 color mode */
 	KING_BGMODE_256_PAL        = 0x3, /*!< Paletted 256 color mode */

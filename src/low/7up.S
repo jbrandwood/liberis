@@ -67,11 +67,11 @@ _eris_low_sup_init:
 
 _eris_low_sup_set_video_mode:
 	shl	8, r6
-	ld.w	16[sp], r10
-	ld.w	20[sp], r11
-	ld.w	24[sp], r12
-	ld.w	28[sp], r13
-	ld.w	32[sp], r14
+	ld.w	0[sp], r10
+	ld.w	4[sp], r11
+	ld.w	8[sp], r12
+	ld.w	12[sp], r13
+	ld.w	16[sp], r14
 	set_reg	0xA, r6, r15, r16
 	shl	8, r7
 	or	r7, r8
@@ -92,11 +92,11 @@ _eris_low_sup_set_video_mode:
 
 _eris_low_sup_get_video_mode:
 	shl	8, r6
-	ld.w	16[sp], r10
-	ld.w	20[sp], r11
-	ld.w	24[sp], r12
-	ld.w	28[sp], r13
-	ld.w	32[sp], r14
+	ld.w	0[sp], r10
+	ld.w	4[sp], r11
+	ld.w	8[sp], r12
+	ld.w	12[sp], r13
+	ld.w	16[sp], r14
 
 	set_reg	0xA, r6, r15, r16
 	in.h	4[r15], r16
@@ -219,7 +219,7 @@ _eris_low_sup_get_control:
 	jmp	[lp]
 
 _eris_low_sup_set_interrupts:
-	ld.w	16[sp], r13
+	ld.w	0[sp], r13
 	shl	8, r6
 	set_reg	5, r6, r10, r11
 	in.h	4[r10], r12
@@ -269,8 +269,8 @@ _eris_low_sup_do_dma:
 	jmp	[lp]
 
 _eris_low_sup_setup_dma:
-	ld.w	16[sp], r10
-	ld.w	20[sp], r11
+	ld.w	0[sp], r10
+	ld.w	4[sp], r11
 	shl	8, r6
 	shl	4, r7
 	shl	3, r8
@@ -293,7 +293,7 @@ _eris_low_sup_set_satb_address:
 _eris_low_sup_set_access_width:
 	shl	8, r6
 	set_reg	9, r6, r10, r11
-	ld.w	16[sp], r12
+	ld.w	0[sp], r12
 	shl	7, r7
 	shl	4, r8
 	shl	2, r9
@@ -305,7 +305,7 @@ _eris_low_sup_set_access_width:
 
 _eris_low_sup_get_access_width:
 	shl	8, r6
-	ld.w	16[sp], r10
+	ld.w	0[sp], r10
 	set_reg	9, r6, r11, r12
 	in.h	4[r11], r12
 	mov	r12, r13

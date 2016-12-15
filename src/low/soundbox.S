@@ -82,7 +82,7 @@ _eris_low_psg_set_lfo_control:
 	.global	_eris_low_adpcm_set_volume
 
 _eris_low_adpcm_set_control:
-	ld.w	16[sp], r10
+	ld.w	0[sp], r10
 	shl	2, r7
 	shl	3, r8
 	shl	4, r9
@@ -106,7 +106,7 @@ _eris_low_adpcm_set_volume:
 	.global	_eris_low_cdda_set_volume
 
 _eris_low_cdda_set_volume:
-	out.b	r6, 0x12A[r6]
-	out.b	r7, 0x12C[r6]
+	out.b	r6, 0x12A[r0]
+	out.b	r7, 0x12C[r0]
 	jmp	[lp]
 

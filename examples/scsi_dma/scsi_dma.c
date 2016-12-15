@@ -15,6 +15,7 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 #include <eris/romfont.h>
 #include <eris/cd.h>
 #include <eris/low/pad.h>
+#include <eris/low/scsi.h>
 
 #include "lbas.h"
 
@@ -39,13 +40,10 @@ const u16 pornpal[] = {
 
 int main(int argc, char *argv[])
 {
-	int i, l;
+	int i;
 	u32 str[256];
 	u16 microprog[16];
-	int status;
 	u32 paddata, lastpad;
-	u8 scsicdb[32];
-	u32 bytes = 0;
 
 	eris_king_init();
 	eris_tetsu_init();

@@ -110,7 +110,7 @@ _eris_king_set_bg_mode:
 
 _eris_king_set_bg_prio:
 	set_reg	0x12, r10
-	ld.w	16[sp], r11
+	ld.w	0[sp], r11
 	shl	3, r7
 	shl	6, r8
 	shl	9, r9
@@ -123,7 +123,7 @@ _eris_king_set_bg_prio:
 	jmp	[lp]
 
 _eris_king_set_bg_size:
-	ld.w	16[sp], r10
+	ld.w	0[sp], r10
 	shl	4, r8
 	shl	8, r9
 	shl	12, r10

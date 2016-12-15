@@ -1,8 +1,14 @@
-.PHONY: all hello fxbmp fxpad cellophane psg bg7up spr7up scsi scsi_dma cd clean
+.PHONY: all hello fxbmp fxpad cellophane psg bg7up spr7up scsi scsi_dma hello_interrupt hello_newlib hello_plusplus cd clean
 
-all: hello fxbmp fxpad cellophane psg bg7up spr7up scsi scsi_dma
+all: hello fxbmp fxpad cellophane psg bg7up spr7up scsi scsi_dma hello_interrupt hello_newlib hello_plusplus
 
 hello:
+	make -C $@
+hello_interrupt:
+	make -C $@
+hello_newlib:
+	make -C $@
+hello_plusplus:
 	make -C $@
 fxbmp:
 	make -C $@
@@ -29,6 +35,9 @@ cd:
 	make -C spr7up cd
 	make -C scsi cd
 	make -C scsi_dma cd
+	make -C hello_interrupt cd
+	make -C hello_newlib cd
+	make -C hello_plusplus cd
 
 clean:
 	make -C hello clean
@@ -40,3 +49,6 @@ clean:
 	make -C spr7up clean
 	make -C scsi clean
 	make -C scsi_dma clean
+	make -C hello_interrupt clean
+	make -C hello_newlib clean
+	make -C hello_plusplus clean

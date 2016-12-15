@@ -67,14 +67,14 @@ _eris_tetsu_init:
 	jmp	[lp]
 
 _eris_tetsu_set_video_mode:
-	ld.w	16[sp], r10
-	ld.w	20[sp], r11
-	ld.w	24[sp], r12
-	ld.w	28[sp], r13
-	ld.w	32[sp], r14
-	ld.w	36[sp], r15
-	ld.w	40[sp], r16
-	ld.w	44[sp], r17
+	ld.w	0[sp], r10
+	ld.w	4[sp], r11
+	ld.w	8[sp], r12
+	ld.w	12[sp], r13
+	ld.w	16[sp], r14
+	ld.w	20[sp], r15
+	ld.w	24[sp], r16
+	ld.w	28[sp], r17
 	shl	2, r7
 	shl	3, r8
 	shl	6, r9
@@ -139,9 +139,9 @@ _eris_tetsu_set_rainbow_palette:
 	jmp	[lp]
 
 _eris_tetsu_set_priorities:
-	ld.w	16[sp], r10
-	ld.w	20[sp], r11
-	ld.w	24[sp], r12
+	ld.w	0[sp], r10
+	ld.w	4[sp], r11
+	ld.w	8[sp], r12
 	set_reg	8, r13
 	shl	4, r7
 	shl	8, r12
@@ -159,8 +159,8 @@ _eris_tetsu_set_priorities:
 	jmp	[lp]
 
 _eris_tetsu_set_chroma_key:
-	ld.w	16[sp], r10
-	ld.w	20[sp], r11
+	ld.w	0[sp], r10
+	ld.w	4[sp], r11
 	set_reg	0xA, r12
 	shl	8, r6
 	or	r7, r6
@@ -214,11 +214,11 @@ _eris_tetsu_set_cellophane_sprites:
 	jmp	[lp]
 
 _eris_tetsu_set_cellophane_control:
-	ld.w	16[sp], r10
-	ld.w	20[sp], r11
-	ld.w	24[sp], r12
-	ld.w	28[sp], r13
-	ld.w	32[sp], r14
+	ld.w	0[sp], r10
+	ld.w	4[sp], r11
+	ld.w	8[sp], r12
+	ld.w	12[sp], r13
+	ld.w	16[sp], r14
 	shl	14, r6
 	shl	15, r7
 	shl	2, r9
@@ -240,9 +240,9 @@ _eris_tetsu_set_cellophane_control:
 	jmp	[lp]
 
 _eris_tetsu_set_cellophane_coeffs:
-	ld.w	16[sp], r10
-	ld.w	20[sp], r11
-	ld.w	24[sp], r12
+	ld.w	0[sp], r10
+	ld.w	4[sp], r11
+	ld.w	8[sp], r12
 	shl	8, r7
 	shl	4, r8
 	or	r9, r8

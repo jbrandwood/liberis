@@ -1,13 +1,16 @@
 TARGETS       += $(ELF_TARGET) $(BIN_TARGET)
-PREFIX         = v810-
-CC             = $(PREFIX)gcc
-AS             = $(PREFIX)as
-AR             = $(PREFIX)ar
-LD             = $(PREFIX)ld
-OBJCOPY        = $(PREFIX)objcopy
-CFLAGS        += -I$(V810DEV)/include/ -nostdlib -mv810 -O0 -Wall
-LIBS           = -leris
-LDFLAGS       += -L$(V810DEV)/lib/ -T$(V810DEV)/v810/lib/ldscripts/v810.x $(V810DEV)/v810/lib/crt0.o
+PREFIX         = v810
+CC             = $(PREFIX)-gcc
+AS             = $(PREFIX)-as
+AR             = $(PREFIX)-ar
+LD             = $(PREFIX)-ld
+OBJCOPY        = $(PREFIX)-objcopy
+
+CFLAGS        += -I$(V810DEV)/include/ -I$(V810DEV)/$(PREFIX)/include/ -O2 -Wall -std=gnu99 -mv810 -msda=256 -mprolog-function
+CPFLAGS       += -I$(V810DEV)/include/ -I$(V810DEV)/$(PREFIX)/include/ -O2 -Wall -std=gnu++11 -fno-rtti -fno-exceptions -mv810 -msda=256 -mprolog-function 
+LDFLAGS       += -L$(V810DEV)/lib/ -L$(V810DEV)/$(PREFIX)/lib/ -L$(V810DEV)/lib/gcc/$(PREFIX)/4.7.4/ $(V810DEV)/$(PREFIX)/lib/crt0.o
+
+LIBS           = -lc -leris -lgcc
 
 .PHONY: all cd clean install .FORCE
 
@@ -20,9 +23,13 @@ $(CD_OBJECTS): .FORCE lbas.h
 %.o: %.s
 	$(AS) $(ASFLAGS) $< -o $@
 %.o: %.c
+	$(CC) $(CFLAGS) $< -S -o $*.source
 	$(CC) $(CFLAGS) $< -c -o $@
+%.o: %.cpp
+	$(PREFIX)-g++ $(CPFLAGS) $< -S -o $*.source
+	$(PREFIX)-g++ $(CPFLAGS) $< -c -o $@
 %.elf: $(OBJECTS)
-	$(LD) $(LDFLAGS) $(OBJECTS) $(LIBS) -o $@ 
+	$(LD) $(LDFLAGS) $(OBJECTS) $(LIBS) -o $@ -Map $*.map
 %.bin: %.elf
 	$(OBJCOPY) -O binary $< $@
 cd: $(TARGETS)
@@ -33,10 +40,10 @@ cd: $(TARGETS)
 	pcfx-cdlink cdlink.txt $(CDOUT)
 
 lbas.h:
-	bincat - lbas.h $(BIN_TARGET) $(ADD_FILES)
+	bincat out.bin lbas.h $(BIN_TARGET) $(ADD_FILES)
 
 clean:
-	rm -rf $(OBJECTS) $(TARGETS) lbas.h $(CDOUT).cue $(CDOUT).bin
+	rm -rf $(OBJECTS) $(TARGETS) lbas.h out.bin $(CDOUT).cue $(CDOUT).bin *.source *.map
 
 cdclean:
 	rm -rf $(OBJECTS) $(TARGETS) $(CDOUT).cue $(CDOUT).bin

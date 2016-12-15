@@ -15,6 +15,7 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 #include <eris/romfont.h>
 #include <eris/cd.h>
 #include <eris/low/pad.h>
+#include <eris/low/scsi.h>
 
 void printch(u32 sjis, u32 kram, int tall);
 void printstr(u32* str, int x, int y, int tall);
@@ -33,13 +34,11 @@ u32 test_data_in(u8 *buf, u32 maxlen);
 
 int main(int argc, char *argv[])
 {
-	int i, l;
+	int i;
 	u32 str[256];
 	u16 microprog[16];
-	int status;
 	u32 paddata, lastpad;
 	u8 scsimem[4096];
-	u8 scsicdb[32];
 	u32 seekaddr = 0;
 	u32 bytes = 0;
 
