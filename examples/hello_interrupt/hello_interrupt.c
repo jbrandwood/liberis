@@ -8,25 +8,19 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 */
 
 /*
-6.31.30  V850 Function Attributes
-The V850 back end supports these function attributes:
+The V810 back end supports these function attributes:
 __attribute__ ((interrupt))
 __attribute__ ((interrupt_handler))
-Use these attributes to indicate that the specified function is an interrupt han-
-dler.  The compiler generates function entry and exit sequences suitable for use
-in an interrupt handler when either attribute is present
+Use these attributes to indicate that the specified function is an interrupt
+handler.  The compiler generates function entry and exit sequences suitable
+for use in an interrupt handler when either attribute is present
 
-6.32.13  V850 Variable Attributes
-These variable attributes are supported by the V850 back end:
-sda
-Use this attribute to explicitly place a variable in the small data area, which
-can hold up to 64 kilobytes.
-tda
-Use this attribute to explicitly place a variable in the tiny data area, which can
-hold up to 256 bytes in total.
-zda
-Use this attribute to explicitly place a variable in the first 32 kilobytes of mem-
-ory
+The number of registers that need to be saved depends upon whether the handler
+is a leaf function (i.e. it doesn't call any other functions) or not.
+
+If it is a leaf function, then the handler only saves the registers that are
+actually used within the function itself, otherwise it must save all of the
+registers that might be overwritten when calling other functions.
 */
 
 // #include <stdlib.h>
@@ -73,6 +67,7 @@ __attribute__ ((interrupt_handler)) void my_irq2 (void)
 void printch(u32 sjis, u32 kram, int tall);
 void printstr(const char* str, int x, int y, int tall);
 
+/* Fake "sprintf" to test varargs handling. */
 int fake_sprintf(char *str, const char *fmt, ...)
 {
   va_list ap;
@@ -140,7 +135,6 @@ int main(int argc, char *argv[])
 	printstr("Love, NEC", 11, 0x38, 0);
 
 	i = fake_sprintf(str, "Eat %X!", 0xdeadbeef);
-//	i = sprintf(str, "Eat %X!", 0xdeadbeef);
 	printstr(str, ((32 - i) / 2), 0x48, 0);
 
 	return 0;
@@ -172,40 +166,3 @@ void printch(u32 sjis, u32 kram, int tall)
 		eris_king_kram_write(px);
 	}
 }
-
-#if 0
-//#include <_ansi.h>
-//#include <sys/types.h>
-#include <sys/stat.h>
-
-caddr_t
-sbrk (int incr)
-{
-  extern char   heap_start[];	/* Defined by the linker script.  */
-  static char * heap_end = NULL;
-  char *        prev_heap_end;
-  char *        sp = (char *) & sp;
-
-  if (heap_end == NULL)
-    heap_end = heap_start;
-
-  prev_heap_end = heap_end;
-
-  if (heap_end + incr > sp)
-    {
-/*
-#define MESSAGE "Heap and stack collision\n"
-      _write (1, MESSAGE, sizeof MESSAGE);
-      _write (STDERR_FILENO, "Heap and stack collision\n", 25);
-      errno = ENOMEM;
-      abort ();
-*/
-
-      return (caddr_t) -1;
-    }
-
-  heap_end += incr;
-
-  return (caddr_t) prev_heap_end;
-}
-#endif

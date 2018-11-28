@@ -25,16 +25,16 @@ liberis.a: $(LIBERISOBJS)
 clean: cleanexamples
 	rm -rf $(OBJECTS) $(TARGETS)
 install: $(TARGETS)
-	@mkdir -p $(V810DEV)/lib
-	@mkdir -p $(V810DEV)/include/eris/
+	@mkdir -p $(V810GCC)/lib
+	@mkdir -p $(V810GCC)/include/eris/
 	@echo "    COPY  crt0.o"
-	@cp src/crt0.o $(V810DEV)/$(PREFIX)/lib/
+	@cp src/crt0.o $(V810GCC)/$(PREFIX)/lib/
 #	@echo "    COPY  ldscripts"
-#	@cp ldscripts/* $(V810DEV)/$(PREFIX)/lib/ldscripts/
+#	@cp ldscripts/* $(V810GCC)/$(PREFIX)/lib/ldscripts/
 	@echo "    COPY  liberis.a"
-	@cp liberis.a $(V810DEV)/lib/
+	@cp liberis.a $(V810GCC)/lib/
 	@echo "    COPY  include/"
-	@cp -R include/* $(V810DEV)/include/
+	@cp -R include/* $(V810GCC)/include/
 examples:
 	make -C examples
 example_cds:

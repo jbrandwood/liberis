@@ -7,8 +7,6 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 # see file LICENSE or http://www.opensource.org/licenses/mit-license.php
 */
 
-// #include <stdlib.h>
-
 #include <stdarg.h>
 #include <stdio.h>
 #include <string.h>
@@ -22,24 +20,6 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 
 void printch(u32 sjis, u32 kram, int tall);
 void printstr(const char* str, int x, int y, int tall);
-
-int fake_sprintf(char *str, const char *fmt, ...)
-{
-  va_list ap;
-
-  va_start( ap, fmt );
-
-  int val = va_arg( ap, int );
-
-  if (val == 0xdeadbeef)
-    strcpy(str, "Got DEADBEEF!");
-  else
-    strcpy(str, "Not DEADBEEF!");
-
-  va_end( ap );
-
-  return (13);
-}
 
 int main(int argc, char *argv[])
 {
@@ -89,8 +69,7 @@ int main(int argc, char *argv[])
 	printstr("Hello World!", 10, 0x20, 1);
 	printstr("Love, NEC", 11, 0x38, 0);
 
-	i = fake_sprintf(str, "Eat %X!", 0xdeadbeef);
-//	i = sprintf(str, "Eat %X!", 0xdeadbeef);
+	i = sprintf(str, "Eat %X!", 0xdeadbeef);
 	printstr(str, ((32 - i) / 2), 0x48, 0);
 
 	return 0;
@@ -122,40 +101,3 @@ void printch(u32 sjis, u32 kram, int tall)
 		eris_king_kram_write(px);
 	}
 }
-
-#if 0
-//#include <_ansi.h>
-//#include <sys/types.h>
-#include <sys/stat.h>
-
-caddr_t
-sbrk (int incr)
-{
-  extern char   heap_start[];	/* Defined by the linker script.  */
-  static char * heap_end = NULL;
-  char *        prev_heap_end;
-  char *        sp = (char *) & sp;
-
-  if (heap_end == NULL)
-    heap_end = heap_start;
-
-  prev_heap_end = heap_end;
-
-  if (heap_end + incr > sp)
-    {
-/*
-#define MESSAGE "Heap and stack collision\n"
-      _write (1, MESSAGE, sizeof MESSAGE);
-      _write (STDERR_FILENO, "Heap and stack collision\n", 25);
-      errno = ENOMEM;
-      abort ();
-*/
-
-      return (caddr_t) -1;
-    }
-
-  heap_end += incr;
-
-  return (caddr_t) prev_heap_end;
-}
-#endif

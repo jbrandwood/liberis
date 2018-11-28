@@ -6,11 +6,11 @@ AR             = $(PREFIX)-ar
 LD             = $(PREFIX)-ld
 OBJCOPY        = $(PREFIX)-objcopy
 
-CFLAGS        += -I$(V810DEV)/include/ -I$(V810DEV)/$(PREFIX)/include/ -O2 -Wall -std=gnu99 -mv810 -msda=256 -mprolog-function
-CPFLAGS       += -I$(V810DEV)/include/ -I$(V810DEV)/$(PREFIX)/include/ -O2 -Wall -std=gnu++11 -fno-rtti -fno-exceptions -mv810 -msda=256 -mprolog-function 
-LDFLAGS       += -L$(V810DEV)/lib/ -L$(V810DEV)/$(PREFIX)/lib/ -L$(V810DEV)/lib/gcc/$(PREFIX)/4.7.4/ $(V810DEV)/$(PREFIX)/lib/crt0.o
+CFLAGS        += -I$(V810GCC)/include/ -I$(V810GCC)/$(PREFIX)/include/ -O2 -Wall -std=gnu99 -mv810 -msda=256 -mprolog-function
+CPFLAGS       += -I$(V810GCC)/include/ -I$(V810GCC)/$(PREFIX)/include/ -O2 -Wall -std=gnu++11 -fno-rtti -fno-exceptions -mv810 -msda=256 -mprolog-function 
+LDFLAGS       += -L$(V810GCC)/lib/ -L$(V810GCC)/$(PREFIX)/lib/ -L$(V810GCC)/lib/gcc/$(PREFIX)/4.7.4/ $(V810GCC)/$(PREFIX)/lib/crt0.o
 
-LIBS           = -lc -leris -lgcc
+LIBS           = -leris -lc -lsim -lgcc
 
 .PHONY: all cd clean install .FORCE
 
