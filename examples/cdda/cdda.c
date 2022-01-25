@@ -24,6 +24,8 @@ void printch(u32 sjis, u32 kram, int tall);
 void printstr(u32* str, int x, int y, int tall);
 void chartou32(char* str, u32* o);
 
+char tmp_buf[12];
+
 static int padmap[16][2] = {
 	{ 7-3, 0x40 },
 	{ 7+7-3, 0x40 },
@@ -64,6 +66,9 @@ static int padmap[16][2] = {
 void cd_pausectrl(u8 resume)
 {
 	u8 scsicmd10[10];
+	
+	eris_low_scsi_reset();
+	
 	if (resume > 1) resume = 1; // single bit; top 7 bits reserved
 	scsicmd10[0] = 0x47; // operation code PAUSE RESUME
 	scsicmd10[1] = 0; // Logical unit number
@@ -78,21 +83,6 @@ void cd_pausectrl(u8 resume)
 	eris_low_scsi_command(scsicmd10,10);
 }
 
-void cd_playtrk(u8 start, u8 end, u8 mode)
-{
-	u8 scsicmd10[10];
-	scsicmd10[0] = 0x48;
-	scsicmd10[1] = 0;
-	scsicmd10[2] = 0; /* reserved */
-	scsicmd10[3] = 0; /* reserved */
-	scsicmd10[4] = start;
-	scsicmd10[5] = 1;
-	scsicmd10[6] = 0; /* reserved */
-	scsicmd10[7] = end;
-	scsicmd10[8] = 1;
-	scsicmd10[9] = mode;
-	eris_low_scsi_command(scsicmd10,10);
-}
 
 static void put_string(char* str, int x, int y, int tall)
 {
@@ -177,16 +167,12 @@ int main(int argc, char *argv[])
 	chartou32(" ", sstr);
 	
 	eris_low_cdda_set_volume(63,63);
-	/* Plays track 2 (up to Track 3) */
-	cd_playtrk(2, 3, 3);
+	/* Plays track 2 (up to Track 3) and then loops */
+	cd_playtrk(2, 0);
+	cd_endtrk(3, 0x4);
 	
 	for(;;)
 	{
-		//snprintf(str, sizeof(str), "status %ld!", eris_low_scsi_status());
-		//chartou32("status", str);
-
-		put_number(eris_low_scsi_get_phase(), 1, 0, 8, 0);
-		
 		chartou32("|  UP  | DOWN | LEFT |RIGHT |", str);
 		printstr(str, 0, 0x28, 0);
 		chartou32("|   I  |  II  |  III |", str);
