@@ -10,8 +10,10 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 /*
  * Gameblabla :
  * This is similar to the other scsi dma example but uses 256 color mode instead.
- * Graphics data has been converted with the AGE tool from GMAKER PLUS but palette 
- * was directly converted from the BMP file with the BMP2YUV tool.
+ * Graphics data can be converted from a BMP file with my BMP2HUC tool.
+ * https://github.com/gameblabla/bmp2huc
+ * 
+ * A C array for the color palette will also be exported for use in liberis.
 */
 
 #include <eris/types.h>
@@ -28,10 +30,6 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 
 #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
 
-/*
- * Converted with own BMP2YUV tool that i made.
- * github.com/gameblabla/bmp2yuv
-*/
 unsigned short pornpal[256] = {
 	0x88,0x688,0x788,0xc88,0xe89,0xd88,0x1088,0x1088,
 	0xf88,0x1288,0x1289,0x1188,0x1288,0x1278,0x1588,0x1788,
@@ -106,7 +104,6 @@ int main(int argc, char *argv[])
 	
 	eris_tetsu_set_video_mode(TETSU_LINES_262, 0, TETSU_DOTCLOCK_5MHz, TETSU_COLORS_16, TETSU_COLORS_16, 0, 0, 1, 0, 0, 0, 0);
 	
-	/* BACKGROUND 0 */
 	eris_king_set_bat_cg_addr(KING_BG0, 0, 0);
 	eris_king_set_bat_cg_addr(KING_BG0SUB, 0, 0);
 	eris_king_set_scroll(KING_BG0, 0, 0);
