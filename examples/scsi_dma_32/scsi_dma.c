@@ -29,38 +29,19 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 #include <eris/low/scsi.h>
 
 #include "lbas.h"
-
-void printch(u32 sjis, u32 kram, int tall);
-void printstr(u32* str, int x, int y, int tall);
-void chartou32(char* str, u32* o);
-void printhex(void* data, int x, int y, int bytes, int addr, int tall);
-char x1toa(int val);
-
-u32 test_data_in(u8 *buf, u32 maxlen);
-
-#define CLEAN_SCSICDB(cmd, len) { \
-	scsicdb[0] = cmd; \
-	for(i = 1; i < 32; i++) { \
-		scsicdb[i] = 0; \
-	} \
-}
-
 /*
  * Gameblabla :
  * So this is a 32bpp image example test on the PC-FX.
  * This is based upon the 16 colors SCSI DMA example but for the 32bpp mode instead :
  * http://daifukkat.su/pcfx/data/HuC6272.html
  * 
- * The only major difference is the microcode and the image itself being
- * converted with the b2k tool.
- * It seems that 64k color mode require as much space as 32bpp so it does
- * not seem to very useful in most case...
+ * The only major difference is the microcode and the image itself being converted with the b2k tool.
+ * It seems that 64k color mode require as much space as 32bpp so it does not seem to very useful in most cases...
  */
 
 int main(int argc, char *argv[])
 {
 	int i;
-	u32 str[256];
 	u16 microprog[16];
 
 	eris_king_init();
@@ -91,15 +72,8 @@ int main(int argc, char *argv[])
 	eris_king_write_microprogram(microprog, 0, 16);
 	eris_king_enable_microprogram();
 
-	eris_tetsu_set_palette(0, 0x0088);
-	eris_tetsu_set_palette(1, 0xE088);
-	eris_tetsu_set_palette(2, 0xE0F0);
-	eris_tetsu_set_palette(3, 0x602C);
-	eris_tetsu_set_video_mode(TETSU_LINES_262, 0, TETSU_DOTCLOCK_5MHz, TETSU_COLORS_16, TETSU_COLORS_16, 0, 0, 1, 1, 0, 0, 0);
+	eris_tetsu_set_video_mode(TETSU_LINES_262, 0, TETSU_DOTCLOCK_7MHz, TETSU_COLORS_16, TETSU_COLORS_16, 0, 0, 1, 0, 0, 0, 0);
 
-	
-	/* BACKGROUND 0 */
-	
 	eris_king_set_bat_cg_addr(KING_BG0, 0, 0);
 	eris_king_set_bat_cg_addr(KING_BG0SUB, 0, 0);
 	eris_king_set_scroll(KING_BG0, 0, 0);
@@ -113,11 +87,6 @@ int main(int argc, char *argv[])
 	}
 	eris_king_set_kram_write(0, 1);
 	eris_cd_read_kram(BINARY_LBA_DUMB_BIN, 0x200, (0x20000 + 0x400));
-
-	/* FIN BACKGROUND */
-	
-	//eris_low_pad_init(0);
-	//eris_king_set_scroll(KING_BG0, 30, 0);
 	
 	for(;;) {
 
@@ -125,40 +94,3 @@ int main(int argc, char *argv[])
 
 	return 0;
 }
-
-void chartou32(char* str, u32* o)
-{
-	int i;
-	int len = strlen8(str);
-	for(i = 0; i < len; i++)
-		o[i] = str[i];
-	o[i] = 0;
-}
-
-void printstr(u32* str, int x, int y, int tall)
-{
-	int i;
-	u32 kram = x + (y << 5);
-	int len = strlen32(str);
-	for(i = 0; i < len; i++) {
-		printch(str[i], kram + i, tall);
-	}
-}
-
-void printch(u32 sjis, u32 kram, int tall)
-{
-	u16 px;
-	int x, y;
-	u8* glyph = eris_romfont_get(sjis, tall ? ROMFONT_ANK_8x16 : ROMFONT_ANK_8x8);
-	for(y = 0; y < (tall ? 16 : 8); y++) {
-		eris_king_set_kram_write(kram + (y << 5), 1);
-		px = 0;
-		for(x = 0; x < 8; x++) {
-			if((glyph[y] >> x) & 1) {
-				px |= 1 << (x << 1);
-			}
-		}
-		eris_king_kram_write(px);
-	}
-}
-

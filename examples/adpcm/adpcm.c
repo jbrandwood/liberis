@@ -14,10 +14,11 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 #include <eris/tetsu.h>
 #include <eris/romfont.h>
 #include <eris/pad.h>
+#include <eris/low/soundbox.h>
 #include "victory.h"
 
 /*
- * Gameblabla :
+ * Gameblabla :0
  * Credits to OldRover for figuring this out.
  * See also cdda.cue to see how you should lay out your CUE file.
  * Basically, since your game data will be on Track 1, the audio will start from Track 2.
@@ -40,32 +41,9 @@ void Initialize_ADPCM()
 		Bits 2 and 3 set linear interpolation for channels 0 and 1, respectively. 
 		Bits 4 and 5 reset channels 0 and 1 respectively.
 	*/
-	out8(0x120,1); 
-
-	/*
-	Set the left/right volumes of channel 0 and 1 to max (range is 0x0 - 0x3F). 
-	liberis has a function for this but as you've noticed.
-	*/
-	out8(0x122,0x3F);
-	out8(0x124,0x3F);
-	out8(0x126,0x3F);
-	out8(0x128,0x3F);
-
-
-	/*
-		Port 0x600, when written, is Register Select on the KING.
-		For this, I'm first telling KING to select register 0x51, which is the channel control for ADPCM channel 0.
-		Bit 0 is the buffer select (0 for sequential and 1 for ring), bit 1 enables end interrupt and bit 2 enables intermediate interrupt.
-		I'm not 100% sure exactly how the interrupts work just yet so I leave them alone for now.
-		Anyway, writing to 0x604 after selecting a register configures that register with the data you send it.
-		Register 0x52 will configure ADPCM channel 1.
-	*/
-	out16(0x600,0x51);
-	out16(0x604,0);
-	out16(0x600,0x52);
-	out16(0x604,0);
-
-	/* SETUP OVER */
+	eris_low_adpcm_set_control(ADPCM_RATE_16000, 0, 0, 0, 0);
+	eris_low_adpcm_set_volume(0, 63, 63);
+	eris_low_adpcm_set_volume(1, 63, 63);
 }
 
 void Upload_ADPCM_Sample(u16* array, int sizearray)
@@ -116,10 +94,15 @@ void Play_ADPCM(int channel)
 		Finally, play the sample. Bit 0 plays the sample configured for channel 0 and bit 1 plays the sample configured for channel 1.
 		Bits 2 and 3 control the sampling rate and use the same scheme as earlier.
 		Since I want 16kHz, I set bit 2 on and bit 3 off. So... bit 0 on, bit 1 off, bit 2 on, bit 3 off... value is 5. This plays the ADPCM sample in channel 0 at 16kHz.
-		If you need to stop a sample while it's playing, select register 0x50 and send a 0 to the bit of the channel you wish to stop. Writing just 0 to 0x604 will stop both channels. You can read 0x604 to see which channels are currently in use, and then just stop either of them if you want to. If you set the buffer type to Ring, the sample will playback infinitely until you tell it to stop in this manner... or so the docs state.
+		If you need to stop a sample while it's playing, select register 0x50 and send a 0 to the bit of the channel you wish to stop. 
+		Writing just 0 to 0x604 will stop both channels.
+		You can read 0x604 to see which channels are currently in use, and then just stop either of them if you want to.
+		If you set the buffer type to Ring, the sample will playback infinitely until you tell it to stop in this manner... or so the docs state.
 		So that pretty much sums up how to use ADPCM on the PC-FX.
 	*/
-	out16(0x604,5);
+	//out16(0x604,5);
+	if (channel == 1) out16(0x604,9);
+	else out16(0x604,5);
 }
 
 int main(int argc, char *argv[])
@@ -187,7 +170,7 @@ int main(int argc, char *argv[])
 
 	/* This part plays an ADPCM Sample */
 	Initialize_ADPCM();
-	Upload_ADPCM_Sample(voxarray, voxarray_length-100);
+	Upload_ADPCM_Sample(voxarray, voxarray_length);
 	Play_ADPCM(0);
 	
 	for(;;)
