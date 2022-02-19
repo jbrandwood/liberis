@@ -21,6 +21,10 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 void printch(u32 sjis, u32 kram, int tall);
 void printstr(const char* str, int x, int y, int tall);
 
+char sda_string [32]; /* small enough to automatically go in the sda section */
+char __attribute__ ((zda)) zda_string [32];
+char __attribute__ ((tda)) tda_string [32];
+
 int main(int argc, char *argv[])
 {
 	int i;
@@ -66,10 +70,17 @@ int main(int argc, char *argv[])
 	}
 	eris_king_set_kram_write(0, 1);
 
-	printstr("Hello World!", 10, 0x20, 1);
-	printstr("Love, NEC", 11, 0x38, 0);
+	strcpy(sda_string, "Hello World!");
 
-	i = sprintf(str, "Eat %X!", 0xdeadbeef);
+	zda_string[0] = '\0';
+	strcat(zda_string, "Love, NEC");
+
+	memcpy(tda_string, "Eat %X!", strlen("Eat %X!") + 1);
+
+	printstr(sda_string, 10, 0x20, 1);
+	printstr(zda_string, 11, 0x38, 0);
+
+	i = sprintf(str, tda_string, 0xdeadbeef);
 	printstr(str, ((32 - i) / 2), 0x48, 0);
 
 	return 0;
