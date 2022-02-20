@@ -32,6 +32,7 @@ registers that might be overwritten when calling other functions.
 #include <eris/types.h>
 #include <eris/std.h>
 #include <eris/v810.h>
+#include <eris/timer.h>
 #include <eris/king.h>
 #include <eris/tetsu.h>
 #include <eris/romfont.h>
@@ -41,27 +42,34 @@ volatile int __attribute__ ((zda)) zda_initialized   = 0x12345678;
 volatile int __attribute__ ((zda)) zda_uninitialized = 0;
 volatile int sda_frame_count = 0;
 
-/* Declare this "noinline" to ensure that my_irq1() is not a leaf. */
-__attribute__ ((noinline)) void increment_sda_frame_count (void)
+/* HuC6270-A's status register (RAM mapping). */
+volatile uint16_t * const MEM_6270A_SR = (uint16_t *) 0x80000400;
+
+/* Declare this "noinline" to ensure that my_timer_irq() is not a leaf. */
+__attribute__ ((noinline)) void increment_zda_uninitialized (void)
 {
-  sda_frame_count++;
+	zda_uninitialized++;
 }
 
 /* Simple test interrupt_handler that is not a leaf. */
-__attribute__ ((interrupt_handler)) void my_irq1 (void)
+/* Because it is not a leaf function, it will use the full IRQ preamble. */
+__attribute__ ((interrupt)) void my_timer_irq (void)
 {
-  for (int i = 0; i < 100; i++)
-    increment_sda_frame_count();
+	eris_timer_ack_irq();
+
+	increment_zda_uninitialized();
+	zda_initialized += zda_constant; 
 }
 
 /* Simple test interrupt_handler that is a leaf. */
-__attribute__ ((interrupt_handler)) void my_irq2 (void)
+/* Because it is a leaf function, the IRQ preamble only saves the registers that are used. */
+__attribute__ ((interrupt_handler)) void my_vblank_irq (void)
 {
-  for (int i = 0; i < 100; i++)
-  {
-    zda_uninitialized++;
-    zda_initialized += zda_constant; 
-  }
+	uint16_t vdc_status = *MEM_6270A_SR;
+
+	if (vdc_status & 0x20) {
+		sda_frame_count++;
+	}
 }
 
 void printch(u32 sjis, u32 kram, int tall);
@@ -70,20 +78,20 @@ void printstr(const char* str, int x, int y, int tall);
 /* Fake "sprintf" to test varargs handling. */
 int fake_sprintf(char *str, const char *fmt, ...)
 {
-  va_list ap;
+	va_list ap;
 
-  va_start( ap, fmt );
+	va_start( ap, fmt );
 
-  int val = va_arg( ap, int );
+	int val = va_arg( ap, int );
 
-  if (val == 0xdeadbeef)
-    strcpy(str, "Got DEADBEEF!");
-  else
-    strcpy(str, "Not DEADBEEF!");
+	if (val == 0xdeadbeef)
+		strcpy(str, "Got DEADBEEF!");
+	else
+		strcpy(str, "Not DEADBEEF!");
 
-  va_end( ap );
+	va_end( ap );
 
-  return (13);
+	return (13);
 }
 
 int main(int argc, char *argv[])
@@ -137,6 +145,64 @@ int main(int argc, char *argv[])
 	i = fake_sprintf(str, "Eat %X!", 0xdeadbeef);
 	printstr(str, ((32 - i) / 2), 0x48, 0);
 
+	// The PC-FX firmware leaves a lot of hardware actively generating
+	// IRQs when a program starts, and it is only because the V810 has
+	// interrupts-disabled that the firmware IRQ handlers are not run.
+	//
+	// You *must* mask/disable/reset the existing IRQ sources and init
+	// new handlers before enabling the V810's interrupts!
+
+	// Disable all interrupts before changing handlers.
+	irq_set_mask(0x7F);
+
+	// Replace firmware IRQ handlers for the Timer and HuC6270-A.
+	//
+	// This liberis function uses the V810's hardware IRQ numbering,
+	// see FXGA_GA and FXGABOAD documents for more info ...
+	irq_set_raw_handler(0x9, my_timer_irq);
+	irq_set_raw_handler(0xC, my_vblank_irq);
+
+	// Enable Timer and HuC6270-A interrupts.
+	//
+	// d6=Timer
+	// d5=External
+	// d4=KeyPad
+	// d3=HuC6270-A
+	// d2=HuC6272
+	// d1=HuC6270-B
+	// d0=HuC6273
+	irq_set_mask(0x37);
+
+	// Reset and start the Timer.
+	eris_timer_init();
+	eris_timer_set_period(23864); /* approx 1/60th of a second */
+	eris_timer_start(1);
+
+	// Hmmm ... this needs to be cleared here for some reason ... there's
+	// probably a bug to find somewhere!
+	zda_uninitialized = 0;
+
+	// Allow all IRQs.
+	//
+	// This liberis function uses the V810's hardware IRQ numbering,
+	// see FXGA_GA and FXGABOAD documents for more info ...
+	irq_set_level(8);
+
+	// Enable V810 CPU's interrupt handling.
+	irq_enable();
+
+	// Display the counts in 1/10s increments.
+	while (1) {
+		int frame = zda_uninitialized;
+		while (frame == zda_uninitialized) {}
+
+		i = sprintf(str, "frame count / 6 = %05d", sda_frame_count / 6);
+		printstr(str, ((32 - i) / 2), 0x68, 0);
+		i = sprintf(str, "timer count / 6 = %05d", zda_uninitialized / 6);
+		printstr(str, ((32 - i) / 2), 0x78, 0);
+	}
+
+	// We never get here!
 	return 0;
 }
 
