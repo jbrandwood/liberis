@@ -178,10 +178,6 @@ int main(int argc, char *argv[])
 	eris_timer_set_period(23864); /* approx 1/60th of a second */
 	eris_timer_start(1);
 
-	// Hmmm ... this needs to be cleared here for some reason ... there's
-	// probably a bug to find somewhere!
-	zda_uninitialized = 0;
-
 	// Allow all IRQs.
 	//
 	// This liberis function uses the V810's hardware IRQ numbering,

@@ -1,14 +1,27 @@
 /* Default linker script, for normal executables */
+/* Copyright (C) 2014-2016 Free Software Foundation, Inc.
+   Copyright (C) 2016-2022 John Brandwood <john@telzey.com>
+   Copying and distribution of this script, with or without modification,
+   are permitted in any medium without royalty provided the copyright
+   notice and this notice are preserved.
+   This is the default linker script for using liberis on the PC-FX.
+   Various parameters can be passed to v810-ld to customize the link ...
+   --defsym __load=0x8000         : Set program load/start address.
+   --defsym __zdadata=0x0000      : Set start of ZDA region used.
+   --defsym __zdalimit=0x7C00     : Set end of ZDA region used.
+   --defsym __stack=0             : Set specific value, or 0 to leave unchanged.
+   --defsym __stack_size=0x8000   : If set, put the stack before the heap.  */
 OUTPUT_FORMAT("elf32-v810", "elf32-v810", "elf32-v810")
 OUTPUT_ARCH(v810)
 ENTRY(_start)
 SEARCH_DIR(.);
-EXTERN(__gp __tp __tpend __zpdat __zpbss __zpend);
 SECTIONS
 {
+  /* Allow the user to change the load address.  */
+  PROVIDE (__load = 0x8000);
+  . = __load;
   /* Read-only sections, merged into text segment.  */
-  . = 0x8000;
-  .text		ALIGN (4) :
+  .text ALIGN (4) :
   {
     *(.text)
     *(.text.*)
@@ -16,18 +29,17 @@ SECTIONS
     *(.gnu.warning)
     *(.gnu.linkonce.t*)
   } =0
-  _etext = .;
-  PROVIDE (etext = .);
-  .init		: { KEEP (*(.init)) } =0
-  .fini		: { KEEP (*(.fini)) } =0
-  .rodata	ALIGN (4) :
+  __etext = .;
+  .init : { KEEP (*(.init)) } =0
+  .fini : { KEEP (*(.fini)) } =0
+  .rodata ALIGN (4) :
   {
     *(.rodata)
     *(.rodata.*)
     *(.gnu.linkonce.r*)
   }
   .rodata1	: { *(.rodata1) }
-  .data         ALIGN (4) :
+  .data ALIGN (4) :
   {
     *(.data)
     *(.data.*)
@@ -35,7 +47,7 @@ SECTIONS
     CONSTRUCTORS
   }
   .data1	: { *(.data1) }
-  .ctors	ALIGN (4) :
+  .ctors ALIGN (4) :
   {
     ___ctors = .;
     KEEP (*(EXCLUDE_FILE (*crtend.o) .ctors))
@@ -44,7 +56,7 @@ SECTIONS
     ___ctors_end = .;
   }
   /* Discard these sections on PC-FX & VirtualBoy.  */
-  /DISCARD/     :
+  /DISCARD/ :
   {
     *(.dtors)
     *(.dtors.*)
@@ -52,24 +64,26 @@ SECTIONS
   }
   /* Extra section for 32KB/64KB of tp (aka R5) relative addressing.
      This could for thread-local variables instead if we get fancy.  */
-  .tdata        ALIGN (8) :
+  .tdata ALIGN (8) :
   {
-	PROVIDE (__tp = .);
+	__tp = .;
 	*(.tbyte)
 	*(.tcommon_byte)
 	*(.tdata)
 	*(.tbss)
 	*(.tcommon)
 	. = ALIGN (8);
-	PROVIDE (__tpend = .);
+	__tpend = .;
   }
   /* We want the small data sections together, so single-instruction offsets
      can access them all, and initialized data all before uninitialized, so
-     we can shorten the on-disk segment size.  */
-  .sdata        ALIGN (8) :
+     we can shorten the on-disk segment size.
+     The PC-FX firmware "_fsys_" functions use the first 0x54 bytes of the SDA
+     region and that memory is reserved here so that they can be used.  */
+  .sdata ALIGN (4) :
   {
 	PROVIDE (__gp = . + 0x8000);
-	. = 0x58;
+	. = 0x54;
 	*(.sdata)
   }
   /* This is the read only part of the small data area.
@@ -77,57 +91,69 @@ SECTIONS
      attributes from being inherited by the sdata
      section.  Specifically it prevents the sdata
      section from being marked READONLY.  */
-  .rosdata      ALIGN (4) :
+  .rosdata ALIGN (4) :
   {
 	*(.rosdata)
   }
   /* We place the .sbss data section AFTER the .rosdata section, so that
      it can directly preceed the .bss section.  This allows runtime startup
      code to initialise all the zero-data sections by simply taking the
-     value of '_edata' and zeroing until it reaches '_end'.  */
+     value of '__edata' and zeroing until it reaches '__end'.  */
   /* 8-byte align these sections to speed up clearing them in crt0.S  */
   . = ALIGN (8);
-  .sbss         ALIGN (4) :
+  __edata = .;
+  .sbss ALIGN (4) (NOLOAD) :
   {
 	__sbss_start = .;
 	*(.sbss)
 	*(.scommon)
   }
-  _edata  = DEFINED (__sbss_start) ? __sbss_start : . ;
-  PROVIDE (edata = _edata);
-  .bss          ALIGN (4) :
+  .bss ALIGN (4) (NOLOAD) :
   {
-	__bss_start = DEFINED (__sbss_start) ? __sbss_start : . ;
-	__real_bss_start = . ;
+	__bss_start = .;
 	*(.dynbss)
 	*(.bss)
 	*(COMMON)
   }
-  . = ALIGN (8);
-  _end = . ;
-  PROVIDE (end = .);
+  . = ALIGN (16);
+  __end = . ;
+  . += DEFINED (__stack_size) ? __stack_size : 0 ;
+  . = ALIGN (16);
   PROVIDE (_heap_start = .);
+  PROVIDE (_heap_end = DEFINED (__stack_size) ? 0x200000 : 0);
   /* Put all initialized R0-relative data at the end of the output file on
      top of the .sbss/.bss sections so that it can be copied into place at
      startup and then wiped to zero for use as the .sbss/.bss  */
-  . = 0x0000;
-  /* 8-byte align these sections to speed up relocating them in crt0.S  */
-  . = ALIGN (8);
-  PROVIDE (__zpdat = .);
-  .zdata : AT ( _edata )
+  PROVIDE (__zdadata = 0x0000);
+  . = __zdadata;
+  .zdata : AT ( __edata )
   {
 	*(.rozdata)
 	*(.zdata)
         . = ALIGN (8);
   }
-  PROVIDE (__zpbss = .);
-  .zbss : AT ( ADDR (.zdata) + SIZEOF (.zdata) )
+  PROVIDE (__zdabss = .);
+  .zbss (NOLOAD) :
   {
 	*(.zbss)
 	*(.zcommon)
         . = ALIGN (8);
   }
-  PROVIDE (__zpend = .);
+  PROVIDE (__zdaend = .);
+  /* The PC-FX firmware reserves E00-FFF, and the liberis startup copies
+     the CD-ROM directory information into C00-DFF.  */
+  PROVIDE (__zdalimit = 0x7C00);
+  /* If "__stack_size" is set, then an area for the stack is reserved after
+     the .bss section and before "_heap_start", and "__stack" is set to it,
+     unless "__stack" already has a value, then that value is used instead.
+     If "__stack" is set to 0, then then the liberis startup code does not
+     change it so that a PC-FX program can return to whoever called it.  */
+  PROVIDE (__stack = DEFINED (__stack_size) ? _heap_start : 0x200000);
+  . = __stack;
+  .stack (NOLOAD) :
+  {
+	*(.stack)
+  }
   /* Stabs debugging sections.  */
   .stab 0		: { *(.stab) }
   .stabstr 0		: { *(.stabstr) }
@@ -166,10 +192,4 @@ SECTIONS
   .debug_ranges   0 : { *(.debug_ranges) }
   /* DWARF Extension.  */
   .debug_macro    0 : { *(.debug_macro) }
-  /* User stack.  */
-  .stack 0x200000	:
-  {
-	__stack = .;
-	*(.stack)
-  }
 }
