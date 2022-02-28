@@ -160,8 +160,8 @@ __main:         movhi   hi(__stack),r0,r1
                 sub     r29,r28
                 movhi   hi(__edata),r0,r30
                 movea   lo(__edata),r30,r30
-                be      .L_zdabss
                 mov     r30,r7
+                be      .L_zdabss
                 shl     3,r28
                 movbsu
 
@@ -183,7 +183,7 @@ __main:         movhi   hi(__stack),r0,r1
                 addi    -8,r1,r1
 .L_bssfill:     st.w    r0,0[r7]
                 cmp     r1,r7
-                st.w    r0,4[r24]
+                st.w    r0,4[r7]
                 movea   8,r7,r7
                 bl      .L_bssfill
 
