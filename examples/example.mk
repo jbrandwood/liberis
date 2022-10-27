@@ -6,9 +6,18 @@ AR             = $(PREFIX)-ar
 LD             = $(PREFIX)-ld
 OBJCOPY        = $(PREFIX)-objcopy
 
+# Some useful extra flags for debugging the compiler ...
+#
+# -fno-schedule-insns -fno-schedule-insns2 -fdump-rtl-expand -fdump-rtl-peephole2 -fdump-final-insns
+
 CFLAGS        += -I$(V810GCC)/include/ -I$(V810GCC)/$(PREFIX)/include/ -O2 -Wall -std=gnu99 -mv810 -msda=256 -mprolog-function
 CPFLAGS       += -I$(V810GCC)/include/ -I$(V810GCC)/$(PREFIX)/include/ -O2 -Wall -std=gnu++11 -fno-rtti -fno-exceptions -mv810 -msda=256 -mprolog-function 
-LDFLAGS       += -L$(V810GCC)/lib/ -L$(V810GCC)/$(PREFIX)/lib/ -L$(V810GCC)/lib/gcc/$(PREFIX)/4.7.4/ $(V810GCC)/$(PREFIX)/lib/crt0.o
+LDFLAGS       += -T../../ldscripts/v810.x -L$(V810GCC)/lib/ -L$(V810GCC)/$(PREFIX)/lib/ -L$(V810GCC)/lib/gcc/$(PREFIX)/4.7.4/ $(V810GCC)/$(PREFIX)/lib/crt0.o
+
+
+
+#LDFLAGS       += -T../../ldscripts/v810.x -L$(V810GCC)/lib/ -L$(V810GCC)/$(PREFIX)/lib/ -L$(V810GCC)/lib/gcc/$(PREFIX)/4.9.4/ -e 0x8800 $(V810GCC)/$(PREFIX)/lib/crt0.o
+#LDFLAGS       += -T../../ldscripts/v810.x -L$(V810GCC)/lib/ -L$(V810GCC)/$(PREFIX)/lib/ -L$(V810GCC)/lib/gcc/$(PREFIX)/4.9.4/ --defsym __zdadata=0x2000 --defsym __stack=0 $(V810GCC)/$(PREFIX)/lib/crt0.o
 
 LIBS           = -leris -lc -lsim -lgcc
 
