@@ -29,7 +29,7 @@ typedef enum {
  */
 typedef enum {
 	TETSU_DOTCLOCK_5MHz = 0, /*!< ~5MHz dot clock. 256px wide. */
-	TETUS_DOTCLOCK_7MHz = 1, /*!< ~7MHz dot clock. 320px wide. */
+	TETSU_DOTCLOCK_7MHz = 1, /*!< ~7MHz dot clock. 320px wide. */
 } tetsu_dotclock;
 
 /*! \brief Amount of colors (to display?).
