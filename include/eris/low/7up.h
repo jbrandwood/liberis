@@ -30,6 +30,13 @@ typedef enum {
  * \param chip Which 7up to initialize. (0 ~ 1)
  */
 void eris_low_sup_init(int chip);
+/*! \brief Set a 7up register to a value
+ *
+ * \param chip Which 7up to initialize. (0 ~ 1)
+ * \param reg Which 7up register to initialize. (0 ~ 0x13)
+ * \param value The value to set it to (0 ~ 0xFFFF)
+ */
+void eris_low_sup_setreg(int chip, int reg, int value);
 /*! \brief Setup a 7up's video mode.
  *
  * \param chip Which 7up to configure. (0 ~ 1)

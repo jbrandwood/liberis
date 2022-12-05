@@ -11,6 +11,7 @@ Copyright (C) 2011              Alex Marshall "trap15" <trap15@raidenii.net>
  *  Low-level 7up functions                                              []  *
  *****************************************************************************/
 	.global	_eris_low_sup_init
+	.global	_eris_low_sup_setreg
 	.global	_eris_low_sup_set_video_mode
 	.global	_eris_low_sup_get_video_mode
 	.global	_eris_low_sup_set_vram_write
@@ -63,6 +64,12 @@ _eris_low_sup_init:
 	out.h	r0, 4[r10]
 	cmp	5, r8
 	bne	2b
+	jmp	[lp]
+
+_eris_low_sup_setreg:
+	shl	8, r6
+	set_rrg	r7, r6, r10
+	out.h	r8, 4[r10]
 	jmp	[lp]
 
 _eris_low_sup_set_video_mode:
