@@ -1,0 +1,7 @@
+binary ./out.bin
+name CDDA Example
+maker trap15
+makerid TFX
+date 20110406
+country 1
+version 256
