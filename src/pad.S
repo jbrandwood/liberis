@@ -39,19 +39,10 @@ _eris_pad_read:
 	movea	lo(eris_pad_states), r15, r15
 	add	r16, r15
 
-	jal	_eris_low_pad_data_ready
-	cmp	0, r10
-	be	1f
-
 	mov	r17, r6
 	jal	_eris_low_pad_read_data
 	st.w	r10, 0[r15]
-	br	2f
 
-1:	ld.w	0[r15], r10
-2:	movhi	0x1000, r0, r11
-	add	-1, r11
-	and	r11, r10
 	mov	r18, lp
 	jmp	[lp]
 
@@ -65,16 +56,11 @@ _eris_pad_type:
 	movea	lo(eris_pad_states), r15, r15
 	add	r16, r15
 
-	jal	_eris_low_pad_data_ready
-	cmp	0, r10
-	be	1f
-
 	mov	r17, r6
 	jal	_eris_low_pad_read_data
 	st.w	r10, 0[r15]
 	br	2f
 
-1:	ld.w	0[r15], r10
 2:	shr	28, r10
 	mov	r18, lp
 	jmp	[lp]
