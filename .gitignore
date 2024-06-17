@@ -3,6 +3,9 @@
 *.a
 *.swp
 *.elf
+*.map
+*.source
+*.bin
 *.cue
 out.bin
 lbas.h
