@@ -2,6 +2,7 @@
 	liberis -- A set of libraries for controlling the NEC PC-FX
 
 Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
+      and (C) 2024		David Shadoff  GitHub userid: dshadoff
 
 # This code is licensed to you under the terms of the MIT license;
 # see file LICENSE or http://www.opensource.org/licenses/mit-license.php
@@ -18,6 +19,13 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 void printch(u32 sjis, u32 kram, int tall);
 void printstr(u32* str, int x, int y, int tall);
 void chartou32(char* str, u32* o);
+
+// This data is the character encoding of a miniature "happy face"
+// 
+const uint16_t char_gfx[] = {
+  0x007E,0x0080,0x2882,0x0082,0x3882,0x00C6,0x007C,0x0000,
+  0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000
+};
 
 int main(int argc, char *argv[])
 {
@@ -69,17 +77,32 @@ int main(int argc, char *argv[])
 
 	eris_king_set_kram_read(0, 1);
 	eris_king_set_kram_write(0, 1);
+
 	// Clear BG0's RAM
 	for(i = 0; i < 0x1E00; i++) {
 		eris_king_kram_write(0);
 	}
+
+	// set up the BAT (background attribute table
+	//
 	eris_low_sup_set_vram_write(0, 0);
-	for(i = 0; i < 0x800; i++) {
-		eris_low_sup_vram_write(0, 0x80); /* All tiles are at tile 0x80 */
+	for(i = 0; i < (32 * 5); i++) {           /* First 5 lines need to be blank, to avoid covering the title */
+		eris_low_sup_vram_write(0, 0x80); /* All tiles are at tile 0x80 (blank) */
 	}
-	for(i = 0; i < 8*4; i++) {
-		eris_low_sup_vram_write(0, ((i | (i << 3) | (i >> 3)) ^ 0xAA) & 0x77); /* Yay pseudo rando noise */
+	for(i = (32 * 5); i < 0x800; i++) {       /* Everything after first 5 lines */
+		eris_low_sup_vram_write(0, 0x81); /* All tiles are at tile 0x81 */
 	}
+
+	// set up the character tile definitiions for the two tiles
+	// referenced by the BAT above (one blank, one with a pattern)
+	//
+	for(i = 0; i < 16; i++) {
+		eris_low_sup_vram_write(0, 0x00); /* Blank tile */
+	}
+	for(i = 0; i < 16; i++) {
+		eris_low_sup_vram_write(0, char_gfx[i]); /* happyface type logo defined above */
+	}
+
 	eris_king_set_kram_write(0, 1);
 	chartou32("7up BG example", str);
 	printstr(str, 9, 0x10, 1);

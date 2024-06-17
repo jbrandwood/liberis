@@ -2,6 +2,7 @@
 	liberis -- A set of libraries for controlling the NEC PC-FX
 
 Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
+      and (C) 2024		David Shadoff  GitHub userid: dshadoff
 
 # This code is licensed to you under the terms of the MIT license;
 # see file LICENSE or http://www.opensource.org/licenses/mit-license.php
@@ -20,6 +21,19 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 void printch(u32 sjis, u32 kram, int tall);
 void printstr(u32* str, int x, int y, int tall);
 void chartou32(char* str, u32* o);
+
+// This data is sprite encoding data for a 16x16 '+' sign
+//
+const uint16_t spr_data[] = {
+  0x0180,0x0180,0x0180,0x0180,0x0180,0x0180,0x0180,0xFFFF,
+  0xFFFF,0x0180,0x0180,0x0180,0x0180,0x0180,0x0180,0x0180,
+  0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,
+  0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,
+  0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,
+  0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,
+  0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,
+  0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000,0x0000
+};
 
 int main(int argc, char *argv[])
 {
@@ -72,14 +86,20 @@ int main(int argc, char *argv[])
 
 	eris_king_set_kram_read(0, 1);
 	eris_king_set_kram_write(0, 1);
+
 	// Clear BG0's RAM
 	for(i = 0; i < 0x1E00; i++) {
 		eris_king_kram_write(0);
 	}
+
+	// load sprite data
+	// -> Apparently at VRAM address 0x0000, which works becuase BG is disabled)
+	//
 	eris_low_sup_set_vram_write(0, 0);
 	for(i = 0; i < 8*4; i++) {
-		eris_low_sup_vram_write(0, i ^ (i << 3) ^ (i << 6) ^ (i << 9) ^ (i << 12) ^ (i >> 3) ^ 0xAAAA); /* Yay pseudo rando noise */
+		eris_low_sup_vram_write(0, spr_data[i]); /* sprite is plus sign */
 	}
+
 	eris_sup_set(0);
 	eris_sup_spr_set(0);
 	eris_sup_spr_create(0, 0, 0, 0);
@@ -88,7 +108,9 @@ int main(int argc, char *argv[])
 	chartou32("7up sprite example", str);
 	printstr(str, 7, 0x10, 1);
 
-	x = y = 0x40;
+	x = 0x40;  // note that X-offsets are not 0-relative (0x20 is the left edge of the screen)
+	y = 0x60;  // note that Y-offsets are not 0-relative (0x40 is the top edge of the screen)
+
 	xl = yl = 1;
 	for(;;) {
 		pad = eris_pad_read(0);
