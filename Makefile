@@ -1,3 +1,18 @@
+#
+# Makefile for building liberis and associated examples
+#
+# NOTE: Host environment should already have the following environment variabels defined:
+#
+#   V810GCC = location of Build Product directory tree from build of v810-gcc repository
+#   PATH = Ensure this includes binaries for PCFXTOOLS and $(V810GCC)/bin
+#
+#  Build sequence should be:
+#  (optional) make clean
+#  1.  make all        (-> Builds targets in current directory)
+#  2.  make install    (-> Copies key files into $(V810GCC) folders to be in the PATH for execute/include/link)
+#  3.  make examples (or make example_cds, etc.)
+#
+#
 OBJECTS        = src/crt0.o
 TARGETS        = liberis.a src/crt0.o
 LIBERISOBJS    = src/v810.o src/tetsu.o src/king.o src/romfont.o src/bkupmem.o\
