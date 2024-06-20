@@ -2,6 +2,7 @@
 	liberis -- A set of libraries for controlling the NEC PC-FX
 
 Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
+Copyright (C) 2024		David Shadoff  <Github ID: dshadoff>
 
 # This code is licensed to you under the terms of the MIT license;
 # see file LICENSE or http://www.opensource.org/licenses/mit-license.php
@@ -18,6 +19,19 @@ Copyright (C) 2011		Alex Marshall "trap15" <trap15@raidenii.net>
 void printch(u32 sjis, u32 kram, int tall);
 void printstr(u32* str, int x, int y, int tall);
 void chartou32(char* str, u32* o);
+
+void delay(void);
+
+// this waveform is not quite a sine wave but
+// difficult to describe. Look at the waveform
+// in the mednafen debugger to see it
+//
+char waveform[] = {
+	0x00, 0x0c, 0x06, 0x12, 0x0c, 0x18, 0x12, 0x1e,
+	0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f, 0x1f,
+	0x1e, 0x12, 0x18, 0x0c, 0x12, 0x06, 0x0c, 0x00,
+	0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+};
 
 int main(int argc, char *argv[])
 {
@@ -70,22 +84,70 @@ int main(int argc, char *argv[])
 	eris_low_psg_set_main_volume(12, 12);
 	for(i = 0; i < 5; i++) {
 		eris_low_psg_set_channel(i);
-		eris_low_psg_set_freq(0x1FC >> i); /* 5 octaves of A */
 		eris_low_psg_set_balance(0xF, 0xF);
 		eris_low_psg_set_volume(0, 0, 0);
-		for(l = 0; l < 16; l++) {
-			eris_low_psg_waveform_data(0x1F);
+
+		for(l = 0; l < 32; l++) {
+			eris_low_psg_waveform_data(waveform[l]);
 		}
-		for(l = 0; l < 16; l++) {
-			eris_low_psg_waveform_data(0);
-		}
-		eris_low_psg_set_volume(0x1F, 1, 0);
 	}
+
+	delay();
+
+	eris_low_psg_set_channel(0);
+	eris_low_psg_set_freq(428); /* C4 */
+	eris_low_psg_set_volume(0x1F, 1, 0);
+
+	delay();
+
+	eris_low_psg_set_channel(1);
+	eris_low_psg_set_freq(339); /* E4 */
+	eris_low_psg_set_volume(0x1F, 1, 0);
+
+	delay();
+
+	eris_low_psg_set_channel(2);
+	eris_low_psg_set_freq(285); /* G4 (to make major 'C' chord)  */
+	eris_low_psg_set_volume(0x1F, 1, 0);
+
+	for (i = 0; i < 12; i++) {
+		delay();
+	}
+
+	// stop the music
+	eris_low_psg_set_channel(0);
+	eris_low_psg_set_volume(0x00, 0, 0);
+	eris_low_psg_set_channel(1);
+	eris_low_psg_set_volume(0x00, 0, 0);
+	eris_low_psg_set_channel(2);
+	eris_low_psg_set_volume(0x00, 0, 0);
+
+	delay();
+	delay();
+
+	// Now make some noise
 	eris_low_psg_set_channel(5);
 	eris_low_psg_set_noise(0xF, 1);
 	eris_low_psg_set_balance(0xF, 0xF);
 	eris_low_psg_set_volume(0x1F, 1, 0);
+
+	while(1);
+
 	return 0;
+}
+
+
+// Note: this isn't a good way to implement a delay, but
+// this will suffice for a trivial example.
+//
+// For proper delays, look at the hello_interrupt example
+//
+void delay(void)
+{
+	int i;
+	for(i = 0; i < 0x160000; i++) {
+		asm("mov r0, r0");
+	}
 }
 
 void chartou32(char* str, u32* o)
