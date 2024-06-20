@@ -67,6 +67,7 @@ int main(int argc, char *argv[])
 	chartou32("Love, NEC", str);
 	printstr(str, 11, 0x38, 0);
 
+	while(1);  // Do not fall through to end of main() section
 	return 0;
 }
 

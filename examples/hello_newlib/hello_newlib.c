@@ -83,6 +83,7 @@ int main(int argc, char *argv[])
 	i = sprintf(str, tda_string, 0xdeadbeef);
 	printstr(str, ((32 - i) / 2), 0x48, 0);
 
+	while(1);  // Do not fall through to end of main() section
 	return 0;
 }
 

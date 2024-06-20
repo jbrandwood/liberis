@@ -106,6 +106,7 @@ int main(int argc, char *argv[])
 	printhex(bps + 1, 0xE, 0x4A, 2, 0, 1);
 	printhex(sects + 1, 0x19, 0x4A, 2, 0, 1);
 
+	while(1);  // Do not fall through to end of main() section
 	return 0;
 }
 
