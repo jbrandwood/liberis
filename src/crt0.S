@@ -88,7 +88,10 @@ _jmp_r1:        jmp     [r1]
                 .global __exit
                 .type   __exit,@function
 
-__exit:         trap    30
+__exit:         jr      __exit   /* infinite loop at end of program */
+
+/* __exit:         trap    30    ** formerly in place; */
+                                 /* not sure why it was originally used */
                 halt
 
                 .size   __exit, .-__exit
