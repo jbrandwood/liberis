@@ -131,8 +131,6 @@ int main(int argc, char *argv[])
 	eris_low_psg_set_balance(0xF, 0xF);
 	eris_low_psg_set_volume(0x1F, 1, 0);
 
-	while(1);
-
 	return 0;
 }
 
