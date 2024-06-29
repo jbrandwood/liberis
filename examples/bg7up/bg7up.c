@@ -107,7 +107,6 @@ int main(int argc, char *argv[])
 	chartou32("7up BG example", str);
 	printstr(str, 9, 0x10, 1);
 
-	while(1);  // Do not fall through to end of main() section
 	return 0;
 }
 

@@ -91,7 +91,6 @@ int main(int argc, char *argv[])
 
 	cTestR0.hello(2);
 
-	while(1);  // Do not fall through to end of main() section
 	return 0;
 }
 
