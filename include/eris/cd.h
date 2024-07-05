@@ -35,4 +35,16 @@ u32 eris_cd_read(u32 lba, u8 *buf, u32 size);
  */
 void eris_cd_read_kram(u32 lba, u32 kram_addr, u32 size);
 
+/*! \brief Plays CD-DA track from the CD drive.
+ *
+ * \param start Track to play
+ * \param mode Loop mode (0x4 Looping, only used for endtrack)
+ * 
+ * Make sure to call both playtrck and endtrk if you want your track to loop.
+ */
+
+u32 cd_playtrk(u8 start, u8 mode);
+
+u32 cd_endtrk(u8 end, u8 mode);
+
 #endif
