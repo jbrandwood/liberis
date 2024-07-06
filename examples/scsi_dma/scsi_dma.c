@@ -43,7 +43,8 @@ int main(int argc, char *argv[])
 	int i;
 	u32 str[256];
 	u16 microprog[16];
-	u32 paddata, lastpad;
+	u32 paddata = 0;
+	u32 lastpad = 0;
 
 	eris_king_init();
 	eris_tetsu_init();
