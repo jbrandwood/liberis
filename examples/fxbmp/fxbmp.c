@@ -28,6 +28,7 @@ int main(int argc, char *argv[])
 	u16 microprog[16];
 	u8 tmpbuf[0x80];
 	u16 bps[2], sects[2];
+	u16 *u16_ptr;
 
 	eris_king_init();
 	eris_tetsu_init();
@@ -82,15 +83,25 @@ int main(int argc, char *argv[])
 
 	eris_bkupmem_read(0, tmpbuf, 0x13, 2);
 	eris_bkupmem_read(0, tmpbuf + 2, 0xB, 2);
-	bps[0] = *(u16*)(tmpbuf + 2);
-	sects[0] = *(u16*)tmpbuf;
+
+	u16_ptr = (u16*)(tmpbuf + 2);
+	bps[0] = *u16_ptr;
+
+	u16_ptr = (u16*)tmpbuf;
+	sects[0] = *u16_ptr;
+
 	bps[0] = ((bps[0] & 0x00FF) << 8) | ((bps[0] & 0xFF00) >> 8);
 	sects[0] = ((sects[0] & 0x00FF) << 8) | ((sects[0] & 0xFF00) >> 8);
 
 	eris_bkupmem_read(1, tmpbuf, 0x13, 2);
 	eris_bkupmem_read(1, tmpbuf + 2, 0xB, 2);
-	bps[1] = *(u16*)(tmpbuf + 2);
-	sects[1] = *(u16*)tmpbuf;
+
+	u16_ptr = (u16*)(tmpbuf + 2);
+	bps[1] = *u16_ptr;
+
+	u16_ptr = (u16*)tmpbuf;
+	sects[1] = *u16_ptr;
+
 	bps[1] = ((bps[1] & 0x00FF) << 8) | ((bps[1] & 0xFF00) >> 8);
 	sects[1] = ((sects[1] & 0x00FF) << 8) | ((sects[1] & 0xFF00) >> 8);
 
