@@ -37,7 +37,8 @@ int main(int argc, char *argv[])
 	int i;
 	u32 str[256];
 	u16 microprog[16];
-	u32 paddata, lastpad;
+	u32 paddata = 0;
+	u32 lastpad = 0;
 	u8 scsimem[4096];
 	u32 seekaddr = 0;
 	u32 bytes = 0;
